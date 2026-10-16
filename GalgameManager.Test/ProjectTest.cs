@@ -53,6 +53,25 @@ public class ProjectTest
         });
     }
 
+    [Test]
+    public void ClientBuild_HasNoSevenZipReferenceOrRuntimePayload()
+    {
+        string project = Path.GetDirectoryName(FindPackageAppxManifestPath())!;
+        string configuration = AppContext.BaseDirectory.Contains("\\Release\\", StringComparison.OrdinalIgnoreCase) ? "Release" : "Debug";
+        string output = Path.Combine(project, "bin", "x64", configuration,
+            "net8.0-windows10.0.22621.0", "win-x64");
+        using JsonDocument assets = JsonDocument.Parse(File.ReadAllText(Path.Combine(project, "obj", "project.assets.json")));
+        Assert.Multiple(() =>
+        {
+            Assert.That(typeof(RuntimeHelper).Assembly.GetReferencedAssemblies().Select(a => a.Name), Does.Not.Contain("SevenZipSharp"));
+            Assert.That(assets.RootElement.GetProperty("libraries").EnumerateObject()
+                .Any(p => p.Name.StartsWith("Squid-Box.SevenZipSharp/", StringComparison.OrdinalIgnoreCase)), Is.False);
+            Assert.That(Directory.EnumerateFiles(output, "*", SearchOption.AllDirectories)
+                .Any(p => Path.GetFileName(p).Equals("SevenZipSharp.dll", StringComparison.OrdinalIgnoreCase) ||
+                          Path.GetFileName(p).Equals("7za.dll", StringComparison.OrdinalIgnoreCase)), Is.False);
+        });
+    }
+
     private static string ReadPackageAppxManifestIdentityVersion()
     {
         var manifestPath = FindPackageAppxManifestPath();

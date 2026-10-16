@@ -81,6 +81,32 @@ def inspect(workspace, output):
                          'ProjectUrl': metadata.findtext('{*}projectUrl', ''),
                          'Repository': repository.attrib if repository is not None else {},
                          'LocalNotices': notices, 'RuntimeFilesMatchedByHash': sorted(matched), 'Review': risk})
+    # Framework runtime packs can supply binaries without appearing in the
+    # ordinary NuGet dependency libraries (notably Windows SDK .NET projections).
+    implicit = []
+    dependencies = json.loads((output / 'LemonVN.deps.json').read_text(encoding='utf-8-sig'))
+    for key in dependencies['libraries']:
+        if not key.startswith('runtimepack.'):
+            continue
+        identity, version = key.removeprefix('runtimepack.').rsplit('/', 1)
+        folder = next((p / identity.lower() / version for p in package_roots
+                       if (p / identity.lower() / version).is_dir()), None)
+        if folder is None:
+            raise FileNotFoundError('Missing implicit runtime pack: ' + identity)
+        metadata = ET.parse(next(folder.glob('*.nuspec'))).getroot().find('{*}metadata')
+        license_node = metadata.find('{*}license')
+        matches = set()
+        for candidate in folder.rglob('*'):
+            if not candidate.is_file() or candidate.name.lower() not in by_name:
+                continue
+            eligible = [r for r in by_name[candidate.name.lower()] if r['Bytes'] == candidate.stat().st_size]
+            if eligible:
+                value = sha(candidate)
+                matches.update(r['Path'] for r in eligible if r['SHA256'] == value)
+        implicit.append({'Id': identity.lower(), 'Version': version,
+                         'License': (license_node.text or '') if license_node is not None else metadata.findtext('{*}licenseUrl', ''),
+                         'ProjectUrl': metadata.findtext('{*}projectUrl', ''),
+                         'RuntimeFilesMatchedByHash': sorted(matches), 'Role': 'Implicit framework/runtime pack; separate from ordinary NuGet count'})
     runtime_config = json.loads((output / 'LemonVN.runtimeconfig.json').read_text(encoding='utf-8-sig'))
     original = subprocess.run(['git', 'show', '2adef493ea0d82d27d4037e91507e558c567305d:LICENSE'],
                               cwd=workspace, capture_output=True)
@@ -95,7 +121,7 @@ def inspect(workspace, output):
     extensions = Counter()
     for row in file_rows:
         extensions[Path(row['Path']).suffix.lower()] += row['Bytes']
-    return {'Target': target_name, 'NuGetPackageCount': len(packages), 'Packages': packages,
+    return {'Target': target_name, 'NuGetPackageCount': len(packages), 'Packages': packages, 'ImplicitRuntimePackages': implicit,
             'RuntimeConfig': runtime_config, 'Files': file_rows, 'OutputBytes': sum(row['Bytes'] for row in file_rows),
             'BytesWithoutPdb': sum(row['Bytes'] for row in file_rows if not row['Path'].lower().endswith('.pdb')),
             'LargestFiles': sorted(file_rows, key=lambda row: row['Bytes'], reverse=True)[:25],

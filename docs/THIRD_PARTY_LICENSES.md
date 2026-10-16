@@ -1,9 +1,9 @@
-# Current client dependency/license metadata
+# Current client dependency and license evidence
 
-M6-B2-A: source references are distinct from binary redistribution clearance. No AutoMapper in the client graph.
+M6-B2-B1:155 ordinary NuGet packages; implicit runtime/targeting packs are listed separately. Zero matching files means no bytes from that package were identified in output; it may be build/compile-only or replaced by a framework runtime asset, not necessarily an absent API.
 
-| Package | Version | License metadata | Runtime files |
-|---|---|---|---|
+| Package | Version | Declared license metadata | Actual matching output files |
+| --- | --- | --- | --- |
 | CommunityToolkit.Common | 8.2.1 | expression: MIT | 1 |
 | CommunityToolkit.Mvvm | 8.4.0 | expression: MIT | 1 |
 | CommunityToolkit.WinUI.Animations | 8.1.240916 | expression: MIT | 1 |
@@ -118,7 +118,6 @@ M6-B2-A: source references are distinct from binary redistribution clearance. No
 | SQLitePCLRaw.core | 2.1.7 | expression: Apache-2.0 | 1 |
 | SQLitePCLRaw.lib.e_sqlite3 | 2.1.13 | expression: Apache-2.0 | 1 |
 | SQLitePCLRaw.provider.e_sqlite3 | 2.1.7 | expression: Apache-2.0 | 1 |
-| Squid-Box.SevenZipSharp | 1.6.1.23 | expression: LGPL-3.0-only | 1 |
 | System.Buffers | 4.5.1 | legacy-url/unknown: https://github.com/dotnet/corefx/blob/master/LICENSE.TXT | 0 |
 | System.CodeDom | 6.0.0 | expression: MIT | 1 |
 | System.Collections.Immutable | 1.3.1 | legacy-url/unknown: http://go.microsoft.com/fwlink/?LinkId=329770 | 0 |
@@ -161,5 +160,13 @@ M6-B2-A: source references are distinct from binary redistribution clearance. No
 | WanaKanaShaapu | 2.0.2 | expression: MIT | 1 |
 | WinUIEx | 2.5.0 | expression: MIT | 1 |
 
-Exact available package/runtime notices and metadata: [components index](licenses/components/INDEX.json).
-Unresolved copyright/source and replacement obligations: [component review](THIRD_PARTY_COMPONENTS.md).
+## Implicit runtime/targeting packs
+
+| Pack | Version | Declared terms | Actual matching output files |
+| --- | --- | --- | --- |
+| microsoft.netcore.app.runtime.win-x64 | 8.0.32 | MIT | 182 |
+| microsoft.windows.sdk.net.ref | 10.0.22621.56 | https://aka.ms/WinSDKLicenseURL | 2 |
+
+[Original material index](licenses/components/INDEX.json), [supplementary review and immutable source URLs](licenses/REVIEW.json), [component decisions](THIRD_PARTY_COMPONENTS.md).
+
+SevenZipSharp/7za and AutoMapper are not in the current payload.32 historical notice-material cases are covered;5 plus an additional SDK redistribution case remain pending. SPDX labels, library names and hashes alone are not universal redistribution clearance.

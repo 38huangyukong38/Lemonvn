@@ -1,8 +1,6 @@
-> LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
-
 # LemonVN
 
-项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn)。默认分支 main；当前正在准备首次源码提交，本轮没有Push。
+项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn)。默认分支 main；首次公开源码提交为5eb46a0。本地M6-B2-B1更新待审，当前没有公开二进制发行。
 
 LemonVN 是 Windows 桌面的轻量番剧收藏与追番记录库，基于 [GoldenPotato137/PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 的 WinUI 3 框架改造，采用 MVVM 与 LiteDB。本项目是独立修改版，与 PotatoVN 官方服务、商店发行和签名无关。
 
@@ -54,10 +52,10 @@ LemonVN 是 Windows 桌面的轻量番剧收藏与追番记录库，基于 [Gold
 
 内部候选整理脚本使用 Python 3.12+ 标准库；它是开发工具，不随 ZIP 分发，运行 LemonVN 不需要 Python。
 
-M6-B2-A正在验证客户端AutoMapper移除及独立安全源码快照；LGPL和原生组件的完整二进制分发义务仍待处理。源码快照与二进制的准入分别记录在 [首次源码审查](docs/M6_B2A_OPEN_SOURCE_CLEARANCE.md)，本轮没有获得Push或公开ZIP授权。尚未验证干净机器、其他 Windows 版本、全部 DPI、MSIX 安装升级。日文新增文案存在英文回退。详见 [V0.1 说明](docs/RELEASE_NOTES_0.1.md)。
+M6-B2-B1已在本地移除客户端AutoMapper/SevenZipSharp并整理版本化许可资料；仍有包许可范围和SDK再分发条款待确认。源码快照与二进制的准入分别记录在 [首次源码审查](docs/M6_B2A_OPEN_SOURCE_CLEARANCE.md)，本轮没有获得Push或公开ZIP授权。尚未验证干净机器、其他 Windows 版本、全部 DPI、MSIX 安装升级。日文新增文案存在英文回退。详见 [V0.1 说明](docs/RELEASE_NOTES_0.1.md)。
 
 ## 致谢与许可证
 
 感谢 GoldenPotato137 及 PotatoVN 的全部贡献者。LemonVN 的上游基线为 2adef493ea0d82d27d4037e91507e558c567305d，保留原 [LICENSE](LICENSE) 和 [NOTICE](NOTICE)；修改记录见 [开发日志](docs/IMPLEMENTATION_LOG.md)。不继承 PotatoVN 的 SignPath、商店、账号、赞助或品牌授权。
 
-LemonVN 计划沿用 **Apache-2.0**，保留原作者版权和适用第三方条款。当前免费、个人非商业维护是项目运营目标，**不是对 Apache-2.0 代码增加商业使用禁令**。第三方库、服务、字体、数据和图像仍按各自条款处理；Apache-2.0 不替它们授予权利。完整状态见 [第三方声明](THIRD_PARTY_NOTICES.md)。
+LemonVN 应用代码沿用 **Apache-2.0**，保留原作者版权和适用第三方条款。当前免费、个人非商业维护是项目运营目标，**不是对 Apache-2.0 代码增加商业使用禁令**。第三方库、服务、字体、数据和图像仍按各自条款处理；Apache-2.0 不替它们授予权利。完整状态见 [第三方声明](THIRD_PARTY_NOTICES.md)。

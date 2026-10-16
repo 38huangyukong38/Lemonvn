@@ -27,6 +27,7 @@
     "GalgameManager/MainWindow.xaml.cs",
     "GalgameManager/Models/BgTasks/PvnSyncTasks/PvnSyncTask.cs",
     "GalgameManager/Models/BgTasks/PvnSyncTasks/PvnSyncTask_PullGame.cs",
+    "GalgameManager/Models/BgTasks/UnpackGameTask.cs",
     "GalgameManager/Models/MapperProfile/CharacterMapper.cs",
     "GalgameManager/Models/MapperProfile/StaffMapper.cs",
     "GalgameManager/Package.appxmanifest",
@@ -43,5 +44,13 @@
     "GalgameManager/app.manifest",
     "GalgameManager/appsettings.json",
     "README.md"
+  ],
+  "subsequentReviewedChanges": [
+    {
+      "phase": "M6-B2-B1",
+      "basePublicCommit": "5eb46a0d3530360773d3356602253368b11829ba",
+      "originalDevelopmentHistoryCopied": false,
+      "scope": "Native game archive dependency isolation and versioned license evidence; no UI or data-format changes"
+    }
   ]
 }

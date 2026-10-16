@@ -1,10 +1,9 @@
-﻿using System.Reflection;
+﻿// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
 using Windows.Storage;
 using GalgameManager.Contracts.Services;
 using GalgameManager.Enums;
 using GalgameManager.Helpers;
 using GalgameManager.Models.Sources;
-using SevenZip;
 using SharpCompress.Archives;
 using SharpCompress.Common;
 using SharpCompress.Readers;
@@ -22,7 +21,6 @@ public class UnpackGameTask : BgTaskBase
     public string TmpDirName = Path.GetRandomFileName(); 
     
     private StorageFile? _pack;
-    private static bool _7ZInit;
 
     public UnpackGameTask() { }
     
@@ -39,8 +37,19 @@ public class UnpackGameTask : BgTaskBase
         Password = password;
     }
     
+    // LemonVN modification: the native game-only backend is deliberately absent.
+    // Reject both execution and persisted-task recovery before opening files or
+    // deleting an old temporary directory. AnimeBackupService has its own .NET ZIP path.
+    private void RejectNativeGameArchive()
+    {
+        string extension = Path.GetExtension(_pack?.Path ?? PackPath);
+        if (extension.Equals(".7z", StringComparison.OrdinalIgnoreCase) || extension.Equals(".001", StringComparison.OrdinalIgnoreCase))
+            throw new NotSupportedException("Native game archive extraction is disabled in LemonVN; anime backups use the separate ZIP service.");
+    }
+
     protected async override Task RecoverFromJsonInternal()
     {
+        RejectNativeGameArchive();
         try
         {
             _pack = await StorageFile.GetFileFromPathAsync(PackPath);
@@ -57,6 +66,7 @@ public class UnpackGameTask : BgTaskBase
     /// 否则同步抛出的异常会导致Task属性停留在默认的CompletedTask，调用方无法感知失败
     protected override async Task RunInternal()
     {
+        RejectNativeGameArchive();
         if(_pack is null || GameName == string.Empty) return;
         if (!Directory.Exists(TargetPath))
             throw new PvnException("GalgameFolder_UnpackGame_PathNotExist".GetLocalized(TargetPath));
@@ -72,12 +82,8 @@ public class UnpackGameTask : BgTaskBase
             try
             {
                 ChangeProgress(0, 1, "GalgameFolder_UnpackGame_Start".GetLocalized());
-                if (_pack.FileType == ".7z" || _pack.FileType == ".001")
-                    await Unzip7Z(tmpDir);
-                else
-                    await UnZip(tmpDir);
+                await UnZip(tmpDir);
 
-                // SharpCompress解压固实压缩的包（7z）时有严重性能问题，使用另一种方案解压
                 if (Directory.GetDirectories(tmpDir).Length == 1) // 压缩包内为完整的文件夹
                     Directory.Move(Directory.GetDirectories(tmpDir)[0], saveDirectory);
                 else // 压缩包内为零散文件
@@ -111,38 +117,6 @@ public class UnpackGameTask : BgTaskBase
             }
         })!);
     }
-    private async Task Unzip7Z(string tmpDir)
-    {
-        Init();
-        using SevenZipExtractor extractor = new(_pack!.Path, Password);
-        if (!extractor.Check()) throw new PvnException("password incorrect or pack broken");
-        var totalFileCnt = extractor.ArchiveFileData.Count;
-        var finishedCnt = 0;
-        var finished = false;
-            
-            
-        extractor.FileExtractionStarted += (_, args) => 
-            ChangeProgress(finishedCnt, totalFileCnt, $"{args.FileInfo.FileName}");
-        extractor.FileExtractionFinished += (_, _) => Interlocked.Increment(ref finishedCnt);
-        extractor.ExtractionFinished += (_, _) => finished = true;
-        extractor.EventSynchronization = EventSynchronizationStrategy.AlwaysSynchronous;
-                    
-        extractor.BeginExtractArchive(tmpDir);
-                    
-        while (finished == false)
-            await Task.Delay(1000);
-        return;
-
-        static void Init()
-        {
-            if (_7ZInit) return;
-            var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, 
-                "Assets", "Libs", Environment.Is64BitProcess ? "x64" : "x86", "7za.dll");
-            SevenZipBase.SetLibraryPath(path);
-            _7ZInit = true;
-        }
-    }
-
     private async Task UnZip(string tmpDir)
     {
         await Task.CompletedTask;

@@ -2,46 +2,60 @@
 
 Project: https://github.com/38huangyukong38/Lemonvn
 
-The unchanged upstream LICENSE and modification/source attribution in NOTICE
-cover the corresponding PotatoVN/LemonVN code. GoldenPotato137 and contributors'
-copyright and applicable original notices remain. The personal/non-commercial
-operating goal does not restrict Apache-2.0's commercial-use permissions.
+The unchanged upstream LICENSE and attribution in NOTICE retain GoldenPotato137
+and PotatoVN contributors' notices and the fixed upstream baseline. LemonVN code
+uses Apache-2.0; a personal/non-commercial operating goal does not restrict that
+license's commercial permissions. Third-party code, services and data retain
+their own terms and are not relicensed by this statement.
 
-## Source and binary scope
+## M6-B2-B1 current client scope
 
-The reviewed source snapshot contains application source, tests, owned placeholder
-artwork, and documentation. It does not vendor NuGet/runtime DLLs, SDKs, signing
-keys, user data, old game datasets, third-party sample images or bundled fonts.
-Package references do not relicense those libraries under Apache-2.0.
+AutoMapper and Squid-Box.SevenZipSharp are absent from the current client graph,
+compiled assembly references and output. The dormant native game archive task
+rejects execution and recovery before file operations. Anime ZIP backup/restore
+continues to use System.IO.Compression, with existing V1/V2 contracts unchanged.
+No native7za, old font, game database or sample artwork is carried in output.
+Historical license evidence and old internal candidates do not describe a new
+binary release; do not redistribute those old candidates.
 
-AutoMapper is removed from the LemonVN client graph and explicit compatibility
-mapping preserves the measured legacy conversion behavior. Optional upstream
-server projects remain in the original development checkout, outside this source
-snapshot and the LemonVN client build; they have not been relicensed or cleared.
+The current ordinary NuGet graph has155 packages. Implicit runtime/targeting
+packs must also be considered: Microsoft.Windows.SDK.NET.Ref10.0.22621.56 supplies
+Microsoft.Windows.SDK.NET.dll and WinRT.Runtime.dll. Do not automatically apply
+the application license, or a repository's MIT label, to all SDK redistributables.
 
-## Binary redistribution remains a separate gate
+## Versioned notice materials and remaining binary gate
 
-- Squid-Box.SevenZipSharp 1.6.1.23 is an unchanged dynamically referenced NuGet
-  library declared LGPL-3.0-only. Its original license, GPL/LGPL texts and source
-  provenance must accompany applicable distribution. Source availability,
-  replacement/relinking rights and embedded components still require review.
-- The inactive native 7za DLLs, old game data, sample artwork, PotatoVN branding
-  and the manually bundled Segoe font are excluded from current client output.
-  This does not resolve the obligations of other DLLs still present.
-- .NET, Windows App SDK, SkiaSharp/HarfBuzz and all other actual binary components
-  have their own copyright and native notices. Exact versioned notice collection
-  and metadata are evidence, not complete redistribution clearance.
+See docs/licenses/components/INDEX.json and docs/licenses/REVIEW.json. The original
+versioned package notices and supplementary upstream license bodies are preserved
+without changing their terms. scripts/verify_license_materials.py verifies bytes;
+it does not grant publication permission. Its current-only staged bundle is a
+preparation artifact with unresolved decisions, not an approved public ZIP.
 
-See docs/THIRD_PARTY_LICENSES.md, docs/THIRD_PARTY_COMPONENTS.md and
-docs/API_AND_LICENSE_RISKS.md. Complete available license text files are retained
-without altering their terms. No commercial license was purchased or key embedded.
+Of the37 historical package-body absences,32 now have supplementary notice
+material. Five still need package/source scope or attribution confirmation:
+GalFingerPrint.Client1.0.2; PotatoVN.Client1.0.11; PotatoVnDBMapper1.1.1 and its
+Models1.1.1; Uno.Diagnostics.Eventing2.0.1. A further SDK targeting-pack case
+requires confirmation of applicable redistributable scope and publisher/end-user
+terms. Merely including the SDK RTF is not acceptance or proof of compliance.
+
+SQLite's actual native core identifies as3.53.3 with the source ID matching the
+official release; its public-domain declaration and fixed-version license text
+are supplied separately from the Apache-2.0 SQLitePCLRaw wrapper/package terms.
+SharpCompress's MIT body and upstream reference/unrar notice are retained with
+their scopes distinguished. No RAR creation feature is provided. .NET,
+Windows App SDK, SkiaSharp/HarfBuzz and other native components retain their
+own original notices; the material index is not universal legal clearance.
 
 ## Third-party services
 
-Bangumi, Trace.moe and AnimeTrace are independent services. Requests identify
-LemonVN and its actual project URL. Anonymous availability and free/non-commercial
-operation do not grant image rights, commercial service rights or unlimited use.
+Bangumi, Trace.moe and AnimeTrace remain independent services, identified with
+LemonVN's real developer/version/project User-Agent. Anonymous access, free
+operation, publishing client code and commercial service permission are separate.
 Trace.moe restricts unapproved commercial use; AnimeTrace permits conditional
-real-time API calls and restricts systematic scraping. No account sync or video
-download service is provided. See docs/PRIVACY.md and the official terms linked
-in the API audit. This notice does not authorize a public binary release.
+real-time calls and restricts systematic scraping. Image rights remain separate.
+No shared key, account sync, video download or automatic image upload is added.
+
+See docs/API_AND_LICENSE_RISKS.md, docs/PRIVACY.md and
+docs/M6_B2B1_LICENSE_AND_DEPENDENCY_CLEARANCE.md. No license was purchased and no
+publisher obligation was accepted on the maintainer's behalf. Public binary
+distribution remains unapproved pending the identified decisions and deployment.

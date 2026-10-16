@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "scope": "Current x64 Release notice evidence; source and binary distribution remain separate decisions",
+  "historicalPackageBodyGapCount": 37,
+  "historicalGaps": [
+    {
+      "id": "CSharpMarkup.WinUI",
+      "version": "2.4.18",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 漏 VincentH.NET",
+      "packageAuthors": "VincentH.NET",
+      "repositoryUrl": "https://github.com/VincentH-Net/CSharpForMarkup",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/CSharpMarkup.WinUI/2.4.18/LICENSE",
+          "source": "https://api.github.com/repos/VincentH-Net/CSharpForMarkup/git/blobs/81aca3ad46787c0bdcc57dd693e33aff3d697177",
+          "sourceBlob": "81aca3ad46787c0bdcc57dd693e33aff3d697177",
+          "sha256": "3A74EC8B5A5D36956B422284182D72A4917624A95587F8EF6FD4A26DD6B57FCD",
+          "bytes": 1076
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "9619182dc24069414e211fd10544f5e62ed9a91b",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "9619182dc24069414e211fd10544f5e62ed9a91b",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView",
+      "version": "2.4.18",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 漏 VincentH.NET",
+      "packageAuthors": "VincentH.NET",
+      "repositoryUrl": "https://github.com/VincentH-Net/CSharpForMarkup",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView/2.4.18/LICENSE",
+          "source": "https://api.github.com/repos/VincentH-Net/CSharpForMarkup/git/blobs/81aca3ad46787c0bdcc57dd693e33aff3d697177",
+          "sourceBlob": "81aca3ad46787c0bdcc57dd693e33aff3d697177",
+          "sha256": "3A74EC8B5A5D36956B422284182D72A4917624A95587F8EF6FD4A26DD6B57FCD",
+          "bytes": 1076
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "9619182dc24069414e211fd10544f5e62ed9a91b",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "9619182dc24069414e211fd10544f5e62ed9a91b",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "GalFingerPrint.Client",
+      "version": "1.0.2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "No Copyright",
+      "packageAuthors": "OpenAPI",
+      "repositoryUrl": "https://github.com/PotatoVN-Community/GalFingerPrint",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [],
+      "attempts": [
+        {
+          "ref": "553fb72ced99314c33e9339b88abdfda0b8de133",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "553fb72ced99314c33e9339b88abdfda0b8de133",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "NuGet declares MIT with No Copyright; the exact source commit has no license body. Confirm the actual generated client grant/attribution with its publisher; do not infer it from the server repository name."
+    },
+    {
+      "id": "H.GeneratedIcons.System.Drawing",
+      "version": "2.0.118",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "havendv -> Lakritzator and Philipp Sumi",
+      "repositoryUrl": "https://github.com/HavenDV/H.NotifyIcon",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/H.GeneratedIcons.System.Drawing/2.0.118/LICENSE.md",
+          "source": "https://api.github.com/repos/HavenDV/H.NotifyIcon/git/blobs/d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sourceBlob": "d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sha256": "B41F5ADB8391601E3C693462925317E4CBE446270BCD646BDB8D02572821FE80",
+          "bytes": 1064
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "H.NotifyIcon",
+      "version": "2.0.118",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "havendv -> Lakritzator and Philipp Sumi",
+      "repositoryUrl": "https://github.com/HavenDV/H.NotifyIcon",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/H.NotifyIcon/2.0.118/LICENSE.md",
+          "source": "https://api.github.com/repos/HavenDV/H.NotifyIcon/git/blobs/d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sourceBlob": "d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sha256": "B41F5ADB8391601E3C693462925317E4CBE446270BCD646BDB8D02572821FE80",
+          "bytes": 1064
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "H.NotifyIcon.WinUI",
+      "version": "2.0.118",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "havendv -> Lakritzator and Philipp Sumi",
+      "repositoryUrl": "https://github.com/HavenDV/H.NotifyIcon",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/H.NotifyIcon.WinUI/2.0.118/LICENSE.md",
+          "source": "https://api.github.com/repos/HavenDV/H.NotifyIcon/git/blobs/d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sourceBlob": "d758a9c57cbda0f3e7bd80539c2b8139a3f8f07a",
+          "sha256": "B41F5ADB8391601E3C693462925317E4CBE446270BCD646BDB8D02572821FE80",
+          "bytes": 1064
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "fb8aa2df73465a232a6f8cb7ebab3f28dea2e634",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "HalfFullWidth",
+      "version": "2.0.0",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 漏 2020-2026, Bart Verkoeijen",
+      "packageAuthors": "bgever",
+      "repositoryUrl": "https://github.com/bgever/HalfFullWidth",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/HalfFullWidth/2.0.0/LICENSE",
+          "source": "https://api.github.com/repos/bgever/HalfFullWidth/git/blobs/a4d2bd32e5a5ed7fc5422c2b4ec87a9b4d63d5e2",
+          "sourceBlob": "a4d2bd32e5a5ed7fc5422c2b4ec87a9b4d63d5e2",
+          "sha256": "BFFFDDAF25539CBBF69C26102731D7009A6CFD9D6407DC53498B92419532A109",
+          "bytes": 1077
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "101edaa1d05b540d4468f34c87b1293d69ac6c9a",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "101edaa1d05b540d4468f34c87b1293d69ac6c9a",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "HtmlAgilityPack",
+      "version": "1.11.46",
+      "licenseMetadata": "https://github.com/zzzprojects/html-agility-pack/blob/master/LICENSE",
+      "packageCopyright": "Copyright 漏 ZZZ Projects Inc.",
+      "packageAuthors": "ZZZ Projects,Simon Mourrier,Jeff Klawiter,Stephan Grell",
+      "repositoryUrl": "https://github.com/zzzprojects/html-agility-pack",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/HtmlAgilityPack/1.11.46/LICENSE",
+          "source": "https://api.github.com/repos/zzzprojects/html-agility-pack/git/blobs/1a2252092162faa9f6a0a7c5e00c13c5a2c6f78f",
+          "sourceBlob": "1a2252092162faa9f6a0a7c5e00c13c5a2c6f78f",
+          "sha256": "601B80E87B30B47C7B5389D3077FDA67A37E7CB6B200405E4524217989C1FE92",
+          "bytes": 1045
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "1.11.46",
+          "available": false
+        },
+        {
+          "ref": "v1.11.46",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "08aae949868908de457a77668a9489d73f0280b9",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "InputSimulatorPlus.NetStandard",
+      "version": "1.0.8",
+      "licenseMetadata": "MS-PL",
+      "packageCopyright": "Copyright 漏 michaelnoonan 2010, Copyright 漏 Theodoros Chatzigiannakis 2018, Copyright 漏 Marc Schmidt 2022",
+      "packageAuthors": "Michael Noonan, Theodoros Chatzigiannakis, Marc Schmidt",
+      "repositoryUrl": "https://github.com/MaSch0212/InputSimulatorPlus.NetStandard",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/InputSimulatorPlus.NetStandard/1.0.8/LICENSE.md",
+          "source": "https://api.github.com/repos/MaSch0212/InputSimulatorPlus.NetStandard/git/blobs/425687afbff9f3e4bb70d361ee666e278ffe27e6",
+          "sourceBlob": "425687afbff9f3e4bb70d361ee666e278ffe27e6",
+          "sha256": "17E62EEEABA489259C838B559C4ADF4C94FE330D7F994564FC9C858968F71A44",
+          "bytes": 2635
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "1.0.8",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "8c50317d46ad03ed66b1fd412d88e8851edac926",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "KnowledgePicker.WordCloud",
+      "version": "1.3.1",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 2021 Jan Jone拧",
+      "packageAuthors": "KnowledgePicker",
+      "repositoryUrl": "https://github.com/knowledgepicker/word-cloud",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/KnowledgePicker.WordCloud/1.3.1/LICENSE",
+          "source": "https://api.github.com/repos/knowledgepicker/word-cloud/git/blobs/c16b43dae0add56d32666e44d3604e13f5fa0bfc",
+          "sourceBlob": "c16b43dae0add56d32666e44d3604e13f5fa0bfc",
+          "sha256": "33C9692878D2CA71ABA57180C53D92D1705A7FAA758F170661C2BFA6552E6FED",
+          "bytes": 1067
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "1.3.1",
+          "available": false
+        },
+        {
+          "ref": "v1.3.1",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "0dbb45b4762656168773427b22971f3477395b58",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "LiveChartsCore",
+      "version": "2.0.0-rc2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "BetoRodriguez",
+      "repositoryUrl": "https://github.com/beto-rodriguez/LiveCharts2",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/LiveChartsCore/2.0.0-rc2/LICENSE",
+          "source": "https://api.github.com/repos/beto-rodriguez/LiveCharts2/git/blobs/57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sourceBlob": "57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sha256": "134501A334EFCFE6BD6DEA379AFEF75B332774BF037FC6CB502D1FC886940F6E",
+          "bytes": 1081
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.0-rc2",
+          "available": false
+        },
+        {
+          "ref": "v2.0.0-rc2",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5836c7fe73fe49cead353c50691d3db735dff662",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "LiveChartsCore.Behaviours",
+      "version": "2.0.0-rc2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "BetoRodriguez",
+      "packageAuthors": "BetoRodriguez",
+      "repositoryUrl": "https://github.com/beto-rodriguez/LiveCharts2",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/LiveChartsCore.Behaviours/2.0.0-rc2/LICENSE",
+          "source": "https://api.github.com/repos/beto-rodriguez/LiveCharts2/git/blobs/57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sourceBlob": "57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sha256": "134501A334EFCFE6BD6DEA379AFEF75B332774BF037FC6CB502D1FC886940F6E",
+          "bytes": 1081
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.0-rc2",
+          "available": false
+        },
+        {
+          "ref": "v2.0.0-rc2",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5836c7fe73fe49cead353c50691d3db735dff662",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "LiveChartsCore.SkiaSharpView",
+      "version": "2.0.0-rc2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "BetoRodriguez",
+      "repositoryUrl": "https://github.com/beto-rodriguez/LiveCharts2",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/LiveChartsCore.SkiaSharpView/2.0.0-rc2/LICENSE",
+          "source": "https://api.github.com/repos/beto-rodriguez/LiveCharts2/git/blobs/57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sourceBlob": "57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sha256": "134501A334EFCFE6BD6DEA379AFEF75B332774BF037FC6CB502D1FC886940F6E",
+          "bytes": 1081
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.0-rc2",
+          "available": false
+        },
+        {
+          "ref": "v2.0.0-rc2",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5836c7fe73fe49cead353c50691d3db735dff662",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "LiveChartsCore.SkiaSharpView.Uno.WinUI",
+      "version": "2.0.0-rc2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "BetoRodriguez",
+      "repositoryUrl": "https://github.com/beto-rodriguez/LiveCharts2",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/LiveChartsCore.SkiaSharpView.Uno.WinUI/2.0.0-rc2/LICENSE",
+          "source": "https://api.github.com/repos/beto-rodriguez/LiveCharts2/git/blobs/57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sourceBlob": "57afcafa62f2f2b8994676a5b7cd4ae6860ff6db",
+          "sha256": "134501A334EFCFE6BD6DEA379AFEF75B332774BF037FC6CB502D1FC886940F6E",
+          "bytes": 1081
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.0-rc2",
+          "available": false
+        },
+        {
+          "ref": "v2.0.0-rc2",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5836c7fe73fe49cead353c50691d3db735dff662",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Microsoft.AppCenter",
+      "version": "5.0.6",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "漏 Microsoft Corporation. All rights reserved.",
+      "packageAuthors": "Microsoft",
+      "repositoryUrl": "https://github.com/microsoft/appcenter-sdk-dotnet",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Microsoft.AppCenter/5.0.6/license.txt",
+          "source": "https://api.github.com/repos/microsoft/appcenter-sdk-dotnet/git/blobs/a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sourceBlob": "a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sha256": "9C5C7BC12642FDD5C30DC455D834249F65531549DA2EE7CFDE379D7D4180E412",
+          "bytes": 1137
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "5.0.6",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "d1cb57c12d4547eaf2114ac5943774f8278b4e99",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Microsoft.AppCenter.Analytics",
+      "version": "5.0.6",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "漏 Microsoft Corporation. All rights reserved.",
+      "packageAuthors": "Microsoft",
+      "repositoryUrl": "https://github.com/microsoft/appcenter-sdk-dotnet",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Microsoft.AppCenter.Analytics/5.0.6/license.txt",
+          "source": "https://api.github.com/repos/microsoft/appcenter-sdk-dotnet/git/blobs/a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sourceBlob": "a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sha256": "9C5C7BC12642FDD5C30DC455D834249F65531549DA2EE7CFDE379D7D4180E412",
+          "bytes": 1137
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "5.0.6",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "d1cb57c12d4547eaf2114ac5943774f8278b4e99",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Microsoft.AppCenter.Crashes",
+      "version": "5.0.2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "漏 Microsoft Corporation. All rights reserved.",
+      "packageAuthors": "Microsoft",
+      "repositoryUrl": "https://github.com/microsoft/appcenter-sdk-dotnet",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Microsoft.AppCenter.Crashes/5.0.2/license.txt",
+          "source": "https://api.github.com/repos/microsoft/appcenter-sdk-dotnet/git/blobs/a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sourceBlob": "a7e233498e4927bb48cd4472d961326a8ddb82ca",
+          "sha256": "9C5C7BC12642FDD5C30DC455D834249F65531549DA2EE7CFDE379D7D4180E412",
+          "bytes": 1137
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "5.0.2",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "49e5facc6237630194b0cc8eb3d9939e9cb7322c",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Microsoft.Xaml.Behaviors.WinUI.Managed",
+      "version": "2.0.9",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "漏 Microsoft Corporation. All rights reserved.",
+      "packageAuthors": "Microsoft",
+      "repositoryUrl": "https://github.com/microsoft/XamlBehaviors",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Microsoft.Xaml.Behaviors.WinUI.Managed/2.0.9/LICENSE",
+          "source": "https://api.github.com/repos/microsoft/XamlBehaviors/git/blobs/b8b569d7746d98d07183806fb4af673fca6dfb57",
+          "sourceBlob": "b8b569d7746d98d07183806fb4af673fca6dfb57",
+          "sha256": "CF248820BF1178370BB4F1670A59F8748D46BC96D0F64080CD631511C6046409",
+          "bytes": 1077
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.9",
+          "available": false
+        },
+        {
+          "ref": "v2.0.9",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "07400844bb1142d94d90cd211051e4fa7ba6f0fc",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Polly",
+      "version": "8.1.0",
+      "licenseMetadata": "BSD-3-Clause",
+      "packageCopyright": "Copyright (c) 2023, App vNext",
+      "packageAuthors": "Michael Wolfenden, App vNext",
+      "repositoryUrl": "https://github.com/App-vNext/Polly",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Polly/8.1.0/LICENSE",
+          "source": "https://api.github.com/repos/App-vNext/Polly/git/blobs/a3f141b4656d0e2906fb9f4d20bd364af8c3fee3",
+          "sourceBlob": "a3f141b4656d0e2906fb9f4d20bd364af8c3fee3",
+          "sha256": "DC1EB8DB05817F5D569BFB3965899D17693AFA01E45880DE939534947B59910F",
+          "bytes": 1501
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "4d2dd5ac2a270708b63b42de7c4272efc012d55c",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "4d2dd5ac2a270708b63b42de7c4272efc012d55c",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Polly.Core",
+      "version": "8.1.0",
+      "licenseMetadata": "BSD-3-Clause",
+      "packageCopyright": "Copyright (c) 2023, App vNext",
+      "packageAuthors": "Michael Wolfenden, App vNext",
+      "repositoryUrl": "https://github.com/App-vNext/Polly",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Polly.Core/8.1.0/LICENSE",
+          "source": "https://api.github.com/repos/App-vNext/Polly/git/blobs/a3f141b4656d0e2906fb9f4d20bd364af8c3fee3",
+          "sourceBlob": "a3f141b4656d0e2906fb9f4d20bd364af8c3fee3",
+          "sha256": "DC1EB8DB05817F5D569BFB3965899D17693AFA01E45880DE939534947B59910F",
+          "bytes": 1501
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "4d2dd5ac2a270708b63b42de7c4272efc012d55c",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "4d2dd5ac2a270708b63b42de7c4272efc012d55c",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "PotatoVN.Client",
+      "version": "1.0.11",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "No Copyright",
+      "packageAuthors": "OpenAPI",
+      "repositoryUrl": "https://github.com/GoldenPotato137/PotatoVN",
+      "refBasis": "current default tree; exact package source unverified",
+      "sourceFiles": [
+        {
+          "path": "supplemental/PotatoVN.Client/1.0.11/LICENSE",
+          "source": "https://api.github.com/repos/GoldenPotato137/PotatoVN/git/blobs/4bd68a8a1304986e5b09124e5bd8128f5835b5ba",
+          "sourceBlob": "4bd68a8a1304986e5b09124e5bd8128f5835b5ba",
+          "sha256": "A4D6D2731384BCC56F385B7CEA4447023230C6D884A53D4973DF6639F162DC94",
+          "bytes": 11622
+        },
+        {
+          "path": "supplemental/PotatoVN.Client/1.0.11/GalgameManager.Tool/data/LICENSE-ODBL.txt",
+          "source": "https://api.github.com/repos/GoldenPotato137/PotatoVN/git/blobs/b03120fdfc027ace0e634e9e0c71581c77f660c0",
+          "sourceBlob": "b03120fdfc027ace0e634e9e0c71581c77f660c0",
+          "sha256": "A221A27AF5E4EF5A9CECCE097C718C28F1AAF7D368CB57C994AA447C68D9DEFC",
+          "bytes": 25313
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2ee44ab3cb9973ce89647cfdd3316924478ff4fc",
+          "available": false
+        }
+      ],
+      "resolvedSourceTreeSha": "2adef493ea0d82d27d4037e91507e558c567305d",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "NuGet declares MIT with generated OpenAPI/No Copyright metadata; its repository commit is unavailable. Current Apache repository text is not proof of the exact client package scope."
+    },
+    {
+      "id": "PotatoVnDBMapper",
+      "version": "1.1.1",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "goldenpotato137",
+      "repositoryUrl": "https://github.com/GoldenPotato137/PotatoDBMapper",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/PotatoVnDBMapper/1.1.1/LICENSE",
+          "source": "https://api.github.com/repos/GoldenPotato137/PotatoDBMapper/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sourceBlob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4",
+          "bytes": 11357
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "NuGet declares MIT, while the exact repository commit license is Apache-2.0. Confirm package-specific licensing/attribution; do not silently choose or relicense."
+    },
+    {
+      "id": "PotatoVnDBMapper.Models",
+      "version": "1.1.1",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "goldenpotato137",
+      "repositoryUrl": "https://github.com/GoldenPotato137/PotatoDBMapper",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/PotatoVnDBMapper.Models/1.1.1/LICENSE",
+          "source": "https://api.github.com/repos/GoldenPotato137/PotatoDBMapper/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sourceBlob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4",
+          "bytes": 11357
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "NuGet declares MIT, while the exact repository commit license is Apache-2.0. Confirm package-specific licensing/attribution; do not silently choose or relicense."
+    },
+    {
+      "id": "SQLitePCLRaw.bundle_green",
+      "version": "2.1.7",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright 2014-2023 SourceGear, LLC",
+      "packageAuthors": "Eric Sink",
+      "repositoryUrl": "https://github.com/ericsink/SQLitePCL.raw",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/SQLitePCLRaw.bundle_green/2.1.7/LICENSE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sourceBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30",
+          "bytes": 11358
+        },
+        {
+          "path": "supplemental/SQLitePCLRaw.bundle_green/2.1.7/NOTICE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sourceBlob": "9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sha256": "485B276B3D2BFAA26DF348E1E5C84DF3648981E09B88531A6A53006F0705C24B",
+          "bytes": 9756
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.1.7",
+          "available": false
+        },
+        {
+          "ref": "v2.1.7",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "134a7d998e722869c1b3a433ec429b60e43a65e2",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "SQLitePCLRaw.core",
+      "version": "2.1.7",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright 2014-2023 SourceGear, LLC",
+      "packageAuthors": "Eric Sink",
+      "repositoryUrl": "https://github.com/ericsink/SQLitePCL.raw",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/SQLitePCLRaw.core/2.1.7/LICENSE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sourceBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30",
+          "bytes": 11358
+        },
+        {
+          "path": "supplemental/SQLitePCLRaw.core/2.1.7/NOTICE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sourceBlob": "9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sha256": "485B276B3D2BFAA26DF348E1E5C84DF3648981E09B88531A6A53006F0705C24B",
+          "bytes": 9756
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.1.7",
+          "available": false
+        },
+        {
+          "ref": "v2.1.7",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "134a7d998e722869c1b3a433ec429b60e43a65e2",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "SQLitePCLRaw.lib.e_sqlite3",
+      "version": "2.1.13",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright 2014-2024 SourceGear, LLC",
+      "packageAuthors": "Eric Sink",
+      "repositoryUrl": "https://github.com/ericsink/SQLitePCL.raw",
+      "refBasis": "current default tree; exact package source unverified",
+      "sourceFiles": [
+        {
+          "path": "supplemental/SQLitePCLRaw.lib.e_sqlite3/2.1.13/LICENSE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sourceBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30",
+          "bytes": 11358
+        },
+        {
+          "path": "supplemental/SQLitePCLRaw.lib.e_sqlite3/2.1.13/NOTICE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/d728ea62485dc1f4a73fe54bbd73d23aa680d283",
+          "sourceBlob": "d728ea62485dc1f4a73fe54bbd73d23aa680d283",
+          "sha256": "5A1AB2F670F86DD2F8D42E40A8459CC278CA6D5225A7E2A5FA3EA0184396A6D9",
+          "bytes": 1697
+        },
+        {
+          "path": "supplemental/SQLitePCLRaw.lib.e_sqlite3/2.1.13/SQLITE-LICENSE.md",
+          "source": "https://api.github.com/repos/sqlite/sqlite/git/blobs/5f59bb8fefd54767e2eb08a17d0dc19007958d90",
+          "sourceBlob": "5f59bb8fefd54767e2eb08a17d0dc19007958d90",
+          "sha256": "EE6AF51062B30D532991FACE5164136AE6F84E265ECF8ABE89DC69DAC45CA1E7",
+          "bytes": 3850
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.1.13",
+          "available": false
+        },
+        {
+          "ref": "v2.1.13",
+          "available": false
+        }
+      ],
+      "resolvedSourceTreeSha": "ed046114d5a30534e13294d94d78eb73de896ad4",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Package Apache-2.0 grant/copyright supplied; actual e_sqlite3 reports SQLite 3.53.3 and source ID matching the official release. Fixed SQLite license plus public-domain declaration applies to the identified core. Exact native build reproducibility is not claimed or an LGPL source-supply duty.",
+      "additionalPrimarySources": [
+        "https://www.sqlite.org/copyright.html",
+        "https://www.sqlite.org/releaselog/3_53_3.html"
+      ]
+    },
+    {
+      "id": "SQLitePCLRaw.provider.e_sqlite3",
+      "version": "2.1.7",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright 2014-2023 SourceGear, LLC",
+      "packageAuthors": "Eric Sink",
+      "repositoryUrl": "https://github.com/ericsink/SQLitePCL.raw",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/SQLitePCLRaw.provider.e_sqlite3/2.1.7/LICENSE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sourceBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30",
+          "bytes": 11358
+        },
+        {
+          "path": "supplemental/SQLitePCLRaw.provider.e_sqlite3/2.1.7/NOTICE.TXT",
+          "source": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/blobs/9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sourceBlob": "9b4d10b6022750c492749e0b4bb22b0f0e70ef5b",
+          "sha256": "485B276B3D2BFAA26DF348E1E5C84DF3648981E09B88531A6A53006F0705C24B",
+          "bytes": 9756
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.1.7",
+          "available": false
+        },
+        {
+          "ref": "v2.1.7",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "134a7d998e722869c1b3a433ec429b60e43a65e2",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Serilog",
+      "version": "4.2.0",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright 漏 Serilog Contributors",
+      "packageAuthors": "Serilog Contributors",
+      "repositoryUrl": "https://github.com/serilog/serilog",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Serilog/4.2.0/LICENSE",
+          "source": "https://api.github.com/repos/serilog/serilog/git/blobs/37ec93a14fdcd0d6e525d97c0cfa6b314eaa98d8",
+          "sourceBlob": "37ec93a14fdcd0d6e525d97c0cfa6b314eaa98d8",
+          "sha256": "73BA74DFAA520B49A401B5D21459A8523A146F3B7518A833EEA5EFA85130BF68",
+          "bytes": 10273
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "c00e17fdeb615d36c062569f7342f72c9ece4aa7",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "c00e17fdeb615d36c062569f7342f72c9ece4aa7",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Serilog.Sinks.File",
+      "version": "6.0.0",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "",
+      "packageAuthors": "Serilog Contributors",
+      "repositoryUrl": "https://github.com/serilog/serilog-sinks-file",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Serilog.Sinks.File/6.0.0/LICENSE",
+          "source": "https://api.github.com/repos/serilog/serilog-sinks-file/git/blobs/8dada3edaf50dbc082c9a125058f25def75e625a",
+          "sourceBlob": "8dada3edaf50dbc082c9a125058f25def75e625a",
+          "sha256": "B40930BBCF80744C86C46A12BC9DA056641D722716C378F5659B9E555EF833E1",
+          "bytes": 11357
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "c7b9bc3d87f9bb98572a52286135efda1e608ad6",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "c7b9bc3d87f9bb98572a52286135efda1e608ad6",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "SharpCompress",
+      "version": "0.48.0",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright (c) 2025  Adam Hathcock",
+      "packageAuthors": "Adam Hathcock",
+      "repositoryUrl": "https://github.com/adamhathcock/sharpcompress",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/SharpCompress/0.48.0/LICENSE.txt",
+          "source": "https://api.github.com/repos/adamhathcock/sharpcompress/git/blobs/94e2f5bc83ac404584fd92c25cfcc305ea2f8942",
+          "sourceBlob": "94e2f5bc83ac404584fd92c25cfcc305ea2f8942",
+          "sha256": "B7CA2B6174CEE11AFE41D78B48527E3D7659A4435C25019A4A5E072299A2F8ED",
+          "bytes": 1081
+        },
+        {
+          "path": "supplemental/SharpCompress/0.48.0/reference/unrar/license.txt",
+          "source": "https://api.github.com/repos/adamhathcock/sharpcompress/git/blobs/0811276a13b30fa8b48995b879dc777c9edfa10f",
+          "sourceBlob": "0811276a13b30fa8b48995b879dc777c9edfa10f",
+          "sha256": "6ECC1687808B7D66B24F874755ABFED7464D9751ED0001CD4E8E5D9BF397FF8A",
+          "bytes": 1976
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "6e59c7d7bbf8c19a8a92c3c382599906684bb93d",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "6e59c7d7bbf8c19a8a92c3c382599906684bb93d",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Exact-commit MIT body supplied, plus upstream reference/unrar license conservatively retained and identified as reference material. No RAR creation feature is introduced; do not label the reference C++ code as a shipped native DLL."
+    },
+    {
+      "id": "System.Linq.Async",
+      "version": "6.0.3",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright (c) .NET Foundation and Contributors.",
+      "packageAuthors": ".NET Foundation and Contributors",
+      "repositoryUrl": "https://github.com/dotnet/reactive",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/System.Linq.Async/6.0.3/LICENSE",
+          "source": "https://api.github.com/repos/dotnet/reactive/git/blobs/984713a49622a96da110443c15477613bc12656b",
+          "sourceBlob": "984713a49622a96da110443c15477613bc12656b",
+          "sha256": "CFC21F5E8BD655AE997EEC916138B707B1D290B83272C02A95C9F821B8C87310",
+          "bytes": 1116
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "9b1a27fb9e9849171f00c8d2b91e5589126022c1",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "9b1a27fb9e9849171f00c8d2b91e5589126022c1",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "Uno.Diagnostics.Eventing",
+      "version": "2.0.1",
+      "licenseMetadata": "",
+      "packageCopyright": "Copyright (C) 2015-2021 nventive inc. - all rights reserved",
+      "packageAuthors": "nventive",
+      "repositoryUrl": "https://github.com/unoplatform/Uno.Diagnostics.Eventing",
+      "refBasis": "current default tree; exact package source unverified",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Uno.Diagnostics.Eventing/2.0.1/License.md",
+          "source": "https://api.github.com/repos/unoplatform/Uno.Diagnostics.Eventing/git/blobs/b48e38bd66fc14eb89ad5d050c688f721c1aa6f0",
+          "sourceBlob": "b48e38bd66fc14eb89ad5d050c688f721c1aa6f0",
+          "sha256": "0823C6BE76D6DB28FED4F338B233729008119736EE3D7157F302FD218A07676C",
+          "bytes": 11447
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.0.1",
+          "available": false
+        },
+        {
+          "ref": "v2.0.1",
+          "available": false
+        }
+      ],
+      "resolvedSourceTreeSha": "fb046f14adfc688328e8f590cafecdba9dfc8d08",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "NuGet provides no license grant; current repository has Apache text titled Uno.MonoAnalyzers. The exact 2.0.1 correspondence could not be established from its metadata/PDB; confirm the release scope."
+    },
+    {
+      "id": "Uno.Fonts.Fluent",
+      "version": "2.3.0",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Copyright (C) 2015-2023 Uno Platform inc. - all rights reserved",
+      "packageAuthors": "Uno Platform",
+      "repositoryUrl": "https://github.com/unoplatform/uno.fonts",
+      "refBasis": "matching version tag",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Uno.Fonts.Fluent/2.3.0/LICENSE.md",
+          "source": "https://api.github.com/repos/unoplatform/uno.fonts/git/blobs/bfc1d85b0ce0ebae402373bf18c2b86b2007adc7",
+          "sourceBlob": "bfc1d85b0ce0ebae402373bf18c2b86b2007adc7",
+          "sha256": "7AFED34064D93AFD447BB2EF72398F68789792E302B0792D1BCC3217B204F88E",
+          "bytes": 11442
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "2.3.0",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5fb242f3438a6dbc017ef4c667b250a4c98eddc5",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Version-tag Apache notice supplied for the actual DLL. The current output has no font file, DLL manifest font resource or font path in either PRI; do not infer redistribution of the package fonts from its name. Future font inclusion needs a separate icon-source review."
+    },
+    {
+      "id": "Uno.Foundation.Logging",
+      "version": "5.2.108",
+      "licenseMetadata": "Apache-2.0",
+      "packageCopyright": "Uno Platform",
+      "packageAuthors": "Uno Platform",
+      "repositoryUrl": "https://github.com/unoplatform/uno",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Uno.Foundation.Logging/5.2.108/License.md",
+          "source": "https://api.github.com/repos/unoplatform/uno/git/blobs/3c9f438cd0b6e44c3dc51fa9226c1da16e55e044",
+          "sourceBlob": "3c9f438cd0b6e44c3dc51fa9226c1da16e55e044",
+          "sha256": "6DB2897A75935879602522668BB2ED4E6E3A35C402B0AE81D4035617F5EF2E8E",
+          "bytes": 11440
+        },
+        {
+          "path": "supplemental/Uno.Foundation.Logging/5.2.108/THIRD-PARTY-NOTICES.md",
+          "source": "https://api.github.com/repos/unoplatform/uno/git/blobs/40e540560df5eda53d0141a602e287f02846c8a0",
+          "sourceBlob": "40e540560df5eda53d0141a602e287f02846c8a0",
+          "sha256": "BDB951088370DFE60C4EE30ECC8C8D830DDA4F18E123C14A1B31DB7B89A6F5BC",
+          "bytes": 3500
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "ce0fe268b27a19de8667da7b907067c03b12feab",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "ce0fe268b27a19de8667da7b907067c03b12feab",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "ValveKeyValue",
+      "version": "0.20.0.417",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 漏 ValveKeyValue Contributors",
+      "packageAuthors": "ValveKeyValue Contributors",
+      "repositoryUrl": "https://github.com/ValveResourceFormat/ValveKeyValue",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/ValveKeyValue/0.20.0.417/LICENSE",
+          "source": "https://api.github.com/repos/ValveResourceFormat/ValveKeyValue/git/blobs/a6e7d171795312cbf92313aa03adbc4b5d945ad7",
+          "sourceBlob": "a6e7d171795312cbf92313aa03adbc4b5d945ad7",
+          "sha256": "9B7097B8AEAEA38FFE59E3E5DE30879064332C9477384851E5DF300825764958",
+          "bytes": 1093
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "5f1d8c97ae250c957e4bf81a1687b537a35dea62",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5f1d8c97ae250c957e4bf81a1687b537a35dea62",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "WanaKanaShaapu",
+      "version": "2.0.2",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "",
+      "packageAuthors": "kmoroz",
+      "repositoryUrl": "https://github.com/kmoroz/WanaKanaShaapu",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/WanaKanaShaapu/2.0.2/LICENSE",
+          "source": "https://api.github.com/repos/kmoroz/WanaKanaShaapu/git/blobs/1d0d741b37917b81caf8eac4280c1f7c4cb3a141",
+          "sourceBlob": "1d0d741b37917b81caf8eac4280c1f7c4cb3a141",
+          "sha256": "CF4F7B889FEB2DDE5E4AA0D6F87D06ACE1C732A38AAF319A55621E9569AD4014",
+          "bytes": 1072
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "5bfc047e8bcdfd43a1829a9f94c394cad2644b4a",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "5bfc047e8bcdfd43a1829a9f94c394cad2644b4a",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    },
+    {
+      "id": "WinUIEx",
+      "version": "2.5.0",
+      "licenseMetadata": "MIT",
+      "packageCopyright": "Copyright 漏 2021-2024 - Morten Nielsen",
+      "packageAuthors": "Morten Nielsen - https://xaml.dev",
+      "repositoryUrl": "https://github.com/dotMorten/WinUIEx",
+      "refBasis": "exact NuGet repository commit",
+      "sourceFiles": [
+        {
+          "path": "supplemental/WinUIEx/2.5.0/LICENSE",
+          "source": "https://api.github.com/repos/dotMorten/WinUIEx/git/blobs/1c66b4cd2467c16c710f0c275cd962252c63c77c",
+          "sourceBlob": "1c66b4cd2467c16c710f0c275cd962252c63c77c",
+          "sha256": "253EFE88CEA966DC7A9892DA3DAC7B011E9ADA8DF022346E273F89E46D72339D",
+          "bytes": 1071
+        }
+      ],
+      "attempts": [
+        {
+          "ref": "746753a3fe10be36793590fab33dffcad9c4e33d",
+          "available": true
+        }
+      ],
+      "resolvedSourceTreeSha": "746753a3fe10be36793590fab33dffcad9c4e33d",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Fixed repository commit/version tag license text, versioned package metadata and existing copyright evidence supplied; not an all-purpose legal warranty."
+    }
+  ],
+  "additionalCases": [
+    {
+      "id": "microsoft.windows.sdk.net.ref",
+      "version": "10.0.22621.56",
+      "licenseMetadata": "Windows SDK license URL supplied by the targeting pack; not automatically MIT",
+      "packageCopyright": "© Microsoft Corporation. All rights reserved.",
+      "reviewStatus": "needs-licensor-or-scope-confirmation",
+      "reviewReason": "Actual SDK projection/runtime DLLs are supplied by an implicit runtime pack. Preserve the original SDK RTF; verify the applicable redistributable scope and publisher/end-user distribution terms. No user contract acceptance or Microsoft permission is inferred from merely copying the terms.",
+      "sourceFiles": [
+        {
+          "path": "supplemental/Microsoft.Windows.SDK.NET.Ref/10.0.22621.56/sdk_license.rtf",
+          "source": "https://download.microsoft.com/download/0/F/F/0FF2B061-47DD-4F55-89B6-FD1D8C44F14D/sdk_license.rtf",
+          "sha256": "DD07EB178E00C6BBA4148457FC00FF77CD4887EB521D504186FE59C9EC8BBE62",
+          "bytes": 246945
+        }
+      ]
+    }
+  ],
+  "note": "hasPackageNoticeText in components/INDEX.json remains a factual package-content observation. Supplemental material coverage does not rewrite the package or its license. No pending case is silently cleared."
+}
