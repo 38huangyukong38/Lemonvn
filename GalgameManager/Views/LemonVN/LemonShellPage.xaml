@@ -1,0 +1,83 @@
+<Page x:Class="LemonVN.Views.LemonShellPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:helpers="using:GalgameManager.Helpers">
+    <NavigationView x:Name="NavigationViewControl" AutomationProperties.AutomationId="LemonNavigation"
+                    PaneDisplayMode="Left" OpenPaneLength="88" CompactPaneLength="88" IsPaneOpen="True"
+                    IsPaneToggleButtonVisible="False" IsSettingsVisible="False" IsBackButtonVisible="Visible"
+                    IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+                    SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+                    Header="{x:Bind ViewModel.PageTitle, Mode=OneWay}"
+                    AlwaysShowHeader="{x:Bind ViewModel.ShowHeader, Mode=OneWay}">
+        <NavigationView.Resources>
+            <!-- Balance the native content-only presenter's padding;
+                 retain its selection, pointer, high-contrast and keyboard states. -->
+            <Thickness x:Key="NavigationViewItemContentPresenterMargin">4,0,0,0</Thickness>
+            <Style TargetType="NavigationViewItem">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="MinHeight" Value="72" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+        </NavigationView.Resources>
+        <NavigationView.MenuItems>
+            <NavigationViewItem AutomationProperties.AutomationId="LemonHomeNavigation"
+                                AutomationProperties.Name="{x:Bind HomeNavigationLabel.Text}"
+                                ToolTipService.ToolTip="{x:Bind HomeNavigationLabel.Text}"
+                                helpers:NavigationHelper.NavigateTo="LemonVN.ViewModels.LemonHomeViewModel">
+                <StackPanel Spacing="5" Padding="4,10" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE80F;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="22" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="HomeNavigationLabel" x:Uid="Rail_Home" FontSize="12"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </NavigationViewItem>
+            <NavigationViewItem AutomationProperties.AutomationId="LemonAnimeNavigation"
+                                AutomationProperties.Name="{x:Bind LibraryNavigationLabel.Text}"
+                                ToolTipService.ToolTip="{x:Bind LibraryNavigationLabel.Text}"
+                                helpers:NavigationHelper.NavigateTo="LemonVN.ViewModels.Anime.AnimeLibraryViewModel">
+                <StackPanel Spacing="5" Padding="4,10" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE8F1;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="22" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="LibraryNavigationLabel" x:Uid="Rail_Library" FontSize="12"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </NavigationViewItem>
+            <NavigationViewItem AutomationProperties.AutomationId="LemonCategoriesNavigation"
+                                AutomationProperties.Name="{x:Bind CategoriesNavigationLabel.Text}"
+                                ToolTipService.ToolTip="{x:Bind CategoriesNavigationLabel.Text}"
+                                helpers:NavigationHelper.NavigateTo="LemonVN.ViewModels.LemonCategoriesViewModel">
+                <StackPanel Spacing="5" Padding="4,10" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE8FD;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="22" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="CategoriesNavigationLabel" x:Uid="Rail_Categories" FontSize="12"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </NavigationViewItem>
+            <NavigationViewItem AutomationProperties.AutomationId="LemonRecognitionNavigation"
+                                AutomationProperties.Name="{x:Bind RecognitionNavigationLabel.Text}"
+                                ToolTipService.ToolTip="{x:Bind RecognitionNavigationLabel.Text}"
+                                helpers:NavigationHelper.NavigateTo="LemonVN.ViewModels.LemonRecognitionViewModel">
+                <StackPanel Spacing="5" Padding="4,10" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE721;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="22" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="RecognitionNavigationLabel" x:Uid="Rail_Recognition" FontSize="12"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem AutomationProperties.AutomationId="LemonSettingsNavigation"
+                                AutomationProperties.Name="{x:Bind SettingsNavigationLabel.Text}"
+                                ToolTipService.ToolTip="{x:Bind SettingsNavigationLabel.Text}"
+                                helpers:NavigationHelper.NavigateTo="LemonVN.ViewModels.LemonSettingsViewModel">
+                <StackPanel Spacing="5" Padding="4,10" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE713;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="22" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="SettingsNavigationLabel" x:Uid="Rail_Settings" FontSize="12"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </NavigationViewItem>
+        </NavigationView.FooterMenuItems>
+        <Grid Margin="16,8,16,20">
+            <Frame x:Name="NavigationFrame" AutomationProperties.AutomationId="LemonPageFrame" />
+            <InfoBar IsOpen="{x:Bind ViewModel.IsErrorOpen, Mode=TwoWay}" Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}"
+                     Severity="Error" VerticalAlignment="Bottom" />
+        </Grid>
+    </NavigationView>
+</Page>

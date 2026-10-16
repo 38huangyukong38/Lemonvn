@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ValveKeyValue</id>
+    <version>0.20.0.417</version>
+    <authors>ValveKeyValue Contributors</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>logo.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://valveresourceformat.github.io/</projectUrl>
+    <description>Library to parse and write Valve KeyValue formats</description>
+    <releaseNotes>View release notes at https://github.com/ValveResourceFormat/ValveKeyValue/releases</releaseNotes>
+    <copyright>Copyright © ValveKeyValue Contributors</copyright>
+    <tags>steam valve keyvalues keyvalue kv kv3 csgo dota2 tf2</tags>
+    <repository type="git" url="https://github.com/ValveResourceFormat/ValveKeyValue" commit="5f1d8c97ae250c957e4bf81a1687b537a35dea62" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+</package>

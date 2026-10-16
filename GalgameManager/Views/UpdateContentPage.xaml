@@ -1,0 +1,45 @@
+<Page
+    x:Class="GalgameManager.Views.UpdateContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:GalgameManager.Helpers.Converter"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converter:InverseVisibilityConverter x:Key="InverseVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid Margin="{ThemeResource PageButtonMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CommandBar Grid.Row="0" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right"
+                    Margin="{StaticResource CommandBarMargin}">
+            <AppBarButton Icon="Flag" Label="{x:Bind ViewModel.CurrentVersion, Mode=OneWay}" />
+            <AppBarButton Icon="Go" x:Uid="UpdateContentPage_SeeWebsite"
+                          Command="{x:Bind ViewModel.LaunchWebsiteCommand}"/>
+        </CommandBar>
+
+        <WebView2 Grid.Row="1" Visibility="{x:Bind ViewModel.WebView2Ok, Mode=OneWay}"
+                  Source="https://potatovn.net/raw/upgrade-log.html" />
+
+        <Grid Grid.Row="1"
+              Visibility="{x:Bind ViewModel.WebView2Ok, Mode=OneWay, 
+                Converter={StaticResource InverseVisibilityConverter}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Spacing="10">
+                <TextBlock x:Uid="UpdateContentPage_WebView2IsNeeded" 
+                           Style="{StaticResource TitleTextBlockStyle}" 
+                           HorizontalAlignment="Center"/>
+                <HyperlinkButton x:Uid="UpdateContentPage_DownloadWebview2" 
+                                 HorizontalAlignment="Center"
+                                 NavigateUri="https://go.microsoft.com/fwlink/p/?LinkId=2124703"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</Page>

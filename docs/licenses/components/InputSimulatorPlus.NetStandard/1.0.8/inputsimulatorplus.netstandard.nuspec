@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>InputSimulatorPlus.NetStandard</id>
+    <version>1.0.8</version>
+    <title>Windows Input Simulator Plus (.NET Standard)</title>
+    <authors>Michael Noonan, Theodoros Chatzigiannakis, Marc Schmidt</authors>
+    <license type="expression">MS-PL</license>
+    <licenseUrl>https://licenses.nuget.org/MS-PL</licenseUrl>
+    <description>Fork of the Windows Input Simulator Plus build against .NET Standard. Windows Input Simulator Plus is a fork of the original Windows Input Simulator with scan code support for increased compatibility.</description>
+    <copyright>Copyright © michaelnoonan 2010, Copyright © Theodoros Chatzigiannakis 2018, Copyright © Marc Schmidt 2022</copyright>
+    <tags>c# windows input</tags>
+    <repository url="https://github.com/MaSch0212/InputSimulatorPlus.NetStandard" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

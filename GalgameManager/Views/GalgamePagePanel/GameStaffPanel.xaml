@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<local:GamePanelBase
+    x:Class="GalgameManager.Views.GalgamePagePanel.GameStaffPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GalgameManager.Views.GalgamePagePanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:GalgameManager.Models"
+    xmlns:converter="using:GalgameManager.Helpers.Converter"
+    mc:Ignorable="d">
+    
+    <UserControl.Resources>
+        <converter:ImagePathConverter x:Key="ImagePathConverter" />
+    </UserControl.Resources>
+
+    <StackPanel x:Name="Panel">
+        <TextBlock Margin="{StaticResource SmallTopBottomMargin}"
+                   Style="{ThemeResource SubtitleTextBlockStyle}"
+                   x:Uid="GalgamePage_Staffs" />
+
+        <ItemsRepeater ItemsSource="{x:Bind Staffs,Mode=OneWay,FallbackValue={}}">
+            <ItemsRepeater.ItemTemplate>
+                <DataTemplate x:DataType="local:StaffRelation">
+                    <Button Style="{ThemeResource TransparentButtonWithHover}"
+                            DataContext="{x:Bind}"
+                            Height="130"
+                            Click="ButtonBase_OnClick">
+                        <Grid
+                            Padding="{StaticResource XSmallLeftTopRightBottomMargin}">
+                            <StackPanel HorizontalAlignment="Center">
+                                <Rectangle Height="75" Width="75"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center">
+                                    <Rectangle.Fill>
+                                        <ImageBrush
+                                            ImageSource="{x:Bind Staff.ImagePath, Mode=OneWay,
+                                                Converter={StaticResource ImagePathConverter},
+                                                ConverterParameter=ms-appx:///Assets/Pictures/Akkarin.webp }"
+                                            Stretch="UniformToFill" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock
+                                    MaxHeight="40"
+                                    Margin="{StaticResource XXSmallTopMargin}"
+                                    HorizontalAlignment="Center"
+                                    Style="{ThemeResource BodyTextStyle}"
+                                    Text="{x:Bind Staff.Name, Mode=OneWay}" />
+                                <TextBlock Text="{x:Bind Relation}" 
+                                           HorizontalAlignment="Center" Margin="0 -1 0 0"
+                                           Style="{StaticResource DescriptionTextStyle}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+                </DataTemplate>
+            </ItemsRepeater.ItemTemplate>
+            <ItemsRepeater.Layout>
+                <UniformGridLayout ItemsStretch="Fill" MinItemWidth="100" MinRowSpacing="10" />
+            </ItemsRepeater.Layout>
+        </ItemsRepeater>
+    </StackPanel>
+</local:GamePanelBase>

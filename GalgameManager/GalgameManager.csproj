@@ -1,0 +1,304 @@
+﻿
+<!-- LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json. -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>GalgameManager</RootNamespace>
+    <AssemblyName>LemonVN</AssemblyName>
+    <Product>LemonVN</Product>
+    <Description>Offline-first anime collection and watch record application, based on PotatoVN.</Description>
+    <ApplicationIcon>Assets/LemonPlaceholder.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>x86;x64;arm64</Platforms>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <PublishProfile>Properties\PublishProfiles\win10-$(Platform).pubxml</PublishProfile>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Never</AppxBundle>
+    <DefaultLanguage>zh-cn</DefaultLanguage>
+    <AppxPackageDir>.\Build\</AppxPackageDir>
+    <GenerateTemporaryStoreCertificate>False</GenerateTemporaryStoreCertificate>
+    <AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
+    <!-- TODO: 要处理该警告需要用到.Net Preview的特性，等特性稳定（进入正式版）后再处理 -->
+    <NoWarn>MVVMTK0045</NoWarn>
+
+    <!-- 关闭WinAppSDK自动初始化，手动在App里初始化（为了测试能正常运行） -->
+    <WindowsAppSdkBootstrapInitialize>false</WindowsAppSdkBootstrapInitialize>
+    <WindowsAppSdkDeploymentManagerInitialize>false</WindowsAppSdkDeploymentManagerInitialize>
+    <WindowsAppSdkAutoInitialize>false</WindowsAppSdkAutoInitialize>
+    <WindowsAppSdkUndockedRegFreeWinRTInitialize>false</WindowsAppSdkUndockedRegFreeWinRTInitialize>
+    <WindowsAppSdkCompatibilityInitialize>false</WindowsAppSdkCompatibilityInitialize>
+    <!-- 编入 Microsoft.WindowsAppSDK.Release 等版本常量，供手动 Bootstrap 使用，避免硬编码运行时版本 -->
+    <WindowsAppSdkIncludeVersionInfo>true</WindowsAppSdkIncludeVersionInfo>
+
+    <!-- 使用自定义入口（在 Application.Start 之前初始化 WinAppRuntime） -->
+    <StartupObject>GalgameManager.BootstrapProgram</StartupObject>
+  </PropertyGroup>
+
+  <!--
+    - MSIX 模式下 RuntimeHelper.GetVersion() 读取 Package.appxmanifest 的 Identity Version
+    - 便携/非 MSIX 模式下读取程序集版本
+    为避免两边版本不一致，在构建时从 Package.appxmanifest 读取版本并写入程序集版本属性。
+  -->
+  <Target Name="DeriveAssemblyVersionFromMsixManifest" BeforeTargets="GetAssemblyAttributes" Condition="Exists('$(MSBuildProjectDirectory)\\Package.appxmanifest')">
+    <XmlPeek XmlInputPath="$(MSBuildProjectDirectory)\\Package.appxmanifest" Query="/*[local-name()='Package']/*[local-name()='Identity']/@Version">
+      <Output TaskParameter="Result" PropertyName="_MsixIdentityVersion" />
+    </XmlPeek>
+
+    <PropertyGroup Condition="'$(_MsixIdentityVersion)' != ''">
+      <AssemblyVersion>$(_MsixIdentityVersion)</AssemblyVersion>
+      <FileVersion>$(_MsixIdentityVersion)</FileVersion>
+      <InformationalVersion>$(_MsixIdentityVersion)</InformationalVersion>
+    </PropertyGroup>
+  </Target>
+
+  <ItemGroup>
+    <Content Remove="Assets\Pictures\icon-dev\*" />
+    <Content Remove="Assets\Pictures\icon-sideload\*" />
+    <Content Remove="Assets\Potato.altform-lightunplated_targetsize-16.png" />
+    <Content Remove="Assets\Potato.altform-lightunplated_targetsize-24.png" />
+    <Content Remove="Assets\Potato.altform-lightunplated_targetsize-256.png" />
+    <Content Remove="Assets\Potato.altform-lightunplated_targetsize-32.png" />
+    <Content Remove="Assets\Potato.altform-lightunplated_targetsize-48.png" />
+    <Content Remove="Assets\Potato.altform-unplated_targetsize-16.png" />
+    <Content Remove="Assets\Potato.altform-unplated_targetsize-24.png" />
+    <Content Remove="Assets\Potato.altform-unplated_targetsize-256.png" />
+    <Content Remove="Assets\Potato.altform-unplated_targetsize-32.png" />
+    <Content Remove="Assets\Potato.altform-unplated_targetsize-48.png" />
+    <Content Update="Assets\Data\vn_mapper.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Pictures\Akkarin.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Data\vndb-tags-latest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Data\vndb-tags-translation.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Data\producers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Libs\x64\7za.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Remove="Assets\Potato-dev.png" />
+    <Content Update="Assets\Pictures\bangumi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Pictures\Potato.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Pictures\vndb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\WindowIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\LemonPlaceholder.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\LemonPlaceholder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\LICENSE" Link="LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\NOTICE" Link="NOTICE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Potato.scale-100.png" />
+    <None Remove="Assets\Potato.scale-125.png" />
+    <None Remove="Assets\Potato.scale-150.png" />
+    <None Remove="Assets\Potato.scale-200.png" />
+    <None Remove="Assets\Potato.scale-400.png" />
+    <None Remove="Assets\Potato.targetsize-16.png" />
+    <None Remove="Assets\Potato.targetsize-24.png" />
+    <None Remove="Assets\Potato.targetsize-256.png" />
+    <None Remove="Assets\Potato.targetsize-256_altform-lightunplated.png" />
+    <None Remove="Assets\Potato.targetsize-256_altform-unplated.png" />
+    <None Remove="Assets\Potato.targetsize-32.png" />
+    <None Remove="Assets\Potato.targetsize-48.png" />
+    <None Remove="Assets\Potato.targetsize-48_altform-unplated.png" />
+    <None Remove="Views\AnnualReportSubPage1.xaml" />
+    <None Remove="Views\AnnualReportSubPage2.xaml" />
+    <None Remove="Views\AnnualReportSubPage3.xaml" />
+    <None Remove="Views\Control\HomeItem.xaml" />
+    <None Remove="Views\Dialog\ChangePlayStatusDialog.xaml" />
+    <None Remove="Views\Dialog\ChangeSourceDialog.xaml" />
+    <None Remove="Views\Dialog\ManageGalgamePageLayoutDialog.xaml" />
+    <None Remove="Views\Dialog\MixedPhraserOrderDialog.xaml" />
+    <None Remove="Views\Dialog\PvnLoginDialog.xaml" />
+    <None Remove="Views\Dialog\PvnSetAccountDialog.xaml" />
+    <None Remove="Views\Dialog\SelectGameDialog.xaml" />
+    <None Remove="Views\Dialog\SelectProcessDialog.xaml" />
+    <None Remove="Views\Dialog\SelectPvnServerDialog.xaml" />
+    <None Remove="Views\GalgamePagePanel\GameDescriptionPanel.xaml" />
+    <None Remove="Views\ImportWindow.xaml" />
+    <None Remove="Views\PasswordDialog.xaml" />
+    <None Remove="Views\SettingExpander.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="CommunityToolkit.WinUI.Animations" Version="8.1.240916" />
+    <PackageReference Include="CommunityToolkit.WinUI.Behaviors" Version="8.1.240916" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.Sizers" Version="8.2.241112-preview1" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.TokenizingTextBox" Version="8.1.240916" />
+    <PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.2.241112-preview1" />
+    <PackageReference Include="CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView" Version="2.4.18" />
+    <PackageReference Include="DependencyPropertyGenerator" Version="1.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="GalFingerPrint.Client" Version="1.0.2" />
+    <PackageReference Include="H.NotifyIcon.WinUI" Version="2.0.118" />
+    <PackageReference Include="HalfFullWidth" Version="2.0.0" />
+    <PackageReference Include="InputSimulatorPlus.NetStandard" Version="1.0.8" />
+    <PackageReference Include="KnowledgePicker.WordCloud" Version="1.3.1" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+    <PackageReference Include="LiteDB" Version="5.0.21" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.257">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+    <PackageReference Include="PotatoVN.Client" Version="1.0.11" />
+    <PackageReference Include="PotatoVnDBMapper" Version="1.1.1" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+    <PackageReference Include="Refit.Newtonsoft.Json" Version="8.0.0" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="SharpCompress" Version="0.48.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.13" />
+    <PackageReference Include="Squid-Box.SevenZipSharp" Version="1.6.1.23" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.3" />
+    <PackageReference Include="System.Memory" Version="4.6.3" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+    <PackageReference Include="TinyPinyin" Version="1.1.0" />
+    <PackageReference Include="ValveKeyValue" Version="0.20.0.417" />
+    <PackageReference Include="WanaKanaShaapu" Version="2.0.2" />
+    <PackageReference Include="WinUIEx" Version="2.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GalgameManager.Core\GalgameManager.Core.csproj" />
+    <ProjectReference Include="..\GalgameManager.WinApp.Base\GalgameManager.WinApp.Base.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Page Update="Views\Dialog\ManageGalgamePageLayoutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\SelectGameDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\GalgamePagePanel\GameHeaderOldPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GalgamePagePanel\GameDescriptionPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="ViewModels\ReportSubPage3ViewModel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\ImportWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\MixedPhraserOrderDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\ChangeSourceDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\PvnSetAccountDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\PvnLoginDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\SelectPvnServerDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Dialog\SelectProcessDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SettingExpander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Control\SettingToggleSwitch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Dialog\SelectFileDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Remove="Views\Control\AdactiveGridView.xaml" />
+    <Page Update="Views\GalgamePagePanel\GameHeaderPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GalgamePagePanel\GamePlayStatusPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Strings\zh-CN\Resources.resw" />
+    <Content Include="Strings\en-US\Resources.resw" />
+    <Content Include="Strings\ja-JP\Resources.resw" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+
+  <!-- Preserve upstream PRI item selection. The Content items above include all languages. -->
+  <ItemGroup>
+    <PRIResource Remove="Strings\zh-CN\Resources.resw" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Remove="Themes\Generic.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\GalgameSourceCustomConverter.cs" />
+  </ItemGroup>
+  <!-- LemonVN modification: ship only application-owned runtime artwork.
+       Legacy assets stay in the development checkout, not release output. -->
+  <ItemGroup>
+    <Content Remove="Assets\**\*" />
+    <Content Include="Assets\LemonPlaceholder.ico" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonPlaceholder.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<local:GamePanelBase
+    x:Class="GalgameManager.Views.GalgamePagePanel.GameHeaderPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GalgameManager.Views.GalgamePagePanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:GalgameManager.Helpers.Converter"
+    xmlns:cmtkControls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:models="using:GalgameManager.Models"
+    xmlns:converters="using:CommunityToolkit.WinUI.Converters"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converter:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:ImagePathConverter x:Key="ImagePathConverter"/>
+        <converter:DefaultStringToVisibilityConverter x:Key="DefaultStringToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid x:Name="ContentRoot">
+        <Grid ColumnDefinitions="5*,2*">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- Cover -->
+                <Grid x:Name="Cover" Grid.Column="0" Height="230" Margin="{StaticResource SmallRightMargin}"
+                      HorizontalAlignment="Left" VerticalAlignment="Center"
+                      CornerRadius="15">
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center"
+                           MaxWidth="230" MaxHeight="230"
+                           Source="{x:Bind Game.ImagePath.Value, Mode=OneWay, FallbackValue={x:Null}, 
+                           Converter={StaticResource ImagePathConverter}, ConverterParameter='null' }" />
+                </Grid>
+
+                <Grid Grid.Column="1" RowDefinitions="Auto,*" >
+                    <!-- 游戏名和中文名作为整体，评分在右侧 -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 5"
+                                SizeChanged="TitleSizeChanged">
+                        <!-- 游戏名和中文名整体 -->
+                        <StackPanel>
+                            <TextBlock x:Name="PrimaryTitleTextBlock"
+                                       Style="{ThemeResource TitleTextBlockStyle}"
+                                    Text="{x:Bind PrimaryTitleText, Mode=OneWay, FallbackValue={}}"
+                                    TextWrapping="Wrap"
+                                    IsTextSelectionEnabled="True" />
+                            
+                            <TextBlock x:Name="SecondaryTitleTextBlock" 
+                                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                                    Text="{x:Bind SecondaryTitleText, Mode=OneWay, FallbackValue={}}"
+                                    TextWrapping="Wrap" Opacity="0.7"
+                                    IsTextSelectionEnabled="True"
+                                    Visibility="{x:Bind IsSecondaryTitleVisible, Mode=OneWay}"/>
+                        </StackPanel>
+                                
+                        <!-- 评分 -->
+                        <Grid x:Name="RatingGrid" VerticalAlignment="Center"
+                              Background="{ThemeResource ControlAltFillColorSecondaryBrush}"
+                              CornerRadius="6" Margin="10 0 0 0" Padding="4"
+                              Visibility="{x:Bind Game.Rating.Value, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock Padding="8 2 8 2" FontSize="22" FontWeight="SemiBold"
+                                       Text="{x:Bind Game.Rating.Value, Mode=OneWay, FallbackValue=0.0}" />
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Spacing="3">
+                        <!-- 开发商 -->
+                        <StackPanel Style="{StaticResource KeyValue}">
+                            <TextBlock x:Uid="GalgamePage_Developers"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <ItemsControl x:Name="DeveloperList">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="local:GameHeaderPanelDeveloperList">
+                                        <HyperlinkButton Content="{x:Bind Name, Mode=OneWay}"
+                                                         Margin="0 0 0 1" Padding="0" Click="ClickDeveloper" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <cmtkControls:WrapPanel Orientation="Horizontal" HorizontalSpacing="5" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </StackPanel>
+                        <!-- 游戏引擎 -->
+                        <StackPanel Style="{StaticResource KeyValue}"
+                                    Visibility="{x:Bind Game.Engine.Value, Mode=OneWay, Converter={StaticResource DefaultStringToVisibilityConverter}}">
+                            <TextBlock x:Uid="GalgamePage_Engine"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <HyperlinkButton Content="{x:Bind Game.Engine.Value, Mode=OneWay, FallbackValue={}}"
+                                             Click="ClickEngine" Padding="0" Margin="0"/>
+                        </StackPanel>
+                        <!-- 发布日期 -->
+                        <StackPanel Style="{StaticResource KeyValue}" Margin="0 -1 0 0">
+                            <TextBlock x:Uid="GalgamePage_ReleaseDate"
+                                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                                       Text="{x:Bind Game.ReleaseDate.Value, Mode=OneWay, FallbackValue={}, 
+                                Converter={StaticResource DateTimeToStringConverter}}" />
+                        </StackPanel>
+                        <!-- 预计游玩时长 -->
+                        <StackPanel x:Name="PlayTimePanel" Style="{StaticResource KeyValue}" 
+                                  Visibility="Collapsed">                           
+                            <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}"
+                                       x:Uid="GalgamePage_HeaderPanel_ExpectedPlayTime" />
+                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                                       Text="{x:Bind Game.ExpectedPlayTime.Value, Mode=OneWay, FallbackValue={x:Null}}" />
+                        </StackPanel>
+                        <!-- Staff列表 -->
+                        <ItemsControl x:Name="StaffList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="local:GameHeaderPanelStaffList">
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="20" Margin="0 1 0 0">
+                                        <TextBlock Grid.Column="0" Text="{x:Bind Career}"
+                                                   Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                        <ItemsControl ItemsSource="{x:Bind StaffsList}" Grid.Column="1">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="models:Staff">
+                                                    <HyperlinkButton Content="{x:Bind Name, Mode=OneWay}"
+                                                                     Margin="0 0 0 1" Padding="0" Click="ClickStaff" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <cmtkControls:WrapPanel Orientation="Horizontal" HorizontalSpacing="5" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ItemsControl>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid/>
+        </Grid>
+
+    </Grid>
+
+
+</local:GamePanelBase>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>WinUIEx</id>
+    <version>2.5.0</version>
+    <authors>Morten Nielsen - https://xaml.dev</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>logo.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://dotmorten.github.io/WinUIEx</projectUrl>
+    <description>A set of extension methods and classes to fill some gaps in WinUI 3, mostly around windowing.</description>
+    <releaseNotes>- Added `SimpleSplashScreen` for display application launch splash screens</releaseNotes>
+    <copyright>Copyright © 2021-2024 - Morten Nielsen</copyright>
+    <tags>WinUI, WinAppSDK, Windows, XAML</tags>
+    <repository type="git" url="https://github.com/dotMorten/WinUIEx" commit="746753a3fe10be36793590fab33dffcad9c4e33d" />
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.19041">
+        <dependency id="Microsoft.WindowsAppSDK" version="1.6.240829007" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

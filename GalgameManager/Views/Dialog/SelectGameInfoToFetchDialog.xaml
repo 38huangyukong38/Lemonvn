@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.SelectGameInfoToFetchDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cmtkControls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" x:Uid="SelectGameInfoToFetchDialog_Description" 
+                   Margin="0,0,0,15" TextWrapping="Wrap" />
+
+        <cmtkControls:WrapPanel Grid.Row="1" HorizontalSpacing="15">
+            <CheckBox x:Name="GameInfoCheckBox" x:Uid="SelectGameInfoToFetchDialog_GameInfo" IsChecked="True" />
+            <CheckBox x:Name="HeaderImageCheckBox" x:Uid="SelectGameInfoToFetchDialog_HeaderImage" IsChecked="True" />
+            <CheckBox x:Name="ImageCheckBox" x:Uid="SelectGameInfoToFetchDialog_Image" IsChecked="True" />
+            <CheckBox x:Name="CharacterCheckBox" x:Uid="SelectGameInfoToFetchDialog_Character" IsChecked="True" />
+            <CheckBox x:Name="PlayStatusCheckBox" x:Uid="SelectGameInfoToFetchDialog_PlayStatus" IsChecked="True" />
+        </cmtkControls:WrapPanel>
+    
+        <Rectangle Grid.Row="2" x:Name="Line" Height="1" Margin="10 5"
+                   Fill="{ThemeResource SystemControlForegroundBaseLowBrush}"/>
+        
+        <CheckBox Grid.Row="3" x:Name="IncludingSubSourcesCheckBox" 
+                  x:Uid="LibraryPage_GetInfoFromRss_IncludeSubfolders"/>
+    </Grid>
+</ContentDialog>

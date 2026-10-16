@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>CommunityToolkit.WinUI.Converters</id>
+    <version>8.2.241112-preview1</version>
+    <authors>Microsoft.Toolkit</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>ReadMe.md</readme>
+    <projectUrl>https://github.com/CommunityToolkit/Windows</projectUrl>
+    <iconUrl>https://github.com/CommunityToolkit/Windows/blob/main/icon.png</iconUrl>
+    <description>Commonly used converters that allow the data to be modified as it passes through the binding engine.</description>
+    <releaseNotes>https://github.com/CommunityToolkit/Windows/releases</releaseNotes>
+    <copyright>(c) .NET Foundation and Contributors.  All rights reserved.</copyright>
+    <tags>Windows Community Toolkit WCT UWP WinUI Uno Platform WindowsAppSDK WASDK WinAppSDK Universal</tags>
+    <repository type="git" url="https://github.com/CommunityToolkit/Windows" commit="cd19f5580dc58e3948e323662913cd6a19d3fe8b" />
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.19041">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.6.240923002" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-windows10.0.19041">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.6.240923002" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-android34.0">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-ios18.0">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-maccatalyst18.0">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-windows10.0.19041">
+        <dependency id="CommunityToolkit.Common" version="8.2.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.6.240923002" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

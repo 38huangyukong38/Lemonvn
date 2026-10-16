@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.PvnBatchUploadDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" x:Uid="PvnBatchUploadDialog_Description" 
+                   Margin="0,0,0,15" TextWrapping="Wrap" />
+
+        <StackPanel Grid.Row="1" Spacing="10">
+            <CheckBox x:Name="InfosCheckBox" x:Uid="PvnBatchUploadDialog_Infos" IsChecked="True" />
+            <CheckBox x:Name="ImageLocCheckBox" x:Uid="PvnBatchUploadDialog_ImageLoc" IsChecked="True" />
+            <CheckBox x:Name="ReviewCheckBox" x:Uid="PvnBatchUploadDialog_Review" IsChecked="True" />
+            <CheckBox x:Name="PlayTimeCheckBox" x:Uid="PvnBatchUploadDialog_PlayTime" IsChecked="True" />
+            <CheckBox x:Name="CharacterCheckBox" x:Uid="PvnBatchUploadDialog_Character" IsChecked="True" />
+            <CheckBox x:Name="HeaderImageLocCheckBox" x:Uid="PvnBatchUploadDialog_HeaderImageLoc" IsChecked="True" />
+        </StackPanel>
+    </Grid>
+</ContentDialog>

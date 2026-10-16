@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Page
+    x:Class="GalgameManager.Views.AnnualReportSubPage4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:lvc="using:LiveChartsCore.SkiaSharpView.WinUI"
+    xmlns:converter="using:GalgameManager.Helpers.Converter" xmlns:control="using:GalgameManager.Views.Control"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converter:DoubleToStringConverter x:Key="DoubleToStringConverter" />
+        <converter:AnyToVisibilityConverter x:Key="AnyToVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20" ColumnSpacing="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 最长连续游玩天数 -->
+            <Grid Grid.Column="0" RowDefinitions="*,*" RowSpacing="20">
+                <control:Panel Grid.Row="0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="最长连续游玩天数"
+                                   Style="{ThemeResource SubtitleTextBlockStyle}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="{x:Bind ViewModel.AnnualReportData.LongestStreak}"
+                                   Style="{ThemeResource DisplayTextBlockStyle}"
+                                   FontSize="72"
+                                   HorizontalAlignment="Center"
+                                   Foreground="{ThemeResource SystemControlForegroundAccentBrush}" />
+                        <TextBlock Text="天"
+                                   Style="{ThemeResource BodyStrongTextBlockStyle}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="这是你最投入的一段时光"
+                                   Style="{ThemeResource CaptionTextBlockStyle}"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,10,0,0"
+                                   Opacity="0.7" />
+                    </StackPanel>
+                </control:Panel>
+
+                <control:Panel Grid.Row="1"
+                               Visibility="{x:Bind ViewModel.AnnualReportData.LongestStreakGame, Converter={StaticResource AnyToVisibilityConverter}}">
+                    <Grid ColumnDefinitions="2*,3*" ColumnSpacing="10">
+                        <Image Grid.Column="0" Source="{x:Bind ViewModel.AnnualReportData.LongestStreakGame.ImagePath.Value}"/>
+                        <Grid Grid.Column="1" Margin="30 30 0 30"
+                              RowDefinitions="Auto,*,Auto,*,Auto" RowSpacing="5">
+                            <TextBlock Grid.Row="0" Text="这段时间中，游玩了"/>
+                            <Grid Grid.Row="1"/>
+                            <TextBlock Grid.Row="2" Text="{x:Bind ViewModel.AnnualReportData.LongestStreakGame.Name.Value}"
+                                       Style="{ThemeResource SubtitleTextBlockStyle}"
+                                       Foreground="{ThemeResource SystemControlForegroundAccentBrush}"
+                                       Margin="5,0,5,0" HorizontalAlignment="Center" />
+                            <Grid Grid.Row="3"/>
+                            <Grid Grid.Row="4" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="5">
+                                <TextBlock Grid.Column="0" Text="共" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                    Text="{x:Bind ViewModel.AnnualReportData.LongestStreakGameTime, Converter={StaticResource DoubleToStringConverter}, ConverterParameter=N1}"
+                                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                                    Foreground="{ThemeResource SystemControlForegroundAccentBrush}"/>
+                                <TextBlock Grid.Column="2" Text="小时" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    
+                </control:Panel>
+            </Grid>
+
+            <!-- 时长统计图表 -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,*">
+                <TextBlock Text="每周游玩时长统计"
+                           Style="{ThemeResource SubtitleTextBlockStyle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10" />
+                <lvc:CartesianChart Grid.Row="1"
+                                    Series="{x:Bind ViewModel.DayOfWeekSeries}"
+                                    XAxes="{x:Bind ViewModel.DayOfWeekXAxes}"
+                                    TooltipPosition="Top" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

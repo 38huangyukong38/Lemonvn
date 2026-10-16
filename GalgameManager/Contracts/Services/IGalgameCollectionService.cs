@@ -1,0 +1,157 @@
+using System.Collections.ObjectModel;
+using GalgameManager.Contracts.Phrase;
+using GalgameManager.Enums;
+using GalgameManager.Models;
+using GalgameManager.Models.Sources;
+
+namespace GalgameManager.Contracts.Services;
+
+public interface IGalgameCollectionService
+{
+    public Task InitAsync();
+
+    public Task StartAsync();
+    
+    /// <summary>
+    /// 【UI线程触发】当游戏完成一次新增、搜刮或来源关系变更后触发。
+    /// 每个公开操作在数据进入最终一致状态后至多触发一次。
+    /// </summary>
+    public event EventHandler<GalgameMutationEventArgs>? GalgameMutated;
+    
+    /// <summary>
+    /// 【UI线程触发】当有galgame删除时触发
+    /// </summary>
+    public event Action<Galgame>? GalgameDeletedEvent;
+
+    public Dictionary<int, IGalInfoPhraser> PhraserList { get; }
+
+    /// <summary>
+    /// 添加一个游戏，注意捕获异常
+    /// </summary>
+    /// <param name="sourceType">游戏所属库</param>
+    /// <param name="path">游戏文件夹路径</param>
+    /// <param name="force">没有在信息源中搜到该游戏时是否强制添加游戏</param>
+    /// <param name="requireConfirm">是否要确认搜刮结果</param>
+    /// <returns></returns>
+    public Task<Galgame> AddGameAsync(GalgameSourceType sourceType, string path, bool force,
+        bool requireConfirm = true);
+    
+    /// <summary>
+    /// 添加一个非本地的虚拟galgame
+    /// </summary>
+    /// <param name="game"></param>
+    public Task AddVirtualGalgameAsync(Galgame game,
+        GalgameChangeOrigin origin = GalgameChangeOrigin.LocalOperation);
+    
+    /// <summary>
+    /// 指定某个游戏的本地路径，注意捕获异常
+    /// </summary>
+    /// <param name="galgame">游戏</param>
+    /// <param name="path">游戏文件夹路径</param>
+    /// <returns></returns>
+    public Task<Galgame> SetLocalPathAsync(Galgame galgame, string path);
+
+    /// <summary>
+    /// 移除一个galgame
+    /// </summary>
+    /// <param name="galgame">galgame</param>
+    /// <param name="removeFromDisk">是否要从硬盘移除游戏</param>
+    public Task RemoveGalgame(Galgame galgame, bool removeFromDisk = false);
+
+    /// <summary>
+    /// 获取所有galgame
+    /// </summary>
+    public ObservableCollection<Galgame> Galgames { get; }
+    
+    /// <summary>
+    /// 获取UID获取游戏，若没有则返回null<br/>
+    /// Uid比较规则见：<see cref="GalgameUid.IsSame"/>
+    /// </summary>
+    public Galgame? GetGalgameFromUid(GalgameUid? uid, GalgameUidFetchMode mode = GalgameUidFetchMode.Same);
+    
+    /// <summary>
+    /// 获取某个uuid对应的游戏，若找不到则返回null
+    /// </summary>
+    /// <param name="uuid"></param>
+    /// <returns></returns>
+    public Galgame? GetGalgameFromUuid(Guid? uuid);
+
+    /// <summary>
+    /// 从id获取galgame
+    /// </summary>
+    /// <param name="id">id</param>
+    /// <param name="rssType">id的信息源</param>
+    /// <returns>galgame，若找不到返回null</returns>
+    public Galgame? GetGalgameFromId(string? id, RssType rssType);
+
+    /// <summary>
+    /// 从名字获取galgame
+    /// </summary>
+    /// <param name="name">名字</param>
+    /// <returns>galgame，找不到返回null</returns>
+    public Galgame? GetGalgameFromName(string? name);
+    
+    /// <summary>
+    /// 保存galgame列表（以及其内部的galgame）
+    /// </summary>
+    public Task SaveGalgamesAsync();
+    
+    /// <summary>
+    /// 保存galgame
+    /// </summary>
+    /// <param name="galgame">
+    /// 要指定保存的galgame<br/>
+    /// 如果设置中没有打开保存备份则不会保存到游戏文件夹
+    /// </param>
+    public Task SaveGalgameAsync(Galgame galgame);
+    
+    /// <summary>
+    /// 保存galgame的Meta信息<br/>
+    /// 若库没有打开保存Meta信息，则对应的库什么也不会发生
+    /// </summary>
+    /// <param name="galgame">要保存的游戏</param>
+    /// <param name="targetSource">要保存到的库，如果不指定则保存到所有库</param>
+    /// <exception cref="PvnException">targetSource不是null且不包含galgame</exception>
+    /// <returns></returns>
+    public Task SaveGalgameMetaAsync(Galgame galgame, GalgameSourceBase? targetSource = null);
+
+    /// <summary>
+    /// 从信息源中搜刮游戏信息，会直接修改传入的galgame <br/>
+    /// 会执行完整搜刮流程，包括从rss获取信息，用户确认，获取游玩状态等 <br/>
+    /// 注意捕获异常 <br/>
+    /// 注意，本函数<b>只解析在游戏列表中的游戏</b>，若要解析不在游戏列表中的游戏请使用<see cref="ParseGalInfoOnlyAsync"/>
+    /// </summary>
+    /// <param name="galgame">待搜刮游戏</param>
+    /// <param name="rssType">指定信息源，若为None则使用设置中的默认值</param>
+    /// <param name="requireConfirm">是否需要用户确认解析信息</param>
+    /// <param name="type">要搜刮游戏的哪些信息</param>
+    /// <returns>修改过后的galgame</returns>
+    /// <exception cref="PvnException">要求用户确认解析信息且用户取消了该确认对话框</exception>
+    public Task<Galgame> ParseGalInfoAsync(Galgame galgame, RssType rssType = RssType.None,
+        bool requireConfirm = false, GameParseType type = GameParseType.All);
+
+    /// <summary>
+    /// 从信息源中搜刮游戏信息，只解析基本信息，直接修改传入的galgame
+    /// </summary>
+    /// <param name="galgame">待搜刮游戏</param>
+    /// <param name="rssType">指定信息源，若为None则使用设置中的默认值</param>
+    /// <param name="requireConfirm">是否需要用户确认解析信息</param>
+    /// <returns>修改过后的游戏</returns>
+    public Task<Galgame> ParseGalInfoOnlyAsync(Galgame galgame, RssType rssType = RssType.None, bool requireConfirm = false);
+
+    /// <summary>
+    /// 从信息源中搜刮游戏角色信息，直接修改传入的galgameCharacter
+    /// </summary>
+    /// <param name="galgameCharacter">待搜刮的角色对象，获取的信息会直接写入该对象</param>
+    /// <param name="rssType">使用的信息源类型</param>
+    /// <param name="gameUuid">所属游戏UUID，用于隔离图片文件名；为null时从游戏列表查找所属游戏，未找到时使用临时图片命名空间</param>
+    /// <returns>更新后的角色对象</returns>
+    public Task<GalgameCharacter> PhraseGalCharacterAsync(GalgameCharacter galgameCharacter,
+        RssType rssType = RssType.None, Guid? gameUuid = null);
+
+    public Task<List<string>> ParserGalImagesAsync(Galgame galgame, GameParseType parseType);
+
+    public Task ExportAsync(Action<string, int, int>? progress);
+
+    public Task<(GalStatusSyncResult, string)> UploadPlayStatusAsync(Galgame galgame, RssType rssType);
+}

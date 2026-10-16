@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HalfFullWidth</id>
+    <version>2.0.0</version>
+    <authors>bgever</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <description>Convert between halfwidth and fullwidth Unicode forms.</description>
+    <copyright>Copyright © 2020-2026, Bart Verkoeijen</copyright>
+    <tags>unicode text convert conversion halfwidth fullwidth encoding</tags>
+    <repository type="git" url="https://github.com/bgever/HalfFullWidth" commit="101edaa1d05b540d4468f34c87b1293d69ac6c9a" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

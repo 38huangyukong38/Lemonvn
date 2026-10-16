@@ -1,0 +1,56 @@
+<Page x:Class="LemonVN.Views.LemonSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:control="using:GalgameManager.Views.Control">
+    <ScrollViewer>
+        <StackPanel Spacing="24" MaxWidth="900" HorizontalAlignment="Stretch" Margin="8,24,8,24">
+            <control:Panel>
+                <StackPanel Spacing="16">
+                    <control:Setting x:Uid="LemonSettings_Theme">
+                        <ComboBox SelectedIndex="{x:Bind ViewModel.SelectedThemeIndex, Mode=TwoWay}"
+                                  AutomationProperties.AutomationId="LemonThemeChoice" MinWidth="160">
+                            <ComboBoxItem x:Uid="LemonTheme_System" />
+                            <ComboBoxItem x:Uid="LemonTheme_Light" />
+                            <ComboBoxItem x:Uid="LemonTheme_Dark" />
+                        </ComboBox>
+                    </control:Setting>
+                    <Button x:Uid="LemonSettings_Save" Command="{x:Bind ViewModel.SaveThemeCommand}"
+                            AutomationProperties.AutomationId="LemonSaveTheme" />
+                    <InfoBar IsOpen="{x:Bind ViewModel.IsMessageOpen, Mode=TwoWay}"
+                             Message="{x:Bind ViewModel.Message, Mode=OneWay}" Severity="Informational" />
+                </StackPanel>
+            </control:Panel>
+            <control:Panel>
+                <StackPanel Spacing="12">
+                    <TextBlock x:Uid="LemonSettings_DataTitle" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock x:Uid="LemonSettings_DataDescription" TextWrapping="Wrap" />
+                    <TextBox Text="{x:Bind ViewModel.DataPath}" IsReadOnly="True" TextWrapping="Wrap"
+                             AutomationProperties.AutomationId="LemonDataPath" />
+                </StackPanel>
+            </control:Panel>
+            <control:Panel><StackPanel Spacing="12">
+                <ToggleSwitch x:Uid="Bangumi_Enabled" IsOn="{x:Bind ViewModel.BangumiEnabled, Mode=TwoWay}" AutomationProperties.AutomationId="BangumiEnabled" />
+                <TextBlock x:Uid="Bangumi_PublicOnly" TextWrapping="Wrap" />
+                <Button x:Uid="Bangumi_SaveNetwork" Command="{x:Bind ViewModel.SaveBangumiCommand}" AutomationProperties.AutomationId="BangumiSaveNetwork" />
+            </StackPanel></control:Panel>
+            <control:Panel><StackPanel Spacing="12">
+                <TextBlock x:Uid="Backup_Title" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                <TextBlock x:Uid="Backup_Description" TextWrapping="Wrap" />
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Button x:Uid="Backup_Export" Command="{x:Bind ViewModel.Transfer.ExportCommand}" IsEnabled="{x:Bind ViewModel.Transfer.CanOperate, Mode=OneWay}" AutomationProperties.AutomationId="LemonBackupExport" />
+                    <Button x:Uid="Backup_Restore" Command="{x:Bind ViewModel.Transfer.RestoreCommand}" IsEnabled="{x:Bind ViewModel.Transfer.CanOperate, Mode=OneWay}" AutomationProperties.AutomationId="LemonBackupRestore" />
+                    <Button x:Uid="AnimeEditor_Cancel" Command="{x:Bind ViewModel.Transfer.CancelCommand}" IsEnabled="{x:Bind ViewModel.Transfer.IsBusy, Mode=OneWay}" />
+                    <ProgressRing Width="24" Height="24" IsActive="{x:Bind ViewModel.Transfer.IsBusy, Mode=OneWay}" />
+                </StackPanel>
+                <InfoBar IsOpen="{x:Bind ViewModel.Transfer.IsMessageOpen, Mode=TwoWay}" Message="{x:Bind ViewModel.Transfer.Message, Mode=OneWay}" />
+            </StackPanel></control:Panel>
+            <control:Panel>
+                <StackPanel Spacing="12">
+                    <TextBlock Text="{x:Bind ViewModel.Version}" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock x:Uid="LemonSettings_Attribution" TextWrapping="Wrap" />
+                    <TextBlock x:Uid="LemonSettings_License" TextWrapping="Wrap" />
+                </StackPanel>
+            </control:Panel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

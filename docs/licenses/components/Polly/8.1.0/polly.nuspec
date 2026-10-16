@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Polly</id>
+    <version>8.1.0</version>
+    <authors>Michael Wolfenden, App vNext</authors>
+    <license type="expression">BSD-3-Clause</license>
+    <licenseUrl>https://licenses.nuget.org/BSD-3-Clause</licenseUrl>
+    <icon>package-icon.png</icon>
+    <readme>package-readme.md</readme>
+    <projectUrl>https://github.com/App-vNext/Polly</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>See https://github.com/App-vNext/Polly/blob/main/CHANGELOG.md for details</releaseNotes>
+    <copyright>Copyright (c) 2023, App vNext</copyright>
+    <tags>Exception Handling Resilience Transient Fault Policy Circuit Breaker CircuitBreaker Retry Wait Cache Cache-aside Bulkhead Rate-limit Fallback Timeout Throttle Parallelization Hedging</tags>
+    <repository type="git" url="https://github.com/App-vNext/Polly" commit="4d2dd5ac2a270708b63b42de7c4272efc012d55c" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Polly.Core" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Polly.Core" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Polly.Core" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Polly.Core" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

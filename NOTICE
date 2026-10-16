@@ -1,0 +1,29 @@
+LemonVN 0.1.0
+Project: https://github.com/38huangyukong38/Lemonvn
+
+Based on PotatoVN by GoldenPotato137 and its contributors:
+https://github.com/GoldenPotato137/PotatoVN
+Audited upstream revision: 2adef493ea0d82d27d4037e91507e558c567305d
+
+The upstream Apache License 2.0 and its original third-party attribution are
+preserved in LICENSE. LemonVN is an independent modification, not an official
+PotatoVN distribution or service.
+
+LemonVN modifications include independent application identity, startup and
+data isolation, Anime collection/progress/backup modules, optional public
+metadata and image recognition, and the LemonVN user interface.
+
+Third-party libraries, runtime components, reference data and artwork may have
+separate terms. See THIRD_PARTY_NOTICES.md and the release audit. This notice
+does not grant rights to third-party services, metadata or images.
+
+The planned LemonVN project is free and open source under Apache-2.0 for the
+corresponding code. Its present personal/non-commercial operating goal adds no
+commercial-use restriction to that license. Separate component and service
+terms still apply; the current internal test candidate is not release clearance.
+
+The public source snapshot excludes inherited signing material, legacy game
+data/artwork/fonts and old publishing workflows, while retaining the client
+source and tests. The original development repository/history is preserved.
+The upstream LICENSE retains historical attribution for translation data;
+that legacy data is not included in the LemonVN source snapshot.

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Squid-Box.SevenZipSharp</id>
+    <version>1.6.1.23</version>
+    <authors>Joel Ahlgren</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">LGPL-3.0-only</license>
+    <licenseUrl>https://licenses.nuget.org/LGPL-3.0-only</licenseUrl>
+    <readme>docs\readme.md</readme>
+    <projectUrl>https://github.com/squid-box/SevenZipSharp</projectUrl>
+    <description>Wraps 7z.dll or any compatible one and makes use of LZMA SDK, includes self-extraction functionality.</description>
+    <summary>Managed 7-zip library written in C# that provides data (self-)extraction and compression (all 7-zip formats are supported).</summary>
+    <releaseNotes>Fixed broken asynchronous extraction.</releaseNotes>
+    <language>en-US</language>
+    <tags>7z sevenzip sevenzipsharp 7-zip</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="4.5.0" />
+        <dependency id="System.Security.Permissions" version="4.5.0" />
+      </group>
+      <group targetFramework=".NETFramework4.7.2" />
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="System.Configuration.ConfigurationManager" version="4.5.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

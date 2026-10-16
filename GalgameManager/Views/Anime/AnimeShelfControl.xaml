@@ -1,0 +1,27 @@
+<UserControl x:Class="LemonVN.Views.Anime.AnimeShelfControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:anime="using:LemonVN.ViewModels.Anime" xmlns:views="using:LemonVN.Views.Anime">
+    <Grid RowSpacing="6">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <HyperlinkButton Content="{x:Bind Section.Title, Mode=OneWay}" Command="{x:Bind Section.MoreCommand, Mode=OneWay}" FontSize="20" FontWeight="SemiBold" Padding="0,4" />
+            <TextBlock Grid.Column="1" Text="{x:Bind Section.CountText, Mode=OneWay}" VerticalAlignment="Center" Margin="4,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            <Button Grid.Column="2" x:Uid="Browse_More" Command="{x:Bind Section.MoreCommand, Mode=OneWay}" />
+        </Grid>
+        <TextBlock Grid.Row="1" Text="{x:Bind Section.EmptyText, Mode=OneWay}" Visibility="{x:Bind Section.IsEmpty, Mode=OneWay}" TextWrapping="Wrap" Margin="8,8,8,20" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+        <ListView Grid.Row="1" Height="268" ItemsSource="{x:Bind Section.Items, Mode=OneWay}"
+                  Visibility="{x:Bind Section.HasItems, Mode=OneWay}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnAnimeClicked"
+                  ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ListView.ItemsPanel>
+            <ListView.ItemContainerStyle><Style TargetType="ListViewItem">
+                <Setter Property="Padding" Value="0" /><Setter Property="Margin" Value="0,0,10,0" />
+                <Setter Property="MinHeight" Value="0" /><Setter Property="BorderThickness" Value="1" />
+                <Setter Property="VerticalAlignment" Value="Top" /><Setter Property="VerticalContentAlignment" Value="Top" />
+            </Style></ListView.ItemContainerStyle>
+            <ListView.ItemTemplate><DataTemplate x:DataType="anime:AnimeCardViewModel"><views:AnimeCardControl Card="{x:Bind}" IsCompact="True" /></DataTemplate></ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

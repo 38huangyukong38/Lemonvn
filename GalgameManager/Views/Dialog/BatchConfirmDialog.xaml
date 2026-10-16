@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.BatchConfirmDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="using:GalgameManager.Helpers.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:GalgameManager.Models"
+    mc:Ignorable="d"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <ContentDialog.Resources>
+        <converter:ImagePathConverter x:Key="ImagePathConverter" />
+    </ContentDialog.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <StackPanel Spacing="8">
+            <TextBlock Text="{Binding Message}"
+                       TextWrapping="Wrap"
+                       Visibility="{Binding MessageVisibility}" />
+            <ListView ItemsSource="{Binding SelectedGalgames}"
+                      SelectionMode="None"
+                      MaxHeight="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Galgame">
+                        <Grid Padding="4,2" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Width="57" Height="80" CornerRadius="6">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{x:Bind ImagePath.Value, Converter={StaticResource ImagePathConverter}}"
+                                                Stretch="UniformToFill" />
+                                </Border.Background>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                                <TextBlock Text="{x:Bind Name.Value}"
+                                           Style="{ThemeResource BodyTextStyle}"
+                                           TextTrimming="CharacterEllipsis" />
+                                <TextBlock Text="{x:Bind Developer.Value}"
+                                           Style="{ThemeResource DescriptionTextStyle}"
+                                           TextTrimming="CharacterEllipsis" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

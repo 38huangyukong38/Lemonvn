@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>KnowledgePicker.WordCloud</id>
+    <version>1.3.1</version>
+    <title>Word Cloud for .NET</title>
+    <authors>KnowledgePicker</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/knowledgepicker/word-cloud</projectUrl>
+    <description>Modern and fast library for arranging and drawing word clouds (a.k.a. tag clouds or wordle). Uses Quadtrees for blazing-fast performance. Maintained by the KnowledgePicker team.</description>
+    <releaseNotes>https://github.com/knowledgepicker/word-cloud/releases</releaseNotes>
+    <copyright>Copyright 2021 Jan Joneš</copyright>
+    <tags>WordCloud TagCloud Wordle</tags>
+    <repository type="git" url="https://github.com/knowledgepicker/word-cloud" branch="master" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="SkiaSharp" version="2.88.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

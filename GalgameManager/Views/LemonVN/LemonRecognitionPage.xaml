@@ -1,0 +1,75 @@
+<Page x:Class="LemonVN.Views.LemonRecognitionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:vm="using:LemonVN.ViewModels"
+      xmlns:views="using:LemonVN.Views.Anime"
+      xmlns:toolkit="using:CommunityToolkit.WinUI.Controls">
+    <Grid x:Name="RecognitionViewport" Margin="8,12,8,8" SizeChanged="OnViewportSizeChanged">
+        <Grid x:Name="RecognitionContent" MaxWidth="880" HorizontalAlignment="Center"
+              RowSpacing="12"
+              AutomationProperties.AutomationId="RecognitionContent">
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition /></Grid.RowDefinitions>
+            <TextBlock Text="{x:Bind RecognitionTitle}" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,20,0,16"
+                       AutomationProperties.AutomationId="RecognitionTitle" />
+            <StackPanel Grid.Row="1" Spacing="8">
+                <TextBlock x:Uid="Recognition_Intro" TextWrapping="Wrap" />
+                <toolkit:WrapPanel HorizontalSpacing="10" VerticalSpacing="8">
+                    <Button x:Uid="Recognition_Pick" Command="{x:Bind ViewModel.PickImageCommand}" IsEnabled="{x:Bind ViewModel.CanInteract, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionPickImage" />
+                    <ComboBox x:Uid="Recognition_Mode" Width="210" SelectedIndex="{x:Bind ViewModel.ModeIndex, Mode=TwoWay}" IsEnabled="{x:Bind ViewModel.CanInteract, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionMode">
+                        <ComboBoxItem x:Uid="Recognition_Scene" /><ComboBoxItem x:Uid="Recognition_Character" />
+                    </ComboBox>
+                    <Button x:Uid="Recognition_Start" Command="{x:Bind ViewModel.RecognizeCommand}" IsEnabled="{x:Bind ViewModel.CanRecognize, Mode=OneWay}" Style="{StaticResource AccentButtonStyle}" AutomationProperties.AutomationId="RecognitionStart" />
+                    <Button x:Uid="Recognition_Cancel" Command="{x:Bind ViewModel.CancelCommand}" IsEnabled="{x:Bind ViewModel.IsBusy, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionCancel" />
+                    <ProgressRing Width="22" Height="22" IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
+                </toolkit:WrapPanel>
+                <TextBlock Text="{x:Bind ViewModel.Target, Mode=OneWay}" TextWrapping="Wrap" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+            </StackPanel>
+            <InfoBar Grid.Row="2" IsOpen="{x:Bind ViewModel.IsMessageOpen, Mode=TwoWay}" Visibility="{x:Bind ViewModel.IsMessageOpen, Mode=OneWay}" Message="{x:Bind ViewModel.Message, Mode=OneWay}" Severity="Warning" />
+            <toolkit:WrapPanel Grid.Row="3" HorizontalSpacing="16" VerticalSpacing="6">
+                <TextBlock Text="{x:Bind ViewModel.ResultSummary, Mode=OneWay}" TextWrapping="Wrap" />
+                <TextBlock Text="{x:Bind ViewModel.QuotaText, Mode=OneWay}" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </toolkit:WrapPanel>
+            <Grid Grid.Row="4" ColumnSpacing="20">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="300" /><ColumnDefinition /></Grid.ColumnDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+                    <StackPanel Spacing="12">
+                        <TextBlock x:Uid="Recognition_InputTitle" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                        <Border Height="172" CornerRadius="8" Background="{ThemeResource ControlFillColorSecondaryBrush}">
+                            <views:MemoryImage Bytes="{x:Bind ViewModel.InputPreview, Mode=OneWay}" DecodeFailed="OnInputDecodeFailed" AutomationProperties.AutomationId="RecognitionInputPreview" />
+                        </Border>
+                        <TextBlock Text="{x:Bind ViewModel.ImageSummary, Mode=OneWay}" TextWrapping="Wrap" FontSize="12" />
+                        <TextBlock x:Uid="Recognition_MatchTitle" Visibility="{x:Bind ViewModel.HasMatchPreview, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                        <views:MemoryImage Height="150" Bytes="{x:Bind ViewModel.MatchPreview, Mode=OneWay}" Visibility="{x:Bind ViewModel.HasMatchPreview, Mode=OneWay}" DecodeFailed="OnMatchDecodeFailed" AutomationProperties.AutomationId="RecognitionMatchPreview" />
+                        <TextBox x:Uid="Recognition_SearchKeyword" Text="{x:Bind ViewModel.SearchKeyword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.CanInteract, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionSearchKeyword" />
+                        <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8">
+                            <Button x:Uid="Recognition_Bangumi" Command="{x:Bind ViewModel.SearchBangumiCommand}" IsEnabled="{x:Bind ViewModel.CanSearch, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionBangumi" />
+                            <Button x:Uid="Recognition_FindLocal" Command="{x:Bind ViewModel.FindLocalCommand}" IsEnabled="{x:Bind ViewModel.CanSearch, Mode=OneWay}" AutomationProperties.AutomationId="RecognitionFindLocal" />
+                        </toolkit:WrapPanel>
+                        <TextBlock x:Uid="Recognition_LocalTitle" Visibility="{x:Bind ViewModel.HasLookedLocal, Mode=OneWay}" TextWrapping="Wrap" FontSize="12" />
+                        <ListView MaxHeight="180" ItemsSource="{x:Bind ViewModel.LocalMatches, Mode=OneWay}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnLocalClicked" AutomationProperties.AutomationId="RecognitionLocalMatches">
+                            <ListView.ItemTemplate><DataTemplate x:DataType="vm:RecognitionLocalMatch"><TextBlock Text="{x:Bind Title}" TextWrapping="Wrap" Margin="4,8" /></DataTemplate></ListView.ItemTemplate>
+                        </ListView>
+                        <Button x:Uid="Ux_OpenLibrary" Command="{x:Bind ViewModel.OpenLibraryCommand}" AutomationProperties.AutomationId="UxOpenLibrary" />
+                    </StackPanel>
+                </ScrollViewer>
+                <Grid Grid.Column="1" MaxWidth="560">
+                    <TextBlock x:Uid="Recognition_Empty" TextWrapping="Wrap" Visibility="{x:Bind ViewModel.HasNoMatches, Mode=OneWay}" Margin="12" />
+                    <ListView ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnCandidateClicked" AutomationProperties.AutomationId="RecognitionResults">
+                        <ListView.ItemTemplate><DataTemplate x:DataType="vm:RecognitionCandidateItem">
+                            <StackPanel Padding="8,12" Spacing="6">
+                                <TextBlock Text="{x:Bind Title}" TextWrapping="Wrap" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Work}" TextWrapping="Wrap" Visibility="{x:Bind HasCharacter}" />
+                                <TextBlock Text="{x:Bind Details}" FontSize="12" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock Text="{x:Bind Aliases}" FontSize="11" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" />
+                                <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="6">
+                                    <Button x:Uid="Recognition_Choose" Click="OnChooseClicked" />
+                                    <Button x:Uid="Recognition_ViewPreview" Click="OnPreviewClicked" Visibility="{x:Bind HasPreview}" />
+                                </toolkit:WrapPanel>
+                            </StackPanel>
+                        </DataTemplate></ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

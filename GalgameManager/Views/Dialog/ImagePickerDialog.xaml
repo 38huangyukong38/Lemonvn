@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.ImagePickerDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="DialogRoot"
+    xmlns:local="using:GalgameManager.Views.Dialog"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <GridView x:Name="ImageGridView"
+              ItemsSource="{x:Bind Images}"
+              SelectionMode="Single"
+              IsItemClickEnabled="True"
+              SelectionChanged="ImageGridView_OnSelectionChanged"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
+              ScrollViewer.VerticalScrollMode="Auto">
+        <GridView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <ItemsWrapGrid Orientation="Horizontal" 
+                               ItemWidth="{Binding ElementName=DialogRoot, Path=ItemWidth}" 
+                               ItemHeight="{Binding ElementName=DialogRoot, Path=ItemHeight}"/>
+            </ItemsPanelTemplate>
+        </GridView.ItemsPanel>
+        <GridView.ItemTemplate>
+            <DataTemplate x:DataType="local:ImagePickerItem">
+                <Grid CornerRadius="4" 
+                      Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Content="{x:Bind Url}"/>
+                    </ToolTipService.ToolTip>
+                    <Image Source="{x:Bind Url}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </DataTemplate>
+        </GridView.ItemTemplate>
+    </GridView>
+    
+</ContentDialog>

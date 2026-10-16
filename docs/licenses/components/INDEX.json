@@ -1,0 +1,2270 @@
+[
+  {
+    "id": "CSharpMarkup.WinUI",
+    "version": "2.4.18",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CSharpMarkup.WinUI.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CSharpMarkup.WinUI/2.4.18/csharpmarkup.winui.nuspec",
+        "sha256": "E2B753D89FCA60AD441DDB6D1B0987D3B6D3BADA3C60031DC1414BDA49D4060F"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView",
+    "version": "2.4.18",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView/2.4.18/csharpmarkup.winui.livechartscore.skiasharpview.nuspec",
+        "sha256": "D08DFE0D95AC648E7098CA9AE886A755A9DE14F4211B61AB4C51F6812431C842"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.Common",
+    "version": "8.2.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.Common.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.Common/8.2.1/communitytoolkit.common.nuspec",
+        "sha256": "DC0BBAEE930522358CECAEB7F8A9FE8898316E75F415C89B60A098BB5AA5A7AA"
+      },
+      {
+        "path": "components/CommunityToolkit.Common/8.2.1/License.md",
+        "sha256": "651997EF19DBB9ECB8DD660DBC86444A65AF21F18CFE08DAA69BF201CD5CFDFC"
+      },
+      {
+        "path": "components/CommunityToolkit.Common/8.2.1/ThirdPartyNotices.txt",
+        "sha256": "7774F8B0AB66BFB47EC154CE24A2D6D574FEBC44A74D940B8A037D1C56756163"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.Mvvm",
+    "version": "8.4.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.Mvvm.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.Mvvm/8.4.0/communitytoolkit.mvvm.nuspec",
+        "sha256": "01C3F845EA8BA4879FD33AF4C7D803BF44CBF14C3DF8E0B0658D6A9F37318FC4"
+      },
+      {
+        "path": "components/CommunityToolkit.Mvvm/8.4.0/License.md",
+        "sha256": "651997EF19DBB9ECB8DD660DBC86444A65AF21F18CFE08DAA69BF201CD5CFDFC"
+      },
+      {
+        "path": "components/CommunityToolkit.Mvvm/8.4.0/ThirdPartyNotices.txt",
+        "sha256": "7774F8B0AB66BFB47EC154CE24A2D6D574FEBC44A74D940B8A037D1C56756163"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Animations",
+    "version": "8.1.240916",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Animations.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Animations/8.1.240916/communitytoolkit.winui.animations.nuspec",
+        "sha256": "F863F7DF2505EE5C6D4CA666DFCA6EBE86E4FCAC763FB1CDB463A04B0530CDDF"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Animations/8.1.240916/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Behaviors",
+    "version": "8.1.240916",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Behaviors.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Behaviors/8.1.240916/communitytoolkit.winui.behaviors.nuspec",
+        "sha256": "8C34961F04FA82CFF4A92DC8813CBBEBB7EC1BB97C5A01F30C93F693673B2AF2"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Behaviors/8.1.240916/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Collections",
+    "version": "8.2.250402",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Collections.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Collections/8.2.250402/communitytoolkit.winui.collections.nuspec",
+        "sha256": "1085F71EAEAF29D0432DFD4F3E2077E68D4AAD7FDE31F07037FCD9E8216C4BE1"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Collections/8.2.250402/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Controls.Primitives",
+    "version": "8.1.240916",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Controls.Primitives.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.Primitives/8.1.240916/communitytoolkit.winui.controls.primitives.nuspec",
+        "sha256": "29CEC1C99951D1DF32CB6BFCF87497C2006933AC3401F12EE7E43BC1F878FF74"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.Primitives/8.1.240916/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Controls.Sizers",
+    "version": "8.2.241112-preview1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Controls.Sizers.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.Sizers/8.2.241112-preview1/communitytoolkit.winui.controls.sizers.nuspec",
+        "sha256": "8DA8DC584029653F9799E37289515E9A03DF6813F6A40494629E1B8C1EDD9215"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.Sizers/8.2.241112-preview1/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Controls.TokenizingTextBox",
+    "version": "8.1.240916",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Controls.TokenizingTextBox.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.TokenizingTextBox/8.1.240916/communitytoolkit.winui.controls.tokenizingtextbox.nuspec",
+        "sha256": "DED49141478C3EC748608C1F6E4156503D08A25CCC9E42CE4FFF465D269BE00A"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Controls.TokenizingTextBox/8.1.240916/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Converters",
+    "version": "8.2.241112-preview1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Converters.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Converters/8.2.241112-preview1/communitytoolkit.winui.converters.nuspec",
+        "sha256": "F9E7D1C736330FA5425FA0E125EBB06F5CFB6547AD0C3FB532A33F879E35EB5B"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Converters/8.2.241112-preview1/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Extensions",
+    "version": "8.2.250402",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Extensions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Extensions/8.2.250402/communitytoolkit.winui.extensions.nuspec",
+        "sha256": "A24459BC926179A5CE180FBB7737FE4C866F2E2B6D45AB678539E24517886C01"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Extensions/8.2.250402/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "CommunityToolkit.WinUI.Helpers",
+    "version": "8.2.250402",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "CommunityToolkit.WinUI.Helpers.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/CommunityToolkit.WinUI.Helpers/8.2.250402/communitytoolkit.winui.helpers.nuspec",
+        "sha256": "5319B41E73C5883F931022499F4ACD7E938C59A3B9A7FEEAE89B4135386170A4"
+      },
+      {
+        "path": "components/CommunityToolkit.WinUI.Helpers/8.2.250402/License.md",
+        "sha256": "C12410935503A2C9C4D3D4D14FDFDFF49D0A37AD0046DC761B07867E8D499E97"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "GalFingerPrint.Client",
+    "version": "1.0.2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "GalFingerPrint.Client.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/GalFingerPrint.Client/1.0.2/galfingerprint.client.nuspec",
+        "sha256": "7D54C0F320FBE1B7436ED9E32BDF5E6A925C8ED0E4CD42F884D01C674D0D601C"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "H.GeneratedIcons.System.Drawing",
+    "version": "2.0.118",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "H.GeneratedIcons.System.Drawing.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/H.GeneratedIcons.System.Drawing/2.0.118/h.generatedicons.system.drawing.nuspec",
+        "sha256": "A914C75F3732AE898FD54D14DA48578A8BCEFB35401D4B7B9F9BF5F29F5C8DF6"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "H.NotifyIcon",
+    "version": "2.0.118",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "H.NotifyIcon.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/H.NotifyIcon/2.0.118/h.notifyicon.nuspec",
+        "sha256": "65962BBFC355EB567E9ED60433F7C8EF41C6D464EE136E88B99451796C07E650"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "H.NotifyIcon.WinUI",
+    "version": "2.0.118",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "H.NotifyIcon.WinUI.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/H.NotifyIcon.WinUI/2.0.118/h.notifyicon.winui.nuspec",
+        "sha256": "2FC67E223DC55E8ADEB5048FDEC8F1EDB2A74E140EBEB86AAAD427E61ADAA357"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "HalfFullWidth",
+    "version": "2.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "HalfFullWidth.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/HalfFullWidth/2.0.0/halffullwidth.nuspec",
+        "sha256": "CA0E0AB7CEDBB958755D375BFE23F7EB84A3FE0E4C30993439A25498194C43EE"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "HarfBuzzSharp",
+    "version": "7.3.0",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "HarfBuzzSharp.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/HarfBuzzSharp/7.3.0/harfbuzzsharp.nuspec",
+        "sha256": "3683DC297ADFAAFA1038F18C8D0397FEEA0545FA6739FC869FF4E101D818D5FC"
+      },
+      {
+        "path": "components/HarfBuzzSharp/7.3.0/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/HarfBuzzSharp/7.3.0/THIRD-PARTY-NOTICES.txt",
+        "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "HarfBuzzSharp.NativeAssets.Win32",
+    "version": "7.3.0",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "libHarfBuzzSharp.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/HarfBuzzSharp.NativeAssets.Win32/7.3.0/harfbuzzsharp.nativeassets.win32.nuspec",
+        "sha256": "9E0E338B58A3908D28512AA6E2192B6ADCBF9B6A3DE47D77366EAEC1D84415FD"
+      },
+      {
+        "path": "components/HarfBuzzSharp.NativeAssets.Win32/7.3.0/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/HarfBuzzSharp.NativeAssets.Win32/7.3.0/THIRD-PARTY-NOTICES.txt",
+        "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "HtmlAgilityPack",
+    "version": "1.11.46",
+    "licenseMetadata": "https://github.com/zzzprojects/html-agility-pack/blob/master/LICENSE",
+    "runtimeFiles": [
+      "HtmlAgilityPack.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/HtmlAgilityPack/1.11.46/htmlagilitypack.nuspec",
+        "sha256": "998DEA5117C755E717B12D52D7CA65C3AA9390F8E72DF04BBE87BF672C4F87D4"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "InputSimulatorPlus.NetStandard",
+    "version": "1.0.8",
+    "licenseMetadata": "MS-PL",
+    "runtimeFiles": [
+      "WindowsInputPlus.NetStandard.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/InputSimulatorPlus.NetStandard/1.0.8/inputsimulatorplus.netstandard.nuspec",
+        "sha256": "6E6A190D91F997ED58CD612DAF654E77E62FEFF0C7BA2B36D7627C7289FA2D5C"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "JsonSubTypes",
+    "version": "2.0.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "JsonSubTypes.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/JsonSubTypes/2.0.1/jsonsubtypes.nuspec",
+        "sha256": "56654D81817F347A5CC90EBAF445597DDB097DC9CD0B88DCD0A479A73C55EC03"
+      },
+      {
+        "path": "components/JsonSubTypes/2.0.1/LICENSE",
+        "sha256": "FC8AE952E92E3DC63F5FC6FAEB3D61ABA804FB2AEE8501D5B92EFBA0A028E97E"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "KnowledgePicker.WordCloud",
+    "version": "1.3.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "KnowledgePicker.WordCloud.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/KnowledgePicker.WordCloud/1.3.1/knowledgepicker.wordcloud.nuspec",
+        "sha256": "F231F6D6B2C23B2E64CE9C48C5AD200A349991F8AA7DB2A96A4A76035771FA66"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Lib.Harmony",
+    "version": "2.4.2",
+    "licenseMetadata": "LICENSE",
+    "runtimeFiles": [
+      "0Harmony.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Lib.Harmony/2.4.2/lib.harmony.nuspec",
+        "sha256": "9F07C749B717922C7B5F66BF5B4F8EA6D6F6C4E84AE70A61866A4E92D1A1B5FA"
+      },
+      {
+        "path": "components/Lib.Harmony/2.4.2/LICENSE",
+        "sha256": "407DDD98200C9F17F49942B5A7791E288A2BD553B59BF2F462DB87DBB21C50BC"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "LiteDB",
+    "version": "5.0.21",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "LiteDB.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/LiteDB/5.0.21/LICENSE",
+        "sha256": "0F077C548C9F6F6181D59A6DC1DDCA08F35968A9B38B7F45932932B0CB082081"
+      },
+      {
+        "path": "components/LiteDB/5.0.21/litedb.nuspec",
+        "sha256": "13EB151B567816ED221E361C48166AC8A30A3F40C1EC52B47002B29E074BB73D"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "LiveChartsCore",
+    "version": "2.0.0-rc2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "LiveChartsCore.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/LiveChartsCore/2.0.0-rc2/livechartscore.nuspec",
+        "sha256": "F9467F6E7AFEA21F26B2A4D36B8F37BA3DFACDA31E933EEF996A1DF2E44FD353"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "LiveChartsCore.Behaviours",
+    "version": "2.0.0-rc2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "LiveChartsCore.Behaviours.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/LiveChartsCore.Behaviours/2.0.0-rc2/livechartscore.behaviours.nuspec",
+        "sha256": "95EB2A958BCC1951A45A93AA85E0F6EDF719499B5E834359D5F4C1B445A90B27"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "LiveChartsCore.SkiaSharpView",
+    "version": "2.0.0-rc2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "LiveChartsCore.SkiaSharpView.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/LiveChartsCore.SkiaSharpView/2.0.0-rc2/livechartscore.skiasharpview.nuspec",
+        "sha256": "11B9B3E4F1D0DEE4934128D47AFC0B5B0010C661869688B72A48E3D76D4CEA6C"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "LiveChartsCore.SkiaSharpView.Uno.WinUI",
+    "version": "2.0.0-rc2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "LiveChartsCore.SkiaSharpView.Uno.WinUI.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/LiveChartsCore.SkiaSharpView.Uno.WinUI/2.0.0-rc2/livechartscore.skiasharpview.uno.winui.nuspec",
+        "sha256": "244416FC4632663E1D84A30957D9876BA8B42CCA8E8A79F279B4ED6AA52B6522"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.AppCenter",
+    "version": "5.0.6",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.AppCenter.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.AppCenter/5.0.6/microsoft.appcenter.nuspec",
+        "sha256": "8D32ACD6AB7077CC4CA6FF66F68B964D22CE1D1DD7BAB8A08226C38847DBA6C8"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.AppCenter.Analytics",
+    "version": "5.0.6",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.AppCenter.Analytics.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.AppCenter.Analytics/5.0.6/microsoft.appcenter.analytics.nuspec",
+        "sha256": "445B3670660ADD4A080DE27390E3A7840BA32D561F14A38C5C4C7605FB8AFD41"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.AppCenter.Crashes",
+    "version": "5.0.2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.AppCenter.Crashes.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.AppCenter.Crashes/5.0.2/microsoft.appcenter.crashes.nuspec",
+        "sha256": "AFD97AB80474EEB8EF767823894A5D90AC67FF0236A7BBBD72DCA73C09B4FC0A"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration/7.0.0/microsoft.extensions.configuration.nuspec",
+        "sha256": "4A7B4597401367B24C123261461299C5828B76E515FD2684DDBBAAA5A273CBB1"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.Abstractions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.Abstractions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Abstractions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Abstractions/7.0.0/microsoft.extensions.configuration.abstractions.nuspec",
+        "sha256": "E17AF092B5F1E5F9FFC61AB3601AEF098654C1045B7479B3D8105BC4EE9EF98F"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Abstractions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.Binder",
+    "version": "7.0.3",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.Binder.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Binder/7.0.3/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Binder/7.0.3/microsoft.extensions.configuration.binder.nuspec",
+        "sha256": "5B6A20EC4244DAD122FC9C230EEA1C5D28609AC24F00E25EA7768D6FC1D34BAE"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Binder/7.0.3/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.CommandLine",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.CommandLine.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.CommandLine/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.CommandLine/7.0.0/microsoft.extensions.configuration.commandline.nuspec",
+        "sha256": "9C2530BF8D73AD59283050F2335A2F14EB813FEA231AD04ACA16FB254204A532"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.CommandLine/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.EnvironmentVariables.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.EnvironmentVariables/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.EnvironmentVariables/7.0.0/microsoft.extensions.configuration.environmentvariables.nuspec",
+        "sha256": "2A1D01EACD4E36EEA12F95C81707CCEBB6731D9DC36DAE98D0A3F828B82DF198"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.EnvironmentVariables/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.FileExtensions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.FileExtensions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.FileExtensions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.FileExtensions/7.0.0/microsoft.extensions.configuration.fileextensions.nuspec",
+        "sha256": "47C085BCBCE2E062C753336A5D4A7DE8A9933FE18A1C09FDE8A686F76CB564B1"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.FileExtensions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.Json",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.Json.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Json/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Json/7.0.0/microsoft.extensions.configuration.json.nuspec",
+        "sha256": "E03E78710EAF9031EE26B485102BF16FDE43B40E6EC0F75DB040CA77C651B6F0"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.Json/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Configuration.UserSecrets",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Configuration.UserSecrets.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Configuration.UserSecrets/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.UserSecrets/7.0.0/microsoft.extensions.configuration.usersecrets.nuspec",
+        "sha256": "52BD22C28450955EF7C5864C45BC5018EB8BF8F8D3262A536B0F2C328B9CDADD"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Configuration.UserSecrets/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.DependencyInjection",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.DependencyInjection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection/7.0.0/microsoft.extensions.dependencyinjection.nuspec",
+        "sha256": "195F80F5A255296C724A71FF7A728BB0A6C588CA4973511EBEAD68EB7497808F"
+      },
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.DependencyInjection.Abstractions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "sha256": "89B0AFF16ECEF1CE6F2D75AEBC2BD55932317B9987E68DAF37E874FEBFD1E750"
+      },
+      {
+        "path": "components/Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.FileProviders.Abstractions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.FileProviders.Abstractions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Abstractions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Abstractions/7.0.0/microsoft.extensions.fileproviders.abstractions.nuspec",
+        "sha256": "88A62DDC9A93903D909872EF8A51CA111626BDAEB0ED35A5B2B29B9E5F251C2B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Abstractions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.FileProviders.Physical",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.FileProviders.Physical.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Physical/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Physical/7.0.0/microsoft.extensions.fileproviders.physical.nuspec",
+        "sha256": "43BC1200A4440E07C589999A33DE1EB2619267DD0CBC75F49491FA13EBD5143D"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileProviders.Physical/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.FileSystemGlobbing",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.FileSystemGlobbing.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.FileSystemGlobbing/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileSystemGlobbing/7.0.0/microsoft.extensions.filesystemglobbing.nuspec",
+        "sha256": "FB35B2CC414B4805D9A7B7EDE5E023B7B0F7D8BBC8A8E01A31C9DF1C60988FA7"
+      },
+      {
+        "path": "components/Microsoft.Extensions.FileSystemGlobbing/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Hosting",
+    "version": "7.0.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Hosting.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Hosting/7.0.1/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Hosting/7.0.1/microsoft.extensions.hosting.nuspec",
+        "sha256": "93959342ED77A054D3FC22581CAA9EF6A21EEF74EDBB56195B92ED21C7DDE516"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Hosting/7.0.1/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Hosting.Abstractions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Hosting.Abstractions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Hosting.Abstractions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Hosting.Abstractions/7.0.0/microsoft.extensions.hosting.abstractions.nuspec",
+        "sha256": "18B243904AA8C9ACA18C8CEE3FFCE01BE1396D5F2C9A32FAA5A6997CF9A0E0A4"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Hosting.Abstractions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging/7.0.0/microsoft.extensions.logging.nuspec",
+        "sha256": "0F2754AD2ABB47E4B850DEE916659E4002A19CDAA9DF6946E8BB4C8D6A676853"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.Abstractions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.Abstractions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.Abstractions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Abstractions/7.0.0/microsoft.extensions.logging.abstractions.nuspec",
+        "sha256": "268A1C9E243D183574FAAF8271A8005E99E505E576134048AD1EB56291D5BDB4"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Abstractions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.Configuration",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.Configuration.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.Configuration/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Configuration/7.0.0/microsoft.extensions.logging.configuration.nuspec",
+        "sha256": "2843EB3721ED8802AC8352BE262192884F928E616A2B6E78ABD4C540C2E488F4"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Configuration/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.Console",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.Console.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.Console/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Console/7.0.0/microsoft.extensions.logging.console.nuspec",
+        "sha256": "6B6B3A0ABF7C05C6DC9C877EB83ADB8B8F510F0D1F8F6123391278095FA1B9B4"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Console/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.Debug",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.Debug.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.Debug/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Debug/7.0.0/microsoft.extensions.logging.debug.nuspec",
+        "sha256": "A5741C84C4A9947E8EFDBAEEE3A247EA98C84C9E3BA5E003FEE6F708AE905982"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.Debug/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.EventLog",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.EventLog.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventLog/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventLog/7.0.0/microsoft.extensions.logging.eventlog.nuspec",
+        "sha256": "EC2AB4C4DE364B4E8C107AACB58CE0A6E1C8E455B241061976E00382D0F3E1CA"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventLog/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Logging.EventSource",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Logging.EventSource.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventSource/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventSource/7.0.0/microsoft.extensions.logging.eventsource.nuspec",
+        "sha256": "DA939A4E0023773A65AB94042435876926DBE5C08251FA99FE192915F9BF6F7D"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Logging.EventSource/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Options",
+    "version": "7.0.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Options.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Options/7.0.1/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Options/7.0.1/microsoft.extensions.options.nuspec",
+        "sha256": "FF3C58AF6CB1264A799D9521B4219AA1088EBA52040CF5C551E7D120AA7385DF"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Options/7.0.1/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Options.ConfigurationExtensions",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Options.ConfigurationExtensions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Options.ConfigurationExtensions/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Options.ConfigurationExtensions/7.0.0/microsoft.extensions.options.configurationextensions.nuspec",
+        "sha256": "BF995C0CC50F8D37DB4F80B17CBB9674DE21FEB8B723E56889A11B8CB3B1C8B9"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Options.ConfigurationExtensions/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Extensions.Primitives",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Extensions.Primitives.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Extensions.Primitives/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Primitives/7.0.0/microsoft.extensions.primitives.nuspec",
+        "sha256": "652965DA7A611DA73A8DBB47DA96DDD0A938DFA3E3F8F8CFB2F97C1722E35815"
+      },
+      {
+        "path": "components/Microsoft.Extensions.Primitives/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Web.WebView2",
+    "version": "1.0.3719.77",
+    "licenseMetadata": "LICENSE.txt",
+    "runtimeFiles": [
+      "WebView2Loader.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Web.WebView2/1.0.3719.77/LICENSE.txt",
+        "sha256": "0AF8F1B807512AAE39C2AC1AA4D0CAE65CABECB6FD554B8439A5162A0D6ECA55"
+      },
+      {
+        "path": "components/Microsoft.Web.WebView2/1.0.3719.77/microsoft.web.webview2.nuspec",
+        "sha256": "8664509B904EEC16BF806DEDE9297B87649F8E8E2E391083A57CC7ED6A4F873E"
+      },
+      {
+        "path": "components/Microsoft.Web.WebView2/1.0.3719.77/NOTICE.txt",
+        "sha256": "106423785C5B7EBA0A8E61D1837F2132E9C828E20AD530F565D981C1DF60DD90"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Win32.SystemEvents",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Win32.SystemEvents.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Win32.SystemEvents/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Microsoft.Win32.SystemEvents/7.0.0/microsoft.win32.systemevents.nuspec",
+        "sha256": "EC423052D16A901637BADE53D02380214D2BDE0CC484BCA20FA94C8EB34E4460"
+      },
+      {
+        "path": "components/Microsoft.Win32.SystemEvents/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Windows.AI.MachineLearning",
+    "version": "2.1.1",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.ML.OnnxRuntime.dll",
+      "Microsoft.Windows.AI.MachineLearning.Projection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/license.txt",
+        "sha256": "66395F8CB219087FAE2BD025010BD9076B736C14F03B48F20295471C0C376814"
+      },
+      {
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/microsoft.windows.ai.machinelearning.nuspec",
+        "sha256": "180516E3F7EF8EBAF3352752E540B146B3C0848C334492580A8428CDC1C2241E"
+      },
+      {
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/ThirdPartyNotices.txt",
+        "sha256": "FB0AF774B4D7CFFC5B9D046F2AAEADE2F37DF2F80ABF8033C95DFFFCC77A8866"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.AI",
+    "version": "2.1.10",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.Graphics.Imaging.Projection.dll",
+      "Microsoft.Windows.AI.ContentSafety.Projection.dll",
+      "Microsoft.Windows.AI.Foundation.Projection.dll",
+      "Microsoft.Windows.AI.Imaging.Projection.dll",
+      "Microsoft.Windows.AI.Projection.dll",
+      "Microsoft.Windows.AI.Text.Projection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.AI/2.1.10/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.AI/2.1.10/microsoft.windowsappsdk.ai.nuspec",
+        "sha256": "845E42DF4DB9880434EC49FFE2B8AE46B3046D4712233C49E95E2AFE498CC7EB"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.Foundation",
+    "version": "2.0.21",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.Security.Authentication.OAuth.Projection.dll",
+      "Microsoft.Windows.AppLifecycle.Projection.dll",
+      "Microsoft.Windows.AppNotifications.Builder.Projection.dll",
+      "Microsoft.Windows.AppNotifications.Projection.dll",
+      "Microsoft.Windows.ApplicationModel.Background.Projection.dll",
+      "Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll",
+      "Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll",
+      "Microsoft.Windows.ApplicationModel.Resources.Projection.dll",
+      "Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll",
+      "Microsoft.Windows.BadgeNotifications.Projection.dll",
+      "Microsoft.Windows.Foundation.Projection.dll",
+      "Microsoft.Windows.Management.Deployment.Projection.dll",
+      "Microsoft.Windows.Media.Capture.Projection.dll",
+      "Microsoft.Windows.PushNotifications.Projection.dll",
+      "Microsoft.Windows.Security.AccessControl.Projection.dll",
+      "Microsoft.Windows.Storage.Pickers.Projection.dll",
+      "Microsoft.Windows.Storage.Projection.dll",
+      "Microsoft.Windows.System.Power.Projection.dll",
+      "Microsoft.Windows.System.Projection.dll",
+      "Microsoft.WindowsAppRuntime.Bootstrap.Net.dll",
+      "Microsoft.WindowsAppRuntime.Bootstrap.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.0.21/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.0.21/microsoft.windowsappsdk.foundation.nuspec",
+        "sha256": "6539DDC8BAB488925727BBCC72E5E7A6FF3B9E730ABC661B5392F395770D2B86"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.InteractiveExperiences",
+    "version": "2.0.13",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.InteractiveExperiences.Projection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.0.13/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.0.13/microsoft.windowsappsdk.interactiveexperiences.nuspec",
+        "sha256": "FA95A3636E752736684D92BA8A294AA7B7AF3816A74A960DCD88CAEDE6BFD770"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.Widgets",
+    "version": "2.0.5",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.Windows.Widgets.Projection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Widgets/2.0.5/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Widgets/2.0.5/microsoft.windowsappsdk.widgets.nuspec",
+        "sha256": "C5AEB6CAD1F91A8E025944CEEE3F4AC1CA306E432B3AFAE23A7FBAC70B07DEA7"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.WinUI",
+    "version": "2.1.0",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.WinUI.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/license.txt",
+        "sha256": "C2F1D9EFBA5864366335C007D51CAB1D5B07005E9F1A67D7CA90B7B2A01FD615"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/microsoft.windowsappsdk.winui.nuspec",
+        "sha256": "7BA5038096485E5176B829F8EB81937A809FAEE465CC82C61F4A1F2464DB2D5E"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/NOTICE.txt",
+        "sha256": "E25393C0D340A1821827B093FA4DBBFCCCD8FEB7BF769E7FA773E3955CD5314B"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/tools/NOTICE.txt",
+        "sha256": "4A9321FD173EBF4E8BBC79130794D4C3FE233ACCCBF7DB8765E0ADDB8FBFB8CA"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.Xaml.Behaviors.WinUI.Managed",
+    "version": "2.0.9",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Microsoft.Xaml.Interactions.dll",
+      "Microsoft.Xaml.Interactivity.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.Xaml.Behaviors.WinUI.Managed/2.0.9/microsoft.xaml.behaviors.winui.managed.nuspec",
+        "sha256": "07669D24790A0C75E42AC7FE1C1439070BF9632A9B8DC0D69271426F9C0425F0"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Newtonsoft.Json",
+    "version": "13.0.3",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Newtonsoft.Json.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Newtonsoft.Json/13.0.3/LICENSE.md",
+        "sha256": "B98A397897FF55F76CDDC380041507A95A896B2946E0188703BF0496793D6516"
+      },
+      {
+        "path": "components/Newtonsoft.Json/13.0.3/newtonsoft.json.nuspec",
+        "sha256": "64AEFFCA22289EEB3BD32CBE72722AC878D2EADCEE9F8885F17DAA2E8357C518"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Polly",
+    "version": "8.1.0",
+    "licenseMetadata": "BSD-3-Clause",
+    "runtimeFiles": [
+      "Polly.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Polly/8.1.0/polly.nuspec",
+        "sha256": "447F3C9E303A2C9D05F46B0471353B56413592740973EDC6EBFF4277A18BC4E0"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Polly.Core",
+    "version": "8.1.0",
+    "licenseMetadata": "BSD-3-Clause",
+    "runtimeFiles": [
+      "Polly.Core.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Polly.Core/8.1.0/polly.core.nuspec",
+        "sha256": "D6AB333AD965DBBA97B5A95CD3145C7F9E1E384BAF5BB94E84C4B635FC4F7A9F"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "PotatoVN.Client",
+    "version": "1.0.11",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "PotatoVN.Client.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/PotatoVN.Client/1.0.11/potatovn.client.nuspec",
+        "sha256": "709F59D66069B42878E11C528367BB51B8AF5E1442F2E914F10517515BC2D868"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "PotatoVnDBMapper",
+    "version": "1.1.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "NugetPackage.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/PotatoVnDBMapper/1.1.1/potatovndbmapper.nuspec",
+        "sha256": "8B1C40D3271B15268EEE1E7D83026B5BF0B4854FFD503A218341D605DDE3F3CB"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "PotatoVnDBMapper.Models",
+    "version": "1.1.1",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Models.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/PotatoVnDBMapper.Models/1.1.1/potatovndbmapper.models.nuspec",
+        "sha256": "AF44A57E22CE0E3280BAC3CCC570F07E261723749EC19B5509389B1BD4FC24F5"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Refit",
+    "version": "8.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Refit.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Refit/8.0.0/LICENSE/LICENSE",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Refit/8.0.0/refit.nuspec",
+        "sha256": "A8B9CD7D2AFAB3C9718505111C8A8E95EDEA9C17689B8A62E0A11A92763DAD85"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Refit.Newtonsoft.Json",
+    "version": "8.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "Refit.Newtonsoft.Json.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Refit.Newtonsoft.Json/8.0.0/LICENSE/LICENSE",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/Refit.Newtonsoft.Json/8.0.0/refit.newtonsoft.json.nuspec",
+        "sha256": "683557835626DD49C533407DA02A9E6AD399A17403F0023212E93BDB281FC803"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SQLitePCLRaw.bundle_green",
+    "version": "2.1.7",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "SQLitePCLRaw.batteries_v2.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SQLitePCLRaw.bundle_green/2.1.7/sqlitepclraw.bundle_green.nuspec",
+        "sha256": "6B08EF4375BC1D6D2DD86F0BEF41F95C7ABDC76E27131D499D246F09C0EEBEEF"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SQLitePCLRaw.core",
+    "version": "2.1.7",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "SQLitePCLRaw.core.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SQLitePCLRaw.core/2.1.7/sqlitepclraw.core.nuspec",
+        "sha256": "9AE9C4F82698DC1D7946DDF79B86927BC8A0DFC634D1F8F11775B578683ADF33"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SQLitePCLRaw.lib.e_sqlite3",
+    "version": "2.1.13",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "e_sqlite3.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SQLitePCLRaw.lib.e_sqlite3/2.1.13/sqlitepclraw.lib.e_sqlite3.nuspec",
+        "sha256": "5E0800665AEB09107C3B45E1162109EFB9B83DBAAD987A4ECA5D686D34769E86"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SQLitePCLRaw.provider.e_sqlite3",
+    "version": "2.1.7",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "SQLitePCLRaw.provider.e_sqlite3.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SQLitePCLRaw.provider.e_sqlite3/2.1.7/sqlitepclraw.provider.e_sqlite3.nuspec",
+        "sha256": "9E19AB3E35BB6C9325077B1EAC261F9A5E73D67350BBD126F37D3E554DC73ED3"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Serilog",
+    "version": "4.2.0",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "Serilog.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Serilog/4.2.0/serilog.nuspec",
+        "sha256": "D781CBB7D6576213163253DB191FFA003E4DAF888FE7A09A0167A637E0CA37B9"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Serilog.Sinks.File",
+    "version": "6.0.0",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "Serilog.Sinks.File.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Serilog.Sinks.File/6.0.0/serilog.sinks.file.nuspec",
+        "sha256": "79EB1C94605121403525475D822F7F565A3B4DCE336695AAE11D0F44DAAC80AF"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SharpCompress",
+    "version": "0.48.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "SharpCompress.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SharpCompress/0.48.0/sharpcompress.nuspec",
+        "sha256": "DB2B0233FC33751FA4D2DD7C68C0847102543DC8F3DC0E610C444FE79789567E"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SkiaSharp",
+    "version": "2.88.6",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "SkiaSharp.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SkiaSharp/2.88.6/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/SkiaSharp/2.88.6/skiasharp.nuspec",
+        "sha256": "1262E23CE2D8892D1838F7AE91E44FCF86C198F0CFE1F053C032D47B42F23CAD"
+      },
+      {
+        "path": "components/SkiaSharp/2.88.6/THIRD-PARTY-NOTICES.txt",
+        "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SkiaSharp.HarfBuzz",
+    "version": "2.88.6",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "SkiaSharp.HarfBuzz.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SkiaSharp.HarfBuzz/2.88.6/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/SkiaSharp.HarfBuzz/2.88.6/skiasharp.harfbuzz.nuspec",
+        "sha256": "1659C8DA04907CFDE15938D98FDD7884BD644A8B745F4711D57E5CAFC8E11832"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SkiaSharp.NativeAssets.Win32",
+    "version": "2.88.6",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "libSkiaSharp.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SkiaSharp.NativeAssets.Win32/2.88.6/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/SkiaSharp.NativeAssets.Win32/2.88.6/skiasharp.nativeassets.win32.nuspec",
+        "sha256": "86B1A64AF860656B55A3D35259AD819F5B640F246CEC68D28383F1AA256687BD"
+      },
+      {
+        "path": "components/SkiaSharp.NativeAssets.Win32/2.88.6/THIRD-PARTY-NOTICES.txt",
+        "sha256": "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "SkiaSharp.Views.WinUI",
+    "version": "2.88.6",
+    "licenseMetadata": "https://go.microsoft.com/fwlink/?linkid=868514",
+    "runtimeFiles": [
+      "SkiaSharp.Views.Windows.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/SkiaSharp.Views.WinUI/2.88.6/LICENSE.txt",
+        "sha256": "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+      },
+      {
+        "path": "components/SkiaSharp.Views.WinUI/2.88.6/skiasharp.views.winui.nuspec",
+        "sha256": "73A63C3D2CA337069A06727D34E4584A52C6511EED38B4CCDFA494E49566B11E"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Squid-Box.SevenZipSharp",
+    "version": "1.6.1.23",
+    "licenseMetadata": "LGPL-3.0-only",
+    "runtimeFiles": [
+      "SevenZipSharp.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Squid-Box.SevenZipSharp/1.6.1.23/license",
+        "sha256": "EA7D049C7705DC13AFC202DD18E1827F3484F8212FD3FA7B82FC4A0C363432C9"
+      },
+      {
+        "path": "components/Squid-Box.SevenZipSharp/1.6.1.23/squid-box.sevenzipsharp.nuspec",
+        "sha256": "6B3913E5C1EC777BCB4D77507974ED0810357F08F7815CB4667EC884C2D30721"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.CodeDom",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.CodeDom.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.CodeDom/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.CodeDom/6.0.0/system.codedom.nuspec",
+        "sha256": "86E35C9EC4177BDA111D3050A9530D6FCD38BE95B9159DA876F2088087C90CA4"
+      },
+      {
+        "path": "components/System.CodeDom/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Configuration.ConfigurationManager",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Configuration.ConfigurationManager.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Configuration.ConfigurationManager/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Configuration.ConfigurationManager/6.0.0/system.configuration.configurationmanager.nuspec",
+        "sha256": "B8C1B93E78C76100AC1A6E78B7349893621C4ABB4507EA137AD679E2E0CE5FC8"
+      },
+      {
+        "path": "components/System.Configuration.ConfigurationManager/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Diagnostics.EventLog",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Diagnostics.EventLog.Messages.dll",
+      "System.Diagnostics.EventLog.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Diagnostics.EventLog/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Diagnostics.EventLog/7.0.0/system.diagnostics.eventlog.nuspec",
+        "sha256": "861E6265F0D617ACD0A55F672A871CF5B73483FF49460C26E661C8D67025C5A2"
+      },
+      {
+        "path": "components/System.Diagnostics.EventLog/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Drawing.Common",
+    "version": "7.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Drawing.Common.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Drawing.Common/7.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Drawing.Common/7.0.0/system.drawing.common.nuspec",
+        "sha256": "A2BFA775D485A86139206310E81E0F639D1AC2347D7CD6C95196F3D4B27A15E1"
+      },
+      {
+        "path": "components/System.Drawing.Common/7.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "E5263D73F2FCB1EE8FA2D4E5439CC0052D02F8A4910816977B8834359E3FE689"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Linq.Async",
+    "version": "6.0.3",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Linq.Async.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Linq.Async/6.0.3/system.linq.async.nuspec",
+        "sha256": "C5012B2AF67EFF0EA5ACB7C4B5D922195E48A7ACF7EEEF749CC0DF0114D57588"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Management",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Management.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Management/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Management/6.0.0/system.management.nuspec",
+        "sha256": "93F6663019F20BD9841E11DFE64D4376D834832C63C096E2409CEF3A3E686F11"
+      },
+      {
+        "path": "components/System.Management/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Numerics.Tensors",
+    "version": "9.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Numerics.Tensors.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Numerics.Tensors/9.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Numerics.Tensors/9.0.0/system.numerics.tensors.nuspec",
+        "sha256": "52F3AC41D9235CA1E544E27145AEEEF36C2DC2159C33936932D5F9C34267A14E"
+      },
+      {
+        "path": "components/System.Numerics.Tensors/9.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "40686C6447A7D5B5D3693068E4571B5F483D7ED335AEEE773EF662440DE4C5D5"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Runtime.InteropServices.WindowsRuntime",
+    "version": "4.3.0",
+    "licenseMetadata": "http://go.microsoft.com/fwlink/?LinkId=329770",
+    "runtimeFiles": [
+      "System.Runtime.InteropServices.WindowsRuntime.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Runtime.InteropServices.WindowsRuntime/4.3.0/dotnet_library_license.txt",
+        "sha256": "F1DB688D8481C91A452FABCEA5060A23DA9EA5088329B58C478A040E2E426297"
+      },
+      {
+        "path": "components/System.Runtime.InteropServices.WindowsRuntime/4.3.0/system.runtime.interopservices.windowsruntime.nuspec",
+        "sha256": "BF2BC25B79FC8E76F16964FACE229A355577AF406D72DA7DEB0E7570ED0878E0"
+      },
+      {
+        "path": "components/System.Runtime.InteropServices.WindowsRuntime/4.3.0/ThirdPartyNotices.txt",
+        "sha256": "0684B2349427EE28E392AE8914645832E59731DBA8A38A984F72B3FB8769C76B"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Security.Cryptography.ProtectedData",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Security.Cryptography.ProtectedData.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Security.Cryptography.ProtectedData/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Security.Cryptography.ProtectedData/6.0.0/system.security.cryptography.protecteddata.nuspec",
+        "sha256": "98E40982EDF7B7CD1D02D0653ED2A6CD6EE5EEE87B10D6B3ADA1476C28513AE2"
+      },
+      {
+        "path": "components/System.Security.Cryptography.ProtectedData/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Security.Permissions",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Security.Permissions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Security.Permissions/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Security.Permissions/6.0.0/system.security.permissions.nuspec",
+        "sha256": "712FD41A773C38F0875E1D30F8F5EE279CA7A1FAE25F919305563DB667CC270A"
+      },
+      {
+        "path": "components/System.Security.Permissions/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "System.Windows.Extensions",
+    "version": "6.0.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "System.Windows.Extensions.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/System.Windows.Extensions/6.0.0/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/System.Windows.Extensions/6.0.0/system.windows.extensions.nuspec",
+        "sha256": "FF6FF54E51CBE8D21C40EE5613045DEE4C31D5C1E2B9CFB1179C87EEC42942D4"
+      },
+      {
+        "path": "components/System.Windows.Extensions/6.0.0/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "A6344BFB229BC08D1071CEC400EEA216E307439F961C5943EC1B56D2245ACB95"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "TinyPinyin",
+    "version": "1.1.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "TinyPinyin.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/TinyPinyin/1.1.0/LICENSE",
+        "sha256": "C7CBE0710E7C86CB4651F01A20CB38EB2EFAD5CC490A174FE7E21509DD92915B"
+      },
+      {
+        "path": "components/TinyPinyin/1.1.0/tinypinyin.nuspec",
+        "sha256": "6A9B23CB166D1F04E55775FFF1B7BE63E0589D470371A5132F52D1E56959A5E7"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Uno.Diagnostics.Eventing",
+    "version": "2.0.1",
+    "licenseMetadata": "",
+    "runtimeFiles": [
+      "Uno.Diagnostics.Eventing.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Uno.Diagnostics.Eventing/2.0.1/uno.diagnostics.eventing.nuspec",
+        "sha256": "10A000CE9AED5B5740BE94858F5356F1AC4B03261F685241DB771637CD1B98D4"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Uno.Fonts.Fluent",
+    "version": "2.3.0",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "Uno.Fonts.Fluent.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Uno.Fonts.Fluent/2.3.0/uno.fonts.fluent.nuspec",
+        "sha256": "B55EE9BD93BF3725C647CD00FA9306E9E94EE10723D2CF2E13038EFC3785819A"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Uno.Foundation.Logging",
+    "version": "5.2.108",
+    "licenseMetadata": "Apache-2.0",
+    "runtimeFiles": [
+      "Uno.Foundation.Logging.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Uno.Foundation.Logging/5.2.108/uno.foundation.logging.nuspec",
+        "sha256": "B5664A592A85CB9B027B9F187531CDB6CCD54DCAFFC8A37A959EFA3A4DC0ABD6"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "ValveKeyValue",
+    "version": "0.20.0.417",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "ValveKeyValue.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/ValveKeyValue/0.20.0.417/valvekeyvalue.nuspec",
+        "sha256": "6FC340B09DBA566706FFB989A634662BEB644F646234042B2D24F8349E19FF0E"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "WanaKanaShaapu",
+    "version": "2.0.2",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "WanaKanaShaapu.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/WanaKanaShaapu/2.0.2/wanakanashaapu.nuspec",
+        "sha256": "EF45D413C82756C5FF734B2B7084CF853E72CB102CC9F3FD052C8752C5DCDBC0"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "WinUIEx",
+    "version": "2.5.0",
+    "licenseMetadata": "MIT",
+    "runtimeFiles": [
+      "WinUIEx.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/WinUIEx/2.5.0/winuiex.nuspec",
+        "sha256": "F32AA4A9158FEF918CC9B980E9ED16E46F95B93B190177556E21F0719BE55D56"
+      }
+    ],
+    "hasPackageNoticeText": false,
+    "redistributionCleared": false
+  },
+  {
+    "id": "microsoft.netcore.app.runtime.win-x64",
+    "version": "8.0.32",
+    "licenseMetadata": "Runtime/framework; exact bundled texts",
+    "runtimeFiles": [],
+    "copiedFiles": [
+      {
+        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/LICENSE.TXT",
+        "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
+      },
+      {
+        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/microsoft.netcore.app.runtime.win-x64.nuspec",
+        "sha256": "00482452159CD8742466093C60E53FDB6137AA967CC7F26C176F72D82C259632"
+      },
+      {
+        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "B60B2912DA28EAA6518593C9E2EFB5334EE062D3C42E80D8FDFA806B3DC52977"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "microsoft.windowsappsdk",
+    "version": "2.1.3",
+    "licenseMetadata": "Runtime/framework; exact bundled texts",
+    "runtimeFiles": [],
+    "copiedFiles": [
+      {
+        "path": "components/microsoft.windowsappsdk/2.1.3/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/microsoft.windowsappsdk/2.1.3/microsoft.windowsappsdk.nuspec",
+        "sha256": "4DEEAEBC0E51DA6D9AEAAD4EB8DBEEAC914C1662A0D777FFCB841B291231BB6C"
+      },
+      {
+        "path": "components/microsoft.windowsappsdk/2.1.3/NOTICE.txt",
+        "sha256": "572B43D41DEA717DAE7DC5DE69ACB20A74DF025E8F5A3C0AA6F7BCA02615E23C"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "microsoft.windowsappsdk.runtime",
+    "version": "2.1.3",
+    "licenseMetadata": "Runtime/framework; exact bundled texts",
+    "runtimeFiles": [],
+    "copiedFiles": [
+      {
+        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/microsoft.windowsappsdk.runtime.nuspec",
+        "sha256": "EBC244C84A9CD0F3D2E459952CA1AAAF9E96BB4318EBF548503DD1508A31C15B"
+      },
+      {
+        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/NOTICE.txt",
+        "sha256": "572B43D41DEA717DAE7DC5DE69ACB20A74DF025E8F5A3C0AA6F7BCA02615E23C"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "microsoft.windowsdesktop.app.runtime.win-x64",
+    "version": "8.0.32",
+    "licenseMetadata": "Runtime/framework; exact bundled texts",
+    "runtimeFiles": [],
+    "copiedFiles": [
+      {
+        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/8.0.32/LICENSE",
+        "sha256": "A89886665765362EB77E0F8E26602C924520041D1711B2EEDC136434FE4D01AB"
+      },
+      {
+        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/8.0.32/microsoft.windowsdesktop.app.runtime.win-x64.nuspec",
+        "sha256": "63E31D3145890D609915471DAB7055D37CCB648533593929094EB02976890482"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "sqlite-net-pcl",
+    "version": "1.9.172",
+    "licenseMetadata": "LICENSE.txt",
+    "runtimeFiles": [
+      "SQLite-net.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/sqlite-net-pcl/1.9.172/LICENSE.txt",
+        "sha256": "F4F848E81A747B85A1F5C7B761BF12B85098DD6A6A46ACEBD54958E2FE2DD62D"
+      },
+      {
+        "path": "components/sqlite-net-pcl/1.9.172/sqlite-net-pcl.nuspec",
+        "sha256": "B029361EC6C94ACEC1BC17B2A679BF8C06D527B0D80AE784DAC9977A71909100"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  }
+]

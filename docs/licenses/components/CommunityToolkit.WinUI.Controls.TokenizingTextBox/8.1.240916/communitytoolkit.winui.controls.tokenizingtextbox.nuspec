@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>CommunityToolkit.WinUI.Controls.TokenizingTextBox</id>
+    <version>8.1.240916</version>
+    <authors>Microsoft.Toolkit</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>ReadMe.md</readme>
+    <projectUrl>https://github.com/CommunityToolkit/Windows</projectUrl>
+    <iconUrl>https://github.com/CommunityToolkit/Windows/blob/main/icon.png</iconUrl>
+    <description>A text input control that auto-suggests and displays token items.</description>
+    <releaseNotes>https://github.com/CommunityToolkit/Windows/releases</releaseNotes>
+    <copyright>(c) .NET Foundation and Contributors.  All rights reserved.</copyright>
+    <tags>Windows Community Toolkit WCT UWP WinUI Uno Platform WindowsAppSDK WASDK WinAppSDK Universal</tags>
+    <repository type="git" url="https://github.com/CommunityToolkit/Windows" commit="28e6925ac14ace62cb4409a70f8ccef0e52738d2" />
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.22621">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.SDK.BuildTools" version="10.0.22621.756" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240311000" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-windows10.0.22621">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.SDK.BuildTools" version="10.0.22621.756" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240311000" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-android34.0">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-ios17.5">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-maccatalyst17.5">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Uno.Fonts.Fluent" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Uno.WinUI" version="5.2.132" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-windows10.0.22621">
+        <dependency id="CommunityToolkit.WinUI.Extensions" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Helpers" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.WinUI.Controls.Primitives" version="8.1.240916" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Windows.SDK.BuildTools" version="10.0.22621.756" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240311000" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

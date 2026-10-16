@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Uno.Diagnostics.Eventing</id>
+    <version>2.0.1</version>
+    <authors>nventive</authors>
+    <projectUrl>https://github.com/unoplatform/Uno.Diagnostics.Eventing</projectUrl>
+    <iconUrl>https://nv-assets.azurewebsites.net/logos/uno.png</iconUrl>
+    <description>The Uno Diagnostics for Eventing library.</description>
+    <copyright>Copyright (C) 2015-2021 nventive inc. - all rights reserved</copyright>
+    <repository url="https://github.com/unoplatform/Uno.Diagnostics.Eventing" />
+    <dependencies>
+      <group targetFramework="net5.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>GalFingerPrint.Client</id>
+    <version>1.0.2</version>
+    <authors>OpenAPI</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/PotatoVN-Community/GalFingerPrint</projectUrl>
+    <description>A library generated from a OpenAPI doc</description>
+    <releaseNotes>Minor update</releaseNotes>
+    <copyright>No Copyright</copyright>
+    <repository type="git" url="https://github.com/PotatoVN-Community/GalFingerPrint" commit="553fb72ced99314c33e9339b88abdfda0b8de133" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="JsonSubTypes" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Polly" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

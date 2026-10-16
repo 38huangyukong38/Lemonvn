@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GalgameManager.Views.AnnualReportSubPage5"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cmtkConverter="using:CommunityToolkit.WinUI.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <cmtkConverter:StringFormatConverter x:Key="StrFmt"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="鉴赏家与收藏家"
+                   Style="{ThemeResource TitleLargeTextBlockStyle}"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,20"/>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 年度入库统计 -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="年度入库"
+                           Style="{ThemeResource SubtitleTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ViewModel.AnnualReportData.NewGamesCount}"
+                           Style="{ThemeResource DisplayTextBlockStyle}"
+                           FontSize="64"
+                           HorizontalAlignment="Center"
+                           Foreground="{ThemeResource SystemControlForegroundAccentBrush}"/>
+                <TextBlock Text="部作品"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="你的仓库日益充实"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,0"
+                           Opacity="0.7"/>
+            </StackPanel>
+
+            <!-- 年度评分概览 -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="平均评分"
+                           Style="{ThemeResource SubtitleTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ViewModel.AnnualReportData.AverageRating, Converter={StaticResource StrFmt}, ConverterParameter='{}{0:0.0}'}"
+                           Style="{ThemeResource DisplayTextBlockStyle}"
+                           FontSize="64"
+                           HorizontalAlignment="Center"
+                           Foreground="{ThemeResource SystemControlForegroundAccentBrush}"/>
+                <TextBlock Text="分"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="你对作品有着独到的见解"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,0"
+                           Opacity="0.7"/>
+            </StackPanel>
+
+            <!-- 吐槽字数统计 -->
+            <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="吐槽字数"
+                           Style="{ThemeResource SubtitleTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ViewModel.AnnualReportData.CommentWordCount}"
+                           Style="{ThemeResource DisplayTextBlockStyle}"
+                           FontSize="64"
+                           HorizontalAlignment="Center"
+                           Foreground="{ThemeResource SystemControlForegroundAccentBrush}"/>
+                <TextBlock Text="字"
+                           Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="字字珠玑，记录感动"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,0"
+                           Opacity="0.7"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

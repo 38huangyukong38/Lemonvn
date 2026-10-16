@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>H.GeneratedIcons.System.Drawing</id>
+    <version>2.0.118</version>
+    <authors>havendv -&gt; Lakritzator and Philipp Sumi</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>nuget_icon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/HavenDV/H.NotifyIcon</projectUrl>
+    <description>This package allows to generate icons.</description>
+    <releaseNotes>⭐ Last 10 features:
+- feat: Added auto-disposing for MAUI. 2023-09-21
+- feat: Added MAUI WinUI Window.Activate() extension. #108. 2023-09-14
+- feat: Added MessageWindow.InitMenuPopup event for #105. 2023-09-07
+- feat: Added Window ShowInTaskbar and HideInTaskbar extensions. 2023-08-03
+- feat: Reworked tooltips. 2023-08-01
+- feat: Added ContextFlyout support for MAUI. 2023-07-27
+- feat: Updated CsWin32. 2023-07-26
+- feat: Added MAUI package. 2023-07-08
+- feat: Apply rounded corners to secondWindow 2023-04-05
+- feat: Added double click routed events. 2023-03-13
+
+🐞 Last 10 bug fixes:
+- fix: Fixed issues with WindowExtensions.Show(). 2023-09-21
+- fix: Fixed problems with latest changes. 2023-08-01
+- fix: Disabled central package management. 2023-07-26
+- fix: Changed DesktopWindowsManagerMethods to be public. 2023-04-05
+- fix: A better size calculation for SecondWindow 2023-04-05
+- fix: PopupMenuSeparator is missing sometimes 2023-04-01
+- fix: PopupMenuSeparator is missing sometimes 2023-04-01
+- fix: Fixed missing GeneratedIcons packages. 2023-03-28
+- fix: Removed Maui app from solution to fix problems. 2023-03-28
+- fix: Disabled DotNet.ReproducibleBuilds.Isolated. 2023-03-28</releaseNotes>
+    <tags>tray-icon notify-icon interop console generator icon system drawing</tags>
+    <repository type="git" url="https://github.com/HavenDV/H.NotifyIcon" commit="fb8aa2df73465a232a6f8cb7ebab3f28dea2e634" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2" />
+      <group targetFramework="net6.0">
+        <dependency id="System.Drawing.Common" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0">
+        <dependency id="System.Drawing.Common" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Drawing.Common" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>LiteDB</id>
+    <version>5.0.21</version>
+    <title>LiteDB</title>
+    <authors>Maurício David</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon_64x64.png</icon>
+    <projectUrl>https://www.litedb.org/</projectUrl>
+    <description>LiteDB - A lightweight embedded .NET NoSQL document store in a single datafile
+Signed by signpath.io from repository 'https://github.com/mbdavid/LiteDB' commit '391cc9318c5be6e56cb71b3ce14b1ed9cb324763' (see contained AppVeyorSettings.json file for build settings).</description>
+    <copyright>MIT</copyright>
+    <tags>database nosql embedded</tags>
+    <repository type="git" url="https://github.com/mbdavid/LiteDB" branch="master" commit="391cc9318c5be6e56cb71b3ce14b1ed9cb324763" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="System.Buffers" version="4.5.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Buffers" version="4.5.1" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.5.1" exclude="Build,Analyzers" />
+        <dependency id="System.Security.Cryptography.Algorithms" version="4.3.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Buffers" version="4.5.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

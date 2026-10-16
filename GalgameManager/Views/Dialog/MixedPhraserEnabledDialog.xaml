@@ -1,0 +1,37 @@
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.MixedPhraserEnabledDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Uid="MixedPhraserEnabledDialog"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <ScrollViewer Height="300">
+        <StackPanel Spacing="12">
+            <!-- Scraper source toggles -->
+            <TextBlock x:Uid="MixedPhraserEnabledDialog_ScraperSourcesHeader" FontWeight="SemiBold" />
+            <StackPanel Spacing="6">
+                <CheckBox x:Name="BangumiCheckBox" x:Uid="MixedPhraserEnabledDialog_BangumiCheckBox" />
+                <CheckBox x:Name="VndbCheckBox" x:Uid="MixedPhraserEnabledDialog_VndbCheckBox" />
+                <CheckBox x:Name="YmgalCheckBox" x:Uid="MixedPhraserEnabledDialog_YmgalCheckBox" />
+                <CheckBox x:Name="SteamCheckBox" x:Uid="MixedPhraserEnabledDialog_SteamCheckBox" />
+                <CheckBox x:Name="HikarinagiCheckBox" x:Uid="MixedPhraserEnabledDialog_HikarinagiCheckBox" />
+            </StackPanel>
+            
+            <!-- Information type toggles -->
+            <TextBlock x:Uid="MixedPhraserEnabledDialog_InfoTypesHeader" FontWeight="SemiBold" Margin="0,12,0,0" />
+            <StackPanel Spacing="6">
+                <CheckBox x:Name="NameCheckBox" x:Uid="MixedPhraserEnabledDialog_NameCheckBox" />
+                <CheckBox x:Name="DescriptionCheckBox" x:Uid="MixedPhraserEnabledDialog_DescriptionCheckBox" />
+                <CheckBox x:Name="DeveloperCheckBox" x:Uid="MixedPhraserEnabledDialog_DeveloperCheckBox" />
+                <CheckBox x:Name="EngineCheckBox" x:Uid="MixedPhraserEnabledDialog_EngineCheckBox" />
+                <CheckBox x:Name="TagsCheckBox" x:Uid="MixedPhraserEnabledDialog_TagsCheckBox" />
+                <CheckBox x:Name="RatingCheckBox" x:Uid="MixedPhraserEnabledDialog_RatingCheckBox" />
+                <CheckBox x:Name="ExpectedPlayTimeCheckBox" x:Uid="MixedPhraserEnabledDialog_ExpectedPlayTimeCheckBox" />
+                <CheckBox x:Name="ReleaseDateCheckBox" x:Uid="MixedPhraserEnabledDialog_ReleaseDateCheckBox" />
+                <CheckBox x:Name="CnNameCheckBox" x:Uid="MixedPhraserEnabledDialog_CnNameCheckBox" />
+                <CheckBox x:Name="ImageUrlCheckBox" x:Uid="MixedPhraserEnabledDialog_ImageUrlCheckBox" />
+                <CheckBox x:Name="CharactersCheckBox" x:Uid="MixedPhraserEnabledDialog_CharactersCheckBox" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>

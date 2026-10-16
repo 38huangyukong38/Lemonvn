@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true' and ('$(Platform)' == '' or '$(Platform)' == 'AnyCPU')">
+    <Platform>x64</Platform>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'GalgameManager.Test' or '$(MSBuildProjectName)' == 'GalgameManager.Server.Test'">
+    <!-- Disable Windows App SDK auto initialization for tests -->
+    <WindowsAppSdkBootstrapInitialize>false</WindowsAppSdkBootstrapInitialize>
+    <WindowsAppSdkDeploymentManagerInitialize>false</WindowsAppSdkDeploymentManagerInitialize>
+    <WindowsAppSdkAutoInitialize>false</WindowsAppSdkAutoInitialize>
+    <WindowsAppSdkUndockedRegFreeWinRTInitialize>false</WindowsAppSdkUndockedRegFreeWinRTInitialize>
+    <WindowsAppSdkCompatibilityInitialize>false</WindowsAppSdkCompatibilityInitialize>
+  </PropertyGroup>
+</Project>

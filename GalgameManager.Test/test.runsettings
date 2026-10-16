@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <!-- 指定目标平台为 x64 -->
+    <TargetPlatform>x64</TargetPlatform>
+  </RunConfiguration>
+  <NUnit>
+    <!-- 默认排除 Phraser 分类的测试（搜刮器测试会产生大量外部 API 调用） -->
+    <Where>cat != Phraser</Where>
+  </NUnit>
+</RunSettings>

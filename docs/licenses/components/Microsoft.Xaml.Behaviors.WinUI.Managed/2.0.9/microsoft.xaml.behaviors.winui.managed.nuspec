@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Xaml.Behaviors.WinUI.Managed</id>
+    <version>2.0.9</version>
+    <title>Microsoft.Xaml.Behaviors.WinUI.Managed</title>
+    <authors>Microsoft</authors>
+    <owners>xamlexperiencesteam,Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=651678</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkID=708511</iconUrl>
+    <description>Easily add interactivity to your WinUI apps using XAML Behaviors. Behaviors encapsulate reusable functionalities for elements that can be easily added to your XAML without the need for more imperative code. This is the managed version for C# UWP WinUI projects.</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>Behavior Action Behaviors Actions Blend Managed C# Interaction Interactivity Interactions WinUI</tags>
+    <dependencies>
+      <group targetFramework="net5.0-windows10.0.17763">
+        <dependency id="Microsoft.WindowsAppSDK" version="1.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

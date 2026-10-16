@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GalgameManager.Views.AnnualReportSubPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:local="using:GalgameManager.Views"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d">
+
+     <Grid x:Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0"
+                   Text="最常游玩的TAG"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,-200"/>
+        
+        <Canvas Grid.Row="1"
+                x:Name="CloudCanvas" 
+                Width="1200" 
+                Height="600"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        
+        <TeachingTip x:Name="WordTip"
+                     IsOpen="{x:Bind ViewModel.IsWordTipOpen, Mode=TwoWay}"
+                     Target="{x:Bind ViewModel.WordTipTarget, Mode=OneWay}"
+                     Title="游戏信息"
+                     ShouldConstrainToRootBounds="True"
+                     PlacementMargin="20">
+            <TeachingTip.Content>
+                <TextBlock Text="{x:Bind ViewModel.WordTipContent.Text, Mode=OneWay}" />
+            </TeachingTip.Content>
+        </TeachingTip>
+    </Grid>
+</Page>

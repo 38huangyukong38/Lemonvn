@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>PotatoVnDBMapper.Models</id>
+    <version>1.1.1</version>
+    <authors>goldenpotato137</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/GoldenPotato137/PotatoDBMapper</projectUrl>
+    <description>PotatoDBMapper映射库（vn_mapper.db）的表结构定义，包含map表与title表对应的sqlite-net模型。</description>
+    <tags>vndb bangumi steam ymgal galgame visual-novel sqlite</tags>
+    <repository type="git" url="https://github.com/GoldenPotato137/PotatoDBMapper" commit="3d806e0fc38b29ea8ac76d66da19a4275594846a" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="sqlite-net-pcl" version="1.9.172" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

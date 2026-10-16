@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>PotatoVN.Client</id>
+    <version>1.0.11</version>
+    <authors>OpenAPI</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/GoldenPotato137/PotatoVN</projectUrl>
+    <description>A library generated from a OpenAPI doc</description>
+    <releaseNotes>Minor update</releaseNotes>
+    <copyright>No Copyright</copyright>
+    <repository type="git" url="https://github.com/GoldenPotato137/PotatoVN" commit="2ee44ab3cb9973ce89647cfdd3316924478ff4fc" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="JsonSubTypes" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Polly" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

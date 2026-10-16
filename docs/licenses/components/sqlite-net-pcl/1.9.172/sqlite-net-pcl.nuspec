@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>sqlite-net-pcl</id>
+    <version>1.9.172</version>
+    <authors>SQLite-net</authors>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>Logo-low.png</icon>
+    <projectUrl>https://github.com/praeclarum/sqlite-net</projectUrl>
+    <description>SQLite-net is an open source and light weight library providing easy SQLite database storage for .NET, Mono, and Xamarin applications.
+      This version uses SQLitePCLRaw to provide platform independent versions of SQLite.</description>
+    <tags>sqlite-net sqlite database orm</tags>
+    <repository type="git" url="https://github.com/praeclarum/sqlite-net.git" commit="5f72241035dd48f4305a7c811eba8e7c955e9840" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="SQLitePCLRaw.bundle_green" version="2.1.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

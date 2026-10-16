@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>CSharpMarkup.WinUI</id>
+    <version>2.4.18</version>
+    <title>CSharpMarkup.WinUI</title>
+    <authors>VincentH.NET</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>Readme.md</readme>
+    <projectUrl>https://github.com/VincentH-Net/CSharpForMarkup</projectUrl>
+    <description>Enjoy a Flutter-like UI development experience with .NET Hot Reload and WinUI 3, using Windows App SDK and/or Uno Platform. Build .NET applications fully in C#. Target browsers and native desktop / mobile. No XAML / HTML / JavaScript / CSS required</description>
+    <releaseNotes>See source repository for release notes</releaseNotes>
+    <copyright>Copyright © VincentH.NET</copyright>
+    <tags>csharpformarkup,csharpmarkup,markup,csharp,ui,winui,windowsappsdk,uno,webassembly,windows,desktop,flutter</tags>
+    <repository type="git" url="https://github.com/VincentH-Net/CSharpForMarkup" commit="9619182dc24069414e211fd10544f5e62ed9a91b" />
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-android33.0">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-ios16.1">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-maccatalyst16.1">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-macos13.0">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0-windows10.0.19041">
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240404000" exclude="Build,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-android34.0">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-ios17.2">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-maccatalyst17.2">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-macos14.2">
+        <dependency id="Uno.WinUI" version="5.2.108" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0-windows10.0.19041">
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240404000" exclude="Build,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

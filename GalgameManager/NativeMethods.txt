@@ -1,0 +1,15 @@
+CoInitializeEx
+CoUninitialize
+CoCreateInstance
+SHCreateItemFromParsingName
+IFileDialog
+IFileOpenDialog
+IShellItem
+GetActiveWindow
+SIGDN
+FILEOPENDIALOGOPTIONS
+HWND
+WIN32_ERROR
+HRESULT
+COMDLG_FILTERSPEC
+COINIT

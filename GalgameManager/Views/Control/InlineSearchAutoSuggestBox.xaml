@@ -1,0 +1,56 @@
+<UserControl
+    x:Class="GalgameManager.Views.Control.InlineSearchAutoSuggestBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="using:CommunityToolkit.WinUI.Animations"
+    mc:Ignorable="d">
+
+    <UserControl.KeyboardAccelerators>
+        <KeyboardAccelerator Modifiers="Control" Key="F" Invoked="OnCtrlF_Invoked" />
+    </UserControl.KeyboardAccelerators>
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Center">
+        <AppBarButton x:Name="SearchButton"
+                      Click="SearchButton_Click"
+                      AllowFocusOnInteraction="True"
+                      VerticalAlignment="Center"
+                      Height="{ThemeResource AppBarThemeCompactHeight}"
+                      Background="Transparent">
+            <animations:Implicit.Animations>
+                <animations:OpacityAnimation Duration="0:0:0.2" />
+            </animations:Implicit.Animations>
+            <AppBarButton.Content>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Find"/>
+                    <TextBlock x:Name="SearchLabelText" VerticalAlignment="Center"/>
+                </StackPanel>
+            </AppBarButton.Content>
+        </AppBarButton>
+
+        <AutoSuggestBox x:Name="SearchBox"
+                        x:Uid="SearchAutoSuggestBox_Search"
+                        Opacity="0"
+                        IsHitTestVisible="False"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        AllowFocusOnInteraction="True"
+                        Width="0"
+                        Height="32"
+                        MaxWidth="{x:Bind ExpandedWidth, Mode=OneWay}"
+                        Text="{x:Bind SearchKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{x:Bind SearchSuggestions, Mode=OneWay}"
+                        MaxSuggestionListHeight="500"
+                        AutoMaximizeSuggestionArea="True"
+                        PlaceholderText="{x:Bind PlaceholderText, Mode=OneWay}"
+                        Loaded="SearchBox_OnLoaded"
+                        LostFocus="SearchBox_LostFocus"
+                        TextChanged="AutoSuggestBox_OnTextChanged"
+                        QuerySubmitted="AutoSuggestBox_OnQuerySubmitted">
+            <animations:Implicit.Animations>
+                <animations:OpacityAnimation Duration="0:0:0.2" />
+            </animations:Implicit.Animations>
+        </AutoSuggestBox>
+    </Grid>
+</UserControl>

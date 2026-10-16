@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "LemonVN (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LemonVN (Unpackaged)": {
+      "commandName": "Project"
+    }
+  },
+  "_lemonvnModificationNotice": "LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json."
+}

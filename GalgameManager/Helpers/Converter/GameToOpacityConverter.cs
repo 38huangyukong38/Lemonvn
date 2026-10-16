@@ -1,0 +1,20 @@
+﻿using GalgameManager.Models;
+using Microsoft.UI.Xaml.Data;
+
+namespace GalgameManager.Helpers.Converter;
+
+public class GameToOpacityConverter : IValueConverter
+{
+    public static bool SpecialDisplayVirtualGame;
+    
+    public object Convert(object value, Type targetType, object parameter, string language)
+    {
+        if (value is bool isLocalGame)
+            return SpecialDisplayVirtualGame && !isLocalGame ? 0.5 : 1;
+        if (value is Galgame game) // Compatibility with other existing bindings.
+            return SpecialDisplayVirtualGame && !game.IsLocalGame ? 0.5 : 1;
+        return 1.0;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, string language) => true; //不需要
+}

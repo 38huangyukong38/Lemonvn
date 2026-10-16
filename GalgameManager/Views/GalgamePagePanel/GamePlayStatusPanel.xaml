@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<local:GamePanelBase
+    x:Class="GalgameManager.Views.GalgamePagePanel.GamePlayStatusPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GalgameManager.Views.GalgamePagePanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:GalgameManager.Helpers.Converter"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converter:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+        <converter:TimeToDisplayTimeConverter x:Key="TimeToDisplayTimeConverter" />
+        <local:RattingConverter x:Key="RattingConverter"/>
+        <local:CommentVisibilityConverter x:Key="CommentVisibilityConverter"/> 
+    </UserControl.Resources>
+
+    <StackPanel Spacing="8" SizeChanged="OnSizeChanged">
+        <TextBlock
+            Margin="{StaticResource SmallTopBottomMargin}"
+            Style="{ThemeResource SubtitleTextBlockStyle}"
+            x:Uid="GalgamePage_PlayStatusPanel"/>
+        
+        <!-- 第一行游玩信息列表 -->
+        <StackPanel x:Name="InfoStackPanel" Margin="0 0 0 20">
+            <!-- 上次游玩时间 -->
+            <StackPanel>
+                <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           x:Uid="GalgamePage_LastPlayTime" />
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind Game.LastPlayTime, Mode=OneWay, FallbackValue={},
+                                Converter={StaticResource DateTimeToStringConverter}}" />
+            </StackPanel>
+            <!-- 游戏总时长 -->
+            <StackPanel>
+                <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           x:Uid="GalgamePage_TotalPlayTime" />
+                <HyperlinkButton
+                    Content="{x:Bind Game.TotalPlayTime, Mode=OneWay, 
+                            FallbackValue={}, Converter={StaticResource TimeToDisplayTimeConverter}}"
+                    Padding="0 0 0 0"
+                    RightTapped="ChangeTimeFormat" Click="ClickTotalPlayTime">
+                </HyperlinkButton>
+            </StackPanel>
+            <!-- 游玩次数 -->
+            <StackPanel>
+                <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           x:Uid="GalgamePage_PlayCount" />
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind Game.PlayCount, Mode=OneWay, FallbackValue=0}" />
+            </StackPanel>
+            <!-- 存档位置 -->
+            <StackPanel>
+                <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}"
+                           x:Uid="GalgamePage_SavePosition" />
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                           Text="{x:Bind Game.SavePosition, Mode=OneWay, FallbackValue={}}" />
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- 我的评分 -->
+        <StackPanel Style="{StaticResource KeyValue}" Margin="0 2 0 0">
+            <TextBlock x:Uid="GalgamePage_GamePlayStatusPanel_MyRating"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+            <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                       Text="{x:Bind Game.MyRate, Mode=OneWay, FallbackValue=0, 
+                       Converter={StaticResource RattingConverter}}" />
+        </StackPanel>
+        
+        <!-- 我的评价 -->
+        <StackPanel Visibility="{x:Bind Game.Comment, FallbackValue=Collapsed, 
+                    Converter={StaticResource CommentVisibilityConverter}}"
+                    Margin="0 0 20 0">
+            <TextBlock x:Uid="GalgamePage_GamePlayStatusPanel_MyComment"
+                       Style="{ThemeResource BodyStrongTextBlockStyle}" />
+            <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                       Text="{x:Bind Game.Comment, Mode=OneWay, FallbackValue={x:Null}}" />
+        </StackPanel>
+    </StackPanel>
+</local:GamePanelBase>

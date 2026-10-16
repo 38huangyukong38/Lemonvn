@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AppCenter.Analytics</id>
+    <version>5.0.6</version>
+    <title>App Center Analytics</title>
+    <authors>Microsoft</authors>
+    <owners>microsoft,appcenter</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://aka.ms/telgml</projectUrl>
+    <iconUrl>https://aka.ms/k76877</iconUrl>
+    <description>This package contains functionalities to collect session, device properties, events etc… for your application.</description>
+    <summary>Microsoft App Center Analytics package provides analytics capabilities for your mobile applications.</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>app center appcenter analytics mobilecenter</tags>
+    <dependencies>
+      <dependency id="Microsoft.AppCenter" version="5.0.6" />
+    </dependencies>
+  </metadata>
+</package>

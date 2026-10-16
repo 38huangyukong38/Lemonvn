@@ -1,0 +1,15 @@
+<ContentDialog
+    x:Class="GalgameManager.Views.Dialog.HomeFilterPanelVisibilityDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Uid="HomeFilterPanelVisibilityDialog"
+    Style="{ThemeResource DefaultContentDialogStyle}">
+
+    <StackPanel Spacing="6">
+        <CheckBox x:Name="PlayStatusAndSourcePanelCheckBox" x:Uid="HomeFilterPanelVisibilityDialog_PlayStatusAndSourcePanelCheckBox" />
+        <CheckBox x:Name="EnginePanelCheckBox" x:Uid="HomeFilterPanelVisibilityDialog_EnginePanelCheckBox" />
+        <CheckBox x:Name="DeveloperPanelCheckBox" x:Uid="HomeFilterPanelVisibilityDialog_DeveloperPanelCheckBox" />
+        <CheckBox x:Name="TagPanelCheckBox" x:Uid="HomeFilterPanelVisibilityDialog_TagPanelCheckBox" />
+        <CheckBox x:Name="CategoryPanelCheckBox" x:Uid="HomeFilterPanelVisibilityDialog_CategoryPanelCheckBox" />
+    </StackPanel>
+</ContentDialog>

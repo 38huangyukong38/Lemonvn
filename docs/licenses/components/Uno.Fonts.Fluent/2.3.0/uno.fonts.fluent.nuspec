@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="5.0.0">
+    <id>Uno.Fonts.Fluent</id>
+    <version>2.3.0</version>
+    <title>Uno Platform Fluent Font</title>
+    <authors>Uno Platform</authors>
+    <owners>unoplatform</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>icon.png</icon>
+    <projectUrl>https://github.com/unoplatform/uno.fonts</projectUrl>
+    <description>Uno Platform Fluent Font (Windows 11 iconography)</description>
+    <copyright>Copyright (C) 2015-2023 Uno Platform inc. - all rights reserved</copyright>
+    <repository type="git" url="https://github.com/unoplatform/uno.fonts.git" />
+  </metadata>
+</package>
