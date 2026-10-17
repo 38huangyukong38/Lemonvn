@@ -134,7 +134,7 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
         var work = Begin();
         try
         {
-            AnimeMetadataPreview plan = await metadata.PrepareAsync(id, _request.ExistingId, _request.Refresh, work.Token);
+            AnimeMetadataPreview plan = await metadata.PrepareAsync(id, _request.ExistingId, _request.Refresh, work.Token, fillLegacyEmptyFields: true);
             if (!Current(work.Generation)) return;
             _preview = plan;
             Title = plan.Source.Title; OriginalTitle = plan.Source.OriginalTitle ?? string.Empty;
@@ -144,6 +144,8 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
             Differences = plan.Changes.Select(change => new MetadataDiffItem(Text("Bangumi_Field_" + change.Field),
                 change.Local, change.Remote, Text("Bangumi_Diff_" + change.Kind))).ToArray();
             var warnings = new List<string>();
+            if (plan.LegacyEmptyFieldsToFill.Count > 0)
+                warnings.Add(Text("Bangumi_FillLegacyEmpty", string.Join("、", plan.LegacyEmptyFieldsToFill.Select(field => Text("Bangumi_Field_" + field)))));
             if (plan.HasOutOfRangeEpisodes) warnings.Add(Text("Bangumi_KeepEpisodes"));
             if (plan.CoverUnavailable) warnings.Add(Text("Bangumi_CoverUnavailable"));
             if (_request.ExistingId is null && (await collection.GetAllAsync()).Any(entry => entry.Metadata.BangumiId is null &&

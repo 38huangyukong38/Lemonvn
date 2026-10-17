@@ -43,6 +43,42 @@ public sealed class AnimeLookupViewModelTest
     [TearDown] public void TearDown() { _database.Dispose(); _log.Dispose(); }
     private AnimeLookupViewModel ViewModel() => new(_provider.Object, _metadata, _covers.Object, _collection, _navigation.Object, _log, Text);
 
+    [TestCase(false)]
+    [TestCase(true)]
+    public async Task ConfirmHeaderAction_UsesCorrectMode_AndLinksExistingManualEntryWithoutDuplicating(bool existing)
+    {
+        AnimeEntry? manual = existing ? await _collection.SaveAsync(new() { Metadata = new() { Title = "111" } }, true) : null;
+        if (manual is not null)
+        {
+            manual.Metadata.UserOverrides.UnionWith(new[] { "OriginalTitle", "Description", "TotalEpisodes", "AirDate", "CoverRef" });
+            manual = await new LiteDbAnimeRepository(_database).UpdateAsync(manual);
+        }
+        var viewModel = ViewModel();
+        await viewModel.ActivateAsync(new(manual?.Id, "Correct query"));
+        Assert.That(viewModel.ConfirmLabel, Does.StartWith(existing ? "Bangumi_ConfirmLink:" : "Bangumi_ConfirmAdd:"));
+        await viewModel.SearchCommand.ExecuteAsync(null);
+        await viewModel.PreviewCommand.ExecuteAsync(viewModel.Items.Single());
+        Assert.That(viewModel.CanConfirm, Is.True);
+        if (existing)
+        {
+            Assert.That(viewModel.IsNoticeOpen, Is.True);
+            Assert.That(viewModel.Notice, Does.Contain("Bangumi_FillLegacyEmpty:"));
+            Assert.That((await _collection.GetByIdAsync(manual!.Id))!.Metadata.Description, Is.Null);
+        }
+        await viewModel.ConfirmCommand.ExecuteAsync(null);
+        AnimeEntry saved = (await _collection.GetAllAsync()).Single();
+        Assert.Multiple(() =>
+        {
+            Assert.That(saved.Metadata.Title, Is.EqualTo(existing ? "111" : _source.Title));
+            Assert.That(saved.Metadata.Description, Is.EqualTo(_source.Description));
+            Assert.That(saved.Metadata.TotalEpisodes, Is.EqualTo(_source.TotalEpisodes));
+            Assert.That(saved.Metadata.AirDate, Is.EqualTo(_source.AirDate));
+            Assert.That(saved.Metadata.BangumiId, Is.EqualTo(_source.Id));
+            if (manual is not null) Assert.That(saved.Id, Is.EqualTo(manual.Id));
+        });
+        _navigation.Verify(n => n.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, true, ""), Times.Once);
+    }
+
     [Test]
     public async Task ExplicitSearchThenPreview_HasNoWriteUntilConfirmation_AndManualEntryRemainsAvailable()
     {

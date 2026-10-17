@@ -86,11 +86,13 @@ public sealed class AnimeMetadataTest
     [Test]
     public async Task LinkManualEntry_PreservesItsGuid_AllProtectedFields_AndPersonalRecord()
     {
+        string picture = Path.Combine(_paths.RootPath, "manual-cover.png");
+        Directory.CreateDirectory(_paths.RootPath); File.WriteAllBytes(picture, Picture());
         AnimeEntry manual = await _collection.SaveAsync(new()
         {
-            Metadata = new() { Title = "Manual title", Description = "My summary", TotalEpisodes = 20 },
+            Metadata = new() { Title = "Manual title", OriginalTitle = "My original title", Description = "My summary", TotalEpisodes = 20, AirDate = new(2020, 1, 1) },
             Record = PersonalRecord()
-        }, true);
+        }, true, picture);
         string personal = JsonSerializer.Serialize(manual.Record);
         AnimeMetadataPreview plan = await _metadata.PrepareAsync(_source.Id, manual.Id, false, default);
         Assert.That(plan.Changes.All(change => change.Kind == MetadataChangeKind.Protected), Is.True);
@@ -100,7 +102,75 @@ public sealed class AnimeMetadataTest
         Assert.That(linked.Metadata.Title, Is.EqualTo("Manual title"));
         Assert.That(linked.Metadata.Description, Is.EqualTo("My summary"));
         Assert.That(linked.Metadata.TotalEpisodes, Is.EqualTo(20));
+        Assert.That(linked.Metadata.OriginalTitle, Is.EqualTo(manual.Metadata.OriginalTitle));
+        Assert.That(linked.Metadata.AirDate, Is.EqualTo(manual.Metadata.AirDate));
+        Assert.That(linked.Metadata.CoverRef, Is.EqualTo(manual.Metadata.CoverRef));
         Assert.That(JsonSerializer.Serialize(linked.Record), Is.EqualTo(personal));
+    }
+
+    [TestCase(false, false)]
+    [TestCase(true, false)]
+    [TestCase(true, true)]
+    public async Task TitleOnlyManualEntry_LinksIntoSamePersistedCollection_AndFillsMissingMetadata(bool legacyMask, bool alreadyLinked)
+    {
+        var source = _source with { AnimationStudios = ["Synthetic animation studio", "Second animation studio"] };
+        _provider.Setup(provider => provider.GetAnimeDetailsAsync(source.Id, It.IsAny<bool>(), It.IsAny<CancellationToken>())).ReturnsAsync(source);
+        AnimeEntry manual = await _collection.SaveAsync(new() { Metadata = new() { Title = "111" }, Record = PersonalRecord() }, true);
+        Assert.That(manual.Metadata.UserOverrides, Is.EqualTo(new[] { "Title" }));
+        if (legacyMask)
+        {
+            // Reproduce v0.1.0 data without opening any user's database.
+            manual.Metadata.UserOverrides.UnionWith(new[] { "OriginalTitle", "Description", "TotalEpisodes", "AirDate", "CoverRef" });
+            if (alreadyLinked) manual.Metadata.BangumiId = source.Id;
+            manual = await _repository.UpdateAsync(manual);
+        }
+        manual = (await _repository.GetByIdAsync(manual.Id))!;
+        string original = JsonSerializer.Serialize(manual), personal = JsonSerializer.Serialize(manual.Record);
+        AnimeMetadataPreview preview = await _metadata.PrepareAsync(source.Id, manual.Id, alreadyLinked, default, fillLegacyEmptyFields: true);
+        Assert.Multiple(() =>
+        {
+            Assert.That(preview.Changes.Single(change => change.Field == "Title").Kind, Is.EqualTo(MetadataChangeKind.Protected));
+            Assert.That(preview.Changes.Where(change => change.Field != "Title").All(change => change.Kind == MetadataChangeKind.Update), Is.True);
+            Assert.That(preview.LegacyEmptyFieldsToFill.Count, Is.EqualTo(legacyMask ? 5 : 0));
+        });
+        Assert.That(JsonSerializer.Serialize((await _repository.GetByIdAsync(manual.Id))!), Is.EqualTo(original), "Preview must not unlock or write anything.");
+        AnimeEntry saved = await _metadata.CommitAsync(preview, default);
+        Assert.That(saved.Id, Is.EqualTo(manual.Id));
+        Assert.That(saved.Revision, Is.EqualTo(manual.Revision + 1));
+        Assert.That(await _repository.GetAllAsync(), Has.Count.EqualTo(1));
+        Assert.That(saved.Metadata.UserOverrides, Is.EqualTo(new[] { "Title" }));
+        Assert.That(await _covers.ReadOwnedAsync(saved.Metadata.CoverRef!, default), Is.EqualTo(Picture()));
+        _database.Dispose(); _database = new(_paths); _database.Initialize();
+        AnimeEntry reopened = (await new LiteDbAnimeRepository(_database).GetByIdAsync(manual.Id))!;
+        Assert.Multiple(() =>
+        {
+            Assert.That(reopened.SchemaVersion, Is.EqualTo(1));
+            Assert.That(reopened.Metadata.Title, Is.EqualTo("111"));
+            Assert.That(reopened.Metadata.BangumiId, Is.EqualTo(source.Id));
+            Assert.That(reopened.Metadata.OriginalTitle, Is.EqualTo(source.OriginalTitle));
+            Assert.That(reopened.Metadata.Description, Is.EqualTo(source.Description));
+            Assert.That(reopened.Metadata.TotalEpisodes, Is.EqualTo(source.TotalEpisodes));
+            Assert.That(reopened.Metadata.AirDate, Is.EqualTo(source.AirDate));
+            Assert.That(reopened.Metadata.AnimationStudios, Is.EqualTo(source.AnimationStudios));
+            Assert.That(reopened.Metadata.CoverRef, Is.EqualTo(saved.Metadata.CoverRef));
+            Assert.That(JsonSerializer.Serialize(reopened.Record), Is.EqualTo(personal));
+        });
+    }
+
+    [Test]
+    public async Task IntentionalEmptyOverride_IsProtected_AndLegacyRepairRequiresExplicitPreviewOption()
+    {
+        AnimeEntry manual = await _collection.SaveAsync(new() { Metadata = new() { Title = "111", Description = "My summary" } }, true);
+        manual.Metadata.Description = null;
+        manual = await _collection.SaveAsync(manual, false);
+        AnimeMetadataPreview preview = await _metadata.PrepareAsync(_source.Id, manual.Id, false, default, fillLegacyEmptyFields: true);
+        Assert.That(preview.Changes.Single(change => change.Field == "Description").Kind, Is.EqualTo(MetadataChangeKind.Protected));
+        Assert.That(preview.LegacyEmptyFieldsToFill, Is.Empty);
+        manual.Metadata.UserOverrides.UnionWith(new[] { "OriginalTitle", "TotalEpisodes", "AirDate", "CoverRef" });
+        manual = await _repository.UpdateAsync(manual);
+        preview = await _metadata.PrepareAsync(_source.Id, manual.Id, false, default);
+        Assert.That(preview.Changes.All(change => change.Kind == MetadataChangeKind.Protected), Is.True);
+        Assert.That(preview.LegacyEmptyFieldsToFill, Is.Empty);
     }
 
     [Test]

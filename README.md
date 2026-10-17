@@ -4,7 +4,7 @@ LemonVN 是基于 [PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 修改
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn) · [发行页](https://github.com/38huangyukong38/Lemonvn/releases)
 
-当前准备版本为 **v0.1.0-preview**。源码和发布文件已在本地准备，公开发布须由维护者另行明确确认；此说明不表示 Release 已经上线。
+已发布 [v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview)。本次修复版本为 **v0.1.1-preview**，修复手动收藏关联 Bangumi 时空白资料未填充的问题，并将添加／关联确认按钮固定到资料预览右上角。可用版本及附件以[发行页](https://github.com/38huangyukong38/Lemonvn/releases)为准，旧版继续保留。
 
 ## 功能
 

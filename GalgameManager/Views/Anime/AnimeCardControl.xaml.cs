@@ -1,8 +1,6 @@
-using LemonVN.Infrastructure.Anime;
 using LemonVN.ViewModels.Anime;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace LemonVN.Views.Anime;
 
@@ -74,6 +72,4 @@ public sealed partial class AnimeCardControl : UserControl
     // height or leaving a blank footer. Both card kinds keep the same extent.
     private Thickness ProgressTextMargin(bool hasKnownTotal) => new(0, hasKnownTotal ? 4 : 10, 0, 0);
 
-    private void OnCoverFailed(object sender, ExceptionRoutedEventArgs args) =>
-        ((Image)sender).Source = new BitmapImage(new Uri(CoverStorageService.Placeholder));
 }

@@ -1,6 +1,6 @@
 <Page x:Class="LemonVN.Views.Anime.AnimeEditPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:images="using:LemonVN.Views.Anime">
     <Grid RowSpacing="12" Padding="8,12,8,16">
         <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition /></Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Spacing="12">
@@ -14,7 +14,7 @@
             <Grid ColumnSpacing="24" RowSpacing="16" MaxWidth="1100" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="180" /><ColumnDefinition /></Grid.ColumnDefinitions>
                 <StackPanel Spacing="12">
-                    <Image Source="{x:Bind ViewModel.CurrentCoverSource, Mode=OneWay}" Height="240" Stretch="UniformToFill" ImageFailed="OnCoverFailed" />
+                    <Image images:LocalCoverImage.Source="{x:Bind ViewModel.CurrentCoverSource, Mode=OneWay}" Height="240" Stretch="UniformToFill" />
                     <Button x:Uid="AnimeEditor_PickCover" Command="{x:Bind ViewModel.PickCoverCommand}" AutomationProperties.AutomationId="AnimePickCover" />
                     <TextBox x:Uid="AnimeEditor_CoverPath" Text="{x:Bind ViewModel.CoverSourcePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              TextWrapping="Wrap" AutomationProperties.AutomationId="AnimeCoverPath" />

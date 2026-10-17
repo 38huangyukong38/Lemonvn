@@ -5588,7 +5588,7 @@
     <value>刷新 Bangumi 资料</value>
   </data>
   <data name="Bangumi_EditProtection.Text" xml:space="preserve">
-    <value>修改作品资料后，该字段会受到保护；只编辑个人记录不会阻止资料刷新。旧手填条目的保护保持不变。</value>
+    <value>新建时只保护已填写的资料；以后显式修改或清空仍受保护。旧版空白项可在 Bangumi 预览中确认补全，个人记录始终保持。</value>
   </data>
   <data name="Bangumi_ConfirmAdd" xml:space="preserve">
     <value>确认添加到收藏</value>
@@ -6062,5 +6062,8 @@
   </data>
   <data name="LicenseConsent_ReadError" xml:space="preserve">
     <value>无法显示完整条款。请退出并确认已完整解压应用文件。</value>
+  </data>
+  <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
+    <value>本次确认会补全旧版本被自动保护的空白资料：{0}。已填写的人工资料保持不变；未确认前不会保存。</value>
   </data>
 </root>

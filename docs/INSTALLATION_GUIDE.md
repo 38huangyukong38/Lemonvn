@@ -2,7 +2,7 @@
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn)。
 计划发行页：[GitHub Releases](https://github.com/38huangyukong38/Lemonvn/releases)。
-当前仍在本地准备，实际 Push、Tag、Release 和公开 ZIP 等待维护者单独确认。
+v0.1.0-preview 已公开；本次修复版本为 v0.1.1-preview。请按发行页对应标签下载完整 ZIP 与校验文件，旧版保留。补丁不改变数据库、ZIP V1/V2 或已确认的组件条款。
 
 **仅 Windows x64。已在现有 Windows 11 10.0.26200 x64 开发环境独立解压运行，尚未完成干净 Windows 系统测试。软件未正式代码签名，Windows 可能显示安全提示。**
 

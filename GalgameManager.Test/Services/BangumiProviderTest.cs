@@ -38,7 +38,7 @@ public sealed class BangumiProviderTest
             Assert.That(request.Method, Is.EqualTo(HttpMethod.Post));
             Assert.That(request.Headers.Authorization, Is.Null);
             Assert.That(request.Headers.Contains("Cookie"), Is.False);
-            Assert.That(request.Headers.GetValues("User-Agent").Single(), Is.EqualTo("38huangyukong38/LemonVN/0.1.0 (Windows) (https://github.com/38huangyukong38/Lemonvn)"));
+            Assert.That(request.Headers.GetValues("User-Agent").Single(), Is.EqualTo("38huangyukong38/LemonVN/0.1.1 (Windows) (https://github.com/38huangyukong38/Lemonvn)"));
             JsonNode body = JsonNode.Parse(await request.Content!.ReadAsStringAsync())!;
             Assert.That(body["keyword"]!.GetValue<string>(), Is.EqualTo(keyword));
             Assert.That(body["filter"]!["type"]![0]!.GetValue<int>(), Is.EqualTo(2));

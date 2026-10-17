@@ -21,13 +21,15 @@ public sealed class AnimeMetadataPreview
     public IReadOnlyList<AnimeMetadataChange> Changes { get; }
     public bool HasOutOfRangeEpisodes { get; }
     public bool CoverUnavailable { get; }
+    public IReadOnlyList<string> LegacyEmptyFieldsToFill { get; }
     internal AnimeMetadata Proposed { get; }
     internal byte[]? CoverBytes { get; }
     internal AnimeMetadataPreview(Guid? id, long revision, BangumiAnime source, AnimeMetadata proposed,
-        byte[]? cover, IReadOnlyList<AnimeMetadataChange> changes, bool outside, bool unavailable)
+        byte[]? cover, IReadOnlyList<AnimeMetadataChange> changes, bool outside, bool unavailable, IReadOnlyList<string> legacyFields)
     {
         ExistingId = id; ExpectedRevision = revision; Source = source; Proposed = proposed;
         CoverBytes = cover; Changes = changes; HasOutOfRangeEpisodes = outside; CoverUnavailable = unavailable;
+        LegacyEmptyFieldsToFill = legacyFields;
     }
 }
 
@@ -41,7 +43,8 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
             long.TryParse(entry.Metadata.BangumiId, out long existing) && existing.ToString() == id);
     }
 
-    public async Task<AnimeMetadataPreview> PrepareAsync(string subjectId, Guid? existingId, bool fresh, CancellationToken token)
+    public async Task<AnimeMetadataPreview> PrepareAsync(string subjectId, Guid? existingId, bool fresh, CancellationToken token,
+        bool fillLegacyEmptyFields = false)
     {
         AnimeEntry? before = existingId is null ? null : await collection.GetByIdAsync(existingId.Value)
             ?? throw new KeyNotFoundException("Anime no longer exists.");
@@ -49,15 +52,33 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
         if (duplicate is not null) throw new AnimeAlreadyCollectedException(duplicate.Id);
         BangumiAnime source = await provider.GetAnimeDetailsAsync(subjectId, fresh, token);
         AnimeMetadata proposed = before?.Copy().Metadata ?? new();
+        // v0.1.0 stamped all six fields even when left blank. This is only a
+        // proposed repair, explicitly shown in the UI before the user commits.
+        // A standalone/intentional empty override is not this legacy signature.
+        var legacyEmpty = new HashSet<string>();
+        if (fillLegacyEmptyFields && proposed.UserOverrides.IsSupersetOf(
+                new[] { "Title", "OriginalTitle", "Description", "TotalEpisodes", "AirDate", "CoverRef" }))
+        {
+            if (string.IsNullOrWhiteSpace(proposed.OriginalTitle)) legacyEmpty.Add("OriginalTitle");
+            if (string.IsNullOrWhiteSpace(proposed.Description)) legacyEmpty.Add("Description");
+            if (proposed.TotalEpisodes is null) legacyEmpty.Add("TotalEpisodes");
+            if (proposed.AirDate is null) legacyEmpty.Add("AirDate");
+            if (proposed.CoverRef is null) legacyEmpty.Add("CoverRef");
+        }
+        var legacyFilled = new List<string>();
         proposed.BangumiId = source.Id;
         var changes = new List<AnimeMetadataChange>();
         void Merge<T>(string field, T local, T remote, Action<T> assign)
         {
             bool missing = remote is null || remote is string text && string.IsNullOrWhiteSpace(text);
-            MetadataChangeKind kind = proposed.UserOverrides.Contains(field) ? MetadataChangeKind.Protected
+            MetadataChangeKind kind = proposed.UserOverrides.Contains(field) && !legacyEmpty.Contains(field) ? MetadataChangeKind.Protected
                 : missing ? MetadataChangeKind.Missing : Equals(local, remote) ? MetadataChangeKind.Unchanged : MetadataChangeKind.Update;
             changes.Add(new(field, local?.ToString() ?? string.Empty, remote?.ToString() ?? string.Empty, kind));
-            if (kind == MetadataChangeKind.Update) assign(remote);
+            if (kind == MetadataChangeKind.Update)
+            {
+                assign(remote);
+                if (legacyEmpty.Contains(field)) { proposed.UserOverrides.Remove(field); legacyFilled.Add(field); }
+            }
         }
         Merge("Title", proposed.Title, source.Title, value => proposed.Title = value);
         Merge("OriginalTitle", proposed.OriginalTitle, source.OriginalTitle, value => proposed.OriginalTitle = value);
@@ -76,7 +97,7 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
         byte[]? cover = null;
         bool unavailable = false;
         MetadataChangeKind coverKind;
-        if (proposed.UserOverrides.Contains("CoverRef")) coverKind = MetadataChangeKind.Protected;
+        if (proposed.UserOverrides.Contains("CoverRef") && !legacyEmpty.Contains("CoverRef")) coverKind = MetadataChangeKind.Protected;
         else
         {
             try
@@ -100,6 +121,8 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
             }
         }
         token.ThrowIfCancellationRequested();
+        if (cover is not null && legacyEmpty.Contains("CoverRef"))
+        { proposed.UserOverrides.Remove("CoverRef"); legacyFilled.Add("CoverRef"); }
         changes.Add(new("CoverRef", proposed.CoverRef ?? string.Empty, source.CoverUri?.AbsoluteUri ?? string.Empty, coverKind));
         if (before is not null)
         {
@@ -107,7 +130,7 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
             if (latest.Revision != before.Revision) throw new AnimeConflictException("The anime changed during the request; confirm again.");
         }
         bool outside = before is not null && proposed.TotalEpisodes is { } total && before.Record.Episodes.Any(episode => episode.EpisodeNumber > total);
-        return new(existingId, before?.Revision ?? 0, source, proposed, cover, changes, outside, unavailable);
+        return new(existingId, before?.Revision ?? 0, source, proposed, cover, changes, outside, unavailable, legacyFilled.AsReadOnly());
     }
 
     public async Task<AnimeEntry> CommitAsync(AnimeMetadataPreview preview, CancellationToken token)

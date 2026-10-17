@@ -15,6 +15,11 @@ spec.loader.exec_module(candidate)
 
 
 class CandidatePackagingTests(unittest.TestCase):
+    def test_release_version_cannot_inject_output_paths(self):
+        for version in ['../escape', '0.1.1/other', 'v0.1.1-preview']:
+            with self.subTest(version=version), self.assertRaisesRegex(ValueError, 'numeric'):
+                candidate.prepare(Path('.'), Path('unused'), {}, Path('.'), version=version)
+
     def setUp(self):
         self.test_parent = candidate.ROOT / '.tools/PackagingTests'
         self.test_parent.mkdir(parents=True, exist_ok=True)

@@ -57,6 +57,12 @@
       "developmentImplementationCommit": "d836d85246e501b88d56684745ca44933638eaf2",
       "originalDevelopmentHistoryCopied": false,
       "scope": "Reviewed file-level .NET10/AppSDK2.4.0 and component acknowledgement/notice updates; retain public modification headers and anonymized test fixtures; no new product feature."
+    },
+    {
+      "phase": "v0.1.1-preview Bangumi linking fix",
+      "developmentImplementationCommit": "764fb6735651a61e7ed54fd73e1956d336b6f266",
+      "originalDevelopmentHistoryCopied": false,
+      "scope": "Reviewed file-level metadata protection/legacy empty preview, pinned confirmation actions and bounded local cover display; no database/schema/dependency change."
     }
   ]
 }

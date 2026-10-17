@@ -4716,7 +4716,7 @@
     <value>Refresh Bangumi metadata</value>
   </data>
   <data name="Bangumi_EditProtection.Text" xml:space="preserve">
-    <value>Changed metadata fields are protected. Editing personal records does not lock metadata. Existing manual-entry protections remain.</value>
+    <value>新規登録では入力した情報のみ保護します。後の変更や明示的な空欄化は保護されます。旧版の空欄はBangumiプレビューで確認後に補完でき、個人の記録は保持されます。</value>
   </data>
   <data name="Bangumi_ConfirmAdd" xml:space="preserve">
     <value>Confirm add to collection</value>
@@ -5190,5 +5190,8 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
   </data>
   <data name="LicenseConsent_ReadError" xml:space="preserve">
     <value>条項全文を表示できません。終了し、アプリのファイルがすべて展開されているか確認してください。</value>
+  </data>
+  <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
+    <value>確認すると旧版で自動保護された空欄の情報を補完します：{0}。入力済みの手動情報は保持され、確認前には保存されません。</value>
   </data>
 </root>

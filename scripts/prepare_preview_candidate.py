@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import xml.etree.ElementTree as ET
 import zipfile
 
 import prepare_internal_candidate as internal
@@ -33,17 +34,20 @@ def verify_maintainer_confirmations(workspace):
     return record
 
 
-def prepare(source, output, inventory, packages):
+def prepare(source, output, inventory, packages, version='0.1.0'):
     if output.exists():
         raise FileExistsError('Refusing to overwrite a prepared Preview')
     confirmations = verify_maintainer_confirmations(ROOT)
+    identity = ET.parse(ROOT/'GalgameManager/Package.appxmanifest').getroot().find('{*}Identity')
+    if identity is None or identity.get('Version') != version+'.0':
+        raise ValueError('Candidate version does not match the application manifest')
     # Reuse all existing source, payload, original-notice and secret-file checks.
-    internal_report = internal.prepare(source, output / 's', inventory, packages, ROOT)
+    internal_report = internal.prepare(source, output / 's', inventory, packages, ROOT, version=version)
     if internal_report['licenseMaterials']['pendingReleaseDecisions']:
         raise ValueError('An identified component distribution decision is still unresolved')
     source_commit = internal_report['sourceCommit']
-    candidate = output / 'LemonVN-v0.1.0-preview-windows-x64'
-    stage = output / 's/LemonVN-v0.1.0-preview-windows-x64-internal'
+    candidate = output / f'LemonVN-v{version}-preview-windows-x64'
+    stage = output / f's/LemonVN-v{version}-preview-windows-x64-internal'
     candidate.mkdir()
     for path in stage.rglob('*'):
         if not path.is_file() or path.name in {'FILE_MANIFEST.json', 'INTERNAL_TEST_ONLY.txt'}:
@@ -56,7 +60,7 @@ def prepare(source, output, inventory, packages):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / 'docs/release-review' / name, target)
     (candidate / 'README.md').write_text(
-        '# LemonVN v0.1.0-preview Windows x64\n\n'
+        f'# LemonVN v{version}-preview Windows x64\n\n'
         '免费开源番剧收藏与观看记录工具；不提供番剧视频播放、下载或视频资源。\n\n'
         '完整解压后运行 LemonVN.exe；无需管理员权限、Visual Studio或开发SDK。\n'
         '.NET10运行时已包含；可能需要兼容Windows App Runtime x64，最低2.4.0.0。\n'
@@ -68,8 +72,8 @@ def prepare(source, output, inventory, packages):
         '内容为维护者确认的draft2组件条款。Apache代码、MIT运行库和微软组件分别适用各自许可。\n\n'
         '保留GoldenPotato137/PotatoVN原作者署名及LICENSE/NOTICE。完整原文在licenses目录。\n'
         '公开源码：https://github.com/38huangyukong38/Lemonvn\n', encoding='utf-8')
-    manifest = {'application': 'LemonVN', 'version': '0.1.0-preview', 'sourceCommit': source_commit,
-                'buildSourceWorkingTreeClean': True, 'preparedForTag': 'v0.1.0-preview',
+    manifest = {'application': 'LemonVN', 'version': version+'-preview', 'sourceCommit': source_commit,
+                'buildSourceWorkingTreeClean': True, 'preparedForTag': 'v'+version+'-preview',
                 'identifiedDistributionConditionsAddressed': True, 'legalCertification': False,
                 'publicationPerformed': False, 'publicationAuthorizedAtPreparation': False,
                 'createdAtUtc': datetime.now(timezone.utc).isoformat(), 'files': []}
@@ -105,8 +109,9 @@ if __name__ == '__main__':
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--inventory',type=Path,required=True)
     parser.add_argument('--packages',type=Path,required=True)
+    parser.add_argument('--version',default='0.1.0')
     args=parser.parse_args()
     output=args.output.resolve()
     if not output.is_relative_to(ROOT/'artifacts') or output==ROOT/'artifacts':
         raise ValueError('Use a fresh local artifacts subdirectory')
-    print(json.dumps(prepare(args.source.resolve(),output,json.loads(args.inventory.read_text(encoding='utf-8-sig')),args.packages.resolve()),indent=2))
+    print(json.dumps(prepare(args.source.resolve(),output,json.loads(args.inventory.read_text(encoding='utf-8-sig')),args.packages.resolve(),args.version),indent=2))

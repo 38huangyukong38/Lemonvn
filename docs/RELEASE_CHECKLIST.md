@@ -22,3 +22,9 @@
 
 仅 Windows x64，未签名，尚未完成干净系统测试；可能需要安装兼容 Windows App Runtime。
 不提供视频播放、下载或视频资源。已识别分发条件的检查不代表全部法律要求获得认证。
+
+## v0.1.1-preview
+
+Retain previously confirmed component terms, LICENSE/NOTICE and original authors. Patch only manual/Bangumi metadata handling and the preview header/local cover display. No new dependency, database schema, backup format or signing.
+
+Before publication: build the exact independent source commit; run offline regressions/single-instance and packaging checks; verify isolated GUI linking/addition/restart, protected fields and covers; prepare a fresh versioned ZIP and hash; normal main/tag Push and GitHub Pre-release only if all pass. Keep v0.1.0-preview unchanged. Actual results are recorded separately after verification, not inferred from this plan.

@@ -1,6 +1,6 @@
 <UserControl x:Class="LemonVN.Views.Anime.AnimeCardControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="190">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:images="using:LemonVN.Views.Anime" Width="190">
     <Grid x:Name="CardLayout" Padding="8,8,8,3" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="CoverRow" Height="244" /><RowDefinition x:Name="TitleRow" Height="*" MinHeight="42" />
@@ -8,9 +8,7 @@
             <RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border CornerRadius="10">
-            <Image Stretch="UniformToFill" ImageFailed="OnCoverFailed">
-                <Image.Source><BitmapImage UriSource="{x:Bind Card.CoverSource, Mode=OneWay}" DecodePixelWidth="320" /></Image.Source>
-            </Image>
+            <Image Stretch="UniformToFill" images:LocalCoverImage.Source="{x:Bind Card.CoverSource, Mode=OneWay}" />
         </Border>
         <TextBlock x:Name="CardTitle" Grid.Row="1" Margin="0,6,0,0" Text="{x:Bind Card.Title, Mode=OneWay}" MaxLines="2" LineHeight="18" LineStackingStrategy="BlockLineHeight" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" ToolTipService.ToolTip="{x:Bind Card.Title, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" />
         <Grid x:Name="PersonalInfo" Grid.Row="2" Margin="0,4,0,0" ColumnSpacing="6">

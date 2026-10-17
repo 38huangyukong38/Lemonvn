@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:control="using:GalgameManager.Views.Control"
       xmlns:anime="using:LemonVN.ViewModels.Anime"
+      xmlns:images="using:LemonVN.Views.Anime"
       xmlns:toolkit="using:CommunityToolkit.WinUI.Controls">
     <ScrollViewer>
         <StackPanel Spacing="20" Padding="8,16,8,24">
@@ -17,8 +18,8 @@
             <InfoBar IsOpen="{x:Bind ViewModel.IsErrorOpen, Mode=TwoWay}" Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" Severity="Error" />
             <Grid ColumnSpacing="24">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="180" /><ColumnDefinition /></Grid.ColumnDefinitions>
-                <Image Source="{x:Bind ViewModel.CoverSource, Mode=OneWay}" Width="180" Height="252" Stretch="UniformToFill"
-                       VerticalAlignment="Top" ImageFailed="OnCoverFailed" />
+                <Image images:LocalCoverImage.Source="{x:Bind ViewModel.CoverSource, Mode=OneWay}" Width="180" Height="252" Stretch="UniformToFill"
+                       VerticalAlignment="Top" />
                 <StackPanel Grid.Column="1" Spacing="12">
                     <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" TextWrapping="Wrap" Style="{ThemeResource TitleTextBlockStyle}"
                                AutomationProperties.AutomationId="AnimeDetailTitle" />

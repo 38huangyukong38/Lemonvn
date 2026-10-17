@@ -6,6 +6,33 @@ namespace GalgameManager.Test.Services;
 [TestFixture]
 public sealed class LemonVisualLayoutTest
 {
+    [TestCase("https://lain.bgm.tv/pic/cover/l/a.jpg", false)]
+    [TestCase("file://server/share/cover.jpg", false)]
+    [TestCase("file:///C:/synthetic/cover.jpg?other=1", false)]
+    [TestCase("ms-appx:///Assets/LemonPlaceholder.png", false)]
+    [TestCase("file:///C:/synthetic%20data/%E5%B0%81%E9%9D%A2.jpg", true)]
+    public void LocalCoverRecovery_NeverFallsBackToNetworkOrUnc(string source, bool allowed) =>
+        Assert.That(LocalCoverImagePolicy.CanReadLocalUri(new Uri(source)), Is.EqualTo(allowed));
+    [Test]
+    public void BangumiConfirmation_IsSingleSharedHeaderAction_OutsideScrollableMetadata()
+    {
+        var folder = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
+        while (folder is not null && !File.Exists(Path.Combine(folder.FullName, "GalgameManager.sln"))) folder = folder.Parent;
+        Assert.That(folder, Is.Not.Null);
+        XNamespace ns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+        XDocument page = XDocument.Load(Path.Combine(folder!.FullName, "GalgameManager/Views/Anime/AnimeLookupPage.xaml"));
+        XElement button = page.Descendants(ns + "Button").Single(element => element.Attribute("AutomationProperties.AutomationId")?.Value == "BangumiConfirm");
+        Assert.Multiple(() =>
+        {
+            Assert.That(button.Ancestors(ns + "ScrollViewer"), Is.Empty);
+            Assert.That(button.Attribute("Grid.Column")?.Value, Is.EqualTo("1"));
+            Assert.That(button.Attribute("Command")?.Value, Does.Contain("ViewModel.ConfirmCommand"));
+            Assert.That(button.Attribute("IsEnabled")?.Value, Does.Contain("ViewModel.CanConfirm"));
+            Assert.That(button.Parent!.Elements(ns + "TextBlock").Single().Attribute(XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml"))?.Value, Is.EqualTo("Bangumi_Preview"));
+        });
+        XElement scroll = page.Descendants(ns + "ScrollViewer").Single(element => element.Attribute("AutomationProperties.AutomationId")?.Value == "BangumiPreviewScroll");
+        Assert.That(scroll.Attribute("Grid.Row")?.Value, Is.EqualTo("1"));
+    }
     [TestCase(1)]
     [TestCase(1.25)]
     [TestCase(1.5)]

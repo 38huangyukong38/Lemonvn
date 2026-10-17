@@ -41,7 +41,14 @@ public sealed class AnimeCollectionService(IAnimeRepository repository, ICoverSt
                 snapshot.Metadata.CoverRef = stagedCover = await covers.ImportAsync(snapshot.Id, selectedCover);
             if (current is null)
             {
-                snapshot.Metadata.UserOverrides.UnionWith(new[] { "Title", "OriginalTitle", "Description", "TotalEpisodes", "AirDate", "CoverRef" });
+                // Empty form defaults are not user-authored metadata. Explicit later
+                // edits (including clearing a value) are still protected below.
+                snapshot.Metadata.UserOverrides.Add("Title");
+                if (!string.IsNullOrWhiteSpace(metadata.OriginalTitle)) metadata.UserOverrides.Add("OriginalTitle");
+                if (!string.IsNullOrWhiteSpace(metadata.Description)) metadata.UserOverrides.Add("Description");
+                if (metadata.TotalEpisodes is not null) metadata.UserOverrides.Add("TotalEpisodes");
+                if (metadata.AirDate is not null) metadata.UserOverrides.Add("AirDate");
+                if (stagedCover is not null || removeCover) metadata.UserOverrides.Add("CoverRef");
                 if (snapshot.Metadata.AnimationStudios.Count > 0) snapshot.Metadata.UserOverrides.Add("AnimationStudios");
             }
             else

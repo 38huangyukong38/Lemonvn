@@ -4787,7 +4787,7 @@ A complete recovery copy is saved in local Backups first; old covers are retaine
     <value>Refresh Bangumi metadata</value>
   </data>
   <data name="Bangumi_EditProtection.Text" xml:space="preserve">
-    <value>Changed metadata fields are protected. Editing personal records does not lock metadata. Existing manual-entry protections remain.</value>
+    <value>New entries protect supplied metadata. Later edits and explicit clears stay protected. Legacy blank fields can be filled after reviewing the Bangumi preview; personal records are always kept.</value>
   </data>
   <data name="Bangumi_ConfirmAdd" xml:space="preserve">
     <value>Confirm add to collection</value>
@@ -5261,5 +5261,8 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
   </data>
   <data name="LicenseConsent_ReadError" xml:space="preserve">
     <value>The complete terms could not be displayed. Exit and check that all application files were extracted.</value>
+  </data>
+  <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
+    <value>Confirming will fill blank metadata that v0.1.0 automatically protected: {0}. Existing manual values are kept; nothing is saved before confirmation.</value>
   </data>
 </root>

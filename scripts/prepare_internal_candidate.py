@@ -189,7 +189,9 @@ def runtime_requirements(inventory, packages):
             'dotnetSelfContained': True, 'windowsAppSdkSelfContained': False, 'cleanMachineVerified': False}
 
 
-def prepare(source, output, inventory, packages, source_workspace=None):
+def prepare(source, output, inventory, packages, source_workspace=None, version='0.1.0'):
+    if not re.fullmatch(r'\d+\.\d+\.\d+', version):
+        raise ValueError('Use a numeric major.minor.patch version')
     if output.exists():
         raise FileExistsError('Refusing to overwrite candidate directory')
     files = sorted(p for p in source.rglob('*') if p.is_file())
@@ -213,7 +215,7 @@ def prepare(source, output, inventory, packages, source_workspace=None):
         raise ValueError('Build input must belong to the declared source workspace')
     head = source_commit(workspace)
     output.mkdir(parents=True)
-    candidate = output / 'LemonVN-v0.1.0-preview-windows-x64-internal'
+    candidate = output / f'LemonVN-v{version}-preview-windows-x64-internal'
     candidate.mkdir()
     license_result = stage_verified_notices(workspace, candidate / 'licenses')
     for file in selected:
@@ -231,7 +233,7 @@ def prepare(source, output, inventory, packages, source_workspace=None):
     (candidate / 'runtime-requirements.json').write_text(json.dumps(requirement, indent=2) + '\n', encoding='utf-8')
     notices = json.loads((candidate / 'licenses/components/INDEX.json').read_text(encoding='utf-8-sig'))
     (candidate / 'INTERNAL_TEST_ONLY.txt').write_text('LemonVN V0.1 Preview personal/local research test candidate. NOT cleared for public distribution.\nAutoMapper and SevenZipSharp are absent from the current client payload. Remaining license/scope decisions: ' + str(len(license_result['pendingReleaseDecisions'])) + '; see licenses/BUNDLE_STATUS.json and licenses/REVIEW.json.\nDo not redistribute this candidate or upload it to GitHub Releases. This status does not restrict the commercial permissions of Apache-2.0 source code.\n', encoding='utf-8')
-    manifest = {'application': 'LemonVN', 'version': '0.1.0', 'scope': 'maintainer personal/local research only', 'publicDistributionCleared': False,
+    manifest = {'application': 'LemonVN', 'version': version, 'scope': 'maintainer personal/local research only', 'publicDistributionCleared': False,
                 'sourceCommit': head, 'buildSourceWorkingTreeClean': True,
                 'packagingDocumentsMayIncludeUncommittedChanges': True,
                 'createdAtUtc': datetime.now(timezone.utc).isoformat(), 'files': []}

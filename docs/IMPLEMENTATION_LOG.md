@@ -11,3 +11,11 @@ Prior development baseline: x64 Release0 warnings/errors, offline541/541, single
 Maintainer explicitly confirmed SDK and AppSDK/WindowsML responsibilities, new-code attribution, icon public-distribution rights and draft2 acknowledgement mechanism. The record is a human instruction, not a signature, reading attestation, Microsoft approval or legal certification.
 
 Push, tag creation and public GitHub Pre-release are not performed. Await the separate phrase “确认正式发布”.
+
+## v0.1.1-preview maintenance
+
+Fixed Bangumi metadata linking for title-only manual collections: new manual entries protect supplied values rather than blank form defaults. A recognized v0.1.0 six-field blanket protection signature can be proposed for blank-field completion only; the UI exposes the fields and warning before explicit confirmation. Nonempty manual values and independent intentional clears remain protected. The immutable preview still uses Revision and commits into the same local GUID; personal records and EpisodeRecord are not provider data. No database or ZIP V1/V2 format change.
+
+The shared add/link confirmation action is outside the scroll viewer at the preview's top right. Owned/cache file-URI decoding can recover through a bounded local image stream without new HTTP requests. Existing layouts, navigation and framework versions are retained.
+
+Build/test/GUI and release checks are recorded in the original development audit; publication is authorized by the maintainer only after these pass. Preserve v0.1.0-preview, its source tag and all assets. No old development Git history, test data, credentials or workflows were copied.
