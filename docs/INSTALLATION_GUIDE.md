@@ -10,7 +10,7 @@ LemonVN 免费开源，不提供番剧视频播放、视频下载或视频资源
 
 ## 解压与启动
 
-1. 从维护者公布的可信来源取得 `LemonVN-v0.1.0-preview-windows-x64.zip` 和同名 `.zip.sha256`。
+1. 从维护者公布的可信来源取得当前版本的 `LemonVN-v0.1.1-preview-windows-x64.zip` 和同名 `.zip.sha256`。
 2. 在 PowerShell 执行 `Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'`，与校验文件的 64 位十六进制值比较。校验值用于核对一致性，不能代替可信来源或代码签名。
 3. 完整解压到普通用户可访问的新目录，保留子目录。不要直接从压缩软件运行或单独复制 EXE。
 4. 运行 `LemonVN.exe`。应用采用 `asInvoker`，不要求管理员权限；不需要 Visual Studio、开发 SDK 或数据库服务器。
