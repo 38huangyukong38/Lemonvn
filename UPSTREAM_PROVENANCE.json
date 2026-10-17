@@ -51,6 +51,12 @@
       "basePublicCommit": "5eb46a0d3530360773d3356602253368b11829ba",
       "originalDevelopmentHistoryCopied": false,
       "scope": "Native game archive dependency isolation and versioned license evidence; no UI or data-format changes"
+    },
+    {
+      "phase": "v0.1.0-preview preparation",
+      "developmentImplementationCommit": "d836d85246e501b88d56684745ca44933638eaf2",
+      "originalDevelopmentHistoryCopied": false,
+      "scope": "Reviewed file-level .NET10/AppSDK2.4.0 and component acknowledgement/notice updates; retain public modification headers and anonymized test fixtures; no new product feature."
     }
   ]
 }

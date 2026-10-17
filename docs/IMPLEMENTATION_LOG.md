@@ -1,21 +1,13 @@
-# LemonVN 公开源码开发摘要
+# LemonVN public snapshot implementation record
 
-M6-B2-B1本地待审更新（2026-10-16）：首次main源码5eb46a0已公开。本阶段仅在独立分支逐文件准备更新，未再次Push/发布。SevenZipSharp已从实际编译/运行图排除，原509用例保留、新4，共513/513；单实例1/1，合成GUI关闭重启通过。历史37项中32项补充材料、5待确认，另有隐式SDK再分发条件待决。源码与二进制仍分别准入，见[M6-B2-B1](M6_B2B1_LICENSE_AND_DEPENDENCY_CLEARANCE.md)。
+Fixed PotatoVN baseline and attribution: see UPSTREAM_PROVENANCE.json, LICENSE and NOTICE.
 
-以下保留此前阶段的审查时点记录；首次提交前的“无remote/未Push”等不是本地后续分支的当前状态。
+2026-10-17 Preview preparation: maintained independent source history and copied reviewed files only; no development .git, certificates, user databases, private logs, caches or internal screenshot folders. Existing anonymized fixtures and per-file modification notices were preserved.
 
-此文件为经过筛选的公开摘要，不包含原开发机路径、用户数据、原始 API 响应、历史截图、签名材料或内部 TRX。原开发仓库与所有历史检查点完整保留，未重写历史；本仓库由独立源码快照创建。
+Current product: .NET10 LTS, WinUI3 / WindowsAppSDK2.4.0 with corrected WinUI2.3.6, offline Anime/LiteDB/Revision/EpisodeRecord and ZIP V1/V2, optional public Bangumi and explicit image recognition. No legacy game/cloud/account services re-enabled.
 
-- M0：固定 PotatoVN 基线 2adef493ea0d82d27d4037e91507e558c567305d，审查 WinUI/MVVM 框架与构建。
-- M1：独立 LemonVN 应用身份、路径和启动白名单，隔离旧游戏及上游服务。
-- M2～M4：Anime 收藏/封面/编辑/回收站、EpisodeRecord 进度、Revision 并发、查询标签与完整 ZIP 安全备份恢复。
-- M5：Bangumi 公开资料搜索、预览、导入、关联和手动安全刷新；不强制登录。
-- M5.5：88 DIP 导航、紧凑封面墙、首页分区及状态/制作公司分类；Trace.moe 截图与 AnimeTrace 角色识别、上传确认、取消和 Bangumi 联动。三个子阶段均已获维护者最终用户验收。
-- M6-A/B1：Release 质量/安全/依赖审查及非公开 ZIP 测试候选；未作公开二进制清关。
-- M6-B2-A（2026-10-16）：客户端安全移除 AutoMapper16.1.1及继承的共享认证默认值；真实项目主页纳入 UA。排除历史、证书、旧素材/工作流后，独立还原和构建客户端及测试项目。
+Prior development baseline: x64 Release0 warnings/errors, offline541/541, single-instance1/1, packaging24/24 and real isolated ZIP GUI including consent and restart. This preparation changes review/effective-state text and labels only; draft2 sections1-5, confirmation text and mechanism match the reviewed bytes. Scoped final validation is recorded separately; do not claim every historical test was rerun.
 
-本阶段原开发树与独立快照的 x64 Release 构建均 0 警告/错误，完整离线均 509/509；原 502 用例按类名和参数用例名全部保留，新增 7 项。95 项定向测试通过。独立快照单实例 E2E 1/1。受限环境曾有两项旧 WinRT 图片写入权限失败，在普通 Windows 权限下原断言/原用例全量通过，没有删除或跳过测试。
+Maintainer explicitly confirmed SDK and AppSDK/WindowsML responsibilities, new-code attribution, icon public-distribution rights and draft2 acknowledgement mechanism. The record is a human instruction, not a signature, reading attestation, Microsoft approval or legal certification.
 
-真实 GUI 使用 3 条独立合成收藏、自有封面和普通用户权限，检查首页、番剧详情、分类、识番、设置；4/12→5/12，保存深色，关闭→重启→关闭。闭库只读比较 19 项通过，评分、标签、备注、旧集记录、元数据、封面和隔离哨兵保留。没有对真实收藏执行覆盖测试。
-
-尚未验证干净系统 Windows App Runtime、全部 Windows/DPI/MSIX。LGPL 精确对应源码/替换方案及部分二进制通知待完成；.NET8 生命周期需后续维护。本阶段完成后暂停，未 Push、上传 ZIP、签名或创建 Release。参见 [源码审查](M6_B2A_OPEN_SOURCE_CLEARANCE.md)、[第三方材料](THIRD_PARTY_COMPONENTS.md)。
+Push, tag creation and public GitHub Pre-release are not performed. Await the separate phrase “确认正式发布”.

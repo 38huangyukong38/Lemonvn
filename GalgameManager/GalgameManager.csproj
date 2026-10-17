@@ -1,15 +1,14 @@
-﻿
 <!-- LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json. -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.22621.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>GalgameManager</RootNamespace>
     <AssemblyName>LemonVN</AssemblyName>
     <Product>LemonVN</Product>
     <Description>Offline-first anime collection and watch record application, based on PotatoVN.</Description>
-    <ApplicationIcon>Assets/LemonPlaceholder.ico</ApplicationIcon>
+    <ApplicationIcon>Assets/LemonAppIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Platforms>x86;x64;arm64</Platforms>
@@ -104,7 +103,7 @@
     <Content Update="Assets\WindowIcon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Assets\LemonPlaceholder.ico">
+    <Content Update="Assets\LemonAppIcon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\LemonPlaceholder.png">
@@ -119,6 +118,16 @@
     <Content Include="..\THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\docs\licenses\components\microsoft.windowsappsdk\2.4.0\license.txt"
+             Link="licenses\components\microsoft.windowsappsdk\2.4.0\license.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\docs\licenses\supplemental\Microsoft.Windows.CsWinRT\2.2.0\LICENSE"
+             Link="licenses\supplemental\Microsoft.Windows.CsWinRT\2.2.0\LICENSE" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\docs\licenses\components\Microsoft.Windows.AI.MachineLearning\2.1.74\license.txt"
+             Link="licenses\components\Microsoft.Windows.AI.MachineLearning\2.1.74\license.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\docs\SDK_DISTRIBUTION_REVIEW.md" Link="SDK_DISTRIBUTION_REVIEW.md" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\docs\SDK_END_USER_TERMS_DRAFT.md" Link="SDK_END_USER_TERMS_DRAFT.md" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\docs\licenses\supplemental\Microsoft.Windows.SDK.NET.Ref\10.0.22621.57\sdk_license.rtf"
+             Link="licenses\supplemental\Microsoft.Windows.SDK.NET.Ref\10.0.22621.57\sdk_license.rtf" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Potato.scale-100.png" />
@@ -194,8 +203,6 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.13" />
     <PackageReference Include="System.Linq.Async" Version="6.0.3" />
-    <PackageReference Include="System.Memory" Version="4.6.3" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
     <PackageReference Include="TinyPinyin" Version="1.1.0" />
     <PackageReference Include="ValveKeyValue" Version="0.20.0.417" />
     <PackageReference Include="WanaKanaShaapu" Version="2.0.2" />
@@ -290,11 +297,16 @@
   <ItemGroup>
     <Compile Remove="Helpers\GalgameSourceCustomConverter.cs" />
   </ItemGroup>
-  <!-- LemonVN modification: ship only application-owned runtime artwork.
+  <!-- LemonVN modification: ship only reviewed runtime artwork, including the maintainer-supplied app icon.
        Legacy assets stay in the development checkout, not release output. -->
   <ItemGroup>
     <Content Remove="Assets\**\*" />
-    <Content Include="Assets\LemonPlaceholder.ico" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonAppIcon.ico" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="Assets\LemonPlaceholder.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonAppIcon.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonStoreLogo.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonSquare44x44Logo.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonSquare150x150Logo.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\LemonSquare71x71Logo.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

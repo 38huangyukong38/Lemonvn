@@ -27,6 +27,8 @@ public partial class App : Application
     public static event Action? OnAppClosing;
     public static DispatcherQueue DispatcherQueue { get; } = DispatcherQueue.GetForCurrentThread();
     private bool _closed;
+    private bool _businessInitializationStarted;
+    private bool _consentWindowClosed;
 
     public App()
     {
@@ -63,14 +65,64 @@ public partial class App : Application
 #pragma warning disable CS0618
             WinApp.Base.Helpers.UiThreadInvokeHelper.Init(DispatcherQueue);
 #pragma warning restore CS0618
-            await GetService<IActivationService>().LaunchedAsync(AppInstance.GetCurrent().GetActivatedEventArgs());
+            var terms = LicenseTerms.Load(AppContext.BaseDirectory);
+            LicenseConsentPage? consentPage = null;
+            bool accepted = await GetService<LicenseConsentService>().RunAsync(terms, async () =>
+            {
+                // Only read local theme preferences; do not resolve business activation/storage yet.
+                var settings = GetService<LemonVN.Contracts.Services.IAppSettingsService>();
+                settings.Initialize();
+                MainWindow ??= new MainWindow();
+                MainWindow.MinWidth = 640;
+                MainWindow.MinHeight = 480;
+                MainWindow.Width = 780;
+                MainWindow.Height = 580;
+                consentPage = new LicenseConsentPage(terms)
+                {
+                    RequestedTheme = settings.Theme switch
+                    {
+                        LemonVN.Contracts.Services.ThemePreference.Light => ElementTheme.Light,
+                        LemonVN.Contracts.Services.ThemePreference.Dark => ElementTheme.Dark,
+                        _ => ElementTheme.Default
+                    }
+                };
+                MainWindow.Content = consentPage;
+                void ClosedWhileAwaitingConsent(object sender, WindowEventArgs e)
+                {
+                    _consentWindowClosed = true;
+                    consentPage.Cancel();
+                }
+                MainWindow.Closed += ClosedWhileAwaitingConsent;
+                MainWindow.Activate();
+                try { return await consentPage.Decision && !_consentWindowClosed; }
+                finally { MainWindow.Closed -= ClosedWhileAwaitingConsent; }
+            }, async () =>
+            {
+                if (consentPage is not null)
+                {
+                    MainWindow!.Content = null;
+                    MainWindow.MinWidth = 960;
+                    MainWindow.MinHeight = 600;
+                    MainWindow.Width = 1280;
+                    MainWindow.Height = 800;
+                }
+                _businessInitializationStarted = true;
+                await GetService<IActivationService>().LaunchedAsync(AppInstance.GetCurrent().GetActivatedEventArgs());
+            });
+            if (!accepted)
+            {
+                if (!_consentWindowClosed) MainWindow?.Close();
+                Shutdown();
+                Exit();
+                return;
+            }
             MainWindow!.Closed += (_, _) => Shutdown();
         }
         catch (Exception error)
         {
             TryLog(error, "LemonVN startup failed; data was not reset or rebuilt.");
             BootstrapProgram.ReportStartupFailure(error);
-            MainWindow?.Close();
+            if (!_consentWindowClosed) MainWindow?.Close();
             Shutdown();
             Exit();
         }
@@ -103,6 +155,7 @@ public partial class App : Application
 
     private void TryLog(Exception error, string message)
     {
+        if (!_businessInitializationStarted) return;
         try { Host.Services.GetService<AppLogService>()?.Error(error, message); }
         catch { /* Reporting is best-effort. */ }
     }
@@ -114,7 +167,8 @@ public partial class App : Application
         Status = WindowMode.Close;
         try
         {
-            Host.Services.GetService<AppLogService>()?.Information("LemonVN shutdown: closing local database and logs.");
+            if (_businessInitializationStarted)
+                Host.Services.GetService<AppLogService>()?.Information("LemonVN shutdown: closing local database and logs.");
             OnAppClosing?.Invoke();
         }
         finally

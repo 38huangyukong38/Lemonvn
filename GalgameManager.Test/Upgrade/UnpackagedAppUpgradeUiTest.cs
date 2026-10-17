@@ -25,7 +25,7 @@ public sealed class UnpackagedAppUpgradeUiTest
             "bin",
             "x64",
             configuration,
-            "net8.0-windows10.0.22621.0",
+            "net10.0-windows10.0.22621.0",
             "win-x64",
             "GalgameManager.exe");
 

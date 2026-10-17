@@ -5,7 +5,7 @@ Read README.md, NOTICE and docs/IMPLEMENTATION_LOG.md first. Keep offline Anime
 features, Revision and EpisodeRecord semantics, ZIP V1/V2 and isolated data roots.
 Do not re-enable legacy games, accounts, sync, plugins or upstream services.
 
-Build unsigned x64: scripts/Build-Release.ps1 -RunTests (installed .NET8 SDK).
+Build unsigned x64: scripts/Build-Release.ps1 -RunTests (installed .NET10 SDK).
 All GalgameManager.Test source files and anonymized TestData are preserved.
 Phraser tests call unsupported legacy external game services; E2E needs a desktop.
 Use separate synthetic data roots. Never use real collections for destructive tests.

@@ -9,6 +9,23 @@ namespace GalgameManager.Test;
 public class ProjectTest
 {
     [Test]
+    public void LemonClient_UsesNet10LtsAndSelfContainedRuntime()
+    {
+        var assembly = typeof(RuntimeHelper).Assembly;
+        var target = assembly.GetCustomAttributes(typeof(System.Runtime.Versioning.TargetFrameworkAttribute), false)
+            .Cast<System.Runtime.Versioning.TargetFrameworkAttribute>().Single().FrameworkName;
+        using JsonDocument config = JsonDocument.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "LemonVN.runtimeconfig.json")));
+        var frameworks = config.RootElement.GetProperty("runtimeOptions").GetProperty("includedFrameworks");
+        Assert.Multiple(() =>
+        {
+            Assert.That(target, Is.EqualTo(".NETCoreApp,Version=v10.0"));
+            Assert.That(Environment.Version.Major, Is.EqualTo(10));
+            Assert.That(frameworks.EnumerateArray().Any(f => f.GetProperty("name").GetString() == "Microsoft.NETCore.App" &&
+                f.GetProperty("version").GetString()!.StartsWith("10.0.", StringComparison.Ordinal)), Is.True);
+        });
+    }
+
+    [Test]
     public void Version_ShouldMatch_PackageAppxmanifest()
     {
         var manifestVersion = ReadPackageAppxManifestIdentityVersion();
@@ -27,7 +44,7 @@ public class ProjectTest
         string workspace = Directory.GetParent(Path.GetDirectoryName(FindPackageAppxManifestPath())!)!.FullName;
         string configuration = AppContext.BaseDirectory.Contains("\\Release\\", StringComparison.OrdinalIgnoreCase) ? "Release" : "Debug";
         string output = Path.Combine(workspace, "GalgameManager", "bin", "x64", configuration,
-            "net8.0-windows10.0.22621.0", "win-x64");
+            "net10.0-windows10.0.22621.0", "win-x64");
         foreach (string name in new[] { "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md" })
         {
             string source = Path.Combine(workspace, name), copied = Path.Combine(output, name);
@@ -49,7 +66,7 @@ public class ProjectTest
             Assert.That(typeof(RuntimeHelper).Assembly.GetReferencedAssemblies().Select(a => a.Name), Does.Not.Contain("AutoMapper"));
             Assert.That(assets.RootElement.GetProperty("libraries").EnumerateObject().Any(p => p.Name.StartsWith("AutoMapper/", StringComparison.OrdinalIgnoreCase)), Is.False);
             Assert.That(File.Exists(Path.Combine(project, "bin", "x64", configuration,
-                "net8.0-windows10.0.22621.0", "win-x64", "AutoMapper.dll")), Is.False);
+                "net10.0-windows10.0.22621.0", "win-x64", "AutoMapper.dll")), Is.False);
         });
     }
 
@@ -59,7 +76,7 @@ public class ProjectTest
         string project = Path.GetDirectoryName(FindPackageAppxManifestPath())!;
         string configuration = AppContext.BaseDirectory.Contains("\\Release\\", StringComparison.OrdinalIgnoreCase) ? "Release" : "Debug";
         string output = Path.Combine(project, "bin", "x64", configuration,
-            "net8.0-windows10.0.22621.0", "win-x64");
+            "net10.0-windows10.0.22621.0", "win-x64");
         using JsonDocument assets = JsonDocument.Parse(File.ReadAllText(Path.Combine(project, "obj", "project.assets.json")));
         Assert.Multiple(() =>
         {

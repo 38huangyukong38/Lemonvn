@@ -1,0 +1,25 @@
+<Page x:Class="LemonVN.Views.LicenseConsentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Padding="28" RowSpacing="18" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="LicenseConsent_Title" Style="{ThemeResource SubtitleTextBlockStyle}" TextWrapping="Wrap" />
+        <StackPanel Grid.Row="1" Spacing="10">
+            <TextBlock x:Uid="LicenseConsent_Description" TextWrapping="Wrap" />
+            <TextBlock x:Uid="LicenseConsent_Apache" TextWrapping="Wrap" />
+        </StackPanel>
+        <InfoBar Grid.Row="2" x:Uid="LicenseConsent_Draft" IsOpen="True" IsClosable="False" Severity="Informational" />
+        <StackPanel Grid.Row="3" Spacing="6">
+            <HyperlinkButton x:Uid="LicenseConsent_Read" Click="ReadFull_Click" AutomationProperties.AutomationId="LicenseReadFull" />
+            <TextBlock Text="{x:Bind VersionLabel}" Style="{ThemeResource CaptionTextBlockStyle}" TextWrapping="Wrap" />
+        </StackPanel>
+        <InfoBar x:Name="ReadError" Grid.Row="4" IsOpen="False" Severity="Error" VerticalAlignment="Top" />
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+            <Button x:Name="Agree" x:Uid="LicenseConsent_Agree" Click="Agree_Click" AutomationProperties.AutomationId="LicenseAgree" />
+            <Button x:Name="Decline" x:Uid="LicenseConsent_Decline" Click="Decline_Click" AutomationProperties.AutomationId="LicenseDecline" />
+        </StackPanel>
+    </Grid>
+</Page>

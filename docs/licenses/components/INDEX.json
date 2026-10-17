@@ -1257,7 +1257,7 @@
   },
   {
     "id": "Microsoft.Windows.AI.MachineLearning",
-    "version": "2.1.1",
+    "version": "2.1.74",
     "licenseMetadata": "license.txt",
     "runtimeFiles": [
       "Microsoft.ML.OnnxRuntime.dll",
@@ -1265,15 +1265,15 @@
     ],
     "copiedFiles": [
       {
-        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/license.txt",
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/license.txt",
         "sha256": "66395F8CB219087FAE2BD025010BD9076B736C14F03B48F20295471C0C376814"
       },
       {
-        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/microsoft.windows.ai.machinelearning.nuspec",
-        "sha256": "180516E3F7EF8EBAF3352752E540B146B3C0848C334492580A8428CDC1C2241E"
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/microsoft.windows.ai.machinelearning.nuspec",
+        "sha256": "B68A2FE2D575CB8E1F703B69614EDA0E23B5DA8A65CE187F08A4EC797A6924DB"
       },
       {
-        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.1/ThirdPartyNotices.txt",
+        "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/ThirdPartyNotices.txt",
         "sha256": "FB0AF774B4D7CFFC5B9D046F2AAEADE2F37DF2F80ABF8033C95DFFFCC77A8866"
       }
     ],
@@ -1282,7 +1282,7 @@
   },
   {
     "id": "Microsoft.WindowsAppSDK.AI",
-    "version": "2.1.10",
+    "version": "2.4.4",
     "licenseMetadata": "license.txt",
     "runtimeFiles": [
       "Microsoft.Graphics.Imaging.Projection.dll",
@@ -1290,16 +1290,17 @@
       "Microsoft.Windows.AI.Foundation.Projection.dll",
       "Microsoft.Windows.AI.Imaging.Projection.dll",
       "Microsoft.Windows.AI.Projection.dll",
-      "Microsoft.Windows.AI.Text.Projection.dll"
+      "Microsoft.Windows.AI.Text.Projection.dll",
+      "Microsoft.Windows.AI.Video.Projection.dll"
     ],
     "copiedFiles": [
       {
-        "path": "components/Microsoft.WindowsAppSDK.AI/2.1.10/license.txt",
+        "path": "components/Microsoft.WindowsAppSDK.AI/2.4.4/license.txt",
         "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.AI/2.1.10/microsoft.windowsappsdk.ai.nuspec",
-        "sha256": "845E42DF4DB9880434EC49FFE2B8AE46B3046D4712233C49E95E2AFE498CC7EB"
+        "path": "components/Microsoft.WindowsAppSDK.AI/2.4.4/microsoft.windowsappsdk.ai.nuspec",
+        "sha256": "A6E512495DFE3FBD29FBE0AA8A030A8603DFC3857FC5BC9C2F25DEF52EEE29F0"
       }
     ],
     "hasPackageNoticeText": true,
@@ -1307,7 +1308,7 @@
   },
   {
     "id": "Microsoft.WindowsAppSDK.Foundation",
-    "version": "2.0.21",
+    "version": "2.3.9",
     "licenseMetadata": "license.txt",
     "runtimeFiles": [
       "Microsoft.Security.Authentication.OAuth.Projection.dll",
@@ -1334,12 +1335,12 @@
     ],
     "copiedFiles": [
       {
-        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.0.21/license.txt",
+        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.3.9/license.txt",
         "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.0.21/microsoft.windowsappsdk.foundation.nuspec",
-        "sha256": "6539DDC8BAB488925727BBCC72E5E7A6FF3B9E730ABC661B5392F395770D2B86"
+        "path": "components/Microsoft.WindowsAppSDK.Foundation/2.3.9/microsoft.windowsappsdk.foundation.nuspec",
+        "sha256": "6F94E75B3B3E077900A3FC72269EBD02D09B20F511EAC238D7463D95D7A015ED"
       }
     ],
     "hasPackageNoticeText": true,
@@ -1347,19 +1348,39 @@
   },
   {
     "id": "Microsoft.WindowsAppSDK.InteractiveExperiences",
-    "version": "2.0.13",
+    "version": "2.1.6",
     "licenseMetadata": "license.txt",
     "runtimeFiles": [
       "Microsoft.InteractiveExperiences.Projection.dll"
     ],
     "copiedFiles": [
       {
-        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.0.13/license.txt",
+        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.1.6/license.txt",
         "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.0.13/microsoft.windowsappsdk.interactiveexperiences.nuspec",
-        "sha256": "FA95A3636E752736684D92BA8A294AA7B7AF3816A74A960DCD88CAEDE6BFD770"
+        "path": "components/Microsoft.WindowsAppSDK.InteractiveExperiences/2.1.6/microsoft.windowsappsdk.interactiveexperiences.nuspec",
+        "sha256": "D45DB7EE5722EABB9B89CD9C9F7BFCA3EC428BABC30AB51C7810A75B1817DC1B"
+      }
+    ],
+    "hasPackageNoticeText": true,
+    "redistributionCleared": false
+  },
+  {
+    "id": "Microsoft.WindowsAppSDK.Search",
+    "version": "2.4.4",
+    "licenseMetadata": "license.txt",
+    "runtimeFiles": [
+      "Microsoft.Windows.Search.Projection.dll"
+    ],
+    "copiedFiles": [
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Search/2.4.4/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+      },
+      {
+        "path": "components/Microsoft.WindowsAppSDK.Search/2.4.4/microsoft.windowsappsdk.search.nuspec",
+        "sha256": "34BAEE6E79CE587C39DEAD33F7E3480019E4190FFCF2375B2CF1CC33C89CD487"
       }
     ],
     "hasPackageNoticeText": true,
@@ -1387,26 +1408,26 @@
   },
   {
     "id": "Microsoft.WindowsAppSDK.WinUI",
-    "version": "2.1.0",
+    "version": "2.3.6",
     "licenseMetadata": "license.txt",
     "runtimeFiles": [
       "Microsoft.WinUI.dll"
     ],
     "copiedFiles": [
       {
-        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/license.txt",
-        "sha256": "C2F1D9EFBA5864366335C007D51CAB1D5B07005E9F1A67D7CA90B7B2A01FD615"
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/license.txt",
+        "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/microsoft.windowsappsdk.winui.nuspec",
-        "sha256": "7BA5038096485E5176B829F8EB81937A809FAEE465CC82C61F4A1F2464DB2D5E"
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/microsoft.windowsappsdk.winui.nuspec",
+        "sha256": "BBC9FC937A148EA02F3EC75F0AFF099FA761C6BBAC405F4EE709D44B0851E571"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/NOTICE.txt",
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/NOTICE.txt",
         "sha256": "E25393C0D340A1821827B093FA4DBBFCCCD8FEB7BF769E7FA773E3955CD5314B"
       },
       {
-        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.1.0/tools/NOTICE.txt",
+        "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/tools/NOTICE.txt",
         "sha256": "4A9321FD173EBF4E8BBC79130794D4C3FE233ACCCBF7DB8765E0ADDB8FBFB8CA"
       }
     ],
@@ -2145,7 +2166,7 @@
   },
   {
     "id": "microsoft.netcore.app.runtime.win-x64",
-    "version": "8.0.32",
+    "version": "10.0.13",
     "licenseMetadata": "MIT",
     "runtimeFiles": [
       "Microsoft.CSharp.dll",
@@ -2203,10 +2224,12 @@
       "System.IO.FileSystem.dll",
       "System.IO.IsolatedStorage.dll",
       "System.IO.MemoryMappedFiles.dll",
+      "System.IO.Pipelines.dll",
       "System.IO.Pipes.AccessControl.dll",
       "System.IO.Pipes.dll",
       "System.IO.UnmanagedMemoryStream.dll",
       "System.IO.dll",
+      "System.Linq.AsyncEnumerable.dll",
       "System.Linq.Expressions.dll",
       "System.Linq.Parallel.dll",
       "System.Linq.Queryable.dll",
@@ -2223,6 +2246,7 @@
       "System.Net.Quic.dll",
       "System.Net.Requests.dll",
       "System.Net.Security.dll",
+      "System.Net.ServerSentEvents.dll",
       "System.Net.ServicePoint.dll",
       "System.Net.Sockets.dll",
       "System.Net.WebClient.dll",
@@ -2289,6 +2313,7 @@
       "System.Text.Encodings.Web.dll",
       "System.Text.Json.dll",
       "System.Text.RegularExpressions.dll",
+      "System.Threading.AccessControl.dll",
       "System.Threading.Channels.dll",
       "System.Threading.Overlapped.dll",
       "System.Threading.Tasks.Dataflow.dll",
@@ -2318,13 +2343,14 @@
       "WindowsBase.dll",
       "clretwrc.dll",
       "clrgc.dll",
+      "clrgcexp.dll",
       "clrjit.dll",
       "coreclr.dll",
       "createdump.exe",
       "hostfxr.dll",
       "hostpolicy.dll",
       "mscordaccore.dll",
-      "mscordaccore_amd64_amd64_8.0.3226.50405.dll",
+      "mscordaccore_amd64_amd64_10.0.1326.50504.dll",
       "mscordbi.dll",
       "mscorlib.dll",
       "mscorrc.dll",
@@ -2333,16 +2359,16 @@
     ],
     "copiedFiles": [
       {
-        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/LICENSE.TXT",
+        "path": "components/microsoft.netcore.app.runtime.win-x64/10.0.13/LICENSE.TXT",
         "sha256": "D7A68596AB69B06F51CA278A6545148E4269A9381C26D597C13DF5D88E08CF5B"
       },
       {
-        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/microsoft.netcore.app.runtime.win-x64.nuspec",
-        "sha256": "00482452159CD8742466093C60E53FDB6137AA967CC7F26C176F72D82C259632"
+        "path": "components/microsoft.netcore.app.runtime.win-x64/10.0.13/microsoft.netcore.app.runtime.win-x64.nuspec",
+        "sha256": "84E8CB90BD380FE379BA5EEC956FF386803901D78C6A1A3D79CEA372091508A3"
       },
       {
-        "path": "components/microsoft.netcore.app.runtime.win-x64/8.0.32/THIRD-PARTY-NOTICES.TXT",
-        "sha256": "B60B2912DA28EAA6518593C9E2EFB5334EE062D3C42E80D8FDFA806B3DC52977"
+        "path": "components/microsoft.netcore.app.runtime.win-x64/10.0.13/THIRD-PARTY-NOTICES.TXT",
+        "sha256": "6D15E10A101C6BFFF2AB4429ED061BF76C456FC4B23AD6B03E0D0F8377148A21"
       }
     ],
     "hasPackageNoticeText": true,
@@ -2350,7 +2376,7 @@
   },
   {
     "id": "microsoft.windows.sdk.net.ref",
-    "version": "10.0.22621.56",
+    "version": "10.0.22621.57",
     "licenseMetadata": "https://aka.ms/WinSDKLicenseURL",
     "runtimeFiles": [
       "Microsoft.Windows.SDK.NET.dll",
@@ -2358,8 +2384,8 @@
     ],
     "copiedFiles": [
       {
-        "path": "components/microsoft.windows.sdk.net.ref/10.0.22621.56/microsoft.windows.sdk.net.ref.nuspec",
-        "sha256": "2F3FD3E9C655AD392701993A47E5B1E255F1393C8F0E4A7D7BBE399666CB8475"
+        "path": "components/microsoft.windows.sdk.net.ref/10.0.22621.57/microsoft.windows.sdk.net.ref.nuspec",
+        "sha256": "B874F2A5CF623A0A5B76A8243449A691769352F3B540B39FBE8654368D4B79A2"
       }
     ],
     "hasPackageNoticeText": false,
@@ -2367,20 +2393,20 @@
   },
   {
     "id": "microsoft.windowsappsdk",
-    "version": "2.1.3",
+    "version": "2.4.0",
     "licenseMetadata": "Runtime/framework; exact bundled texts",
     "runtimeFiles": [],
     "copiedFiles": [
       {
-        "path": "components/microsoft.windowsappsdk/2.1.3/license.txt",
+        "path": "components/microsoft.windowsappsdk/2.4.0/license.txt",
         "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/microsoft.windowsappsdk/2.1.3/microsoft.windowsappsdk.nuspec",
-        "sha256": "4DEEAEBC0E51DA6D9AEAAD4EB8DBEEAC914C1662A0D777FFCB841B291231BB6C"
+        "path": "components/microsoft.windowsappsdk/2.4.0/microsoft.windowsappsdk.nuspec",
+        "sha256": "B5249A100E332C9BC251271A3566CA2154206F8286AF9991FFED26E855B02A13"
       },
       {
-        "path": "components/microsoft.windowsappsdk/2.1.3/NOTICE.txt",
+        "path": "components/microsoft.windowsappsdk/2.4.0/NOTICE.txt",
         "sha256": "572B43D41DEA717DAE7DC5DE69ACB20A74DF025E8F5A3C0AA6F7BCA02615E23C"
       }
     ],
@@ -2389,20 +2415,20 @@
   },
   {
     "id": "microsoft.windowsappsdk.runtime",
-    "version": "2.1.3",
+    "version": "2.4.0",
     "licenseMetadata": "Runtime/framework; exact bundled texts",
     "runtimeFiles": [],
     "copiedFiles": [
       {
-        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/license.txt",
+        "path": "components/microsoft.windowsappsdk.runtime/2.4.0/license.txt",
         "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
       },
       {
-        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/microsoft.windowsappsdk.runtime.nuspec",
-        "sha256": "EBC244C84A9CD0F3D2E459952CA1AAAF9E96BB4318EBF548503DD1508A31C15B"
+        "path": "components/microsoft.windowsappsdk.runtime/2.4.0/microsoft.windowsappsdk.runtime.nuspec",
+        "sha256": "406C27C8651B854E0742DDF7C6C8C4D836414FC28AEC13664194A22678BFA0B5"
       },
       {
-        "path": "components/microsoft.windowsappsdk.runtime/2.1.3/NOTICE.txt",
+        "path": "components/microsoft.windowsappsdk.runtime/2.4.0/NOTICE.txt",
         "sha256": "572B43D41DEA717DAE7DC5DE69ACB20A74DF025E8F5A3C0AA6F7BCA02615E23C"
       }
     ],
@@ -2411,17 +2437,17 @@
   },
   {
     "id": "microsoft.windowsdesktop.app.runtime.win-x64",
-    "version": "8.0.32",
+    "version": "10.0.13",
     "licenseMetadata": "Runtime/framework; exact bundled texts",
     "runtimeFiles": [],
     "copiedFiles": [
       {
-        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/8.0.32/LICENSE",
+        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/10.0.13/LICENSE",
         "sha256": "A89886665765362EB77E0F8E26602C924520041D1711B2EEDC136434FE4D01AB"
       },
       {
-        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/8.0.32/microsoft.windowsdesktop.app.runtime.win-x64.nuspec",
-        "sha256": "63E31D3145890D609915471DAB7055D37CCB648533593929094EB02976890482"
+        "path": "components/microsoft.windowsdesktop.app.runtime.win-x64/10.0.13/microsoft.windowsdesktop.app.runtime.win-x64.nuspec",
+        "sha256": "A0FFED4F68E380B58660955BF8812E67C470F6CB42E4D610D11CC08402B5E413"
       }
     ],
     "hasPackageNoticeText": true,

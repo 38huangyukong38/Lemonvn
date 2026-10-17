@@ -1,38 +1,39 @@
-# LemonVN 0.1.0 — 内部测试候选说明
+# LemonVN v0.1.0-preview
 
-状态：M6-B2-A源码准备，项目主页 https://github.com/38huangyukong38/Lemonvn ，未来发行页 https://github.com/38huangyukong38/Lemonvn/releases ，尚未公开发行二进制、签名或上架。软件版本为 0.1.0.0，候选文件名使用 0.1.0。不包含新的产品功能，已验收的 M5.5 界面和业务保持。
+版本类型：**Preview / Pre-release**。目标平台：Windows x64。
 
-## 已实现
+LemonVN是一款免费开源的轻量番剧收藏与观看记录工具，基于GoldenPotato137及贡献者的PotatoVN修改，应用及适用上游代码沿用Apache-2.0。
 
-- WinUI 3 / MVVM，独立应用与数据目录；88 DIP 导航、首页综合分区、紧凑分类和番剧封面墙。
-- 手动收藏、资料编辑、评分/标签/备注、回收站、筛选排序；EpisodeRecord 统一简单/逐集进度。
-- Bangumi 动画搜索与 Enter 提交、预览添加/关联、手动保护字段安全刷新、封面缓存。
-- 用户确认后的 Trace.moe 截图与 AnimeTrace 角色识别、候选人工核对及 Bangumi 联动。
-- ZIP V2 完整备份、V1/V2 安全恢复、校验/确认/安全副本和 Revision 并发保护。
+## 本版功能
 
-## 候选文件清单
+- 番剧封面墙、首页分区、观看状态与制作公司分类，88 DIP侧边栏与浅/深色主题。
+- 手动收藏、编辑、标签、评分、备注、回收站与组合搜索筛选排序。
+- 简单进度、+1、批量/逐集记录；EpisodeRecord唯一进度来源及Revision并发保护。
+- Bangumi公开资料搜索、预览、添加、关联与安全刷新，支持Enter提交，无需Token。
+- 主动确认后向Trace.moe或AnimeTrace上传处理后的图片识别候选，人工核对并联动Bangumi；不自动修改收藏或进度。
+- 完整ZIP V2备份及ZIP V1/V2安全恢复。
 
-- LemonVN-v0.1.0-windows-x64-test.zip：仅供维护者个人本地研究测试，未完成公开准入。
-- 同名 .zip.sha256：SHA-256 文件校验值。
-- 候选内 FILE_MANIFEST.json：相对路径、文件大小和逐文件 SHA-256；不包含用户数据或凭证。
-- LICENSE、NOTICE、THIRD_PARTY_NOTICES.md、licenses/INDEX.json 与已收集的许可证/原生声明。
-- 安装、隐私、API 风险说明、runtime-requirements.json、只读 Check-Runtime.ps1。
+**软件不提供番剧视频播放、视频下载、视频资源或账号云同步。**
 
-未压缩/ZIP 实际体积与验证结果见 M6_B1_DEPLOYMENT_REPORT.md；这里不把预估大小写成事实。ZIP 不是用户数据备份，也不是数据随 EXE 移动的便携模式。
+## 下载与启动
 
-## 运行与升级
+发行文件：`LemonVN-v0.1.0-preview-windows-x64.zip`、同名`.zip.sha256`、本中文说明及安装运行说明。
 
-Windows x64，当前只实测 Windows 11 10.0.26200。自带 .NET 8.0.32，但仍依赖当前用户下的兼容 Windows App Runtime x64。完整解压后打开 LemonVN.exe，按 INSTALLATION_GUIDE.md 检查前置依赖。
+- 当前仅提供 **Windows x64**。完整解压后运行LemonVN.exe，不要单独复制EXE。
+- 内含.NET10.0.13运行时；可能需要安装兼容的 **Windows App Runtime x64**。当前AppSDK2.4.0/WinUI2.3.6，框架家族Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe，最低2.4.0.0。从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)获取；普通用户不必安装Visual Studio或开发SDK。
+- 运行`Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'`并与校验文件比较。
+- 首次启动阅读各组件原始许可及维护者确认版draft2条款，明确同意才进入；拒绝会正常退出。本机记录不上传、不进入收藏数据库或备份。
 
-数据默认位于 `%LocalAppData%\LemonVN`；换程序目录不会自动迁移或删除数据。升级前先导出备份、正常退出，再将新版完整解压到新目录。不同版本/部署模式的实机迁移不能仅凭本轮同版本换目录测试宣称通过。
+## 已验证范围与限制
 
-## 已知限制与风险
+**本版本尚未完成干净 Windows 系统测试。** 已在现有Windows11 10.0.26200 x64开发环境独立解压运行；不把该结果视为所有Windows版本、DPI或MSIX兼容性验证。
 
-- 未签名；未验证干净机器、其他 Windows 版本、全部 DPI、MSIX 安装升级或自动更新。
-- AutoMapper已从客户端引用中移除，需以本阶段构建、回归及发行清单验证为准；旧M6-B1候选仍是历史内部产物，不能据此视为当前版本。
-- 遗留 SevenZipSharp 动态 DLL 的 LGPL 完整义务/源码来源、包内原生库通知仍需复核；排除未使用的 7za 与资源不等于全部依赖已清关。
-- Trace.moe 商业用途未经明确批准不可用；当前个人非商业运营目标不改变 Apache-2.0 代码允许商业使用的范围。
-- Bangumi/识别服务由第三方维护，额度、网络和结果可能变化；断网可继续手动使用。角色识别不返回可保证的数值准确率。
-- 日文新增文案存在英文回退。没有视频下载、播放、资源扫描、云同步或账号功能。
+**软件未经过正式代码签名，Windows可能显示安全提示。** 请核对来源及校验值；不要关闭安全防护或绕过系统提示。本版没有MSIX、安装器、自动更新或Store发行。
 
-保留 GoldenPotato137 和 PotatoVN 贡献者署名。适用条款与未解决项见 THIRD_PARTY_NOTICES.md 和 API_AND_LICENSE_RISKS.md；本候选不是公开分发授权。公开仓库已由维护者创建，源码首次提交仅在本地准备，尚未Push；没有公开ZIP。
+默认数据位于 `%LocalAppData%\LemonVN`，ZIP不是数据便携模式。升级前导出备份、正常关闭旧程序，新版本解压至新目录；不要删除原数据。恢复替换收藏与回收站，先校验确认并保存安全副本。
+
+第三方API有独立额度和条件，无服务可用性保证。Trace.moe商业用途需另行明确批准；AnimeTrace按即时调用边界使用。选择图片不会自动上传，取消不能撤回已发送内容。部分日文本地化可能回退英文。
+
+WinUI错误附带预览许可证的问题已通过AppSDK2.4.0/WinUI2.3.6修复。SDK/AppSDK/ML原始许可、独立MIT运行库许可、Apache-2.0及原作者署名完整保留。维护者已明确确认相应责任及draft2机制；这不是微软批准、法律认证或逐条阅读证明。源码许可不替第三方服务或素材授予权利。
+
+完整构建、离线回归、单实例和GUI基线证据见发布检查表；本次仅对最终文案状态、来源同步和打包变化作定向验证，不重复全部历史测试。

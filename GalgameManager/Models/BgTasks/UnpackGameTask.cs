@@ -1,4 +1,4 @@
-﻿// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
+// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
 using Windows.Storage;
 using GalgameManager.Contracts.Services;
 using GalgameManager.Enums;

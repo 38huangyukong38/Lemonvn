@@ -74,8 +74,9 @@
         }
       ],
       "resolvedSourceTreeSha": "553fb72ced99314c33e9339b88abdfda0b8de133",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "NuGet declares MIT with No Copyright; the exact source commit has no license body. Confirm the actual generated client grant/attribution with its publisher; do not infer it from the server repository name."
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "The exact published NuGet package explicitly grants MIT for this generated OpenAPI client. Preserve its original nuspec (including OpenAPI / No Copyright fields) and the full MIT text; retain separate PotatoVN Apache attribution. Missing package-body LICENSE or absent source commit alone is not evidence of a redistribution prohibition. No invented copyright holder or generator-output ownership claim.",
+      "binaryLicenseBasis": "Exact package publisher MIT declaration; complete MIT text and unchanged package metadata supplied. No additional permission inferred from the server repository."
     },
     {
       "id": "H.GeneratedIcons.System.Drawing",
@@ -595,8 +596,9 @@
         }
       ],
       "resolvedSourceTreeSha": "2adef493ea0d82d27d4037e91507e558c567305d",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "NuGet declares MIT with generated OpenAPI/No Copyright metadata; its repository commit is unavailable. Current Apache repository text is not proof of the exact client package scope."
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "The exact published NuGet package explicitly grants MIT for this generated OpenAPI client. Preserve its original nuspec (including OpenAPI / No Copyright fields) and the full MIT text; retain separate PotatoVN Apache attribution. Missing package-body LICENSE or absent source commit alone is not evidence of a redistribution prohibition. No invented copyright holder or generator-output ownership claim.",
+      "binaryLicenseBasis": "Exact package publisher MIT declaration; complete MIT text and unchanged package metadata supplied. No additional permission inferred from the server repository."
     },
     {
       "id": "PotatoVnDBMapper",
@@ -613,6 +615,13 @@
           "sourceBlob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
           "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4",
           "bytes": 11357
+        },
+        {
+          "path": "supplemental/PotatoVnDBMapper/1.1.1/Directory.Build.props.txt",
+          "source": "https://raw.githubusercontent.com/GoldenPotato137/PotatoDBMapper/3d806e0fc38b29ea8ac76d66da19a4275594846a/Directory.Build.props",
+          "sourceBlob": "0e4f4e1d22e38cb7c99c8b6d06c14130e3638077",
+          "sha256": "A3B026F30A4AFFB5BF56193E6042E94DB9FCB554AF502DC568537F50EF1776F8",
+          "bytes": 644
         }
       ],
       "attempts": [
@@ -622,8 +631,9 @@
         }
       ],
       "resolvedSourceTreeSha": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "NuGet declares MIT, while the exact repository commit license is Apache-2.0. Confirm package-specific licensing/attribution; do not silently choose or relicense."
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "FIXED-SOURCE PACKAGE LICENSE CONFIRMED: shared Directory.Build.props at commit3d806e0fc38b29ea8ac76d66da19a4275594846a explicitly sets PackageLicenseExpression=MIT and Authors=goldenpotato137 for both actual library projects. This matches both exact published packages. Preserve MIT package declaration/text and separate repository Apache-2.0 text/attribution; no invented grant or relicense.",
+      "binaryLicenseBasis": "Exact source Apache-2.0 plus published package MIT declaration; both texts and original notices retained."
     },
     {
       "id": "PotatoVnDBMapper.Models",
@@ -640,6 +650,13 @@
           "sourceBlob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
           "sha256": "C71D239DF91726FC519C6EB72D318EC65820627232B2F796219E87DCF35D0AB4",
           "bytes": 11357
+        },
+        {
+          "path": "supplemental/PotatoVnDBMapper/1.1.1/Directory.Build.props.txt",
+          "source": "https://raw.githubusercontent.com/GoldenPotato137/PotatoDBMapper/3d806e0fc38b29ea8ac76d66da19a4275594846a/Directory.Build.props",
+          "sourceBlob": "0e4f4e1d22e38cb7c99c8b6d06c14130e3638077",
+          "sha256": "A3B026F30A4AFFB5BF56193E6042E94DB9FCB554AF502DC568537F50EF1776F8",
+          "bytes": 644
         }
       ],
       "attempts": [
@@ -649,8 +666,9 @@
         }
       ],
       "resolvedSourceTreeSha": "3d806e0fc38b29ea8ac76d66da19a4275594846a",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "NuGet declares MIT, while the exact repository commit license is Apache-2.0. Confirm package-specific licensing/attribution; do not silently choose or relicense."
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "FIXED-SOURCE PACKAGE LICENSE CONFIRMED: shared Directory.Build.props at commit3d806e0fc38b29ea8ac76d66da19a4275594846a explicitly sets PackageLicenseExpression=MIT and Authors=goldenpotato137 for both actual library projects. This matches both exact published packages. Preserve MIT package declaration/text and separate repository Apache-2.0 text/attribution; no invented grant or relicense.",
+      "binaryLicenseBasis": "Exact source Apache-2.0 plus published package MIT declaration; both texts and original notices retained."
     },
     {
       "id": "SQLitePCLRaw.bundle_green",
@@ -937,7 +955,7 @@
       "packageCopyright": "Copyright (C) 2015-2021 nventive inc. - all rights reserved",
       "packageAuthors": "nventive",
       "repositoryUrl": "https://github.com/unoplatform/Uno.Diagnostics.Eventing",
-      "refBasis": "current default tree; exact package source unverified",
+      "refBasis": "Official repository license history verified from initial 2019 commit through current release tree",
       "sourceFiles": [
         {
           "path": "supplemental/Uno.Diagnostics.Eventing/2.0.1/License.md",
@@ -958,8 +976,14 @@
         }
       ],
       "resolvedSourceTreeSha": "fb046f14adfc688328e8f590cafecdba9dfc8d08",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "NuGet provides no license grant; current repository has Apache text titled Uno.MonoAnalyzers. The exact 2.0.1 correspondence could not be established from its metadata/PDB; confirm the release scope."
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "The official project License.md has one history entry: initial commit 539aa40014657576f2e938043b7f8f6e336df1b8 (2019-03-21), with the same b48e38bd66fc14eb89ad5d050c688f721c1aa6f0 Apache-2.0 blob. Version2.0.1 points to this project; the 2023 official package-properties change explicitly adds Apache-2.0 without changing that license. The stale Uno.MonoAnalyzers heading is retained, not treated as a missing grant. Preserve nventive copyright and full original text.",
+      "binaryLicenseBasis": "Official project Apache-2.0 license, unchanged since before the 2.0.1 release; exact NuGet original copyright retained.",
+      "evidenceUrls": [
+        "https://github.com/unoplatform/Uno.Diagnostics.Eventing/blob/539aa40014657576f2e938043b7f8f6e336df1b8/License.md",
+        "https://github.com/unoplatform/Uno.Diagnostics.Eventing/commit/4e361e041cc8664c09405c5014f071022ec80066",
+        "https://www.nuget.org/packages/Uno.Diagnostics.Eventing/2.0.1"
+      ]
     },
     {
       "id": "Uno.Fonts.Fluent",
@@ -1107,20 +1131,102 @@
   "additionalCases": [
     {
       "id": "microsoft.windows.sdk.net.ref",
-      "version": "10.0.22621.56",
+      "version": "10.0.22621.57",
       "licenseMetadata": "Windows SDK license URL supplied by the targeting pack; not automatically MIT",
       "packageCopyright": "© Microsoft Corporation. All rights reserved.",
-      "reviewStatus": "needs-licensor-or-scope-confirmation",
-      "reviewReason": "Actual SDK projection/runtime DLLs are supplied by an implicit runtime pack. Preserve the original SDK RTF; verify the applicable redistributable scope and publisher/end-user distribution terms. No user contract acceptance or Microsoft permission is inferred from merely copying the terms.",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Windows SDK projection redistribution scope confirmed by Microsoft REDIST; publisher/end-user obligations remain pending maintainer approval. WinRT.Runtime is also byte-identical to the official CsWinRT 2.2.0 MIT asset, whose original LICENSE and NOTICE are preserved separately; this does not waive SDK or AppSDK obligations. Maintainer explicitly confirmed the corresponding publisher scope and draft2 user terms on 2026-10-17; this is an identified-condition review, not legal certification. Publication remains separately unauthorised.",
       "sourceFiles": [
         {
-          "path": "supplemental/Microsoft.Windows.SDK.NET.Ref/10.0.22621.56/sdk_license.rtf",
+          "path": "supplemental/Microsoft.Windows.SDK.NET.Ref/10.0.22621.57/sdk_license.rtf",
           "source": "https://download.microsoft.com/download/0/F/F/0FF2B061-47DD-4F55-89B6-FD1D8C44F14D/sdk_license.rtf",
           "sha256": "DD07EB178E00C6BBA4148457FC00FF77CD4887EB521D504186FE59C9EC8BBE62",
           "bytes": 246945
+        },
+        {
+          "path": "supplemental/Microsoft.Windows.CsWinRT/2.2.0/LICENSE",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/2.2.0/microsoft.windows.cswinrt.2.2.0.nupkg",
+          "sha256": "9906940F61B1F0B533FA7D99BAF55178B2808FBE113EA51DFBFAD8572CCD5F2B",
+          "bytes": 1162
+        },
+        {
+          "path": "supplemental/Microsoft.Windows.CsWinRT/2.2.0/NOTICE.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/2.2.0/microsoft.windows.cswinrt.2.2.0.nupkg",
+          "sha256": "5C73EC182C994ADC9D90CC576C3188A7F55DF4C129A7DFB923E1CE4D91ED154D",
+          "bytes": 3188
+        },
+        {
+          "path": "supplemental/Microsoft.Windows.CsWinRT/2.2.0/Microsoft.Windows.CsWinRT.nuspec",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.cswinrt/2.2.0/microsoft.windows.cswinrt.2.2.0.nupkg",
+          "sha256": "C1DCB0FBCAD747D632F71429CA883A7B3B2865DAAE22EF82C436C4E63219DB41",
+          "bytes": 1161
         }
-      ]
+      ],
+      "previousReviewedVersion": "10.0.22621.56",
+      "evidenceUrls": [
+        "https://learn.microsoft.com/en-us/legal/windows-sdk/redist",
+        "https://aka.ms/WinSDKLicenseURL"
+      ],
+      "redistributableScopeConfirmed": true,
+      "preparedDrafts": [
+        "docs/SDK_DISTRIBUTION_REVIEW.md",
+        "docs/SDK_END_USER_TERMS_DRAFT.md"
+      ],
+      "lastChecked": "2026-10-17",
+      "publisherApprovalRecorded": true,
+      "consentFlowImplemented": true,
+      "consentFlowStatus": "Maintainer-confirmed draft2 substantive text and explicit local mechanism; only status/localized labels updated. Not a legal certificate; publication remains separately unauthorised.",
+      "approvalRecord": "docs/release-review/MAINTAINER_CONFIRMATIONS.json"
+    },
+    {
+      "id": "Microsoft.WindowsAppSDK.WinUI",
+      "version": "2.3.6",
+      "licenseMetadata": "Exact corrected Windows App SDK license; not automatically repository MIT",
+      "reviewStatus": "notice-materials-covered",
+      "reviewReason": "Misplaced Engineering Preview license fixed by selected WindowsAppSDK2.4.0 / WinUI2.3.6, per Microsoft issue6654. Exact ordinary license retains section3.b external-user and publisher obligations, including its exception for claims based solely on unmodified distributable code. Maintainer has not accepted these responsibilities. Current Microsoft.Windows.AI.MachineLearning2.1.74 dependencies retain their own exact Windows ML original and notices, with the same section3.b responsibility pattern; no new ML product API is enabled. Maintainer explicitly confirmed the corresponding publisher scope and draft2 user terms on 2026-10-17; this is an identified-condition review, not legal certification. Publication remains separately unauthorised.",
+      "sourceFiles": [
+        {
+          "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/license.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsappsdk.winui/2.3.6/microsoft.windowsappsdk.winui.2.3.6.nupkg",
+          "sha256": "5B11E6347756E40FE0274BC08C97F89201B94F0D50181A09A00F1F4740840501"
+        },
+        {
+          "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/microsoft.windowsappsdk.winui.nuspec",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsappsdk.winui/2.3.6/microsoft.windowsappsdk.winui.2.3.6.nupkg",
+          "sha256": "BBC9FC937A148EA02F3EC75F0AFF099FA761C6BBAC405F4EE709D44B0851E571"
+        },
+        {
+          "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/NOTICE.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsappsdk.winui/2.3.6/microsoft.windowsappsdk.winui.2.3.6.nupkg",
+          "sha256": "E25393C0D340A1821827B093FA4DBBFCCCD8FEB7BF769E7FA773E3955CD5314B"
+        },
+        {
+          "path": "components/Microsoft.WindowsAppSDK.WinUI/2.3.6/tools/NOTICE.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsappsdk.winui/2.3.6/microsoft.windowsappsdk.winui.2.3.6.nupkg",
+          "sha256": "4A9321FD173EBF4E8BBC79130794D4C3FE233ACCCBF7DB8765E0ADDB8FBFB8CA"
+        },
+        {
+          "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/license.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.ai.machinelearning/2.1.74/microsoft.windows.ai.machinelearning.2.1.74.nupkg",
+          "sha256": "66395F8CB219087FAE2BD025010BD9076B736C14F03B48F20295471C0C376814"
+        },
+        {
+          "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/microsoft.windows.ai.machinelearning.nuspec",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.ai.machinelearning/2.1.74/microsoft.windows.ai.machinelearning.2.1.74.nupkg",
+          "sha256": "B68A2FE2D575CB8E1F703B69614EDA0E23B5DA8A65CE187F08A4EC797A6924DB"
+        },
+        {
+          "path": "components/Microsoft.Windows.AI.MachineLearning/2.1.74/ThirdPartyNotices.txt",
+          "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.ai.machinelearning/2.1.74/microsoft.windows.ai.machinelearning.2.1.74.nupkg",
+          "sha256": "FB0AF774B4D7CFFC5B9D046F2AAEADE2F37DF2F80ABF8033C95DFFFCC77A8866"
+        }
+      ],
+      "publisherApprovalRecorded": true,
+      "engineeringPreviewLicenseFixed": true,
+      "lastChecked": "2026-10-17",
+      "approvalRecord": "docs/release-review/MAINTAINER_CONFIRMATIONS.json"
     }
   ],
-  "note": "hasPackageNoticeText in components/INDEX.json remains a factual package-content observation. Supplemental material coverage does not rewrite the package or its license. No pending case is silently cleared."
+  "note": "hasPackageNoticeText in components/INDEX.json remains a factual package-content observation. Supplemental material coverage does not rewrite the package or its license. No pending case is silently cleared.",
+  "latestReviewScope": "Final Preview preparation: identified SDK/AppSDK publisher and term confirmations explicitly recorded; original texts unchanged. Push/tag/release still await separate human confirmation."
 }

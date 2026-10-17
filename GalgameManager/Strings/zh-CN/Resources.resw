@@ -6027,4 +6027,40 @@
   <data name="Recognition_QuotaBefore" xml:space="preserve">
     <value>Trace.moe 请求前余量 {0}/{1} · 并发上限 {2}（本次消耗尚未计入）</value>
   </data>
+  <data name="LicenseConsent_Title.Text" xml:space="preserve">
+    <value>第三方组件许可条款</value>
+  </data>
+  <data name="LicenseConsent_Description.Text" xml:space="preserve">
+    <value>LemonVN 使用 Microsoft Windows SDK 与 Windows App SDK 组件。请阅读各组件的适用条款，明确同意后再进入主界面。</value>
+  </data>
+  <data name="LicenseConsent_Apache.Text" xml:space="preserve">
+    <value>LemonVN 自身及适用上游代码继续使用 Apache-2.0；以下确认不改变这些源码的许可。</value>
+  </data>
+  <data name="LicenseConsent_Draft.Message" xml:space="preserve">
+    <value>本次仅在本机记录您对适用组件条款的明确选择。同意组件条款不会授权图片上传或改变收藏数据。</value>
+  </data>
+  <data name="LicenseConsent_Read.Content" xml:space="preserve">
+    <value>阅读全文</value>
+  </data>
+  <data name="LicenseConsent_Agree.Content" xml:space="preserve">
+    <value>同意并继续</value>
+  </data>
+  <data name="LicenseConsent_Decline.Content" xml:space="preserve">
+    <value>不同意并退出</value>
+  </data>
+  <data name="LicenseConsent_FullTitle" xml:space="preserve">
+    <value>适用许可全文（本地只读）</value>
+  </data>
+  <data name="LicenseConsent_SdkTab" xml:space="preserve">
+    <value>微软 SDK 原文</value>
+  </data>
+  <data name="LicenseConsent_DraftTab" xml:space="preserve">
+    <value>组件使用条款</value>
+  </data>
+  <data name="LicenseConsent_Close" xml:space="preserve">
+    <value>返回确认窗口</value>
+  </data>
+  <data name="LicenseConsent_ReadError" xml:space="preserve">
+    <value>无法显示完整条款。请退出并确认已完整解压应用文件。</value>
+  </data>
 </root>

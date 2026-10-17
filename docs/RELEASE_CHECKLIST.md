@@ -1,25 +1,24 @@
-# 发布检查表
+# LemonVN v0.1.0-preview 发布检查表
 
-M6-B2-B1本地待审更新（2026-10-16）：首次main源码5eb46a0已公开。本阶段仅在独立分支逐文件准备更新，未再次Push/发布。SevenZipSharp已从实际编译/运行图排除，原509用例保留、新4，共513/513；单实例1/1，合成GUI关闭重启通过。历史37项中32项补充材料、5待确认，另有隐式SDK再分发条件待决。源码与二进制仍分别准入，见[M6-B2-B1](M6_B2B1_LICENSE_AND_DEPENDENCY_CLEARANCE.md)。
+本文件记录公开源码快照的当前状态；历史开发仓库及其 Git 对象不属于此快照。
 
-以下保留此前阶段的审查时点记录；首次提交前的“无remote/未Push”等不是本地后续分支的当前状态。
+- [x] 保留 GoldenPotato137 / PotatoVN Apache-2.0 许可、NOTICE 和修改说明。
+- [x] .NET 10 LTS；Windows App SDK 2.4.0，WinUI 2.3.6 已采用修正后的普通许可证。
+- [x] 原开发基线 Release 构建、541/541 离线测试、单实例 E2E 1/1 已通过。
+- [x] AutoMapper、SevenZipSharp 从客户端发行依赖移除；LiteDB、Revision、EpisodeRecord 和 ZIP V1/V2 保留。
+- [x] 已取得维护者对适用 Windows SDK 及 Windows App SDK／Windows ML 发布者责任的明确文字确认。
+- [x] 维护者确认新增代码版权署名、所供图标公开分发权利以及 draft2 条款和首次启动明确同意机制。
+- [x] 确认记录仅代表维护者原话，不构成签名、阅读证明、微软批准或法律认证。
+- [x] 正式组件条款第 1～5 节与批准的 draft2 保持一致，原始许可证保留。
+- [x] 保留首次启动同意／拒绝与数据库初始化隔离；确认记录不进入收藏备份。
+- [x] 独立历史、匿名测试资料及逐文件上游修改声明予以保留；不复制旧 .git、证书或工作流。
+- [ ] 最终本地候选构建、定向测试及 ZIP 哈希须按实际验证报告核对。
+- [ ] 等待维护者回复「确认正式发布」，之后才允许正常 Push、创建 v0.1.0-preview Tag 和 GitHub Pre-release。
 
-2026-10-16。已勾选只表示已验证的事实，不是发布授权。
+计划资产：LemonVN-v0.1.0-preview-windows-x64.zip 及同名 .zip.sha256。
+中文发行说明：[RELEASE_NOTES_0.1.md](RELEASE_NOTES_0.1.md)。
+许可确认依据：[MAINTAINER_CONFIRMATIONS.json](release-review/MAINTAINER_CONFIRMATIONS.json)。
+安装说明：[INSTALLATION_GUIDE.md](INSTALLATION_GUIDE.md)。
 
-- [x] 独立客户端源码、全部客户端测试及合成数据保留。
-- [x] 原 LICENSE、原作者/上游 SHA、NOTICE 和逐文件修改告知保留。
-- [x] 旧 Git 历史、PFX、数据、字体、旧图片/工作流、SDK 与二进制不进入源码提交。
-- [x] 客户端 AutoMapper 已移除，Release 输出/实际引用和还原图均无该包。
-- [x] 独立源码还原及 x64 Release 构建 0 警告/错误，离线509/509，单实例1/1。
-- [x] 合成数据 GUI 启动/关闭/重启与19项只读核对通过。
-- [x] 真实主页与开发者/版本 User-Agent；隐私、API 条款与代码许可分开说明。
-- [x] 现有 LiteDB/Revision/EpisodeRecord/ZIP V1/V2 回归保留。
-- [ ] 维护者审查本地首次提交并明确批准首次 Push；本阶段未获授权。
-- [ ] LGPL 精确版本对应源码/嵌入组成物/版权通知/替换和调试方案。
-- [ ] 全部实际二进制精确许可正文和原生第三方通知；不能只附 SPDX 模板。
-- [ ] .NET8（2026-11-10结束支持）更新/迁移方案；另行评估 .NET10 LTS，不自动迁移。
-- [ ] 干净 Windows x64 的 Windows App Runtime 部署与实际运行（后续 M6-B2-B）。
-- [ ] 明确正式二进制使用范围、服务额度/商业授权边界及维护支持声明。
-- [ ] 单独授权生成公开 ZIP、上传 GitHub Releases；未签名/发布。
-
-非首发必测承诺：其他 Windows 版本、全部 DPI、MSIX 安装/升级仍未验证，不能勾为通过。首发继续优先 x64 ZIP。当前安全源码条件与公开 ZIP 条件分别见 [清理报告](M6_B2A_OPEN_SOURCE_CLEARANCE.md)。
+仅 Windows x64，未签名，尚未完成干净系统测试；可能需要安装兼容 Windows App Runtime。
+不提供视频播放、下载或视频资源。已识别分发条件的检查不代表全部法律要求获得认证。

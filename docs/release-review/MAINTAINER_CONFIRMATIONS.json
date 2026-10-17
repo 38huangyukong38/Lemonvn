@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "maintainerPublicId": "38huangyukong38",
+  "recordedDate": "2026-10-17",
+  "evidence": "Explicit human user instructions in this conversation, including a separate affirmative reply for Windows App SDK / Windows ML responsibilities.",
+  "confirmations": {
+    "windowsSdkPublisherResponsibilities": true,
+    "windowsAppSdkAndWindowsMlPublisherResponsibilities": true,
+    "newCodeCopyrightAttribution": true,
+    "suppliedIconPublicDistributionRights": true,
+    "draft2TermsAndExplicitFirstLaunchMechanism": true
+  },
+  "approvedDraft2Sha256": "15AA6F3C0A4E018AE53890046032AE5FB261A7EBDB855747FEC8687CC907E568",
+  "unchangedSections1To5NormalizedSha256": "393D553F178BDE109267CD1BFF1D4994311BF4F9D5D0A456DF9DA272D2919F76",
+  "unchangedConfirmationTextSha256": "9F00A5B1451D39401D4E1A690EA8B1D5B5C90C77814D7C627A870D5AA9A5BE2A",
+  "unchangedMechanismSha256": "DF4737B9D82F8972C8BD2E11C99065BADB090E01AA259071BDC83CA544C181D0",
+  "currentTermsSha256": "59EC5C2E8EB2B893A3B06EBEC3D7B6C7756B2D96E23A2748E8CAE73616D29C12",
+  "notASignature": true,
+  "notAReadingAttestation": true,
+  "notMicrosoftApprovalOrLegalCertification": true,
+  "publicationAuthorized": false,
+  "requiredNextHumanMessage": "确认正式发布"
+}

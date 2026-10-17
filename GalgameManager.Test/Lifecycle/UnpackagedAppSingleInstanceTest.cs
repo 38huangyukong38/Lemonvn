@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using GalgameManager.Test.Upgrade;
+using LemonVN.Services;
 
 namespace GalgameManager.Test.Lifecycle;
 
@@ -25,6 +26,10 @@ public sealed class UnpackagedAppSingleInstanceTest
         _runRoot = Path.Combine(Path.GetTempPath(), "LemonVN.E2E", "SingleInstance", Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(Path.Combine(_runRoot, "LocalData"));
         Directory.CreateDirectory(Path.Combine(_runRoot, "Temp"));
+        // This lifecycle fixture represents a prior explicit local acknowledgement.
+        // It uses the production format/hash, never an application bypass switch.
+        new LicenseConsentService(new AppDataPathService(Path.Combine(_runRoot, "LocalData")))
+            .RecordAcceptance(LicenseTerms.Load(Path.GetDirectoryName(GetExePath())!));
     }
 
     [TearDown]
@@ -94,7 +99,7 @@ public sealed class UnpackagedAppSingleInstanceTest
             ? "Release"
             : "Debug";
         return Path.Combine(UpgradeTestData.WorkspaceRoot, "GalgameManager", "bin", "x64", configuration,
-            "net8.0-windows10.0.22621.0", "win-x64", "LemonVN.exe");
+            "net10.0-windows10.0.22621.0", "win-x64", "LemonVN.exe");
     }
 
     private static async Task<IntPtr> WaitForMainWindowAsync(Process process)

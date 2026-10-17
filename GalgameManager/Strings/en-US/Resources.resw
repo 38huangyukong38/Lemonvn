@@ -5226,4 +5226,40 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
   <data name="Recognition_QuotaBefore" xml:space="preserve">
     <value>Trace.moe pre-request remaining {0}/{1} · concurrency {2} (this request is not included)</value>
   </data>
+  <data name="LicenseConsent_Title.Text" xml:space="preserve">
+    <value>Third-party component license terms</value>
+  </data>
+  <data name="LicenseConsent_Description.Text" xml:space="preserve">
+    <value>LemonVN uses Microsoft Windows SDK and Windows App SDK components. Read their applicable terms and make an explicit choice before continuing.</value>
+  </data>
+  <data name="LicenseConsent_Apache.Text" xml:space="preserve">
+    <value>LemonVN and applicable upstream code remain under Apache-2.0. This acknowledgement does not change their source licenses.</value>
+  </data>
+  <data name="LicenseConsent_Draft.Message" xml:space="preserve">
+    <value>This records only your explicit local acknowledgement of applicable component terms. It does not authorize image uploads or change collection data.</value>
+  </data>
+  <data name="LicenseConsent_Read.Content" xml:space="preserve">
+    <value>Read full terms</value>
+  </data>
+  <data name="LicenseConsent_Agree.Content" xml:space="preserve">
+    <value>Agree and continue</value>
+  </data>
+  <data name="LicenseConsent_Decline.Content" xml:space="preserve">
+    <value>Disagree and exit</value>
+  </data>
+  <data name="LicenseConsent_FullTitle" xml:space="preserve">
+    <value>Full applicable licenses (local, read-only)</value>
+  </data>
+  <data name="LicenseConsent_SdkTab" xml:space="preserve">
+    <value>Microsoft SDK original</value>
+  </data>
+  <data name="LicenseConsent_DraftTab" xml:space="preserve">
+    <value>Component user terms</value>
+  </data>
+  <data name="LicenseConsent_Close" xml:space="preserve">
+    <value>Back to confirmation</value>
+  </data>
+  <data name="LicenseConsent_ReadError" xml:space="preserve">
+    <value>The complete terms could not be displayed. Exit and check that all application files were extracted.</value>
+  </data>
 </root>

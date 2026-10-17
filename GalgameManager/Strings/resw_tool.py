@@ -1,5 +1,4 @@
-﻿# LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import argparse
 import fnmatch
 import hashlib

@@ -165,6 +165,26 @@ public sealed class AnimeBackupTest
         Assert.That(File.Exists(Path.Combine(_target.Paths.RootPath, old.Metadata.CoverRef!)), Is.True);
     }
 
+    [Test]
+    public async Task ConsentAcknowledgements_StayLocalAcrossBackupAndRestore()
+    {
+        var terms = LicenseTerms.Load(AppContext.BaseDirectory);
+        var sourceConsent = new LicenseConsentService(_source.Paths);
+        var targetConsent = new LicenseConsentService(_target.Paths);
+        sourceConsent.RecordAcceptance(terms);
+        targetConsent.RecordAcceptance(terms);
+        byte[] previous = File.ReadAllBytes(targetConsent.FilePath);
+        await Add(_source, "Consent isolation", cover: false);
+        await _source.Backup.ExportAsync(_zip);
+        using (var archive = ZipFile.OpenRead(_zip))
+            Assert.That(archive.Entries.Any(e => e.FullName.Contains("consent", StringComparison.OrdinalIgnoreCase) ||
+                e.FullName.StartsWith("Settings/", StringComparison.OrdinalIgnoreCase)), Is.False);
+        using PreparedBackup plan = await _target.Backup.PrepareAsync(_zip);
+        await _target.Backup.RestoreAsync(plan);
+        Assert.That(File.ReadAllBytes(targetConsent.FilePath), Is.EqualTo(previous));
+        Assert.That(targetConsent.IsCurrentAccepted(terms), Is.True);
+    }
+
     [TestCase("version")]
     [TestCase("missingVersion")]
     [TestCase("unknownManifestField")]

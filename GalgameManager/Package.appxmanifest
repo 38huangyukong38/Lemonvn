@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json. -->
-
 <!-- LemonVN development identity. No upstream Store, protocol, COM, toast or autostart registrations. -->
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
          xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
@@ -10,7 +8,7 @@
   <Properties>
     <DisplayName>LemonVN</DisplayName>
     <PublisherDisplayName>LemonVN contributors</PublisherDisplayName>
-    <Logo>Assets\LemonPlaceholder.png</Logo>
+    <Logo>Assets\LemonStoreLogo.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
@@ -21,9 +19,9 @@
   <Applications>
     <Application Id="LemonVN" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements DisplayName="ms-resource:AppDisplayName" Description="ms-resource:AppDescription"
-                          BackgroundColor="transparent" Square150x150Logo="Assets\LemonPlaceholder.png"
-                          Square44x44Logo="Assets\LemonPlaceholder.png">
-        <uap:DefaultTile Square71x71Logo="Assets\LemonPlaceholder.png" />
+                          BackgroundColor="transparent" Square150x150Logo="Assets\LemonSquare150x150Logo.png"
+                          Square44x44Logo="Assets\LemonSquare44x44Logo.png">
+        <uap:DefaultTile Square71x71Logo="Assets\LemonSquare71x71Logo.png" />
       </uap:VisualElements>
     </Application>
   </Applications>

@@ -1,4 +1,4 @@
-﻿// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
+// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
 using GalgameManager.Helpers;
 
 namespace GalgameManager;
@@ -10,7 +10,7 @@ public sealed partial class MainWindow : WindowEx
     {
         InitializeComponent();
 
-        AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/LemonPlaceholder.ico"));
+        AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/LemonAppIcon.ico"));
         Content = null;
         Title = "AppDisplayName".GetLocalized();
     }

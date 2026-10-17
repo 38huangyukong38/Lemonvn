@@ -1,6 +1,16 @@
 LemonVN 0.1.0
 Project: https://github.com/38huangyukong38/Lemonvn
 
+Copyright (c) 2026 38huangyukong38 and LemonVN contributors.
+This attribution applies to LemonVN-authored additions; it does not assert
+ownership of PotatoVN, Microsoft or other third-party components. The maintainer
+confirmed the supplied application icon may be publicly distributed.
+The maintainer explicitly confirmed the applicable Windows SDK, Windows App SDK
+and Windows ML publisher responsibilities and the draft2 component-user terms.
+This records maintainer instructions, not a signature, reading attestation,
+Microsoft endorsement or legal certification. Actual publication awaits a
+separate explicit confirmation. See docs/release-review/MAINTAINER_CONFIRMATIONS.json.
+
 Based on PotatoVN by GoldenPotato137 and its contributors:
 https://github.com/GoldenPotato137/PotatoVN
 Audited upstream revision: 2adef493ea0d82d27d4037e91507e558c567305d
@@ -20,10 +30,25 @@ does not grant rights to third-party services, metadata or images.
 The planned LemonVN project is free and open source under Apache-2.0 for the
 corresponding code. Its present personal/non-commercial operating goal adds no
 commercial-use restriction to that license. Separate component and service
-terms still apply; the current internal test candidate is not release clearance.
+terms still apply; source license does not itself authorize use of third-party services.
 
 The public source snapshot excludes inherited signing material, legacy game
 data/artwork/fonts and old publishing workflows, while retaining the client
 source and tests. The original development repository/history is preserved.
 The upstream LICENSE retains historical attribution for translation data;
 that legacy data is not included in the LemonVN source snapshot.
+
+Microsoft component attribution (separate from LemonVN ownership):
+Microsoft.Windows.SDK.NET.dll originates from Microsoft.Windows.SDK.NET.Ref
+10.0.22621.57; Copyright (c) Microsoft Corporation. All rights reserved.
+The supplied Windows SDK license and REDIST conditions apply to that projection.
+Windows App SDK 2.4.0 and WinUI 2.3.6 retain Microsoft copyright and their exact
+package license/notice files; their redistribution conditions remain subject
+to maintainer review, including the applicable publisher-responsibility terms.
+WinRT.Runtime.dll is byte-identical to the net8.0 runtime in the official
+Microsoft.Windows.CsWinRT 2.2.0 package and is also provided under that package's
+MIT license, Copyright (c) Microsoft Corporation. Its unmodified LICENSE and
+NOTICE.txt are included under licenses/supplemental/Microsoft.Windows.CsWinRT/2.2.0/.
+These component terms do not replace Apache-2.0 for LemonVN or applicable
+PotatoVN code, and a local functional-test acknowledgement is not publisher
+approval of any redistribution contract.

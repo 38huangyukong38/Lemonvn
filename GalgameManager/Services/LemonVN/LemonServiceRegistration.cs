@@ -25,6 +25,7 @@ public static class LemonServiceRegistration
         if (paths is not null) services.AddSingleton(paths);
         else services.AddSingleton<IAppDataPathService>(_ => CreateCurrentPaths());
         services.AddSingleton<IAppSettingsService, AppSettingsService>();
+        services.AddSingleton<LicenseConsentService>();
         services.AddSingleton<AppDatabaseService>();
         services.AddSingleton<AppLogService>();
         services.AddSingleton<IAnimeRepository, LiteDbAnimeRepository>();

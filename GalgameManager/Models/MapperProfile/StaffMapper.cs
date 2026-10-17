@@ -1,4 +1,4 @@
-﻿// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
+// LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
 using System.Runtime.CompilerServices;
 
 // LemonVN modification: preserve type forwarders; the unused mapping profile

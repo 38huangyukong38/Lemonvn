@@ -1,4 +1,3 @@
-﻿
 <!-- LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json. -->
 <windowex:WindowEx
     x:Class="GalgameManager.MainWindow"
