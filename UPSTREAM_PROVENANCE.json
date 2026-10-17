@@ -62,7 +62,8 @@
       "phase": "v0.1.1-preview Bangumi linking fix",
       "developmentImplementationCommit": "764fb6735651a61e7ed54fd73e1956d336b6f266",
       "originalDevelopmentHistoryCopied": false,
-      "scope": "Reviewed file-level metadata protection/legacy empty preview, pinned confirmation actions and bounded local cover display; no database/schema/dependency change."
+      "scope": "Reviewed file-level metadata protection/legacy empty preview, pinned confirmation actions and bounded local cover display; no database/schema/dependency change.",
+      "developmentFollowupCommit": "a0a243bdb908c7eb9258a5d98f04b9a44e420694"
     }
   ]
 }

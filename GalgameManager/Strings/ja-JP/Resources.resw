@@ -5192,6 +5192,6 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
     <value>条項全文を表示できません。終了し、アプリのファイルがすべて展開されているか確認してください。</value>
   </data>
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
-    <value>確認すると旧版で自動保護された空欄の情報を補完します：{0}。入力済みの手動情報は保持され、確認前には保存されません。</value>
+    <value>確認すると旧版の未入力項目の既定保護を解除し、取得できた情報を補完します：{0}。入力済みの手動情報は保持され、不足情報は後で更新できます。確認前には保存されません。</value>
   </data>
 </root>

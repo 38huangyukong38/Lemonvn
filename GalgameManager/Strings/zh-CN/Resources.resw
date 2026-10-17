@@ -6064,6 +6064,6 @@
     <value>无法显示完整条款。请退出并确认已完整解压应用文件。</value>
   </data>
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
-    <value>本次确认会补全旧版本被自动保护的空白资料：{0}。已填写的人工资料保持不变；未确认前不会保存。</value>
+    <value>本次确认会解除旧版本未填写项目的默认保护，并补全可用资料：{0}。已填写的人工资料保持不变；暂缺的网络资料可稍后刷新。未确认前不会保存。</value>
   </data>
 </root>

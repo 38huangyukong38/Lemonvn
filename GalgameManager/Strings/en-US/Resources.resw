@@ -5263,6 +5263,6 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
     <value>The complete terms could not be displayed. Exit and check that all application files were extracted.</value>
   </data>
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
-    <value>Confirming will fill blank metadata that v0.1.0 automatically protected: {0}. Existing manual values are kept; nothing is saved before confirmation.</value>
+    <value>Confirming removes the old default protection on blank fields and fills available metadata: {0}. Existing manual values are kept; unavailable fields can be refreshed later. Nothing is saved before confirmation.</value>
   </data>
 </root>

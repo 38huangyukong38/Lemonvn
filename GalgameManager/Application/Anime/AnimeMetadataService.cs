@@ -65,19 +65,22 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
             if (proposed.AirDate is null) legacyEmpty.Add("AirDate");
             if (proposed.CoverRef is null) legacyEmpty.Add("CoverRef");
         }
-        var legacyFilled = new List<string>();
+        // Retire the entire recognized empty-default set in the proposed copy.
+        // Otherwise a temporary missing API field/cover would become protected
+        // forever once the other fields had been filled and the signature broke.
+        var legacyFilled = legacyEmpty.OrderBy(field => field, StringComparer.Ordinal).ToList();
+        proposed.UserOverrides.ExceptWith(legacyEmpty);
         proposed.BangumiId = source.Id;
         var changes = new List<AnimeMetadataChange>();
         void Merge<T>(string field, T local, T remote, Action<T> assign)
         {
             bool missing = remote is null || remote is string text && string.IsNullOrWhiteSpace(text);
-            MetadataChangeKind kind = proposed.UserOverrides.Contains(field) && !legacyEmpty.Contains(field) ? MetadataChangeKind.Protected
+            MetadataChangeKind kind = proposed.UserOverrides.Contains(field) ? MetadataChangeKind.Protected
                 : missing ? MetadataChangeKind.Missing : Equals(local, remote) ? MetadataChangeKind.Unchanged : MetadataChangeKind.Update;
             changes.Add(new(field, local?.ToString() ?? string.Empty, remote?.ToString() ?? string.Empty, kind));
             if (kind == MetadataChangeKind.Update)
             {
                 assign(remote);
-                if (legacyEmpty.Contains(field)) { proposed.UserOverrides.Remove(field); legacyFilled.Add(field); }
             }
         }
         Merge("Title", proposed.Title, source.Title, value => proposed.Title = value);
@@ -97,7 +100,7 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
         byte[]? cover = null;
         bool unavailable = false;
         MetadataChangeKind coverKind;
-        if (proposed.UserOverrides.Contains("CoverRef") && !legacyEmpty.Contains("CoverRef")) coverKind = MetadataChangeKind.Protected;
+        if (proposed.UserOverrides.Contains("CoverRef")) coverKind = MetadataChangeKind.Protected;
         else
         {
             try
@@ -121,8 +124,6 @@ public sealed class AnimeMetadataService(IBangumiAnimeProvider provider, IRemote
             }
         }
         token.ThrowIfCancellationRequested();
-        if (cover is not null && legacyEmpty.Contains("CoverRef"))
-        { proposed.UserOverrides.Remove("CoverRef"); legacyFilled.Add("CoverRef"); }
         changes.Add(new("CoverRef", proposed.CoverRef ?? string.Empty, source.CoverUri?.AbsoluteUri ?? string.Empty, coverKind));
         if (before is not null)
         {

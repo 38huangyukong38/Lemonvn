@@ -173,6 +173,45 @@ public sealed class AnimeMetadataTest
         Assert.That(preview.LegacyEmptyFieldsToFill, Is.Empty);
     }
 
+    [TestCase(false)]
+    [TestCase(true)]
+    public async Task LegacyRepair_WithTemporarilyMissingMetadataOrCover_CanBeRefreshedLater(bool failedCover)
+    {
+        AnimeEntry manual = await _collection.SaveAsync(new() { Metadata = new() { Title = "111" } }, true);
+        manual.Metadata.UserOverrides.UnionWith(new[] { "OriginalTitle", "Description", "AirDate", "TotalEpisodes", "CoverRef" });
+        manual = await _repository.UpdateAsync(manual);
+        if (failedCover)
+            _remote.Setup(covers => covers.GetBytesAsync(It.IsAny<Uri?>(), It.IsAny<CancellationToken>(), It.IsAny<bool>())).ThrowsAsync(new IOException("Synthetic temporary failure"));
+        else
+        {
+            _provider.Setup(provider => provider.GetAnimeDetailsAsync(_source.Id, It.IsAny<bool>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(_source with { OriginalTitle = null, Description = null, AirDate = null, TotalEpisodes = null, CoverUri = null });
+            _remote.Setup(covers => covers.GetBytesAsync(It.IsAny<Uri?>(), It.IsAny<CancellationToken>(), It.IsAny<bool>())).ReturnsAsync((byte[]?)null);
+        }
+        AnimeMetadataPreview preview = await _metadata.PrepareAsync(_source.Id, manual.Id, false, default, fillLegacyEmptyFields: true);
+        Assert.That(preview.LegacyEmptyFieldsToFill, Has.Count.EqualTo(5));
+        AnimeEntry linked = await _metadata.CommitAsync(preview, default);
+        Assert.That(linked.Metadata.UserOverrides, Is.EqualTo(new[] { "Title" }));
+        Assert.That(linked.Metadata.CoverRef, Is.Null);
+        if (!failedCover)
+        {
+            Assert.That(linked.Metadata.Description, Is.Null);
+            Assert.That(linked.Metadata.TotalEpisodes, Is.Null);
+        }
+        _provider.Setup(provider => provider.GetAnimeDetailsAsync(_source.Id, It.IsAny<bool>(), It.IsAny<CancellationToken>())).ReturnsAsync(_source);
+        _remote.Setup(covers => covers.GetBytesAsync(It.IsAny<Uri?>(), It.IsAny<CancellationToken>(), It.IsAny<bool>())).ReturnsAsync(Picture());
+        linked = await _metadata.CommitAsync(await _metadata.PrepareAsync(_source.Id, linked.Id, true, default), default);
+        Assert.Multiple(() =>
+        {
+            Assert.That(linked.Id, Is.EqualTo(manual.Id));
+            Assert.That(linked.Metadata.Title, Is.EqualTo("111"));
+            Assert.That(linked.Metadata.Description, Is.EqualTo(_source.Description));
+            Assert.That(linked.Metadata.TotalEpisodes, Is.EqualTo(_source.TotalEpisodes));
+            Assert.That(linked.Metadata.CoverRef, Is.Not.Null);
+        });
+        Assert.That(await _collection.GetAllAsync(), Has.Count.EqualTo(1));
+    }
+
     [Test]
     public async Task EditingPersonalFields_DoesNotLockNetworkMetadata_ButChangedNameIsProtectedDuringRefresh()
     {
