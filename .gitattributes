@@ -3,3 +3,6 @@
 *.ico -text
 *.jpg -text
 docs/licenses/** -text -whitespace
+# Preserve maintainer-approved component terms and their recorded hashes.
+docs/SDK_END_USER_TERMS_DRAFT.md -text -whitespace
+docs/release-review/2026-10-17-draft2-approved-source.md -text -whitespace
