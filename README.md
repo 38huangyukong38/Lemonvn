@@ -4,9 +4,9 @@ LemonVN 是基于 [PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 修改
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn) · [发行页](https://github.com/38huangyukong38/Lemonvn/releases)
 
-当前最新版本：**[v0.1.1 Preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.1-preview)**。本次更新修复手动收藏关联 Bangumi 后资料未正确保存的问题，并将添加／关联确认按钮固定到资料预览右上角，无需滚动到底部即可操作。
+当前最新版本：**[v0.2.0 Preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.2.0-preview)**。本次更新加入首页箭头翻页、支持按钮和 Enter 的组合筛选、按逐集记录自动更新观看状态、添加后返回 Bangumi 搜索，以及默认保留数据的卸载入口。
 
-历史版本：[v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview)，保留历史下载。所有版本及附件见[发行页](https://github.com/38huangyukong38/Lemonvn/releases)。
+历史版本：[v0.1.1-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.1-preview)、[v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview)，保留历史下载。所有版本及附件见[发行页](https://github.com/38huangyukong38/Lemonvn/releases)。
 
 ## 功能
 
@@ -32,6 +32,10 @@ LemonVN 是基于 [PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 修改
 **本版本尚未完成干净 Windows 系统测试。** 已在现有Windows11 10.0.26200 x64开发环境独立解压验证；项目声明的最低系统版本10.0.17763不代表各Windows10版本均已验收。未测试全部DPI或MSIX部署。
 
 **软件未经过正式代码签名，Windows可能显示安全提示。** 校验值只能检查文件一致性，不能代替签名或受信任来源；不要关闭防护或绕过系统安全提示。完整说明见[安装与运行](docs/INSTALLATION_GUIDE.md)、[中文Release Notes](docs/RELEASE_NOTES_0.1.md)。
+
+## 卸载
+
+正常关闭 LemonVN 后，运行完整解压目录中的 `Uninstall.exe`，默认仅移除该应用副本、保留本地收藏。勾选删除本地数据并再次确认，才会删除本地收藏、观看记录、封面、设置和备份；操作前先将需要的备份导出到其他位置。安装目录中未列入发行清单的文件及系统运行时会保留。需要系统 Windows PowerShell；脚本策略或权限阻止时安全退出，不修改安全设置。
 
 ## 数据与隐私
 

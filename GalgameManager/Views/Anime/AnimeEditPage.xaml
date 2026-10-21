@@ -38,14 +38,14 @@
                     <TextBox x:Uid="Browse_StudiosEditor" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="72" MaxHeight="144"
                              Text="{x:Bind ViewModel.AnimationStudiosText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="AnimeStudiosInput" />
                     <Grid ColumnSpacing="16"><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition /></Grid.ColumnDefinitions>
-                        <ComboBox x:Uid="AnimeEditor_Status" SelectedIndex="{x:Bind ViewModel.StatusIndex, Mode=TwoWay}" HorizontalAlignment="Stretch"
+                        <ComboBox x:Uid="AnimeEditor_Status" SelectedIndex="{x:Bind ViewModel.StatusModeIndex, Mode=TwoWay}" HorizontalAlignment="Stretch"
                                   AutomationProperties.AutomationId="AnimeStatusInput">
-                            <ComboBoxItem x:Uid="AnimeStatus_Planned" /><ComboBoxItem x:Uid="AnimeStatus_Watching" />
-                            <ComboBoxItem x:Uid="AnimeStatus_Completed" /><ComboBoxItem x:Uid="AnimeStatus_OnHold" /><ComboBoxItem x:Uid="AnimeStatus_Dropped" />
+                            <ComboBoxItem x:Uid="AnimeStatus_Automatic" /><ComboBoxItem x:Uid="AnimeStatus_OnHold" /><ComboBoxItem x:Uid="AnimeStatus_Dropped" />
                         </ComboBox>
                         <TextBox Grid.Column="1" x:Uid="AnimeEditor_Rating" Text="{x:Bind ViewModel.RatingText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  AutomationProperties.AutomationId="AnimeRatingInput" />
                     </Grid>
+                    <TextBlock x:Uid="Ux_AutomaticStatus" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                     <TextBox x:Uid="AnimeEditor_Notes" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="80" MaxHeight="160"
                              Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="AnimeNotesInput" />
                     <TextBox x:Uid="AnimeEditor_Tags" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="64" MaxHeight="128"

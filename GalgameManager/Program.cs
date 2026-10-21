@@ -1,5 +1,7 @@
 // LemonVN modification from the fixed PotatoVN baseline; see LICENSE, NOTICE and UPSTREAM_PROVENANCE.json.
+using System.Diagnostics;
 using System.Runtime.InteropServices;
+using LemonVN.Infrastructure.Uninstall;
 using GalgameManager.Helpers;
 using LemonVN;
 using LemonVN.Contracts.Services;
@@ -25,9 +27,24 @@ public static class BootstrapProgram
             "LemonVN", 0);
     }
 
+    public static bool UninstallRequested { get; private set; }
+
     [STAThread]
     public static void Main(string[] args)
     {
+        // MRT/WinUI resolve app-local PRI/XBF resources by the executable identity.
+        // Uninstall.exe is only a launcher; render under the original LemonVN host.
+        if (UninstallService.IsUninstallExecutable(Environment.ProcessPath))
+        {
+            try
+            {
+                using Process child = Process.Start(UninstallService.CreateUiStartInfo(AppContext.BaseDirectory))
+                    ?? throw new IOException("Cannot start the LemonVN uninstall window.");
+            }
+            catch (Exception error) { ReportStartupFailure(error); }
+            return;
+        }
+        UninstallRequested = UninstallService.IsUninstallRequest(args);
         SetCurrentProcessExplicitAppUserModelID(AppIdentity.AppUserModelId);
         WinRT.ComWrappersSupport.InitializeComWrappers();
         // Unpackaged 模式下必须先调用 Bootstrapper API 建立对 Windows App SDK Framework 包的动态依赖，

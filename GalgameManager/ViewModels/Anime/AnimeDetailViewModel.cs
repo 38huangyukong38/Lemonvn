@@ -59,7 +59,7 @@ public partial class AnimeDetailViewModel(AnimeCollectionService collection, ICo
         AnimationStudios = entry.Metadata.AnimationStudios.Count == 0 ? LemonLocalization.GetString("Browse_Unassigned")
             : string.Join(" · ", entry.Metadata.AnimationStudios);
         CoverSource = covers.GetDisplaySource(entry.Metadata.CoverRef);
-        Status = LemonLocalization.GetString("Anime_Status_" + entry.Record.WatchStatus);
+        Status = LemonLocalization.GetString("Anime_Status_" + AnimeWatchStatusRules.GetStatus(entry));
         Episodes = entry.Metadata.TotalEpisodes?.ToString() ?? LemonLocalization.GetString("Anime_Unknown");
         AirDate = entry.Metadata.AirDate?.ToString("yyyy-MM-dd") ?? LemonLocalization.GetString("Anime_Unknown");
         Rating = entry.Record.PersonalRating?.ToString() ?? LemonLocalization.GetString("Anime_Unrated");

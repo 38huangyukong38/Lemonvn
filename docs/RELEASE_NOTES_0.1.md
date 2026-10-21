@@ -1,27 +1,34 @@
-# LemonVN v0.1.1-preview
+# LemonVN v0.2.0 Preview
 
-Windows x64 Preview / GitHub Pre-release，基于 WinUI 3、.NET 10 LTS 与 Windows App SDK 2.4.0。
+本文件沿用已有打包文件名，当前版本说明见[完整 v0.2.0 更新说明](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.2.0-preview)。
 
-## 本次修复
 
-- Bangumi 直接添加和已有收藏关联共用的确认按钮移到“作品资料预览”右上角，放在资料滚动区之外；滚动简介和差异列表时仍可操作。保留加载、取消、防重复点击和错误提示。
-- 修复“先手动保存名称 111 → 从已有详情关联 Bangumi”只保存外部 ID、空白资料未填充的问题。新建时仅保护实际填写的字段；简介、总集数、日期、原名、制作公司和本地封面可正常导入，手填标题保持原值。
-- 对 v0.1.0 的六字段默认保护组合，在预览中明确提示空白项，用户确认后才解除这些空白项的旧默认保护并填入可用资料；暂时缺少的网络字段或封面可在以后刷新时补全。它也适用于此前已关联 ID 但资料未填充的旧记录。非空手填字段和独立的主动清空保护不自动解除；旧数据无法还原每个空值的历史意图，可在确认前取消。
-- 更新的是同一条收藏及本地封面引用，保留本地 GUID、状态、评分、标签、备注、个人日期和 EpisodeRecord；保留 Revision 冲突及重复 Bangumi ID 检查，不按名称合并。
-- 本地封面通过有大小、解码及并发限制的图片流显示，修复非打包环境下图片已经保存却仍显示占位图的问题；继续使用本地缓存与封面引用，不从 XAML 额外联网。
+Windows x64 / GitHub Pre-release，WinUI 3、.NET 10 LTS、Windows App SDK 2.4.0。
 
-## 下载与运行
+## 本次更新
 
-下载 `LemonVN-v0.1.1-preview-windows-x64.zip` 与同名 `.zip.sha256`，完整解压后运行 `LemonVN.exe`。用 PowerShell `Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'` 核对哈希。不要混用新旧 DLL 或覆盖运行中的程序。
+- 首页最近追番、状态分区和制作公司列表增加左右箭头，按可见卡片翻页；保留原生列表、封面尺寸及88 DIP导航栏。
+- 番剧库过滤面板可直接选择状态与标签，点击「应用筛选」或按 Enter 一次提交。修复键盘焦点及选择/刷新冲突，支持与搜索、排序组合；重新打开恢复已应用条件，清除时不会重新套用旧选择。
+- 想看/在看/已看完由 EpisodeRecord 推导：初次未看为想看、看过至少一集为在看、已知总数且1～N全部看完才完成。搁置和抛弃为手动覆盖；支持恢复自动。未知总集数不自动完成，越界集数不能补齐缺集，不自动编造观看日期。旧数据只按此规则显示，不批量迁移或重写记录。
+- Bangumi 搜索添加后进入详情，可用左上返回键回到原关键词、结果及分页，继续添加另一季；保留重复ID、字段保护及 Revision 检查。
+- 增加 `Uninstall.exe`，修复其原先窗口不可见的问题。默认只移除该应用副本、保留收藏；删除本地数据须勾选并二次确认。保留未知文件、系统运行时与其他位置副本，拒绝危险路径/链接和运行中文件；系统脚本策略或权限不允许时安全拒绝，不提升权限或绕过策略。
 
-当前仅支持 **Windows x64**，内含 .NET 10.0.13 运行时；可能需要另装兼容的 **Windows App Runtime x64**。所需家族 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，最低版本 2.4.0.0。请从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)获取兼容运行时，普通用户不需要 Visual Studio 或开发 SDK。
+## 下载、升级与运行
 
-默认数据仍为 `%LocalAppData%\LemonVN`，ZIP 免安装不等于数据便携模式。升级前导出备份、正常关闭旧程序，再解压新版本。数据库格式、Revision、EpisodeRecord 和 ZIP V1/V2 备份恢复合同不变；旧版 [v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview) 保留。
+下载 `LemonVN-v0.2.0-preview-windows-x64.zip` 和同名 `.zip.sha256`。完整解压到新目录，正常关闭旧程序后运行 `LemonVN.exe`，不要混用新旧 DLL。升级前先在设置中导出收藏备份。
 
-## 许可、隐私与已知限制
+当前仅支持 **Windows x64**；ZIP包含 .NET 10.0.13，可能需要安装兼容的 **Windows App Runtime x64**（家族 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，最低2.4.0.0）。从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)取得兼容运行时；不需要Visual Studio或开发SDK。随包 `Check-Runtime.ps1` 仅作只读检测。
 
-软件免费开源，**不提供番剧视频播放、下载或视频资源**。保留 GoldenPotato137 / PotatoVN 署名及 Apache-2.0。微软组件、C#/WinRT MIT 等完整原文和经维护者确认的 draft2 组件条款保留；本次不更改条款或本机明确同意机制，不宣称微软批准或法律认证。
+默认数据为 `%LocalAppData%\LemonVN`，ZIP免安装不等于数据便携。LiteDB、Revision、EpisodeRecord与ZIP V1/V2备份格式保持兼容；评分、标签、备注和观看记录保留。历史 [v0.1.1-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.1-preview) 和 [v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview) 均保留。
 
-Bangumi 仍是用户主动进行的公开动画资料查询，无需 Token；网络失败不影响离线收藏。识番与第三方 API 边界不变，选择图片不会自动上传，服务有独立条款、额度和可用性限制。
+PowerShell校验：`Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'`，与校验文件比较。校验不能代替可信来源或代码签名。
 
-**尚未完成干净 Windows 系统测试；软件未正式代码签名，Windows 可能显示安全提示。** 仅在现有 Windows 11 x64 开发环境验证。未承诺所有 Windows 版本、DPI 或 MSIX 部署兼容；不要关闭安全防护或绕过系统提示。本次没有 MSIX、安装器或自动更新。
+## 卸载、隐私与许可
+
+卸载先关闭程序，再运行同目录 `Uninstall.exe`。默认保留本地数据；选择完全删除前，先把需要的备份导出到其他目录。取消或关闭卸载窗口不删除数据。卸载依赖系统 Windows PowerShell，不改变安全策略、不卸载系统运行时。
+
+软件免费开源，**不提供番剧视频播放、下载或视频资源**。Bangumi仍为主动公开查询，无需Token；识番仍需用户确认才上传处理后的图片。第三方服务有独立条款、额度和可用性限制。
+
+保留 **GoldenPotato137 / PotatoVN** 原作者署名及 Apache-2.0；微软组件、C#/WinRT MIT等完整原文、维护者已确认的draft2组件条款及首次启动明确同意机制保持不变。本次没有新增第三方依赖或改变条款，不宣称微软批准或法律认证。
+
+**尚未完成干净 Windows 系统测试；软件未正式代码签名，Windows可能显示安全提示。** 已在现有Windows11 x64开发环境验证；本轮没有验证全部DPI、所有Windows版本或MSIX，不绕过系统安全提示。没有安装器、自动更新或Microsoft Store发布。

@@ -6,6 +6,8 @@ using LemonVN.ViewModels.Anime;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Windows.System;
 
 namespace LemonVN.Views.Anime;
 
@@ -20,6 +22,30 @@ public sealed partial class AnimeLibraryPage : Page
 
     private void OnAnimeClicked(object sender, ItemClickEventArgs args) => ViewModel.OpenAnimeCommand.Execute(args.ClickedItem);
 
+    private void OnFilterOpening(object sender, object args) => ViewModel.BeginFilterEdit();
+    private void OnFilterOpened(object sender, object args)
+    {
+        // CommandBar pointer invocation may leave focus on the navigation rail.
+        // Put keyboard input inside this popup before handling its Enter action.
+        ApplyFilterButton.Focus(FocusState.Programmatic);
+    }
+
+    private void OnApplyFilters(object sender, RoutedEventArgs args) => ApplySelectedFilters();
+    private void OnFilterKeyDown(object sender, KeyRoutedEventArgs args)
+    {
+        if (args.Key != VirtualKey.Enter || args.KeyStatus.WasKeyDown) return;
+        args.Handled = true;
+        ApplySelectedFilters();
+    }
+    private void ApplySelectedFilters()
+    {
+        // Keep selection changes out of the active list until the whole popup is submitted.
+        ViewModel.DraftStatusIndex = Math.Max(0, StatusFilter.SelectedIndex);
+        ViewModel.DraftSelectedTag = TagFilter.SelectedItem as string;
+        ViewModel.ApplyFiltersCommand.Execute(null);
+        FilterFlyout.Hide();
+    }
+
     // Platform menu construction only; persistence/confirmation stays in the ViewModel and existing services.
     private void OnCardMenuOpening(object sender, object args)
     {
@@ -30,11 +56,12 @@ public sealed partial class AnimeLibraryPage : Page
         if (card is null) return;
         AnimeCardTarget target = card.Target;
         var status = new MenuFlyoutSubItem { Text = Text("Ux_ContextStatus"), Icon = new SymbolIcon(Symbol.AllApps) };
-        foreach (WatchStatus value in Enum.GetValues<WatchStatus>())
+        foreach (WatchStatus value in new[] { WatchStatus.Planned, WatchStatus.OnHold, WatchStatus.Dropped })
         {
             var item = new RadioMenuFlyoutItem
             {
-                Text = Text("Anime_Status_" + value), GroupName = "AnimeStatus", IsChecked = value == target.Status,
+                Text = Text(value == WatchStatus.Planned ? "Ux_ContextAutomatic" : "Anime_Status_" + value), GroupName = "AnimeStatus",
+                IsChecked = value == WatchStatus.Planned ? target.Status is not (WatchStatus.OnHold or WatchStatus.Dropped) : value == target.Status,
                 Command = ViewModel.ChangeStatusCommand, CommandParameter = new AnimeStatusChange(target, value)
             };
             AutomationProperties.SetAutomationId(item, "AnimeContextStatus" + value);

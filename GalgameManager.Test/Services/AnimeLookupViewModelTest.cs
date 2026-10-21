@@ -43,6 +43,46 @@ public sealed class AnimeLookupViewModelTest
     [TearDown] public void TearDown() { _database.Dispose(); _log.Dispose(); }
     private AnimeLookupViewModel ViewModel() => new(_provider.Object, _metadata, _covers.Object, _collection, _navigation.Object, _log, Text);
 
+    [Test]
+    public async Task ReturnAfterAdding_PreservesSearchPageAndResults_AndAllowsAnotherDistinctAddition()
+    {
+        BangumiAnime second = _source with { Id = "101", Title = "Second season" };
+        _provider.Setup(p => p.SearchAnimeAsync(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new BangumiSearchResults([_source, second], 40, 0));
+        _provider.Setup(p => p.GetAnimeDetailsAsync("101", false, It.IsAny<CancellationToken>())).ReturnsAsync(second);
+        var vm = ViewModel();
+        var request = new AnimeLookupRequest();
+        await vm.ActivateAsync(request); vm.Keyword = "瑞克";
+        await vm.SearchCommand.ExecuteAsync(null);
+        await vm.NextCommand.ExecuteAsync(null);
+        var results = vm.Items;
+        string summary = vm.Summary;
+        await vm.PreviewCommand.ExecuteAsync(vm.Items[0]);
+        await vm.ConfirmCommand.ExecuteAsync(null);
+        vm.OnNavigatedFrom();
+        await vm.ActivateAsync(request); // The cached Frame back entry's original parameter.
+        Assert.That(vm.Keyword, Is.EqualTo("瑞克"));
+        Assert.That(vm.Items, Is.SameAs(results));
+        Assert.That(vm.Summary, Is.EqualTo(summary));
+        Assert.That(vm.CanConfirm, Is.False); // Never reuse a committed preview.
+        _provider.Verify(p => p.SearchAnimeAsync("瑞克", 20, It.IsAny<CancellationToken>()), Times.Once);
+        _provider.Verify(p => p.SearchAnimeAsync(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<CancellationToken>()), Times.Exactly(2));
+        await vm.PreviewCommand.ExecuteAsync(vm.Items[1]);
+        await vm.ConfirmCommand.ExecuteAsync(null);
+        Assert.That((await _collection.GetAllAsync()).Select(e => e.Metadata.BangumiId), Is.EquivalentTo(new[] { "100", "101" }));
+        _navigation.Verify(n => n.NavigateTo(typeof(AnimeDetailViewModel).FullName!, It.IsAny<Guid>(), false, ""), Times.Exactly(2));
+    }
+
+    [Test]
+    public async Task NewSearchEntry_ResetsPriorSession_EvenWhenRequestValuesAreEqual()
+    {
+        var vm = ViewModel(); await vm.ActivateAsync(new()); vm.Keyword = "previous";
+        await vm.SearchCommand.ExecuteAsync(null); vm.OnNavigatedFrom();
+        await vm.ActivateAsync(new());
+        Assert.That(vm.Keyword, Is.Empty); Assert.That(vm.Items, Is.Empty);
+        Assert.That(vm.HasPreview, Is.False);
+    }
+
     [TestCase(false)]
     [TestCase(true)]
     public async Task ConfirmHeaderAction_UsesCorrectMode_AndLinksExistingManualEntryWithoutDuplicating(bool existing)
@@ -76,7 +116,7 @@ public sealed class AnimeLookupViewModelTest
             Assert.That(saved.Metadata.BangumiId, Is.EqualTo(_source.Id));
             if (manual is not null) Assert.That(saved.Id, Is.EqualTo(manual.Id));
         });
-        _navigation.Verify(n => n.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, true, ""), Times.Once);
+        _navigation.Verify(n => n.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, false, ""), Times.Once);
     }
 
     [Test]
@@ -93,7 +133,7 @@ public sealed class AnimeLookupViewModelTest
         await viewModel.ConfirmCommand.ExecuteAsync(null);
         AnimeEntry saved = (await _collection.GetAllAsync()).Single();
         Assert.That(saved.Metadata.BangumiId, Is.EqualTo("100"));
-        _navigation.Verify(navigation => navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, true, ""), Times.Once);
+        _navigation.Verify(navigation => navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, false, ""), Times.Once);
         viewModel.ManualCommand.Execute(null);
         _navigation.Verify(navigation => navigation.NavigateTo(typeof(AnimeEditViewModel).FullName!, null, false, ""), Times.Once);
     }
@@ -107,7 +147,7 @@ public sealed class AnimeLookupViewModelTest
         Assert.That(viewModel.HasDuplicate, Is.True);
         Assert.That(viewModel.HasPreview, Is.False);
         viewModel.OpenExistingCommand.Execute(null);
-        _navigation.Verify(navigation => navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, entry.Id, true, ""), Times.Once);
+        _navigation.Verify(navigation => navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, entry.Id, false, ""), Times.Once);
         Assert.That(await _collection.GetAllAsync(), Has.Count.EqualTo(1));
     }
 

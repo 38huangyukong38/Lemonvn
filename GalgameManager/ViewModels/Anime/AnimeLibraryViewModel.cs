@@ -24,6 +24,8 @@ public partial class AnimeLibraryViewModel(INavigationService navigation, AnimeC
     [ObservableProperty] private IReadOnlyList<string> _availableTags = [];
     [ObservableProperty] private string _search = string.Empty;
     [ObservableProperty] private int _statusIndex;
+    [ObservableProperty] private int _draftStatusIndex;
+    [ObservableProperty] private string? _draftSelectedTag;
     [ObservableProperty] private int _sortIndex;
     [ObservableProperty] private bool _sortDescending = true;
     [ObservableProperty] private bool _hasFilters;
@@ -45,12 +47,17 @@ public partial class AnimeLibraryViewModel(INavigationService navigation, AnimeC
     [ObservableProperty] private string _errorMessage = string.Empty;
     private bool _active;
     private bool _batchQuery;
+    private AnimeLibraryRequest? _lastRequest;
 
     public string LibraryTitle => _translate("Ux_LibraryTitle", []);
 
     public async void OnNavigatedTo(object parameter)
     {
-        if (parameter is AnimeLibraryRequest request) ApplyRequest(request);
+        if (parameter is AnimeLibraryRequest request && !ReferenceEquals(request, _lastRequest))
+        {
+            _lastRequest = request;
+            ApplyRequest(request);
+        }
         if (parameter is BackupRestoreResult result)
         {
             ClearFilters();
@@ -127,6 +134,7 @@ public partial class AnimeLibraryViewModel(INavigationService navigation, AnimeC
         AnimationStudio = null;
         UnassignedStudio = false;
         OnlyWithWatchTime = false;
+        BeginFilterEdit();
     }
 
     [RelayCommand]
@@ -183,7 +191,30 @@ public partial class AnimeLibraryViewModel(INavigationService navigation, AnimeC
     }
 
     [RelayCommand] private void ClearSearch() => Search = string.Empty;
-    [RelayCommand] private void ClearTag() => SelectedTag = null;
+    [RelayCommand] private void ClearTag() { SelectedTag = null; DraftSelectedTag = null; }
+
+    public void BeginFilterEdit()
+    {
+        DraftStatusIndex = StatusIndex;
+        DraftSelectedTag = SelectedTag;
+    }
+
+    [RelayCommand]
+    private void ApplyFilters()
+    {
+        // Do not replace the GridView while the user is choosing popup options.
+        // Submit status and tag together, once.
+        _batchQuery = true;
+        try
+        {
+            StatusIndex = Math.Clamp(DraftStatusIndex, 0, 5);
+            SelectedTag = DraftSelectedTag is null ? null : AvailableTags.FirstOrDefault(tag =>
+                string.Equals(tag, DraftSelectedTag, StringComparison.OrdinalIgnoreCase));
+        }
+        finally { _batchQuery = false; }
+        BeginFilterEdit();
+        ApplyQuery();
+    }
 
     [RelayCommand]
     private void EditAnime(AnimeCardTarget? target)
@@ -215,9 +246,12 @@ public partial class AnimeLibraryViewModel(INavigationService navigation, AnimeC
         {
             if (!Enum.IsDefined(change.Status)) throw new ArgumentOutOfRangeException(nameof(change));
             AnimeEntry entry = await ReadTargetAsync(change.Target);
-            if (entry.Record.WatchStatus != change.Status)
+            AnimeEntry requested = entry.Copy();
+            requested.Record.WatchStatus = change.Status;
+            WatchStatus selected = AnimeWatchStatusRules.GetStatus(requested);
+            if (entry.Record.WatchStatus != selected)
             {
-                entry.Record.WatchStatus = change.Status;
+                entry.Record.WatchStatus = selected;
                 await collection.UpdateRecordAsync(entry.Id, change.Target.Revision, entry.Record);
             }
             await LoadAsync();

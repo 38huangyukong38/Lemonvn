@@ -10,9 +10,9 @@ public sealed class AnimeCardViewModel(AnimeEntry entry, ICoverStorageService co
     private readonly Func<string, object[], string> _translate = translate ?? LemonLocalization.GetString;
     public Guid Id => entry.Id;
     public AnimeCardTarget Target => new(entry.Id, entry.Revision, entry.Metadata.Title,
-        entry.Record.WatchStatus, entry.Metadata.BangumiId);
+        AnimeWatchStatusRules.GetStatus(entry), entry.Metadata.BangumiId);
     public string Title => entry.Metadata.Title;
-    public string Status => _translate("Anime_Status_" + entry.Record.WatchStatus, []);
+    public string Status => _translate("Anime_Status_" + AnimeWatchStatusRules.GetStatus(entry), []);
     public string CoverSource => covers.GetDisplaySource(entry.Metadata.CoverRef);
     public string ProgressText => entry.Metadata.TotalEpisodes is { } total
         ? _translate("AnimeProgress_Known", [entry.Record.WatchedCount, total])

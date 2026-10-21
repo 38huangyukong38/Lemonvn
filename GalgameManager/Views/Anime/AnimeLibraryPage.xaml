@@ -20,12 +20,14 @@
                     <AppBarButton.KeyboardAccelerators><KeyboardAccelerator Modifiers="Control" Key="F" /></AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarButton x:Uid="Ux_Filter" Icon="Filter" AutomationProperties.AutomationId="AnimeFilterButton">
-                    <AppBarButton.Flyout><Flyout Placement="Bottom"><StackPanel Width="260" Spacing="12">
-                        <ComboBox HorizontalAlignment="Stretch" x:Uid="AnimeLibrary_Status" SelectedIndex="{x:Bind ViewModel.StatusIndex, Mode=TwoWay}" AutomationProperties.AutomationId="AnimeStatusFilter">
-                            <ComboBoxItem x:Uid="AnimeFilter_All" /><ComboBoxItem x:Uid="AnimeStatus_Planned" /><ComboBoxItem x:Uid="AnimeStatus_Watching" />
-                            <ComboBoxItem x:Uid="AnimeStatus_Completed" /><ComboBoxItem x:Uid="AnimeStatus_OnHold" /><ComboBoxItem x:Uid="AnimeStatus_Dropped" />
-                        </ComboBox>
-                        <ComboBox HorizontalAlignment="Stretch" x:Uid="AnimeLibrary_Tags" ItemsSource="{x:Bind ViewModel.AvailableTags, Mode=OneWay}" SelectedItem="{x:Bind ViewModel.SelectedTag, Mode=TwoWay}" AutomationProperties.AutomationId="AnimeTagFilter" />
+                    <AppBarButton.Flyout><Flyout x:Name="FilterFlyout" Placement="Bottom" Opening="OnFilterOpening" Opened="OnFilterOpened" ShowMode="Standard" AllowFocusOnInteraction="True"><StackPanel Width="260" Spacing="12" PreviewKeyDown="OnFilterKeyDown">
+                        <RadioButtons MaxColumns="3" x:Name="StatusFilter" HorizontalAlignment="Stretch" x:Uid="AnimeLibrary_Status" SelectedIndex="{x:Bind ViewModel.DraftStatusIndex, Mode=TwoWay}" AutomationProperties.AutomationId="AnimeStatusFilter">
+                            <RadioButton x:Uid="AnimeFilter_All" /><RadioButton x:Uid="AnimeStatus_Planned" /><RadioButton x:Uid="AnimeStatus_Watching" />
+                            <RadioButton x:Uid="AnimeStatus_Completed" /><RadioButton x:Uid="AnimeStatus_OnHold" /><RadioButton x:Uid="AnimeStatus_Dropped" />
+                        </RadioButtons>
+                        <TextBlock x:Uid="Ux_FilterTagTitle" />
+                        <ListView x:Name="TagFilter" MaxHeight="140" SelectionMode="Single" HorizontalAlignment="Stretch" ItemsSource="{x:Bind ViewModel.AvailableTags, Mode=OneWay}" SelectedItem="{x:Bind ViewModel.DraftSelectedTag, Mode=TwoWay}" AutomationProperties.AutomationId="AnimeTagFilter" />
+                        <Button x:Name="ApplyFilterButton" x:Uid="Ux_ApplyFilters" Click="OnApplyFilters" HorizontalAlignment="Right" Style="{ThemeResource AccentButtonStyle}" AutomationProperties.AutomationId="AnimeApplyFilters" />
                         <Button x:Uid="Ux_ClearTag" Command="{x:Bind ViewModel.ClearTagCommand}" />
                         <Button x:Uid="AnimeLibrary_ClearFilters" Command="{x:Bind ViewModel.ClearFiltersCommand}" />
                     </StackPanel></Flyout></AppBarButton.Flyout>

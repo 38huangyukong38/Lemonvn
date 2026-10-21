@@ -15,12 +15,15 @@
             <StackPanel Spacing="8">
                 <Grid><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
                     <TextBlock x:Uid="Browse_StudiosTitle" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" />
-                    <Button Grid.Column="1" x:Uid="Browse_More" Command="{x:Bind ViewModel.BrowseStudiosCommand}" AutomationProperties.AutomationId="HomeBrowseStudios" />
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                        <Button x:Uid="Browse_More" Command="{x:Bind ViewModel.BrowseStudiosCommand}" AutomationProperties.AutomationId="HomeBrowseStudios" />
+                        <views:HorizontalPager Target="{x:Bind StudioList}" ItemStride="202" />
+                    </StackPanel>
                 </Grid>
                 <TextBlock x:Uid="Browse_StudioHint" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                 <TextBlock x:Uid="Browse_NoStudioGroups" Visibility="{x:Bind ViewModel.NoStudios, Mode=OneWay}" TextWrapping="Wrap" />
-                <ListView Height="92" ItemsSource="{x:Bind ViewModel.Studios, Mode=OneWay}" SelectionMode="None"
-                          ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                <ListView x:Name="StudioList" Height="92" ItemsSource="{x:Bind ViewModel.Studios, Mode=OneWay}" SelectionMode="None"
+                          ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                           ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                           Visibility="{x:Bind ViewModel.HasStudios, Mode=OneWay}" AutomationProperties.AutomationId="HomeStudioGroups">
                     <ListView.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ListView.ItemsPanel>

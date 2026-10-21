@@ -1,0 +1,20 @@
+<Page x:Class="LemonVN.Views.UninstallPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Padding="28" RowSpacing="16" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+        <TextBlock x:Uid="Uninstall_Title" Style="{ThemeResource SubtitleTextBlockStyle}" />
+        <ScrollViewer Grid.Row="1"><StackPanel Spacing="14">
+            <TextBlock x:Uid="Uninstall_Description" TextWrapping="Wrap" />
+            <TextBlock Text="{x:Bind ApplicationLocation}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+            <TextBlock Text="{x:Bind DataLocation}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+            <CheckBox x:Name="DeleteData" x:Uid="Uninstall_DeleteData" IsChecked="False" AutomationProperties.AutomationId="UninstallDeleteData" />
+            <TextBlock x:Uid="Uninstall_Warning" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+        </StackPanel></ScrollViewer>
+        <InfoBar x:Name="Error" Grid.Row="2" IsOpen="False" Severity="Error" />
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+            <Button x:Name="Continue" x:Uid="Uninstall_Continue" Click="OnContinue" AutomationProperties.AutomationId="UninstallContinue" />
+            <Button x:Name="CancelButton" x:Uid="Uninstall_Cancel" Click="OnCancel" AutomationProperties.AutomationId="UninstallCancel" />
+        </StackPanel>
+    </Grid>
+</Page>

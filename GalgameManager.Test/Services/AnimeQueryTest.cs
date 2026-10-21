@@ -32,7 +32,8 @@ public sealed class AnimeQueryTest
     {
         Metadata = new() { Title = title, OriginalTitle = "Original " + title, TotalEpisodes = total },
         Record = new() { WatchStatus = status, PersonalRating = rating, Tags = ["音乐"],
-            Episodes = watched.Select(number => new EpisodeRecord { EpisodeNumber = number, IsWatched = true }).ToList() }
+            Episodes = (watched.Length == 0 && status == WatchStatus.Watching ? new[] { 1 } : watched)
+                .Select(number => new EpisodeRecord { EpisodeNumber = number, IsWatched = true }).ToList() }
     };
 
     [Test]

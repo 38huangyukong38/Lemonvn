@@ -6066,4 +6066,76 @@
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
     <value>本次确认会解除旧版本未填写项目的默认保护，并补全可用资料：{0}。已填写的人工资料保持不变；暂缺的网络资料可稍后刷新。未确认前不会保存。</value>
   </data>
+  <data name="Browse_PreviousItems" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="Browse_NextItems" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="Ux_ApplyFilters.Content" xml:space="preserve">
+    <value>应用筛选</value>
+  </data>
+  <data name="AnimeStatus_Automatic.Content" xml:space="preserve">
+    <value>自动（想看 / 在看 / 已看完）</value>
+  </data>
+  <data name="Ux_ContextAutomatic" xml:space="preserve">
+    <value>根据进度自动</value>
+  </data>
+  <data name="Ux_AutomaticStatus.Text" xml:space="preserve">
+    <value>未观看为想看；观看至少一集为在看；正片全部看完为已看完。搁置或抛弃由您指定，恢复自动后按现有逐集记录判断，不修改观看进度。</value>
+  </data>
+  <data name="Uninstall_Title.Text" xml:space="preserve">
+    <value>卸载 LemonVN</value>
+  </data>
+  <data name="Uninstall_Description.Text" xml:space="preserve">
+    <value>默认仅删除这一份应用文件，保留您的本地收藏。请先正常关闭 LemonVN。不会卸载系统 .NET 或 Windows App Runtime，也不会访问 PotatoVN 数据。</value>
+  </data>
+  <data name="Uninstall_ApplicationPath" xml:space="preserve">
+    <value>应用目录：{0}</value>
+  </data>
+  <data name="Uninstall_DataPath" xml:space="preserve">
+    <value>本地数据目录：{0}</value>
+  </data>
+  <data name="Uninstall_DeleteData.Content" xml:space="preserve">
+    <value>同时删除本地收藏、封面、设置和备份（不可恢复）</value>
+  </data>
+  <data name="Uninstall_Warning.Text" xml:space="preserve">
+    <value>只有勾选并再次确认后才会删除本地数据。请先将需要的备份导出到其他位置。安装目录中未列入发行清单的文件会保留；不支持链接目录。取消或直接关闭不会删除任何内容。</value>
+  </data>
+  <data name="Uninstall_Continue.Content" xml:space="preserve">
+    <value>继续卸载…</value>
+  </data>
+  <data name="Uninstall_Cancel.Content" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Uninstall_ConfirmTitle" xml:space="preserve">
+    <value>确认卸载 LemonVN？</value>
+  </data>
+  <data name="Uninstall_ConfirmKeep" xml:space="preserve">
+    <value>将删除这一份 LemonVN 应用。
+
+您的收藏、观看记录、封面、设置和备份将完整保留在：
+{0}
+
+其他位置的应用副本和系统运行时不会被删除。</value>
+  </data>
+  <data name="Uninstall_ConfirmDelete" xml:space="preserve">
+    <value>这将永久删除此 LemonVN 应用及以下目录中的全部本地收藏、观看记录、封面、设置、缓存和备份：
+{0}
+
+此操作无法撤销。其他位置的导出文件不会删除。确认已把需要的备份保存到其他位置后再继续。</value>
+  </data>
+  <data name="Uninstall_Confirm" xml:space="preserve">
+    <value>确认卸载</value>
+  </data>
+  <data name="Uninstall_CancelText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Uninstall_Error" xml:space="preserve">
+    <value>卸载未开始或未完成：{0}
+没有打开或重建收藏数据库。请检查应用是否已关闭、ZIP 是否完整，以及当前用户权限或脚本策略。</value>
+  </data>
+  <data name="Ux_FilterTagTitle.Text" xml:space="preserve">
+    <value>个人标签</value>
+  </data>
 </root>

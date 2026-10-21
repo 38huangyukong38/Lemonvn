@@ -5194,4 +5194,76 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
     <value>確認すると旧版の未入力項目の既定保護を解除し、取得できた情報を補完します：{0}。入力済みの手動情報は保持され、不足情報は後で更新できます。確認前には保存されません。</value>
   </data>
+  <data name="Browse_PreviousItems" xml:space="preserve">
+    <value>前のページ</value>
+  </data>
+  <data name="Browse_NextItems" xml:space="preserve">
+    <value>次のページ</value>
+  </data>
+  <data name="Ux_ApplyFilters.Content" xml:space="preserve">
+    <value>絞り込む</value>
+  </data>
+  <data name="AnimeStatus_Automatic.Content" xml:space="preserve">
+    <value>自動（見たい / 視聴中 / 視聴済み）</value>
+  </data>
+  <data name="Ux_ContextAutomatic" xml:space="preserve">
+    <value>視聴進捗から自動</value>
+  </data>
+  <data name="Ux_AutomaticStatus.Text" xml:space="preserve">
+    <value>未視聴は「見たい」、1話以上は「視聴中」、本編全話視聴は「視聴済み」です。保留・中止は手動指定で、自動に戻しても視聴記録は変更しません。</value>
+  </data>
+  <data name="Uninstall_Title.Text" xml:space="preserve">
+    <value>LemonVN のアンインストール</value>
+  </data>
+  <data name="Uninstall_Description.Text" xml:space="preserve">
+    <value>通常はこのアプリだけを削除し、ローカルコレクションを保持します。先に LemonVN を終了してください。システムランタイムや PotatoVN データは削除しません。</value>
+  </data>
+  <data name="Uninstall_ApplicationPath" xml:space="preserve">
+    <value>アプリの場所：{0}</value>
+  </data>
+  <data name="Uninstall_DataPath" xml:space="preserve">
+    <value>ローカルデータ：{0}</value>
+  </data>
+  <data name="Uninstall_DeleteData.Content" xml:space="preserve">
+    <value>コレクション・画像・設定・バックアップも完全に削除する</value>
+  </data>
+  <data name="Uninstall_Warning.Text" xml:space="preserve">
+    <value>データ削除には選択と再確認が必要です。必要なバックアップは先に別の場所へ保存してください。配布一覧にないファイルは残します。リンクは非対応です。キャンセル・閉じるでは削除しません。</value>
+  </data>
+  <data name="Uninstall_Continue.Content" xml:space="preserve">
+    <value>アンインストールを続行…</value>
+  </data>
+  <data name="Uninstall_Cancel.Content" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Uninstall_ConfirmTitle" xml:space="preserve">
+    <value>LemonVN を削除しますか？</value>
+  </data>
+  <data name="Uninstall_ConfirmKeep" xml:space="preserve">
+    <value>この LemonVN アプリだけを削除します。
+
+コレクション・視聴記録・画像・設定・バックアップは次の場所に保持します：
+{0}
+
+他のアプリコピーやシステムランタイムは削除しません。</value>
+  </data>
+  <data name="Uninstall_ConfirmDelete" xml:space="preserve">
+    <value>このアプリと次の場所にある全コレクション・視聴記録・画像・設定・キャッシュ・バックアップを完全に削除します：
+{0}
+
+元に戻せません。必要なバックアップを別の場所へ保存してから続行してください。</value>
+  </data>
+  <data name="Uninstall_Confirm" xml:space="preserve">
+    <value>削除を確認</value>
+  </data>
+  <data name="Uninstall_CancelText" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Uninstall_Error" xml:space="preserve">
+    <value>アンインストールを開始・完了できませんでした：{0}
+データベースは開いたり再構築したりしていません。起動中アプリ・ZIP・権限・スクリプトポリシーを確認してください。</value>
+  </data>
+  <data name="Ux_FilterTagTitle.Text" xml:space="preserve">
+    <value>個人タグ</value>
+  </data>
 </root>

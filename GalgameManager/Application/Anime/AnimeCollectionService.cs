@@ -24,11 +24,13 @@ public sealed class AnimeCollectionService(IAnimeRepository repository, ICoverSt
     public async Task<AnimeEntry> SaveAsync(AnimeEntry draft, bool isNew, string? selectedCover = null, bool removeCover = false)
     {
         AnimeEntry snapshot = draft.Copy();
-        if (snapshot.Record?.Tags is { } tags) snapshot.Record.Tags = AnimeTagRules.Normalize(tags);
+        if (snapshot.Record is null) throw new AnimeValidationException("Missing anime record.");
+        if (snapshot.Record.Tags is { } tags) snapshot.Record.Tags = AnimeTagRules.Normalize(tags);
         AnimeMetadata metadata = snapshot.Metadata ?? throw new AnimeValidationException("Missing anime metadata.");
         if (metadata.AnimationStudios is { } studios) metadata.AnimationStudios = AnimationStudioRules.Normalize(studios);
         snapshot.Metadata = metadata;
         AnimeValidation.Validate(snapshot);
+        snapshot.Record.WatchStatus = AnimeWatchStatusRules.GetStatus(snapshot);
         await _writes.WaitAsync();
         string? stagedCover = null;
         try
@@ -145,6 +147,8 @@ public sealed class AnimeCollectionService(IAnimeRepository repository, ICoverSt
             AnimeEntry current = await repository.GetByIdAsync(id) ?? throw new KeyNotFoundException("Anime no longer exists.");
             current.Revision = expectedRevision;
             current.Record = new AnimeEntry { Record = record }.Copy().Record;
+            AnimeValidation.Validate(current);
+            current.Record.WatchStatus = AnimeWatchStatusRules.GetStatus(current);
             return await repository.UpdateAsync(current);
         }
         finally { _writes.Release(); }

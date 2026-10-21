@@ -53,6 +53,16 @@ public partial class App : Application
         base.OnLaunched(args);
         try
         {
+            // The separate ZIP uninstall entry opens no collection, settings,
+            // logging or network service, and does not join the main instance.
+            if (BootstrapProgram.UninstallRequested)
+            {
+                MainWindow = new MainWindow { MinWidth = 640, MinHeight = 480, Width = 760, Height = 560 };
+                MainWindow.Content = new UninstallPage(GetService<LemonVN.Contracts.Services.IAppDataPathService>());
+                MainWindow.Closed += (_, _) => Shutdown();
+                MainWindow.Activate();
+                return;
+            }
             AppInstance registration = AppInstance.FindOrRegisterForKey(AppIdentity.SingleInstanceKey);
             if (!registration.IsCurrent)
             {

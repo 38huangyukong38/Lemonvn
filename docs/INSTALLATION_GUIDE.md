@@ -1,8 +1,8 @@
-# LemonVN V0.1 Preview 安装与运行
+# LemonVN v0.2.0 Preview 安装与运行
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn)。
-计划发行页：[GitHub Releases](https://github.com/38huangyukong38/Lemonvn/releases)。
-v0.1.0-preview 已公开；本次修复版本为 v0.1.1-preview。请按发行页对应标签下载完整 ZIP 与校验文件，旧版保留。补丁不改变数据库、ZIP V1/V2 或已确认的组件条款。
+发行页：[GitHub Releases](https://github.com/38huangyukong38/Lemonvn/releases)。
+当前版本为 v0.2.0-preview，v0.1.0-preview 和 v0.1.1-preview 保留。请按对应标签下载完整 ZIP 与校验文件。本次不改变数据库、ZIP V1/V2 或已确认的组件条款。
 
 **仅 Windows x64。已在现有 Windows 11 10.0.26200 x64 开发环境独立解压运行，尚未完成干净 Windows 系统测试。软件未正式代码签名，Windows 可能显示安全提示。**
 
@@ -10,7 +10,7 @@ LemonVN 免费开源，不提供番剧视频播放、视频下载或视频资源
 
 ## 解压与启动
 
-1. 从维护者公布的可信来源取得当前版本的 `LemonVN-v0.1.1-preview-windows-x64.zip` 和同名 `.zip.sha256`。
+1. 从维护者公布的可信来源取得当前版本的 `LemonVN-v0.2.0-preview-windows-x64.zip` 和同名 `.zip.sha256`。
 2. 在 PowerShell 执行 `Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'`，与校验文件的 64 位十六进制值比较。校验值用于核对一致性，不能代替可信来源或代码签名。
 3. 完整解压到普通用户可访问的新目录，保留子目录。不要直接从压缩软件运行或单独复制 EXE。
 4. 运行 `LemonVN.exe`。应用采用 `asInvoker`，不要求管理员权限；不需要 Visual Studio、开发 SDK 或数据库服务器。
@@ -37,13 +37,21 @@ Get-AppxPackage -Name 'Microsoft.WindowsAppRuntime.*' |
 
 非打包模式默认数据目录为 `%LocalAppData%\LemonVN`，含收藏数据库、封面、设置、备份等。**ZIP 免安装不等于数据随程序移动的便携模式**，也不会读取 PotatoVN 数据。普通用户无需配置测试使用的数据目录环境变量。
 
-番剧页可手动添加，或主动搜索 Bangumi、预览并确认添加。已看集数仅从 EpisodeRecord 计算；修改状态、资料、评分或备注不会隐式更改观看记录。
+番剧页可手动添加，或主动搜索 Bangumi、预览并确认添加。已看集数仅从 EpisodeRecord 计算；未看为想看，至少一集为在看，已知总集数且1～N全部看完才为已看完，未知总集数不自动完成。搁置/抛弃需手动选择并优先保留，可选择恢复自动；不会自动编造观看日期。修改状态、资料、评分或备注不会隐式更改观看记录。
 
 设置中导出完整 ZIP V2 备份；旧 ZIP V1/V2 均支持恢复。备份包含收藏、回收站、个人记录、完整逐集记录和引用封面，不包含主题设置、许可确认、日志或凭证。分享备份会分享其中个人内容。
 
 恢复采用替换语义：先校验、展示数量并确认，再保留原数据安全副本后执行。出错保留原数据；不要手动清空数据库。
 
 升级前先导出备份，正常关闭旧实例，将新版本完整解压到新程序目录。保留原数据，不要混合新旧 DLL 或覆盖运行中的程序。本版未验证 MSIX、安装器、自动更新、所有 Windows 版本或 DPI 配置。
+
+## 卸载
+
+正常关闭所有 LemonVN 窗口后，运行这一份完整解压目录中的 `Uninstall.exe`。默认保留 `%LocalAppData%\LemonVN` 中的数据，只移除清单中的应用文件；其他位置的副本、导出文件和系统运行时不受影响，目录内未列入清单的文件会保留。
+
+若明确勾选删除本地数据并在二次确认中继续，会永久删除本地收藏、观看记录、封面、设置、缓存和备份。请先把必要备份导出到其他目录。取消或关闭窗口不会删除内容。源码目录、系统/用户根目录和链接目录会被拒绝。
+
+卸载使用系统 Windows PowerShell，不提升管理员权限、不绕过脚本执行策略。策略、权限、文件占用或完整性检查不通过时安全拒绝；不要关闭安全防护。
 
 ## 许可、隐私与服务
 

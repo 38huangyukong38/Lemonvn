@@ -19,3 +19,13 @@ Fixed Bangumi metadata linking for title-only manual collections: new manual ent
 The shared add/link confirmation action is outside the scroll viewer at the preview's top right. Owned/cache file-URI decoding can recover through a bounded local image stream without new HTTP requests. Existing layouts, navigation and framework versions are retained.
 
 Build/test/GUI and release checks are recorded in the original development audit; publication is authorized by the maintainer only after these pass. Preserve v0.1.0-preview, its source tag and all assets. No old development Git history, test data, credentials or workflows were copied.
+
+## v0.2.0-preview — 2026-10-21
+
+The maintainer accepted the local five-part UX update and explicitly authorized its GitHub release as 0.2.0. Preserve earlier release tags and assets; continue the existing Preview channel.
+
+Reviewed features: native shelf/company arrow paging; staged status/tag filters with button/Enter and explicit popup focus; EpisodeRecord-derived Planned/Watching/Completed with manual OnHold/Dropped exceptions; cached Bangumi results and native back navigation; a manifest-verified uninstall launcher with keep-data default and a second confirmation. The launcher renders through the original LemonVN resource identity before business activation.
+
+No persisted model, LiteDB schema, Revision or ZIP V1/V2 format change. No new NuGet dependency, altered component terms, copied development Git history, user data, private screenshots, credentials or legacy assets. Retain the public project's asset allow-list and per-file modification notices.
+
+Previously verified local implementation: full offline607/607 (all prior595 cases retained), final UI-focus-only targeted106/106, single-instance1/1, packaging29/29; isolated synthetic GUI and maintainer acceptance. The exact public version is rebuilt and checked before publication; actual publication results are recorded separately. Narrow-window/DPI-matrix and clean-system compatibility are not claimed.

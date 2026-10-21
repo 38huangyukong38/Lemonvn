@@ -62,9 +62,10 @@ public sealed class AnimeLibraryUxTest
         await vm.ChangeStatusCommand.ExecuteAsync(new AnimeStatusChange(target, status));
         AnimeEntry saved = (await _collection.GetByIdAsync(before.Id))!;
         Assert.That(JsonSerializer.Serialize(saved.Metadata), Is.EqualTo(JsonSerializer.Serialize(before.Metadata)));
-        AnimeRecord expected = before.Copy().Record; expected.WatchStatus = status;
+        AnimeEntry requested = before.Copy(); requested.Record.WatchStatus = status;
+        AnimeRecord expected = before.Copy().Record; expected.WatchStatus = AnimeWatchStatusRules.GetStatus(requested);
         Assert.That(JsonSerializer.Serialize(saved.Record), Is.EqualTo(JsonSerializer.Serialize(expected)));
-        Assert.That(saved.Revision, Is.EqualTo(before.Revision + (status == before.Record.WatchStatus ? 0 : 1)));
+        Assert.That(saved.Revision, Is.EqualTo(before.Revision + (expected.WatchStatus == before.Record.WatchStatus ? 0 : 1)));
         Assert.That(vm.IsErrorOpen, Is.False);
     }
 
@@ -141,7 +142,7 @@ public sealed class AnimeLibraryUxTest
         failing.Setup(repo => repo.GetByIdAsync(entry.Id)).Returns(() => _collection.GetByIdAsync(entry.Id));
         failing.Setup(repo => repo.UpdateAsync(It.IsAny<AnimeEntry>())).ThrowsAsync(new IOException("Simulated write failure"));
         var vm = ViewModel(new(failing.Object, _covers, _log)); await vm.ActivateAsync();
-        await vm.ChangeStatusCommand.ExecuteAsync(new AnimeStatusChange(vm.Items.Single().Target, WatchStatus.Completed));
+        await vm.ChangeStatusCommand.ExecuteAsync(new AnimeStatusChange(vm.Items.Single().Target, WatchStatus.OnHold));
         Assert.That(vm.Items.Single().Target.Status, Is.EqualTo(WatchStatus.Watching));
         Assert.That(vm.IsErrorOpen, Is.True);
         Assert.That(JsonSerializer.Serialize(await _collection.GetByIdAsync(entry.Id)), Is.EqualTo(JsonSerializer.Serialize(entry)));

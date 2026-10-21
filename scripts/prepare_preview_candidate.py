@@ -68,6 +68,8 @@ def prepare(source, output, inventory, packages, version='0.1.0'):
         '尚未完成干净Windows系统测试，软件未正式代码签名，Windows可能显示安全提示。\n'
         '校验值不能代替受信任来源或签名；不要关闭安全防护或绕过系统提示。\n\n'
         '默认数据在 %LocalAppData%\\LemonVN，ZIP不是数据便携模式。升级前先备份、正常关闭旧程序。\n'
+        '卸载请正常关闭程序后运行同目录 Uninstall.exe，默认保留本地数据。只有勾选删除数据并再次确认才永久移除收藏等本地内容；先将所需备份导出到其他位置。\n'
+        '需要系统 Windows PowerShell；策略/权限阻止时安全拒绝，不提升权限或修改安全设置，不删除系统运行时或未列入清单的应用目录文件。\n\n'
         '首次明确同意前不打开收藏数据库；许可正文沿用SDK_END_USER_TERMS_DRAFT.md历史文件名，'
         '内容为维护者确认的draft2组件条款。Apache代码、MIT运行库和微软组件分别适用各自许可。\n\n'
         '保留GoldenPotato137/PotatoVN原作者署名及LICENSE/NOTICE。完整原文在licenses目录。\n'

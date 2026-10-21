@@ -19,7 +19,7 @@ public sealed class AnimeQueryService
         IEnumerable<AnimeEntry> filtered = entries.Where(entry =>
             (search.Length == 0 || entry.Metadata.Title.Contains(search, StringComparison.OrdinalIgnoreCase) ||
                 (entry.Metadata.OriginalTitle?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)) &&
-            (query.Status is null || entry.Record.WatchStatus == query.Status) &&
+            (query.Status is null || AnimeWatchStatusRules.GetStatus(entry) == query.Status) &&
             (query.Tag is null || entry.Record.Tags.Any(tag => string.Equals(tag.Trim(), query.Tag.Trim(), StringComparison.OrdinalIgnoreCase))) &&
             (query.AnimationStudio is null || entry.Metadata.AnimationStudios.Contains(query.AnimationStudio, StringComparer.OrdinalIgnoreCase)) &&
             (!query.UnassignedStudio || entry.Metadata.AnimationStudios.Count == 0) &&

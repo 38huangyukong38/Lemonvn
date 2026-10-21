@@ -22,7 +22,7 @@ PERSONAL = {'.db', '.sqlite', '.sqlite3', '.log', '.bak', '.zip'}
 OWN_ASSETS = {'Assets/LemonPlaceholder.png', 'Assets/LemonAppIcon.ico', 'Assets/LemonAppIcon.png',
               'Assets/LemonStoreLogo.png', 'Assets/LemonSquare44x44Logo.png',
               'Assets/LemonSquare150x150Logo.png', 'Assets/LemonSquare71x71Logo.png'}
-REQUIRED = {'LemonVN.exe', 'LemonVN.dll', 'LemonVN.deps.json', 'LemonVN.runtimeconfig.json',
+REQUIRED = {'LemonVN.exe', 'Uninstall.exe', 'UninstallWorker.ps1', 'LemonVN.dll', 'LemonVN.deps.json', 'LemonVN.runtimeconfig.json',
             'LemonVN.pri', 'GalgameManager.WinApp.Base.pri', 'coreclr.dll', 'LiteDB.dll',
             'Microsoft.Windows.SDK.NET.dll', 'WinRT.Runtime.dll', 'Microsoft.WinUI.dll',
             'LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md', 'SDK_DISTRIBUTION_REVIEW.md',
@@ -225,7 +225,7 @@ def prepare(source, output, inventory, packages, source_workspace=None, version=
     for filename in ('docs/INSTALLATION_GUIDE.md', 'docs/RELEASE_NOTES_0.1.md', 'docs/PRIVACY.md', 'docs/API_AND_LICENSE_RISKS.md',
                      'docs/SDK_DISTRIBUTION_REVIEW.md', 'docs/SDK_END_USER_TERMS_DRAFT.md'):
         shutil.copyfile(ROOT / filename, candidate / Path(filename).name)
-    (candidate / 'README.md').write_text('# LemonVN 0.1.0 Windows x64 — 个人本地测试候选\n\n尚未完成公开分发准入，不是正式发行。完整解压后运行 LemonVN.exe；需要兼容的 Windows App Runtime x64，.NET 随包提供。详见 [运行指南](INSTALLATION_GUIDE.md)、[隐私](PRIVACY.md)、[候选说明](RELEASE_NOTES_0.1.md)及[第三方风险](API_AND_LICENSE_RISKS.md)。\n\n数据默认位于 %LocalAppData%\\LemonVN，ZIP 不是数据便携模式。启动、选择图片不会上传；确认后才向对应识别服务发送 JPEG。程序不提供视频播放、下载、资源扫描或账号同步。\n\n基于 GoldenPotato137/PotatoVN 修改，原 LICENSE/NOTICE 保留。本候选状态不缩减 Apache-2.0 代码的商业使用许可；各第三方条款分别适用。未签名、未测试所有 Windows/DPI 或干净系统；不要绕过系统安全提示。\n', encoding='utf-8')
+    (candidate / 'README.md').write_text(f'# LemonVN {version} Windows x64 — 个人本地测试候选\n\n尚未完成本候选的用户验收，不是新的正式发行。完整解压后运行 LemonVN.exe；需要兼容的 Windows App Runtime x64，.NET 随包提供。详见 [运行指南](INSTALLATION_GUIDE.md)、[隐私](PRIVACY.md)、[候选说明](RELEASE_NOTES_0.1.md)及[第三方风险](API_AND_LICENSE_RISKS.md)。\n\n数据默认位于 %LocalAppData%\\LemonVN，ZIP 不是数据便携模式。启动、选择图片不会上传；确认后才向对应识别服务发送 JPEG。程序不提供视频播放、下载、资源扫描或账号同步。\n\n卸载此应用副本可运行同目录的 Uninstall.exe，默认保留本地数据。只有勾选删除数据并再次确认后才删除本地收藏、封面、设置、缓存与备份；请先把所需备份导出到其他位置。仅删除发行清单中的应用文件，保留目录内其他文件，不卸载系统运行时。需系统内置 Windows PowerShell；系统脚本策略或权限不允许时安全拒绝，不修改安全设置。\n\n基于 GoldenPotato137/PotatoVN 修改，原 LICENSE/NOTICE 保留。本候选状态不缩减 Apache-2.0 代码的商业使用许可；各第三方条款分别适用。未签名、未测试所有 Windows/DPI 或干净系统；不要绕过系统安全提示。\n', encoding='utf-8')
     with (candidate / 'README.md').open('a', encoding='utf-8') as stream:
         stream.write('\nLemonVN V0.1 Preview 已在现有 Windows x64 开发环境中验证运行，尚未完成全新 Windows 系统测试。首次启动可能需要安装兼容的 Windows App Runtime。\n\n许可材料与待决状态见 licenses/components/INDEX.json、licenses/REVIEW.json 和 licenses/BUNDLE_STATUS.json；不提供番剧视频资源、视频下载或在线播放服务。\n')
     shutil.copyfile(ROOT / 'scripts/Check-Runtime.ps1', candidate / 'Check-Runtime.ps1')

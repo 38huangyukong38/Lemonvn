@@ -64,6 +64,14 @@
       "originalDevelopmentHistoryCopied": false,
       "scope": "Reviewed file-level metadata protection/legacy empty preview, pinned confirmation actions and bounded local cover display; no database/schema/dependency change.",
       "developmentFollowupCommit": "a0a243bdb908c7eb9258a5d98f04b9a44e420694"
+    },
+    {
+      "phase": "v0.2.0-preview accepted UX and safe uninstall",
+      "basePublicCommit": "8a0c91561f5ba766f76e28e5061f871353a34b27",
+      "developmentImplementationCommit": "d7ef172f93fe8afccfb50093b05ce77d0345874c",
+      "developmentReleasePreparationCommit": "a37a775c9992286665af44d8fed52aed14a305c9",
+      "originalDevelopmentHistoryCopied": false,
+      "scope": "Reviewed file-level five-part UX update, tests, exact version0.2.0 and distribution instructions; retain asset exclusions and unchanged component terms; no database or backup format change."
     }
   ]
 }

@@ -6,6 +6,36 @@ namespace GalgameManager.Test.Services;
 [TestFixture]
 public sealed class LemonVisualLayoutTest
 {
+    [Test]
+    public void BrowseArrowsAndFilterSubmission_RetainNativeVirtualizationAndExplicitKeyboardAction()
+    {
+        var folder = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
+        while (folder is not null && !File.Exists(Path.Combine(folder.FullName, "GalgameManager.sln"))) folder = folder.Parent;
+        Assert.That(folder, Is.Not.Null);
+        XNamespace ns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+        XNamespace views = "using:LemonVN.Views.Anime";
+        foreach (string name in new[] { "Views/Anime/AnimeShelfControl.xaml", "Views/LemonVN/LemonHomePage.xaml" })
+        {
+            XDocument page = XDocument.Load(Path.Combine(folder!.FullName, "GalgameManager", name));
+            Assert.That(page.Descendants(views + "HorizontalPager"), Has.Exactly(1).Items);
+            XElement list = page.Descendants(ns + "ListView").Single();
+            Assert.That(list.Attribute("ScrollViewer.HorizontalScrollBarVisibility")?.Value, Is.EqualTo("Hidden"));
+            Assert.That(list.Descendants(ns + "ItemsStackPanel"), Has.Exactly(1).Items);
+        }
+        XDocument library = XDocument.Load(Path.Combine(folder!.FullName, "GalgameManager/Views/Anime/AnimeLibraryPage.xaml"));
+        XElement apply = library.Descendants(ns + "Button").Single(e => e.Attribute("AutomationProperties.AutomationId")?.Value == "AnimeApplyFilters");
+        Assert.That(apply.Attribute("Click")?.Value, Is.EqualTo("OnApplyFilters"));
+        Assert.That(apply.Ancestors(ns + "StackPanel").Any(e => e.Attribute("PreviewKeyDown")?.Value == "OnFilterKeyDown"), Is.True);
+        XElement panel = apply.Ancestors(ns + "StackPanel").First();
+        Assert.That(panel.Descendants(ns + "ComboBox"), Is.Empty, "Filter selection must not open a second dismissible popup.");
+        Assert.That(panel.Descendants(ns + "RadioButton"), Has.Exactly(6).Items);
+        XElement tags = panel.Element(ns + "ListView")!;
+        Assert.That(double.Parse(tags.Attribute("MaxHeight")!.Value, System.Globalization.CultureInfo.InvariantCulture), Is.LessThanOrEqualTo(160));
+        Assert.That(panel.Parent!.Attribute("Opening")?.Value, Is.EqualTo("OnFilterOpening"));
+        Assert.That(panel.Parent.Attribute("Opened")?.Value, Is.EqualTo("OnFilterOpened"));
+        Assert.That(panel.Parent.Attribute("ShowMode")?.Value, Is.EqualTo("Standard"));
+        Assert.That(panel.Parent.Attribute("AllowFocusOnInteraction")?.Value, Is.EqualTo("True"));
+    }
     [TestCase("https://lain.bgm.tv/pic/cover/l/a.jpg", false)]
     [TestCase("file://server/share/cover.jpg", false)]
     [TestCase("file:///C:/synthetic/cover.jpg?other=1", false)]

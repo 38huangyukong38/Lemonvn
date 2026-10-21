@@ -28,3 +28,13 @@
 Retain previously confirmed component terms, LICENSE/NOTICE and original authors. Patch only manual/Bangumi metadata handling and the preview header/local cover display. No new dependency, database schema, backup format or signing.
 
 Before publication: build the exact independent source commit; run offline regressions/single-instance and packaging checks; verify isolated GUI linking/addition/restart, protected fields and covers; prepare a fresh versioned ZIP and hash; normal main/tag Push and GitHub Pre-release only if all pass. Keep v0.1.0-preview unchanged. Actual results are recorded separately after verification, not inferred from this plan.
+
+## v0.2.0-preview — 2026-10-21
+
+The maintainer accepted the local five-part UX update and explicitly authorized its GitHub release as 0.2.0. Preserve earlier release tags and assets; continue the existing Preview channel.
+
+Reviewed features: native shelf/company arrow paging; staged status/tag filters with button/Enter and explicit popup focus; EpisodeRecord-derived Planned/Watching/Completed with manual OnHold/Dropped exceptions; cached Bangumi results and native back navigation; a manifest-verified uninstall launcher with keep-data default and a second confirmation. The launcher renders through the original LemonVN resource identity before business activation.
+
+No persisted model, LiteDB schema, Revision or ZIP V1/V2 format change. No new NuGet dependency, altered component terms, copied development Git history, user data, private screenshots, credentials or legacy assets. Retain the public project's asset allow-list and per-file modification notices.
+
+Previously verified local implementation: full offline607/607 (all prior595 cases retained), final UI-focus-only targeted106/106, single-instance1/1, packaging29/29; isolated synthetic GUI and maintainer acceptance. The exact public version is rebuilt and checked before publication; actual publication results are recorded separately. Narrow-window/DPI-matrix and clean-system compatibility are not claimed.

@@ -28,7 +28,12 @@ public partial class AnimeEditViewModel(AnimeCollectionService collection, ICove
     [ObservableProperty] private string _coverSourcePath = string.Empty;
     [ObservableProperty] private string _currentCoverSource = Infrastructure.Anime.CoverStorageService.Placeholder;
     [ObservableProperty] private bool _removeCover;
-    [ObservableProperty] private int _statusIndex;
+    [ObservableProperty, NotifyPropertyChangedFor(nameof(StatusModeIndex))] private int _statusIndex;
+    public int StatusModeIndex
+    {
+        get => StatusIndex switch { (int)WatchStatus.OnHold => 1, (int)WatchStatus.Dropped => 2, _ => 0 };
+        set => StatusIndex = (int)(value switch { 1 => WatchStatus.OnHold, 2 => WatchStatus.Dropped, _ => WatchStatus.Planned });
+    }
     [ObservableProperty] private string _ratingText = string.Empty;
     [ObservableProperty] private string _notes = string.Empty;
     [ObservableProperty] private string _tagsText = string.Empty;
@@ -56,7 +61,7 @@ public partial class AnimeEditViewModel(AnimeCollectionService collection, ICove
             AnimationStudiosText = string.Join(Environment.NewLine, entry.Metadata.AnimationStudios);
             TotalEpisodesText = entry.Metadata.TotalEpisodes?.ToString() ?? string.Empty;
             AirDateText = entry.Metadata.AirDate?.ToString("yyyy-MM-dd") ?? string.Empty;
-            StatusIndex = (int)entry.Record.WatchStatus;
+            StatusIndex = (int)AnimeWatchStatusRules.GetStatus(entry);
             RatingText = entry.Record.PersonalRating?.ToString() ?? string.Empty;
             Notes = entry.Record.Notes ?? string.Empty;
             TagsText = string.Join(", ", entry.Record.Tags);

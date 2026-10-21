@@ -231,6 +231,8 @@ public sealed class AnimeStudioBrowseTest
             return entry;
         }).ToList();
         AnimeEntry completed = Entry("completed", "B"); completed.Record.WatchStatus = WatchStatus.Completed;
+        completed.Metadata.TotalEpisodes = 2;
+        completed.Record.Episodes.Add(new() { EpisodeNumber = 1, IsWatched = true });
         AnimeEntry planned = Entry("planned"); planned.Record.WatchStatus = WatchStatus.Planned; planned.Record.Episodes = [];
         AnimeEntry held = Entry("held", "A", "B"); held.Record.WatchStatus = WatchStatus.OnHold; held.Record.Episodes = [];
         rows.AddRange([completed, planned, held]);

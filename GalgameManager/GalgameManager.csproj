@@ -287,6 +287,12 @@
 
   <!-- Preserve upstream PRI item selection. The Content items above include all languages. -->
   <ItemGroup>
+    <Content Include="Infrastructure\Uninstall\UninstallWorker.ps1" Link="UninstallWorker.ps1" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="CreateUninstallEntryPoint" AfterTargets="Build" Condition="'$(WindowsPackageType)' == 'None' and Exists('$(TargetDir)LemonVN.exe')">
+    <Copy SourceFiles="$(TargetDir)LemonVN.exe" DestinationFiles="$(TargetDir)Uninstall.exe" SkipUnchangedFiles="true" />
+  </Target>
+  <ItemGroup>
     <PRIResource Remove="Strings\zh-CN\Resources.resw" />
   </ItemGroup>
 

@@ -5265,4 +5265,76 @@ Results can be wrong. Cancellation stops the local request but cannot recall an 
   <data name="Bangumi_FillLegacyEmpty" xml:space="preserve">
     <value>Confirming removes the old default protection on blank fields and fills available metadata: {0}. Existing manual values are kept; unavailable fields can be refreshed later. Nothing is saved before confirmation.</value>
   </data>
+  <data name="Browse_PreviousItems" xml:space="preserve">
+    <value>Previous page</value>
+  </data>
+  <data name="Browse_NextItems" xml:space="preserve">
+    <value>Next page</value>
+  </data>
+  <data name="Ux_ApplyFilters.Content" xml:space="preserve">
+    <value>Apply filters</value>
+  </data>
+  <data name="AnimeStatus_Automatic.Content" xml:space="preserve">
+    <value>Automatic (planned / watching / completed)</value>
+  </data>
+  <data name="Ux_ContextAutomatic" xml:space="preserve">
+    <value>Automatic from progress</value>
+  </data>
+  <data name="Ux_AutomaticStatus.Text" xml:space="preserve">
+    <value>No watched episodes: planned. Any watched: watching. Every regular episode watched: completed. Hold/drop are manual overrides. Returning to automatic uses your existing episode records without changing progress.</value>
+  </data>
+  <data name="Uninstall_Title.Text" xml:space="preserve">
+    <value>Uninstall LemonVN</value>
+  </data>
+  <data name="Uninstall_Description.Text" xml:space="preserve">
+    <value>By default, remove this application copy and keep your collection. Close LemonVN first. System .NET / Windows App Runtime and PotatoVN data are not removed.</value>
+  </data>
+  <data name="Uninstall_ApplicationPath" xml:space="preserve">
+    <value>Application directory: {0}</value>
+  </data>
+  <data name="Uninstall_DataPath" xml:space="preserve">
+    <value>Local data directory: {0}</value>
+  </data>
+  <data name="Uninstall_DeleteData.Content" xml:space="preserve">
+    <value>Also delete local collection, covers, settings and backups (permanent)</value>
+  </data>
+  <data name="Uninstall_Warning.Text" xml:space="preserve">
+    <value>Local data is deleted only when selected and confirmed again. Export any needed backup elsewhere first. Unlisted application-directory files are kept; linked directories are not supported. Cancel or close to make no changes.</value>
+  </data>
+  <data name="Uninstall_Continue.Content" xml:space="preserve">
+    <value>Continue uninstall…</value>
+  </data>
+  <data name="Uninstall_Cancel.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Uninstall_ConfirmTitle" xml:space="preserve">
+    <value>Uninstall LemonVN?</value>
+  </data>
+  <data name="Uninstall_ConfirmKeep" xml:space="preserve">
+    <value>Remove this LemonVN application copy.
+
+Keep your collection, episode records, covers, settings and backups in:
+{0}
+
+Other application copies and system runtimes are not removed.</value>
+  </data>
+  <data name="Uninstall_ConfirmDelete" xml:space="preserve">
+    <value>Permanently remove this application and all collection, episode records, covers, settings, cache and backups in:
+{0}
+
+This cannot be undone. Exports elsewhere are kept. Save any needed backup elsewhere before continuing.</value>
+  </data>
+  <data name="Uninstall_Confirm" xml:space="preserve">
+    <value>Confirm uninstall</value>
+  </data>
+  <data name="Uninstall_CancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Uninstall_Error" xml:space="preserve">
+    <value>Uninstall did not start or complete: {0}
+The collection database was not opened or rebuilt. Check running applications, complete ZIP extraction, permissions and script policy.</value>
+  </data>
+  <data name="Ux_FilterTagTitle.Text" xml:space="preserve">
+    <value>Personal tag</value>
+  </data>
 </root>

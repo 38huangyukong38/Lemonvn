@@ -34,6 +34,7 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
     private CancellationTokenSource? _work;
     private int _generation, _offset, _total;
     private bool _active;
+    private bool _initialized;
     private string? _lastId;
     private Guid? _duplicateId;
     [ObservableProperty] private string _keyword = string.Empty;
@@ -63,6 +64,20 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
     public async void OnNavigatedTo(object parameter) => await ActivateAsync(parameter as AnimeLookupRequest ?? new());
     public async Task ActivateAsync(AnimeLookupRequest request)
     {
+        // Frame.GoBack returns the same cached page and parameter instance.
+        // Preserve keyword, page offset, result objects/covers and scroll position;
+        // navigation away already invalidated any stale commit preview.
+        if (_initialized && ReferenceEquals(_request, request) && !request.Refresh)
+        {
+            _active = true;
+            IsErrorOpen = false;
+            return;
+        }
+        _work?.Cancel(); _generation++;
+        _initialized = true; _offset = 0; _total = 0; _lastId = null;
+        Items = []; Differences = []; Summary = string.Empty; Message = string.Empty;
+        HasPreview = false; HasDuplicate = false; IsNoticeOpen = false; IsErrorOpen = false;
+        _preview = null; IsBusy = false;
         _active = true; _request = request; Keyword = request.Keyword; ShowSearch = !request.Refresh;
         ConfirmLabel = Text(request.ExistingId is null ? "Bangumi_ConfirmAdd" : request.Refresh ? "Bangumi_ConfirmRefresh" : "Bangumi_ConfirmLink");
         if (request.Refresh)
@@ -178,7 +193,7 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
         try
         {
             AnimeEntry saved = await metadata.CommitAsync(_preview, _work?.Token ?? default);
-            if (_active) navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id, clearNavigation: true);
+            if (_active) navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, saved.Id);
         }
         catch (AnimeAlreadyCollectedException duplicate)
         { _duplicateId = duplicate.ExistingId; HasDuplicate = true; HasPreview = false; Message = Text("Bangumi_AlreadyCollected"); IsErrorOpen = true; }
@@ -187,7 +202,7 @@ public partial class AnimeLookupViewModel(IBangumiAnimeProvider provider, AnimeM
         catch (Exception error) { HasPreview = false; _preview = null; Report(error); }
         finally { IsBusy = false; }
     }
-    [RelayCommand] private void OpenExisting() { if (_duplicateId is { } id) navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, id, clearNavigation: true); }
+    [RelayCommand] private void OpenExisting() { if (_duplicateId is { } id) navigation.NavigateTo(typeof(AnimeDetailViewModel).FullName!, id); }
     [RelayCommand] private void Manual() { Cancel(); navigation.NavigateTo(typeof(AnimeEditViewModel).FullName!, _request.ExistingId is { } id ? id : null); }
     private string Text(string key, params object[] args) => _translate(key, args);
     private void Report(Exception error)

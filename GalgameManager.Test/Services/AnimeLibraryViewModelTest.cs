@@ -39,7 +39,7 @@ public sealed class AnimeLibraryViewModelTest
     [Test]
     public async Task CombinedFiltersAndClear_AffectOnlyPresentation()
     {
-        await _collection.SaveAsync(new() { Metadata = new() { Title = "音乐 A" }, Record = new() { WatchStatus = WatchStatus.Watching, Tags = ["音乐"] } }, true);
+        await _collection.SaveAsync(new() { Metadata = new() { Title = "音乐 A" }, Record = new() { WatchStatus = WatchStatus.Watching, Tags = ["音乐"], Episodes = [new() { EpisodeNumber = 1, IsWatched = true }] } }, true);
         await _collection.SaveAsync(new() { Metadata = new() { Title = "音乐 B" }, Record = new() { WatchStatus = WatchStatus.Planned, Tags = ["音乐"] } }, true);
         AnimeLibraryViewModel home = Home();
         await home.ActivateAsync();
@@ -56,6 +56,53 @@ public sealed class AnimeLibraryViewModelTest
         home.ClearFiltersCommand.Execute(null);
         Assert.That(home.Items, Has.Count.EqualTo(2));
         Assert.That(await _collection.GetAllAsync(), Has.Count.EqualTo(2));
+    }
+
+    [TestCase(0, 2)]
+    [TestCase(1, 1)]
+    [TestCase(2, 0)]
+    [TestCase(3, 0)]
+    [TestCase(4, 0)]
+    [TestCase(5, 1)]
+    public async Task PopupDraft_IsNotAppliedUntilSubmit_AndDoesNotWriteCollection(int index, int count)
+    {
+        await _collection.SaveAsync(new() { Metadata = new() { Title = "Planned" }, Record = new() { Tags = ["Music"] } }, true);
+        await _collection.SaveAsync(new() { Metadata = new() { Title = "Dropped" }, Record = new() { WatchStatus = WatchStatus.Dropped, Tags = ["Music"] } }, true);
+        string before = System.Text.Json.JsonSerializer.Serialize(await _collection.GetAllAsync());
+        AnimeLibraryViewModel vm = Home(); await vm.ActivateAsync();
+        vm.Search = ""; vm.SortIndex = 3; vm.SortDescending = false;
+        vm.BeginFilterEdit(); var oldItems = vm.Items;
+        vm.DraftStatusIndex = index; vm.DraftSelectedTag = "music";
+        Assert.That(vm.Items, Is.SameAs(oldItems), "A popup choice must not rebuild the GridView before selection commits.");
+        int changes = 0;
+        vm.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(vm.Items)) changes++; };
+        vm.ApplyFiltersCommand.Execute(null);
+        Assert.Multiple(() =>
+        {
+            Assert.That(changes, Is.EqualTo(1));
+            Assert.That(vm.StatusIndex, Is.EqualTo(index));
+            Assert.That(vm.SelectedTag, Is.EqualTo("Music"));
+            Assert.That(vm.Items, Has.Count.EqualTo(count));
+            Assert.That(vm.SortIndex, Is.EqualTo(3));
+            Assert.That(vm.SortDescending, Is.False);
+        });
+        Assert.That(System.Text.Json.JsonSerializer.Serialize(await _collection.GetAllAsync()), Is.EqualTo(before));
+    }
+
+    [Test]
+    public async Task ReopeningPopup_DiscardsUnsubmittedChoices_AndClearCannotReapplyStaleDraft()
+    {
+        await _collection.SaveAsync(new() { Metadata = new() { Title = "A" }, Record = new() { Tags = ["Music"] } }, true);
+        AnimeLibraryViewModel vm = Home(); await vm.ActivateAsync();
+        vm.StatusIndex = 1; vm.SelectedTag = "Music";
+        vm.BeginFilterEdit(); vm.DraftStatusIndex = 5; vm.DraftSelectedTag = null;
+        vm.BeginFilterEdit();
+        Assert.That(vm.DraftStatusIndex, Is.EqualTo(1)); Assert.That(vm.DraftSelectedTag, Is.EqualTo("Music"));
+        vm.ClearTagCommand.Execute(null); vm.ApplyFiltersCommand.Execute(null);
+        Assert.That(vm.SelectedTag, Is.Null); Assert.That(vm.StatusIndex, Is.EqualTo(1));
+        vm.DraftStatusIndex = 5; vm.DraftSelectedTag = "Music";
+        vm.ClearFiltersCommand.Execute(null); vm.ApplyFiltersCommand.Execute(null);
+        Assert.That(vm.HasFilters, Is.False); Assert.That(vm.Items, Has.Count.EqualTo(1));
     }
 
     [Test]

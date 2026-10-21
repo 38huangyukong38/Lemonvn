@@ -8,12 +8,15 @@
             <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
             <HyperlinkButton Content="{x:Bind Section.Title, Mode=OneWay}" Command="{x:Bind Section.MoreCommand, Mode=OneWay}" FontSize="20" FontWeight="SemiBold" Padding="0,4" />
             <TextBlock Grid.Column="1" Text="{x:Bind Section.CountText, Mode=OneWay}" VerticalAlignment="Center" Margin="4,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-            <Button Grid.Column="2" x:Uid="Browse_More" Command="{x:Bind Section.MoreCommand, Mode=OneWay}" />
+            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8">
+                <Button x:Uid="Browse_More" Command="{x:Bind Section.MoreCommand, Mode=OneWay}" />
+                <views:HorizontalPager Target="{x:Bind ShelfList}" ItemStride="156" />
+            </StackPanel>
         </Grid>
         <TextBlock Grid.Row="1" Text="{x:Bind Section.EmptyText, Mode=OneWay}" Visibility="{x:Bind Section.IsEmpty, Mode=OneWay}" TextWrapping="Wrap" Margin="8,8,8,20" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-        <ListView Grid.Row="1" Height="268" ItemsSource="{x:Bind Section.Items, Mode=OneWay}"
+        <ListView x:Name="ShelfList" Grid.Row="1" Height="268" ItemsSource="{x:Bind Section.Items, Mode=OneWay}"
                   Visibility="{x:Bind Section.HasItems, Mode=OneWay}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnAnimeClicked"
-                  ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                   ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ListView.ItemsPanel>
             <ListView.ItemContainerStyle><Style TargetType="ListViewItem">

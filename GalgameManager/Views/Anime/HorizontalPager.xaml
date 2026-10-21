@@ -1,0 +1,18 @@
+<UserControl x:Class="LemonVN.Views.Anime.HorizontalPager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Orientation="Horizontal" Spacing="4">
+        <Button x:Name="PreviousButton" x:Uid="Browse_PreviousItems" Width="32" Height="32" Padding="4"
+                IsEnabled="False" Click="OnPrevious" Background="Transparent" BorderThickness="0"
+                AutomationProperties.Name="{x:Bind PreviousLabel}" ToolTipService.ToolTip="{x:Bind PreviousLabel}"
+                AutomationProperties.AutomationId="ShelfPreviousPage">
+            <FontIcon Glyph="&#xE76B;" FontSize="14" />
+        </Button>
+        <Button x:Name="NextButton" x:Uid="Browse_NextItems" Width="32" Height="32" Padding="4"
+                IsEnabled="False" Click="OnNext" Background="Transparent" BorderThickness="0"
+                AutomationProperties.Name="{x:Bind NextLabel}" ToolTipService.ToolTip="{x:Bind NextLabel}"
+                AutomationProperties.AutomationId="ShelfNextPage">
+            <FontIcon Glyph="&#xE76C;" FontSize="14" />
+        </Button>
+    </StackPanel>
+</UserControl>
