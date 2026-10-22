@@ -4,9 +4,9 @@ LemonVN 是基于 [PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 修改
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn) · [发行页](https://github.com/38huangyukong38/Lemonvn/releases)
 
-当前最新版本：**[v0.2.0 Preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.2.0-preview)**。本次更新加入首页箭头翻页、支持按钮和 Enter 的组合筛选、按逐集记录自动更新观看状态、添加后返回 Bangumi 搜索，以及默认保留数据的卸载入口。
+当前最新版本：**[v0.2.0 Preview · r2 修订包](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.2.0-preview-r2)**。应用版本仍为0.2.0。r2禁用首页横向列表的鼠标/触摸滚动，仅保留箭头翻页，并将运行依赖整理至app目录，顶层保留启动、卸载和说明入口。此前的组合筛选、自动观看状态及Bangumi返回功能保留。
 
-历史版本：[v0.1.1-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.1-preview)、[v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview)，保留历史下载。所有版本及附件见[发行页](https://github.com/38huangyukong38/Lemonvn/releases)。
+历史版本：[v0.2.0-preview 初版](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.2.0-preview)、[v0.1.1-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.1-preview)、[v0.1.0-preview](https://github.com/38huangyukong38/Lemonvn/releases/tag/v0.1.0-preview)，保留历史下载。所有版本及附件见[发行页](https://github.com/38huangyukong38/Lemonvn/releases)。
 
 ## 功能
 
@@ -25,13 +25,17 @@ LemonVN 是基于 [PotatoVN](https://github.com/GoldenPotato137/PotatoVN) 修改
 1. 下载完整 ZIP 及同名 `.sha256`，使用 `Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'` 核对。
 2. 完整解压到新的可访问目录，保留所有子目录，运行 `LemonVN.exe`。不要只复制EXE或在压缩软件内直接启动。
 3. 首次运行阅读第三方组件完整原文及组件使用条款，明确同意才进入；不同意或关闭会正常退出，不打开收藏数据库。
-4. 如缺少兼容的 **Windows App Runtime x64**，从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)获取兼容安装程序。当前AppSDK为2.4.0（WinUI2.3.6），框架家族 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，最低2.4.0.0。随包 `Check-Runtime.ps1` 仅作只读检测，不会安装或修改系统。
+4. 如缺少兼容的 **Windows App Runtime x64**，从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)获取兼容安装程序。当前AppSDK为2.4.0（WinUI2.3.6），框架家族 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，最低2.4.0.0。随包 `app/Check-Runtime.ps1` 仅作只读检测，不会安装或修改系统。
 
 .NET 10.0.13运行时随ZIP提供，运行程序无需Visual Studio、开发SDK、Python或数据库服务器。程序以普通用户权限运行。
 
 **本版本尚未完成干净 Windows 系统测试。** 已在现有Windows11 10.0.26200 x64开发环境独立解压验证；项目声明的最低系统版本10.0.17763不代表各Windows10版本均已验收。未测试全部DPI或MSIX部署。
 
 **软件未经过正式代码签名，Windows可能显示安全提示。** 校验值只能检查文件一致性，不能代替签名或受信任来源；不要关闭防护或绕过系统安全提示。完整说明见[安装与运行](docs/INSTALLATION_GUIDE.md)、[中文Release Notes](docs/RELEASE_NOTES_0.1.md)。
+
+## 发行包目录
+
+顶层为 `LemonVN.exe`、`Uninstall.exe`、`README.md`、`LICENSE`、`NOTICE`、`FILE_MANIFEST.json`，以及 `app/`、`docs/` 两个文件夹。程序、DLL、图标、语言和许可原文保存在 `app/` 内；请勿单独移动其中的文件。顶层两个入口为无额外用户运行库依赖的原生启动器。
 
 ## 卸载
 

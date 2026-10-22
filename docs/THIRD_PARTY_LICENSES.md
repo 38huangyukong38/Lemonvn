@@ -131,3 +131,7 @@ Plan A .NET10 Preview: 121 ordinary NuGet packages; implicit runtime packs are l
 | microsoft.windows.sdk.net.ref | 10.0.22621.57 | https://aka.ms/WinSDKLicenseURL | 2 |
 
 [Exact runtime inventory](verification/PLAN-A24-release-inventory.json), [notice decisions](licenses/REVIEW.json), [current release gate](RELEASE_CHECKLIST.md).
+
+## r2 build-only launcher tooling
+
+Zig0.15.2 (https://ziglang.org/download/) is used only to compile the Apache-2.0 LemonVN launcher. Its compiler, headers, libraries and cache are not shipped. The helper uses -nostdlib with no CRT/builtins and its PE imports are limited to KERNEL32.dll/USER32.dll; icon, version and asInvoker manifest are retained. No new NuGet/runtime dependency is added. Existing component license texts move with the unchanged runtime payload into app/licenses/.

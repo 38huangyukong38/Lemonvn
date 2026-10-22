@@ -72,6 +72,13 @@
       "developmentReleasePreparationCommit": "a37a775c9992286665af44d8fed52aed14a305c9",
       "originalDevelopmentHistoryCopied": false,
       "scope": "Reviewed file-level five-part UX update, tests, exact version0.2.0 and distribution instructions; retain asset exclusions and unchanged component terms; no database or backup format change."
+    },
+    {
+      "phase": "v0.2.0-preview-r2",
+      "basePublicCommit": "47137d2f7c7f73bff695d17acaea952fda3a86fa",
+      "developmentImplementationCommit": "e3bc842e080b0e0fdbf33e8bbb5631473eea0614",
+      "originalDevelopmentHistoryCopied": false,
+      "scope": "Arrow-only page projection, owned native entry points, organized app/docs distribution and compatible uninstall validation; no database/backup/component-term/framework change."
     }
   ]
 }

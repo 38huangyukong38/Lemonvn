@@ -15,3 +15,5 @@ the ResX schema and use its validate/audit-snapshot commands.
 No existing release/signing/upload workflow is included. No push, publication,
 history rewriting, real credentials, signing key, account or license purchase
 without explicit maintainer authorization. Preserve upstream attribution.
+
+Organized ZIP revisions additionally build Launcher/ with scripts/Build-Launcher.ps1 and official Zig0.15.2. This is a build-only tool; do not check in binaries/caches. Keep the no-CRT/import/receipt checks, app resource identity, manifest-owned uninstall boundaries and consistent application/launcher resource versions.

@@ -11,7 +11,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 PRIVATE_SUFFIXES = {'.pfx', '.p12', '.pem', '.key', '.snk', '.cer', '.crt'}
-TEXT_SUFFIXES = {'.cs', '.xaml', '.json', '.xml', '.config', '.props', '.targets', '.md', '.txt', '.ps1', '.py', '.sh', '.yml', '.yaml', '.env', '.toml', '.ini'}
+TEXT_SUFFIXES = {'.c', '.h', '.rc', '.cs', '.xaml', '.json', '.xml', '.config', '.props', '.targets', '.md', '.txt', '.ps1', '.py', '.sh', '.yml', '.yaml', '.env', '.toml', '.ini'}
 RULES = {
     'github-token-shape': re.compile(rb'(?:gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{50,})'),
     'aws-access-id-shape': re.compile(rb'\b(?:AKIA|ASIA)[A-Z0-9]{16}\b'),

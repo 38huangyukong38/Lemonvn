@@ -95,7 +95,13 @@ def verify_zip(archive):
             payload = z.read(prefix + row['path'])
             if len(payload) != row['bytes'] or hashlib.sha256(payload).hexdigest().upper() != row['sha256']:
                 raise ValueError('Manifest hash/length mismatch: ' + row['path'])
-        if not REQUIRED <= {row['path'] for row in manifest['files']}:
+        required = REQUIRED
+        if 'layout' in manifest:
+            if manifest['layout'] != 'app-subdirectory-v1':
+                raise ValueError('Unsupported distribution layout')
+            required = {'app/' + name for name in REQUIRED - {'Uninstall.exe'}} | {
+                'LemonVN.exe', 'Uninstall.exe', 'README.md', 'LICENSE', 'NOTICE'}
+        if not required <= {row['path'] for row in manifest['files']}:
             raise ValueError('Missing required runtime/resource/notice')
         return {'files': len(entries), 'uncompressedBytes': sum(x.file_size for x in entries),
                 'compressedBytes': archive.stat().st_size, 'sha256': sha(archive),

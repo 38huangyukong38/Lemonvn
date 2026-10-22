@@ -19,7 +19,8 @@ public sealed class LemonVisualLayoutTest
             XDocument page = XDocument.Load(Path.Combine(folder!.FullName, "GalgameManager", name));
             Assert.That(page.Descendants(views + "HorizontalPager"), Has.Exactly(1).Items);
             XElement list = page.Descendants(ns + "ListView").Single();
-            Assert.That(list.Attribute("ScrollViewer.HorizontalScrollBarVisibility")?.Value, Is.EqualTo("Hidden"));
+            Assert.That(list.Attribute("ScrollViewer.HorizontalScrollBarVisibility")?.Value, Is.EqualTo("Disabled"));
+            Assert.That(list.Attribute("ScrollViewer.HorizontalScrollMode")?.Value, Is.EqualTo("Disabled"));
             Assert.That(list.Descendants(ns + "ItemsStackPanel"), Has.Exactly(1).Items);
         }
         XDocument library = XDocument.Load(Path.Combine(folder!.FullName, "GalgameManager/Views/Anime/AnimeLibraryPage.xaml"));

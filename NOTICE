@@ -1,4 +1,4 @@
-LemonVN 0.1.1
+LemonVN
 Project: https://github.com/38huangyukong38/Lemonvn
 
 Copyright (c) 2026 38huangyukong38 and LemonVN contributors.
@@ -52,3 +52,7 @@ NOTICE.txt are included under licenses/supplemental/Microsoft.Windows.CsWinRT/2.
 These component terms do not replace Apache-2.0 for LemonVN or applicable
 PotatoVN code, and a local functional-test acknowledgement is not publisher
 approval of any redistribution contract.
+
+In the organized r2 ZIP, runtime-relative files referenced above are under app/.
+The complete component texts are in app/licenses/ and app/THIRD_PARTY_NOTICES.md.
+The original component license contents and publisher/end-user conditions are unchanged.

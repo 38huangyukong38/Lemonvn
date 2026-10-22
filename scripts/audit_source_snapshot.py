@@ -14,7 +14,7 @@ import sys
 EXCLUDED = {'.git', 'bin', 'obj', '.vs', '.idea', '.tools', 'artifacts', 'testresults', '__pycache__'}
 PRIVATE = {'.pfx', '.p12', '.pem', '.key', '.snk', '.cer', '.crt'}
 DISALLOWED = {'.db', '.sqlite', '.sqlite3', '.log', '.zip', '.7z', '.rar', '.dll', '.exe', '.pdb', '.nupkg', '.ttf', '.otf'}
-TEXT = {'.cs', '.xaml', '.json', '.xml', '.config', '.props', '.targets', '.md', '.txt', '.rtf', '.ps1', '.py', '.sh', '.yml', '.yaml', '.env', '.toml', '.ini', '.sln', '.nuspec', '.manifest', '.appxmanifest', '.runsettings', ''}
+TEXT = {'.c', '.h', '.rc', '.cs', '.xaml', '.json', '.xml', '.config', '.props', '.targets', '.md', '.txt', '.rtf', '.ps1', '.py', '.sh', '.yml', '.yaml', '.env', '.toml', '.ini', '.sln', '.nuspec', '.manifest', '.appxmanifest', '.runsettings', ''}
 RULES = {
     'github-token': re.compile(rb'(?:gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{50,})'),
     'aws-access-id': re.compile(rb'\b(?:AKIA|ASIA)[A-Z0-9]{16}\b'),

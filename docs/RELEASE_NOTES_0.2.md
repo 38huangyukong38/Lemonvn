@@ -1,8 +1,15 @@
-# LemonVN v0.2.0 Preview
+# LemonVN v0.2.0 Preview · r2
 
 Windows x64 / GitHub Pre-release，WinUI 3、.NET 10 LTS、Windows App SDK 2.4.0。
 
-## 本次更新
+## r2 修订（应用版本仍为0.2.0）
+
+- 首页番剧横向分区及制作公司列表禁用用户直接滚动，使用左右箭头翻页；保留封面点击与首页纵向滚动。
+- ZIP顶层整理为两个原生入口、README/LICENSE/NOTICE/清单和app/docs文件夹，运行依赖完整保存在app中。请完整解压到新目录，不要混合旧DLL。新入口不增加用户运行库要求，不改变数据目录。
+- 卸载页识别整包根目录，同时兼容旧扁平布局；默认保留本地数据、二次确认、文件指纹和危险路径防护继续有效。
+- 软件版本、数据库、EpisodeRecord、Revision、ZIP V1/V2及已确认的组件条款不变；r2只是包修订号。原v0.2.0-preview标签和下载保留，新源码由v0.2.0-preview-r2标签固定。
+
+## v0.2.0 功能
 
 - 首页最近追番、状态分区和制作公司列表增加左右箭头，按可见卡片翻页；保留原生列表、封面尺寸及88 DIP导航栏。
 - 番剧库过滤面板可直接选择状态与标签，点击「应用筛选」或按 Enter 一次提交。修复键盘焦点及选择/刷新冲突，支持与搜索、排序组合；重新打开恢复已应用条件，清除时不会重新套用旧选择。
@@ -12,7 +19,7 @@ Windows x64 / GitHub Pre-release，WinUI 3、.NET 10 LTS、Windows App SDK 2.4.0
 
 ## 下载、升级与运行
 
-下载 `LemonVN-v0.2.0-preview-windows-x64.zip` 和同名 `.zip.sha256`。完整解压到新目录，正常关闭旧程序后运行 `LemonVN.exe`，不要混用新旧 DLL。升级前先在设置中导出收藏备份。
+下载 `LemonVN-v0.2.0-preview-r2-windows-x64.zip` 和同名 `.zip.sha256`。完整解压到新目录，正常关闭旧程序后运行 `LemonVN.exe`，不要混用新旧 DLL。升级前先在设置中导出收藏备份。
 
 当前仅支持 **Windows x64**；ZIP包含 .NET 10.0.13，可能需要安装兼容的 **Windows App Runtime x64**（家族 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，最低2.4.0.0）。从[微软官方页面](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads)取得兼容运行时；不需要Visual Studio或开发SDK。随包 `Check-Runtime.ps1` 仅作只读检测。
 

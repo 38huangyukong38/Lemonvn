@@ -42,6 +42,70 @@ public sealed class UninstallSafetyTest
     private UninstallPlan Plan(bool deleteData) => UninstallService.Prepare(_app, _data, deleteData) with
         { ParentProcessId = int.MaxValue, ParentStartedUtcTicks = 1 };
 
+    private void OrganizeApplication()
+    {
+        foreach ((string name, byte[] bytes) in _files.ToArray())
+        {
+            if (name is "LemonVN.exe" or "Uninstall.exe" or "LICENSE" or "NOTICE") continue;
+            string target = Path.Combine(_app, "app", name);
+            Directory.CreateDirectory(Path.GetDirectoryName(target)!);
+            File.Move(Path.Combine(_app, name), target);
+            _files.Remove(name); _files.Add("app/" + name, bytes);
+        }
+        byte[] host = Encoding.UTF8.GetBytes("Synthetic managed app host");
+        File.WriteAllBytes(Path.Combine(_app, "app/LemonVN.exe"), host); _files.Add("app/LemonVN.exe", host);
+        SaveManifest();
+        using JsonDocument old = JsonDocument.Parse(File.ReadAllBytes(Path.Combine(_app, "FILE_MANIFEST.json")));
+        var doc = old.RootElement.Deserialize<Dictionary<string, object>>()!;
+        doc["layout"] = UninstallService.OrganizedLayout;
+        File.WriteAllBytes(Path.Combine(_app, "FILE_MANIFEST.json"), JsonSerializer.SerializeToUtf8Bytes(doc));
+    }
+
+    [TestCase(false)]
+    [TestCase(true)]
+    public async Task OrganizedDistribution_RemovesOwnedRuntimeAndRootEntries_AndKeepsUnknownFiles(bool deleteData)
+    {
+        OrganizeApplication(); CreateData();
+        string unknown = Path.Combine(_app, "app/personal-note.txt"); File.WriteAllText(unknown, "Keep this unlisted file");
+        Assert.That(UninstallService.FindApplicationRoot(Path.Combine(_app, "app")), Is.EqualTo(_app));
+        UninstallPlan plan = Plan(deleteData);
+        Assert.That(plan.PayloadPrefix, Is.EqualTo("app/"));
+        Assert.That(await RunWorker(plan), Is.Zero);
+        Assert.That(File.Exists(Path.Combine(_app, "LemonVN.exe")), Is.False);
+        Assert.That(File.Exists(Path.Combine(_app, "Uninstall.exe")), Is.False);
+        Assert.That(File.Exists(Path.Combine(_app, "app/LemonVN.dll")), Is.False);
+        Assert.That(File.ReadAllText(unknown), Is.EqualTo("Keep this unlisted file"));
+        Assert.That(Directory.Exists(_data), Is.EqualTo(!deleteData));
+        if (!deleteData) Assert.That(File.ReadAllText(Path.Combine(_data, "lemonvn.db")), Does.StartWith("Synthetic"));
+    }
+
+    [TestCase("../")]
+    [TestCase("app/../")]
+    [TestCase("App/")]
+    public async Task UnapprovedPayloadPrefix_IsRejectedBeforeAnyRemoval(string prefix)
+    {
+        OrganizeApplication(); CreateData();
+        UninstallPlan plan = Plan(true) with { PayloadPrefix = prefix };
+        Assert.Throws<InvalidDataException>(() => UninstallService.LaunchConfirmed(plan));
+        Assert.That(await RunWorker(plan), Is.EqualTo(1));
+        Assert.That(File.Exists(Path.Combine(_app, "LemonVN.exe")), Is.True);
+        Assert.That(File.Exists(Path.Combine(_data, "lemonvn.db")), Is.True);
+    }
+
+    [Test]
+    public void OrganizedManifest_MissingRuntimeOrUnknownLayout_CannotAuthorizeRemoval()
+    {
+        OrganizeApplication(); CreateData();
+        string runtime = Path.Combine(_app, "app/LemonVN.dll"); File.Delete(runtime);
+        Assert.Throws<InvalidDataException>(() => Plan(true));
+        File.WriteAllBytes(runtime, _files["app/LemonVN.dll"]);
+        string manifest = Path.Combine(_app, "FILE_MANIFEST.json");
+        File.WriteAllText(manifest, File.ReadAllText(manifest).Replace(UninstallService.OrganizedLayout, "unknown-layout"));
+        Assert.That(UninstallService.FindApplicationRoot(Path.Combine(_app, "app")), Is.EqualTo(Path.Combine(_app, "app")));
+        Assert.Throws<InvalidDataException>(() => Plan(true));
+        Assert.That(File.Exists(Path.Combine(_data, "lemonvn.db")), Is.True);
+    }
+
     [Test]
     public void AliasLaunch_UsesOriginalResourceIdentity_WithoutShellOrElevation()
     {

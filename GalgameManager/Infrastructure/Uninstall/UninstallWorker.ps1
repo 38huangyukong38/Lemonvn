@@ -94,6 +94,8 @@ try {
     $lemonData=Safe-Root $lemonPlan.DataRoot
     if((Inside $lemonApp $lemonData) -or (Inside $lemonData $lemonApp)){throw 'Overlapping application/data roots'}
     if($lemonPlan.DeleteData -isnot [bool] -or @($lemonPlan.Files).Count -gt 4001){throw 'Invalid plan scope'}
+    $lemonPrefix=if($null -eq $lemonPlan.PayloadPrefix){''}else{[string]$lemonPlan.PayloadPrefix}
+    if($lemonPrefix -cne '' -and $lemonPrefix -cne 'app/'){throw 'Unsupported payload directory'}
     $lemonNames=@{}
     $lemonAppFiles=@(foreach($lemonRow in $lemonPlan.Files){
         $lemonFull=Owned-File $lemonApp $lemonRow.Path
@@ -101,7 +103,7 @@ try {
         $lemonNames[$lemonRow.Path]=$true
         [pscustomobject]@{Path=$lemonFull;Bytes=$lemonRow.Bytes;Sha256=$lemonRow.Sha256}
     })
-    foreach($lemonName in @('LemonVN.exe','LemonVN.dll','Uninstall.exe','UninstallWorker.ps1','LICENSE','NOTICE','FILE_MANIFEST.json')){
+    foreach($lemonName in @('LemonVN.exe','Uninstall.exe',($lemonPrefix+'LemonVN.exe'),($lemonPrefix+'LemonVN.dll'),($lemonPrefix+'UninstallWorker.ps1'),'LICENSE','NOTICE','FILE_MANIFEST.json')){
         if(-not $lemonNames.ContainsKey($lemonName)){throw 'Missing owned application file'}
     }
     # Ready before waiting: the WinUI parent exits only after this receipt.

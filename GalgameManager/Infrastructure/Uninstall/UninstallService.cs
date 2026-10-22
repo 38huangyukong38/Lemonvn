@@ -7,7 +7,10 @@ namespace LemonVN.Infrastructure.Uninstall;
 
 public sealed record UninstallFile(string Path, long Bytes, string Sha256);
 public sealed record UninstallPlan(int FormatVersion, string Application, string Nonce, string ApplicationRoot,
-    string DataRoot, bool DeleteData, IReadOnlyList<UninstallFile> Files, int ParentProcessId, long ParentStartedUtcTicks);
+    string DataRoot, bool DeleteData, IReadOnlyList<UninstallFile> Files, int ParentProcessId, long ParentStartedUtcTicks)
+{
+    public string PayloadPrefix { get; init; } = string.Empty;
+}
 
 // ZIP removal is deliberately separate from collection/backup/storage services.
 // Preparing a plan only reads the distribution manifest; it never opens LiteDB.
@@ -28,6 +31,25 @@ public static class UninstallService
         return start;
     }
 
+    public const string OrganizedLayout = "app-subdirectory-v1";
+
+    public static string FindApplicationRoot(string runtimeDirectory)
+    {
+        string runtime = Path.TrimEndingDirectorySeparator(Path.GetFullPath(runtimeDirectory));
+        if (!string.Equals(Path.GetFileName(runtime), "app", StringComparison.OrdinalIgnoreCase)) return runtime;
+        string parent = Path.GetDirectoryName(runtime)!;
+        string manifest = Path.Combine(parent, "FILE_MANIFEST.json");
+        RejectLinks(manifest);
+        if (!File.Exists(manifest) || new FileInfo(manifest).Length > 2 * 1024 * 1024) return runtime;
+        using JsonDocument document = JsonDocument.Parse(File.ReadAllBytes(manifest));
+        JsonElement root = document.RootElement;
+        return root.TryGetProperty("application", out var application) && application.GetString() == "LemonVN" &&
+            root.TryGetProperty("layout", out var layout) && layout.GetString() == OrganizedLayout ? parent : runtime;
+    }
+
+    private static string ValidatePayloadPrefix(string prefix) => prefix is "" or "app/" ? prefix :
+        throw new InvalidDataException("Unsupported application payload directory.");
+
     public static UninstallPlan Prepare(string applicationRoot, string dataRoot, bool deleteData)
     {
         string app = ValidateRoot(applicationRoot);
@@ -42,6 +64,12 @@ public static class UninstallService
         JsonElement root = document.RootElement;
         if (root.GetProperty("application").GetString() != "LemonVN")
             throw new InvalidDataException("This is not a LemonVN distribution manifest.");
+        string prefix = string.Empty;
+        if (root.TryGetProperty("layout", out var layout))
+        {
+            if (layout.GetString() != OrganizedLayout) throw new InvalidDataException("Unsupported distribution layout.");
+            prefix = "app/";
+        }
         var files = new List<UninstallFile>();
         var names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (JsonElement row in root.GetProperty("files").EnumerateArray())
@@ -59,12 +87,12 @@ public static class UninstallService
                 throw new InvalidDataException("An application file differs from the ZIP manifest; removal was not started.");
             files.Add(new(name, bytes, hash.ToUpperInvariant()));
         }
-        foreach (string name in new[] { "LemonVN.exe", "LemonVN.dll", "Uninstall.exe", "UninstallWorker.ps1", "LICENSE", "NOTICE" })
+        foreach (string name in new[] { "LemonVN.exe", "Uninstall.exe", prefix + "LemonVN.exe", prefix + "LemonVN.dll", prefix + "UninstallWorker.ps1", "LICENSE", "NOTICE" })
             if (!names.Contains(name) || !File.Exists(ResolveOwnedFile(app, name)))
                 throw new InvalidDataException("Required LemonVN distribution files are missing.");
         if (names.Contains("FILE_MANIFEST.json")) throw new InvalidDataException("The manifest cannot list itself.");
         files.Add(new("FILE_MANIFEST.json", new FileInfo(manifestPath).Length, Sha(manifestPath)));
-        // The alias is the same app host, with the same .NET/WinUI resources.
+        // Both root entries use the same reviewed host/launcher bytes.
         if (Sha(Path.Combine(app, "Uninstall.exe")) != Sha(Path.Combine(app, "LemonVN.exe")))
             throw new InvalidDataException("The uninstall entry point does not match this application.");
         RejectLinksInTree(app);
@@ -72,7 +100,7 @@ public static class UninstallService
         AssertApplicationClosed(app, deleteData);
         using var process = Process.GetCurrentProcess();
         return new(1, "LemonVN.Desktop", Guid.NewGuid().ToString("N"), app, data, deleteData,
-            files.AsReadOnly(), process.Id, process.StartTime.ToUniversalTime().Ticks);
+            files.AsReadOnly(), process.Id, process.StartTime.ToUniversalTime().Ticks) { PayloadPrefix = prefix };
     }
 
     public static string ValidateRoot(string path)
@@ -183,10 +211,11 @@ public static class UninstallService
     {
         string systemPowerShell = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "WindowsPowerShell", "v1.0", "powershell.exe");
         if (!File.Exists(systemPowerShell)) throw new FileNotFoundException("Windows PowerShell is unavailable; no files were removed.");
-        string sourceWorker = Path.Combine(plan.ApplicationRoot, "UninstallWorker.ps1");
+        string workerRelative = ValidatePayloadPrefix(plan.PayloadPrefix) + "UninstallWorker.ps1";
+        string sourceWorker = ResolveOwnedFile(plan.ApplicationRoot, workerRelative);
         RejectLinks(sourceWorker);
         byte[] workerBytes = File.ReadAllBytes(sourceWorker);
-        UninstallFile workerFingerprint = plan.Files.Single(file => file.Path == "UninstallWorker.ps1");
+        UninstallFile workerFingerprint = plan.Files.Single(file => file.Path == workerRelative);
         if (workerBytes.LongLength != workerFingerprint.Bytes || Convert.ToHexString(SHA256.HashData(workerBytes)) != workerFingerprint.Sha256)
             throw new InvalidDataException("The uninstall helper changed after confirmation; no removal was started.");
         string session = Path.Combine(Path.GetTempPath(), "LemonVN.Uninstall", plan.Nonce);

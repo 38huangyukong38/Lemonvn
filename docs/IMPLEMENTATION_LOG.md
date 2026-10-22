@@ -29,3 +29,13 @@ Reviewed features: native shelf/company arrow paging; staged status/tag filters 
 No persisted model, LiteDB schema, Revision or ZIP V1/V2 format change. No new NuGet dependency, altered component terms, copied development Git history, user data, private screenshots, credentials or legacy assets. Retain the public project's asset allow-list and per-file modification notices.
 
 Previously verified local implementation: full offline607/607 (all prior595 cases retained), final UI-focus-only targeted106/106, single-instance1/1, packaging29/29; isolated synthetic GUI and maintainer acceptance. The exact public version is rebuilt and checked before publication; actual publication results are recorded separately. Narrow-window/DPI-matrix and clean-system compatibility are not claimed.
+
+## v0.2.0 Preview r2 — 2026-10-22
+
+Maintainer requested strict arrow-only horizontal paging and a clean ZIP root, with application version0.2.0 unchanged and GitHub update after verification. Retain the initial0.2.0 tag/assets; the package revision uses v0.2.0-preview-r2 to pin its own build commit without moving an existing tag.
+
+Shelf/company ListViews disable native scrolling and display only the current page of original card/group references, with responsive page sizes and boundary arrows. Click commands, section counts and native lists remain. A native no-CRT/asInvoker x64 launcher starts app/LemonVN.exe; the same root Uninstall.exe adds the explicit uninstall mode and exits. Root has8 items. Complete WinUI resources and component license texts stay together in app/; docs are grouped separately.
+
+Uninstall validates the distribution's fixed app/ layout and deletes only manifest-owned files, while retaining legacy flat-layout compatibility, default keep-data, second confirmation, owner/hash/path/link/process safeguards and no elevation or execution-policy bypass. Data roots, LiteDB, Revision, EpisodeRecord, ZIP V1/V2, component terms and dependency versions are unchanged. NOTICE only gains the new location explanation.
+
+Prior isolated development validation: Release0 warnings/errors, targeted65/65, packaging37/37; real native relay tests for both modes with Unicode/spaces and foreign working directory; synthetic GUI verifies wheel does not change pages, arrows/boundaries, vertical scrolling, detail/back and uninstall-root confirmation/cancel. All12 raw records and the source/guard remain unchanged. Exact public source is rebuilt/tested before publication; results are recorded separately. No development history, private evidence, compiler binaries or unreviewed assets copied.

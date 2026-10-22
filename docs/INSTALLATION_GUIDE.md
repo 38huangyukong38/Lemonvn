@@ -1,8 +1,8 @@
-# LemonVN v0.2.0 Preview 安装与运行
+# LemonVN v0.2.0 Preview r2 安装与运行
 
 项目主页：[38huangyukong38/Lemonvn](https://github.com/38huangyukong38/Lemonvn)。
 发行页：[GitHub Releases](https://github.com/38huangyukong38/Lemonvn/releases)。
-当前版本为 v0.2.0-preview，v0.1.0-preview 和 v0.1.1-preview 保留。请按对应标签下载完整 ZIP 与校验文件。本次不改变数据库、ZIP V1/V2 或已确认的组件条款。
+当前下载为 v0.2.0-preview-r2 修订包（应用版本仍为0.2.0），原 v0.2.0-preview、v0.1.0-preview 和 v0.1.1-preview 保留。请按对应标签下载完整 ZIP 与校验文件。本次不改变数据库、ZIP V1/V2 或已确认的组件条款。
 
 **仅 Windows x64。已在现有 Windows 11 10.0.26200 x64 开发环境独立解压运行，尚未完成干净 Windows 系统测试。软件未正式代码签名，Windows 可能显示安全提示。**
 
@@ -10,19 +10,25 @@ LemonVN 免费开源，不提供番剧视频播放、视频下载或视频资源
 
 ## 解压与启动
 
-1. 从维护者公布的可信来源取得当前版本的 `LemonVN-v0.2.0-preview-windows-x64.zip` 和同名 `.zip.sha256`。
+1. 从维护者公布的可信来源取得当前版本的 `LemonVN-v0.2.0-preview-r2-windows-x64.zip` 和同名 `.zip.sha256`。
 2. 在 PowerShell 执行 `Get-FileHash -Algorithm SHA256 -LiteralPath '<ZIP路径>'`，与校验文件的 64 位十六进制值比较。校验值用于核对一致性，不能代替可信来源或代码签名。
-3. 完整解压到普通用户可访问的新目录，保留子目录。不要直接从压缩软件运行或单独复制 EXE。
+3. 完整解压到普通用户可访问的新目录，保留app和docs子目录。不要覆盖旧版目录，否则旧DLL会作为未知文件保留。不要直接从压缩软件运行或单独复制 EXE。
 4. 运行 `LemonVN.exe`。应用采用 `asInvoker`，不要求管理员权限；不需要 Visual Studio、开发 SDK 或数据库服务器。
 5. 首次启动阅读组件条款与原始许可后，明确选择同意才进入；拒绝或关闭会正常退出，不打开收藏数据库。不要关闭安全防护或绕过系统安全提示。
 
 ZIP 内含 .NET 10.0.13 运行时；Windows App Runtime 仍采用框架依赖方式，可能需要另行安装。
 
+## r2 文件布局
+
+顶层仅保留两个入口、README、LICENSE、NOTICE、FILE_MANIFEST.json和app/docs文件夹。`app/`保存实际WinUI程序、运行库、XAML、图片、语言资源及完整第三方许可证；`docs/`保存运行、更新及隐私说明。
+
+两个顶层EXE用固定绝对路径启动同目录的`app/LemonVN.exe`，不搜索PATH、不提升权限，不要求额外.NET或VC运行库。应用的.NET10仍随包放在app内，WinUI依赖相对位置不变。卸载入口只传入明确的卸载模式；数据继续位于原本机目录。
+
 ## Windows App Runtime
 
-当前使用 Windows App SDK 2.4.0 / WinUI 2.3.6。所需框架家族为 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，架构 x64，最低版本 **2.4.0.0**。准确参数同时保存在 ZIP 内 `runtime-requirements.json`。
+当前使用 Windows App SDK 2.4.0 / WinUI 2.3.6。所需框架家族为 `Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe`，架构 x64，最低版本 **2.4.0.0**。准确参数同时保存在 ZIP 内 `app/runtime-requirements.json`。
 
-可运行随包的 `Check-Runtime.ps1`，只查询注册信息，不安装、卸载或改策略。若系统不允许脚本，直接在 PowerShell 查询：
+可运行随包的 `app/Check-Runtime.ps1`，只查询注册信息，不安装、卸载或改策略。若系统不允许脚本，直接在 PowerShell 查询：
 
 ```powershell
 Get-AppxPackage -Name 'Microsoft.WindowsAppRuntime.*' |
@@ -71,3 +77,5 @@ Windows x64 与 .NET 10 SDK 环境下，使用仓库官方 NuGet 源恢复。`sc
 dotnet restore GalgameManager/GalgameManager.csproj --configfile NuGet.Config -p:Platform=x64 -p:Configuration=Release -p:WindowsPackageType=None -p:GenerateAppxPackageOnBuild=false -p:AppxPackageSigningEnabled=false -p:GenerateTemporaryStoreCertificate=false
 dotnet build GalgameManager/GalgameManager.csproj --no-restore -p:Platform=x64 -p:Configuration=Release -p:WindowsPackageType=None -p:GenerateAppxPackageOnBuild=false -p:AppxPackageSigningEnabled=false -p:GenerateTemporaryStoreCertificate=false -m:1 -nr:false
 ```
+
+制作r2整洁ZIP还需构建原生启动器：使用官方Zig0.15.2，运行 `scripts/Build-Launcher.ps1 -ZigPath <zig.exe路径>`；打包传入 `--version 0.2.0 --revision r2 --launcher Launcher/bin/x64/Release/LemonVN.exe`。Zig仅为构建工具，不随应用分发；见 `Launcher/README.md`。应用本身仍可按原.NET命令构建运行。

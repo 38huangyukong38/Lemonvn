@@ -10,11 +10,13 @@ namespace LemonVN.Views;
 public sealed partial class UninstallPage : Page
 {
     private readonly string _dataRoot;
+    private readonly string _applicationRoot;
     private bool _busy;
-    public string ApplicationLocation => Text("Uninstall_ApplicationPath", AppContext.BaseDirectory);
+    public string ApplicationLocation => Text("Uninstall_ApplicationPath", _applicationRoot);
     public string DataLocation => Text("Uninstall_DataPath", _dataRoot);
     public UninstallPage(IAppDataPathService paths)
     {
+        _applicationRoot = UninstallService.FindApplicationRoot(AppContext.BaseDirectory);
         _dataRoot = paths.RootPath; // Computing a path does not initialize settings, logs or LiteDB.
         InitializeComponent();
     }
@@ -26,7 +28,7 @@ public sealed partial class UninstallPage : Page
         try
         {
             bool deleteData = DeleteData.IsChecked == true;
-            UninstallPlan plan = await Task.Run(() => UninstallService.Prepare(AppContext.BaseDirectory, _dataRoot, deleteData));
+            UninstallPlan plan = await Task.Run(() => UninstallService.Prepare(_applicationRoot, _dataRoot, deleteData));
             var dialog = new ContentDialog
             {
                 XamlRoot = XamlRoot, Title = Text("Uninstall_ConfirmTitle"),
